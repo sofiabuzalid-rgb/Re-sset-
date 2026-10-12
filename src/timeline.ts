@@ -1,142 +1,126 @@
-// Every duration is a multiple of one beat (120 BPM @ 30 fps = 15 frames),
-// and every transition is exactly one beat long, so every cut lands on the music.
+// Music is 150 BPM @ 30 fps -> 1 beat = 12 frames, 1 bar = 48 frames.
+// Every scene starts on a beat, so every cut lands on the music.
+//   bars 0-1  (0-96)    HOOK: "¿QUÉ HAY DENTRO?" + rapid bag montage + build-up
+//   bar  2    (96)      DROP: the big reveal
+//   bars 2-13 (96-672)  chorus: product scenes
+//   bar  14   (672)     final hit on the end card
 export const FPS = 30;
-export const BEAT = 15;
-export const TRANSITION = BEAT;
+export const BEAT = 12;
+export const BAR = 4 * BEAT;
+export const DROP = 2 * BAR;
+export const FINAL_HIT = 14 * BAR;
+export const TOTAL_FRAMES = FINAL_HIT + 48;
 
-export type TransitionKind = 'ribbon' | 'whip' | 'slide' | 'clock' | 'wipe' | 'sparkleFade';
+/** A piece of source footage: [from, to] seconds squeezed/stretched into `frames` (speed ramps). */
+export type Segment = {from: number; to: number; frames: number};
+
+export type Enter = 'impact' | 'punch' | 'whip' | 'slideUp' | 'spin';
 
 export type Caption = {
-	script: string;
+	/** Small line on top (white). */
+	top: string;
+	/** Big sticker line (gold). Use \n for line breaks. */
 	main: string;
+	/** Frame (relative to scene start) the caption appears. */
+	at?: number;
+	/** Frame (relative to scene start) the caption disappears. */
+	until?: number;
+	/** Big centered reveal with a sunburst behind it. */
+	burst?: boolean;
 };
 
-export type ClipScene = {
-	kind: 'clip';
+export type Scene = {
 	id: string;
 	src: string;
-	/** Seconds into the (pre-trimmed) clip to start from. */
-	from: number;
-	playbackRate: number;
-	durationInFrames: number;
-	caption?: Caption;
-	/** Ken Burns direction: zoom in or out over the scene. */
-	zoom: 'in' | 'out';
-	/** Transition used to enter this scene. */
-	enter?: TransitionKind;
+	start: number;
+	segments: Segment[];
+	enter: Enter;
+	zoom?: 'in' | 'out' | 'rush';
+	captions?: Caption[];
 };
 
-export type SpecialScene = {
-	kind: 'intro' | 'endcard';
-	id: string;
-	src: string;
-	from: number;
-	playbackRate: number;
-	durationInFrames: number;
-	enter?: TransitionKind;
-};
-
-export type Scene = ClipScene | SpecialScene;
+const seg = (from: number, to: number, frames: number): Segment => ({from, to, frames});
 
 export const scenes: Scene[] = [
-	{kind: 'intro', id: 'hook', src: 'clips/red-bag.mp4', from: 0.3, playbackRate: 1, durationInFrames: 8 * BEAT},
+	// ---------- HOOK ----------
+	{id: 'hook-green', src: 'clips/green-bag.mp4', start: 0, segments: [seg(0.2, 3.2, 48)], enter: 'impact', zoom: 'in'},
+	{id: 'hook-white', src: 'clips/white-bag.mp4', start: 48, segments: [seg(1.0, 1.8, 12)], enter: 'punch'},
+	{id: 'hook-red', src: 'clips/red-bag.mp4', start: 60, segments: [seg(3.0, 3.8, 12)], enter: 'punch'},
+	{id: 'hook-striped', src: 'clips/striped-bag.mp4', start: 72, segments: [seg(3.0, 3.8, 12)], enter: 'punch'},
+	{id: 'hook-rush', src: 'clips/green-bag.mp4', start: 84, segments: [seg(2.4, 3.4, 12)], enter: 'punch', zoom: 'rush'},
+	// ---------- DROP: the reveal ----------
 	{
-		kind: 'clip',
-		id: 'green-bag',
-		src: 'clips/green-bag.mp4',
-		from: 0,
-		playbackRate: 1,
-		durationInFrames: 6 * BEAT,
-		zoom: 'in',
-		enter: 'ribbon',
-		caption: {script: 'Esta Navidad', main: 'La comodidad\nviene de regalo'},
-	},
-	{
-		kind: 'clip',
-		id: 'green-unwrap',
+		id: 'reveal-green',
 		src: 'clips/green-unwrap.mp4',
-		from: 0.5,
-		playbackRate: 1.9,
-		durationInFrames: 10 * BEAT,
+		start: DROP,
+		segments: [seg(6.4, 7.9, 12), seg(7.9, 10.1, 84)],
+		enter: 'impact',
 		zoom: 'out',
-		enter: 'whip',
-		caption: {script: 'desata el lazo', main: 'Desenvuelve\npura comodidad'},
+		captions: [
+			{top: '', main: '¡SORPRESA!', at: 0, until: 46, burst: true},
+			{top: '¡son', main: 'PIJAMAS\nNAVIDEÑAS! 🎄', at: 48},
+		],
 	},
 	{
-		kind: 'clip',
-		id: 'white-unwrap',
+		id: 'reveal-white',
 		src: 'clips/white-unwrap.mp4',
-		from: 0.5,
-		playbackRate: 2,
-		durationInFrames: 9 * BEAT,
-		zoom: 'in',
-		enter: 'slide',
-		caption: {script: 'estampados festivos', main: 'Para mañanas\nsin prisa'},
-	},
-	{
-		kind: 'clip',
-		id: 'striped-pants',
-		src: 'clips/striped-pants.mp4',
-		from: 0.5,
-		playbackRate: 1,
-		durationInFrames: 6 * BEAT,
-		zoom: 'out',
-		enter: 'clock',
-		caption: {script: 'dóblalo', main: 'Ropa de casa\nsuave y cómoda'},
-	},
-	{
-		kind: 'clip',
-		id: 'striped-bag',
-		src: 'clips/striped-bag.mp4',
-		from: 0.5,
-		playbackRate: 4 / 3,
-		durationInFrames: 6 * BEAT,
-		zoom: 'in',
+		start: DROP + 2 * BAR,
+		segments: [seg(0.8, 3.2, 18), seg(3.2, 5.0, 18), seg(5.0, 7.4, 60)],
 		enter: 'whip',
-		caption: {script: 'y guárdalo', main: 'Cada set en su\nbolsa de regalo'},
-	},
-	{
-		kind: 'clip',
-		id: 'tree-shirt',
-		src: 'clips/tree-shirt.mp4',
-		from: 0.3,
-		playbackRate: 1,
-		durationInFrames: 7 * BEAT,
 		zoom: 'in',
-		enter: 'wipe',
-		caption: {script: 'noches acogedoras', main: 'En casa,\njunto al árbol'},
+		captions: [{top: 'estampados', main: 'SÚPER\nFESTIVOS ✨', at: 30}],
 	},
 	{
-		kind: 'clip',
-		id: 'gift-lineup',
-		src: 'clips/gift-lineup.mp4',
-		from: 0.5,
-		playbackRate: 1,
-		durationInFrames: 10 * BEAT,
+		id: 'pants',
+		src: 'clips/striped-pants.mp4',
+		start: DROP + 4 * BAR,
+		segments: [seg(0.5, 4.0, 48)],
+		enter: 'slideUp',
 		zoom: 'out',
-		enter: 'ribbon',
-		caption: {script: 'el regalo', main: 'que sí van\na usar'},
+		captions: [{top: 'comodidad', main: 'NIVEL: SOFÁ 🛋️'}],
 	},
 	{
-		kind: 'endcard',
-		id: 'endcard',
-		src: 'clips/tree-shirt.mp4',
-		from: 0,
-		playbackRate: 0.5,
-		durationInFrames: 10 * BEAT,
-		enter: 'sparkleFade',
+		id: 'pack',
+		src: 'clips/striped-bag.mp4',
+		start: DROP + 5 * BAR,
+		segments: [seg(0.5, 4.5, 48)],
+		enter: 'punch',
+		zoom: 'in',
+		captions: [{top: '...y viene en su', main: 'BOLSITA 🎁'}],
 	},
+	{
+		id: 'ready',
+		src: 'clips/red-bag.mp4',
+		start: DROP + 6 * BAR,
+		segments: [seg(1.0, 4.6, 48)],
+		enter: 'spin',
+		zoom: 'in',
+		captions: [{top: '¡lista para', main: 'REGALAR! 🎀'}],
+	},
+	{
+		id: 'tree',
+		src: 'clips/tree-shirt.mp4',
+		start: DROP + 7 * BAR,
+		segments: [seg(0.3, 2.3, 48)],
+		enter: 'slideUp',
+		zoom: 'in',
+		captions: [{top: 'combina con', main: 'TU ÁRBOL 🎄'}],
+	},
+	{
+		id: 'lineup',
+		src: 'clips/gift-lineup.mp4',
+		start: DROP + 8 * BAR,
+		segments: [seg(1.0, 5.6, 96)],
+		enter: 'whip',
+		zoom: 'out',
+		captions: [
+			{top: 'el regalo que', main: 'SÍ VAN\nA USAR 😍', until: 46},
+			{top: '', main: '¿CUÁL\nELIGES? 👇', at: 48},
+		],
+	},
+	// ---------- END CARD (background footage; content lives in <EndCard/>) ----------
+	{id: 'end', src: 'clips/gift-lineup.mp4', start: DROP + 10 * BAR, segments: [seg(3.5, 6.1, 144)], enter: 'punch', zoom: 'in'},
 ];
 
-/** Absolute start frame of each scene, accounting for transition overlap. */
-export const sceneStarts: number[] = scenes.reduce<number[]>((acc, s, i) => {
-	if (i === 0) return [0];
-	const prev = scenes[i - 1];
-	return [...acc, acc[i - 1] + prev.durationInFrames - TRANSITION];
-}, []);
-
-export const TOTAL_FRAMES =
-	scenes.reduce((sum, s) => sum + s.durationInFrames, 0) - TRANSITION * (scenes.length - 1);
-
-/** Frames at which a transition begins — used to drop whooshes. */
-export const transitionStarts = sceneStarts.slice(1);
+export const sceneDuration = (i: number) => (scenes[i + 1]?.start ?? TOTAL_FRAMES) - scenes[i].start;
+export const END_START = scenes[scenes.length - 1].start;

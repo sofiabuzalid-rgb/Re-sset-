@@ -1,113 +1,171 @@
-import {clockWipe} from '@remotion/transitions/clock-wipe';
-import {slide} from '@remotion/transitions/slide';
-import {wipe} from '@remotion/transitions/wipe';
-import {linearTiming, springTiming, TransitionSeries} from '@remotion/transitions';
-import type {TransitionPresentation} from '@remotion/transitions';
 import React from 'react';
-import {AbsoluteFill, Audio, interpolate, Sequence, staticFile, useVideoConfig} from 'remotion';
-import {Bokeh} from './components/Bokeh';
-import {Caption} from './components/Caption';
+import {AbsoluteFill, Audio, Easing, interpolate, random, Sequence, staticFile, useCurrentFrame} from 'remotion';
+import {Confetti} from './components/Confetti';
 import {EndCard} from './components/EndCard';
 import {Footage} from './components/Footage';
-import {Intro} from './components/Intro';
+import {HookTitle} from './components/HookTitle';
 import {Grain, TopScrim, Vignette} from './components/Overlays';
 import {Snowfall} from './components/Snowfall';
+import {SparkleField} from './components/Sparkle';
+import {Starburst} from './components/Starburst';
+import {StickerText} from './components/StickerText';
 import {colors} from './theme';
-import {BEAT, sceneStarts, scenes, TRANSITION, transitionStarts} from './timeline';
-import type {Scene, TransitionKind} from './timeline';
-import {ribbon} from './transitions/ribbon';
-import {sparkleFade} from './transitions/sparkleFade';
-import {whip} from './transitions/whip';
+import type {Caption, Enter, Scene} from './timeline';
+import {BEAT, DROP, END_START, FINAL_HIT, sceneDuration, scenes, TOTAL_FRAMES} from './timeline';
 
-const presentationFor = (kind: TransitionKind, index: number): TransitionPresentation<any> => {
-	switch (kind) {
-		case 'ribbon':
-			return index % 2
-				? ribbon({color: colors.cranberry, stripe: colors.gold})
-				: ribbon({color: colors.pine, stripe: colors.cranberry});
+const ENTER_FRAMES = 7;
+
+/** Motion on the first frames after a hard cut — this is what sells the "edit". */
+const EnterAnim: React.FC<{type: Enter; children: React.ReactNode}> = ({type, children}) => {
+	const frame = useCurrentFrame();
+	const p = Easing.out(Easing.cubic)(Math.min(1, frame / ENTER_FRAMES));
+	const q = 1 - p;
+	let transform = '';
+	let blur = 0;
+	switch (type) {
+		case 'impact':
+			transform = `scale(${1 + q * 0.5})`;
+			blur = q * 8;
+			break;
+		case 'punch':
+			transform = `scale(${1 + q * 0.25})`;
+			blur = q * 6;
+			break;
 		case 'whip':
-			return whip();
-		case 'slide':
-			return slide({direction: 'from-right'});
-		case 'clock':
-			return clockWipe({width: 1080, height: 1920});
-		case 'wipe':
-			return wipe({direction: 'from-top-left'});
-		case 'sparkleFade':
-			return sparkleFade({glow: 'rgba(255,225,160,1)'});
+			transform = `translateX(${q * 100}%) skewX(${-q * 12}deg)`;
+			blur = q * 26;
+			break;
+		case 'slideUp':
+			transform = `translateY(${q * 100}%)`;
+			blur = q * 16;
+			break;
+		case 'spin':
+			transform = `rotate(${-q * 25}deg) scale(${1 + q * 0.5})`;
+			blur = q * 10;
+			break;
 	}
+	return <AbsoluteFill style={{transform, filter: blur > 0.3 ? `blur(${blur}px)` : undefined}}>{children}</AbsoluteFill>;
 };
 
-const timingFor = (kind: TransitionKind) =>
-	kind === 'whip' || kind === 'slide'
-		? springTiming({config: {damping: 200}, durationInFrames: TRANSITION})
-		: linearTiming({durationInFrames: TRANSITION});
+/** Camera feel on the whole picture: bump on every beat, shake on the drop and the final hit. */
+const CameraRig: React.FC<{children: React.ReactNode}> = ({children}) => {
+	const f = useCurrentFrame();
+	const since = f % BEAT;
+	const bumpAmt = f >= DROP ? 0.035 : 0.015;
+	const bump = 1 + bumpAmt * Math.exp(-since / 3);
+	const shakeFor = (at: number, len: number, amp: number) =>
+		f >= at && f < at + len ? amp * (1 - (f - at) / len) : 0;
+	const shake = shakeFor(DROP, 18, 26) + shakeFor(0, 10, 16) + shakeFor(FINAL_HIT, 14, 18);
+	const dx = (random(`cx-${f}`) - 0.5) * 2 * shake;
+	const dy = (random(`cy-${f}`) - 0.5) * 2 * shake;
+	return <AbsoluteFill style={{transform: `translate(${dx}px, ${dy}px) scale(${bump})`}}>{children}</AbsoluteFill>;
+};
 
-const SceneView: React.FC<{scene: Scene}> = ({scene}) => {
-	if (scene.kind !== 'clip') return scene.kind === 'intro' ? <Intro {...scene} /> : <EndCard {...scene} />;
+const CaptionView: React.FC<{caption: Caption}> = ({caption}) => {
+	if (caption.burst) {
+		return (
+			<AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', paddingBottom: 200}}>
+				<Starburst size={1600} />
+				<div style={{transform: 'rotate(-6deg)'}}>
+					<StickerText main={caption.main} size={168} stagger={0} color={colors.cream} />
+				</div>
+				<SparkleField count={12} seed="sorpresa" area={{x: 40, y: 500, w: 1000, h: 700}} maxSize={80} />
+			</AbsoluteFill>
+		);
+	}
+	return (
+		<>
+			<TopScrim />
+			<div style={{position: 'absolute', top: 230, left: 40, right: 40}}>
+				<StickerText top={caption.top} main={caption.main} size={140} delay={1} />
+			</div>
+		</>
+	);
+};
+
+const SceneView: React.FC<{scene: Scene; index: number}> = ({scene, index}) => {
+	const duration = sceneDuration(index);
 	return (
 		<AbsoluteFill>
-			<Footage src={scene.src} from={scene.from} playbackRate={scene.playbackRate} zoom={scene.zoom} />
-			<TopScrim />
-			{scene.caption ? <Caption caption={scene.caption} /> : null}
+			<EnterAnim type={scene.enter}>
+				<Footage src={scene.src} segments={scene.segments} zoom={scene.zoom} blur={scene.id === 'end' ? 18 : 0} />
+			</EnterAnim>
+			{scene.captions?.map((c, i) => {
+				const at = c.at ?? 0;
+				return (
+					<Sequence key={i} from={at} durationInFrames={(c.until ?? duration) - at} layout="none">
+						<CaptionView caption={c} />
+					</Sequence>
+				);
+			})}
 		</AbsoluteFill>
 	);
 };
 
+const Flash: React.FC<{at: number; len?: number; color?: string}> = ({at, len = 5, color = '#fff'}) => {
+	const f = useCurrentFrame();
+	const o = interpolate(f, [at, at + len], [0.95, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+	if (f < at || o <= 0) return null;
+	return <AbsoluteFill style={{backgroundColor: color, opacity: o, pointerEvents: 'none'}} />;
+};
+
+const Sfx: React.FC<{src: string; at: number; volume?: number; len?: number}> = ({src, at, volume = 1, len = 60}) => (
+	<Sequence from={Math.max(0, at)} durationInFrames={len} layout="none">
+		<Audio src={staticFile(`audio/${src}`)} volume={volume} />
+	</Sequence>
+);
+
 export const ChristmasReel: React.FC = () => {
-	const {durationInFrames} = useVideoConfig();
-	const endcardStart = sceneStarts[sceneStarts.length - 1];
+	const captionCues = scenes.flatMap((s) => (s.captions ?? []).map((c) => ({at: s.start + (c.at ?? 0), burst: !!c.burst})));
 
 	return (
 		<AbsoluteFill style={{backgroundColor: colors.cranberryDeep}}>
-			<TransitionSeries>
-				{scenes.flatMap((scene, i) => {
-					const items = [];
-					if (i > 0 && scene.enter) {
-						items.push(
-							<TransitionSeries.Transition
-								key={`t-${scene.id}`}
-								presentation={presentationFor(scene.enter, i)}
-								timing={timingFor(scene.enter)}
-							/>,
-						);
-					}
-					items.push(
-						<TransitionSeries.Sequence key={scene.id} durationInFrames={scene.durationInFrames} premountFor={30}>
-							<SceneView scene={scene} />
-						</TransitionSeries.Sequence>,
-					);
-					return items;
-				})}
-			</TransitionSeries>
+			<CameraRig>
+				{scenes.map((scene, i) => (
+					<Sequence key={scene.id} from={scene.start} durationInFrames={sceneDuration(i)} premountFor={20}>
+						<SceneView scene={scene} index={i} />
+					</Sequence>
+				))}
+			</CameraRig>
 
-			{/* Global festive layers */}
-			<Bokeh count={10} opacity={0.35} />
-			<Snowfall />
-			<Vignette />
-			<Grain />
+			<Snowfall intensity={0.7} />
 
-			{/* Soundtrack: synthesized Jingle Bells @ 120 BPM, cut grid = 1 beat = 15 frames */}
+			{/* HOOK */}
+			<Sequence from={0} durationInFrames={DROP}>
+				<HookTitle duration={DROP} />
+			</Sequence>
+
+			{/* DROP */}
+			<Sequence from={DROP} durationInFrames={95}>
+				<Confetti start={0} x={540} y={1300} count={170} seed="drop" power={1.15} />
+			</Sequence>
+
+			{/* END CARD */}
+			<Sequence from={END_START}>
+				<EndCard />
+			</Sequence>
+
+			<Flash at={DROP} len={6} />
+			<Flash at={FINAL_HIT} len={6} color={colors.goldBright} />
+			<Vignette strength={0.45} />
+			<Grain opacity={0.06} />
+
+			{/* SOUND: music (150 BPM, drop at bar 2) + SFX layered on the edit */}
 			<Audio
-				src={staticFile('audio/jingle.wav')}
-				volume={(f) =>
-					interpolate(f, [0, 4, durationInFrames - 24, durationInFrames - 1], [0, 0.9, 0.9, 0], {
-						extrapolateLeft: 'clamp',
-						extrapolateRight: 'clamp',
-					})
-				}
+				src={staticFile('audio/music.wav')}
+				volume={(f) => interpolate(f, [TOTAL_FRAMES - 10, TOTAL_FRAMES - 1], [1, 0], {extrapolateLeft: 'clamp'})}
 			/>
-			{transitionStarts.map((start, i) => (
-				<Sequence key={`whoosh-${i}`} from={Math.max(0, start - 4)} durationInFrames={24}>
-					<Audio src={staticFile('audio/whoosh.wav')} volume={0.55} />
-				</Sequence>
+			<Sfx src="impact.wav" at={DROP} volume={0.7} />
+			{scenes
+				.filter((s) => s.enter !== 'impact' && s.start > 0)
+				.map((s) => (
+					<Sfx key={`w-${s.id}`} src="whoosh.wav" at={s.start - 6} volume={0.45} len={15} />
+				))}
+			{captionCues.map((c, i) => (
+				<Sfx key={`p-${i}`} src={c.burst ? 'sparkle.wav' : 'pop.wav'} at={c.at + 1} volume={c.burst ? 0.5 : 0.6} len={c.burst ? 50 : 6} />
 			))}
-			<Sequence from={4} durationInFrames={66}>
-				<Audio src={staticFile('audio/sparkle.wav')} volume={0.6} />
-			</Sequence>
-			<Sequence from={endcardStart + BEAT + 6} durationInFrames={66}>
-				<Audio src={staticFile('audio/sparkle.wav')} volume={0.6} />
-			</Sequence>
+			<Sfx src="sparkle.wav" at={END_START + 8} volume={0.5} len={50} />
+			<Sfx src="pop.wav" at={END_START + 48} volume={0.7} len={6} />
 		</AbsoluteFill>
 	);
 };

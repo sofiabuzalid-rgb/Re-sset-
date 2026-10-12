@@ -4,12 +4,15 @@ import {staticFile} from 'remotion';
 // Fonts are bundled in public/fonts (SIL Open Font License) so renders work offline.
 loadFont({family: 'Great Vibes', url: staticFile('fonts/GreatVibes-Regular.woff2'), weight: '400'});
 loadFont({family: 'Playfair Display', url: staticFile('fonts/PlayfairDisplay-Variable.woff2'), weight: '400 900'});
+loadFont({family: 'Luckiest Guy', url: staticFile('fonts/LuckiestGuy-Regular.woff2'), weight: '400'});
 loadFont({family: 'Montserrat', url: staticFile('fonts/Montserrat-Variable.woff2'), weight: '100 900'});
 
 export const fonts = {
 	script: '"Great Vibes", cursive',
 	serif: '"Playfair Display", Georgia, serif',
 	sans: 'Montserrat, Helvetica, Arial, sans-serif',
+	// Emoji fall back to the system color-emoji font
+	fun: '"Luckiest Guy", "Apple Color Emoji", "Noto Color Emoji", "Segoe UI Emoji", sans-serif',
 };
 
 export const colors = {
@@ -20,4 +23,6 @@ export const colors = {
 	cream: '#FFF6EA',
 	gold: '#E8C27A',
 	goldBright: '#FFE3A3',
+	sunny: '#FFD84D',
+	outline: '#4A0512',
 };
