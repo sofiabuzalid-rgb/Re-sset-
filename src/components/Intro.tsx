@@ -51,7 +51,7 @@ export const Intro: React.FC<{src: string; from: number; playbackRate: number}> 
 							textShadow: '0 0 30px rgba(255,200,120,0.6)',
 						}}
 					>
-						Merry & Cozy
+						Navidad Acogedora
 					</div>
 					<Logo size={240} delay={4} />
 					<div
@@ -66,7 +66,7 @@ export const Intro: React.FC<{src: string; from: number; playbackRate: number}> 
 							opacity: sub,
 						}}
 					>
-						THE HOLIDAY EDIT
+						COLECCIÓN NAVIDEÑA
 					</div>
 					<SparkleField count={9} start={10} seed="intro" area={{x: -60, y: -60, w: 860, h: 520}} maxSize={64} />
 				</div>

@@ -43,7 +43,7 @@ export const EndCard: React.FC<{src: string; from: number; playbackRate: number}
 							marginBottom: -10,
 						}}
 					>
-						Merry Christmas from
+						Feliz Navidad de
 					</div>
 					<Logo size={250} delay={t0 + 6} />
 					<div
@@ -58,7 +58,7 @@ export const EndCard: React.FC<{src: string; from: number; playbackRate: number}
 							transform: `translateY(${(1 - line) * 20}px)`,
 						}}
 					>
-						PAJAMAS & LOUNGEWEAR
+						PIJAMAS Y ROPA DE CASA
 					</div>
 					<div
 						style={{
@@ -79,7 +79,7 @@ export const EndCard: React.FC<{src: string; from: number; playbackRate: number}
 							transform: `scale(${(0.6 + cta * 0.4) * pulse})`,
 						}}
 					>
-						SHOP THE HOLIDAY EDIT
+						COMPRA LA COLECCIÓN
 						<div
 							style={{
 								position: 'absolute',
@@ -103,7 +103,7 @@ export const EndCard: React.FC<{src: string; from: number; playbackRate: number}
 							opacity: cta * 0.9,
 						}}
 					>
-						link in bio
+						link en la bio
 					</div>
 					<SparkleField count={12} start={t0 + 8} seed="end" area={{x: -80, y: -80, w: 1000, h: 900}} maxSize={60} />
 				</div>

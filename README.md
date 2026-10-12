@@ -18,17 +18,17 @@ npm run audio      # (optional) regenerate the soundtrack, needs python3 + numpy
 
 Timing: 120 BPM, so 1 beat = 15 frames. Every scene length is a whole number of beats and every transition is exactly one beat, so **every cut lands on the music**.
 
-| #  | Time   | Footage                             | On-screen copy                                   | Transition in        |
+| #  | Time   | Footage                             | On-screen copy (Spanish)                                   | Transition in        |
 |----|--------|-------------------------------------|--------------------------------------------------|----------------------|
-| 1  | 0.0 s  | Red Fair Isle set in its gift bag    | *Merry & Cozy* · **RE:SET** · THE HOLIDAY EDIT   | Cream flash          |
-| 2  | 3.5 s  | Green gingerbread bag, tying the bow | *This Christmas* · **Comfort comes gift-wrapped** | Gift-ribbon sweep    |
-| 3  | 6.0 s  | Green set unwrapped & unfolded       | *untie the bow* · **Unwrap pure coziness**       | Whip zoom            |
-| 4  | 10.5 s | White holiday-print set reveal       | *festive prints* · **Made for slow holiday mornings** | Slide              |
-| 5  | 14.5 s | Striped teddy pants being folded     | *fold it* · **Soft, easy loungewear**            | Clock wipe           |
-| 6  | 17.0 s | Striped set packed into its bag      | *& pack it* · **Every set in its own gift bag**  | Whip zoom            |
-| 7  | 19.5 s | Green tree-print top                 | *cozy season* · **Nights in by the tree**        | Diagonal wipe        |
-| 8  | 22.5 s | Gift-bag lineup                      | *the gift* · **they'll actually wear**           | Gift-ribbon sweep    |
-| 9  | 27.0 s | End card                             | *Merry Christmas from* · **RE:SET** · SHOP THE HOLIDAY EDIT · link in bio | Golden bloom |
+| 1  | 0.0 s  | Red Fair Isle set in its gift bag    | *Navidad Acogedora* · **RE:SET** · COLECCIÓN NAVIDEÑA | Cream flash          |
+| 2  | 3.5 s  | Green gingerbread bag, tying the bow | *Esta Navidad* · **La comodidad viene de regalo** | Gift-ribbon sweep    |
+| 3  | 6.0 s  | Green set unwrapped & unfolded       | *desata el lazo* · **Desenvuelve pura comodidad**       | Whip zoom            |
+| 4  | 10.5 s | White holiday-print set reveal       | *estampados festivos* · **Para mañanas sin prisa** | Slide              |
+| 5  | 14.5 s | Striped teddy pants being folded     | *dóblalo* · **Ropa de casa suave y cómoda**            | Clock wipe           |
+| 6  | 17.0 s | Striped set packed into its bag      | *y guárdalo* · **Cada set en su bolsa de regalo**  | Whip zoom            |
+| 7  | 19.5 s | Green tree-print top                 | *noches acogedoras* · **En casa, junto al árbol**        | Diagonal wipe        |
+| 8  | 22.5 s | Gift-bag lineup                      | *el regalo* · **que sí van a usar**           | Gift-ribbon sweep    |
+| 9  | 27.0 s | End card                             | *Feliz Navidad de* · **RE:SET** · PIJAMAS Y ROPA DE CASA · COMPRA LA COLECCIÓN · link en la bio | Golden bloom |
 
 ## Effects
 

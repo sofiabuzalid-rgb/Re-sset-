@@ -49,7 +49,7 @@ export const scenes: Scene[] = [
 		durationInFrames: 6 * BEAT,
 		zoom: 'in',
 		enter: 'ribbon',
-		caption: {script: 'This Christmas', main: 'Comfort comes\ngift-wrapped'},
+		caption: {script: 'Esta Navidad', main: 'La comodidad\nviene de regalo'},
 	},
 	{
 		kind: 'clip',
@@ -60,7 +60,7 @@ export const scenes: Scene[] = [
 		durationInFrames: 10 * BEAT,
 		zoom: 'out',
 		enter: 'whip',
-		caption: {script: 'untie the bow', main: 'Unwrap pure\ncoziness'},
+		caption: {script: 'desata el lazo', main: 'Desenvuelve\npura comodidad'},
 	},
 	{
 		kind: 'clip',
@@ -71,7 +71,7 @@ export const scenes: Scene[] = [
 		durationInFrames: 9 * BEAT,
 		zoom: 'in',
 		enter: 'slide',
-		caption: {script: 'festive prints', main: 'Made for slow\nholiday mornings'},
+		caption: {script: 'estampados festivos', main: 'Para mañanas\nsin prisa'},
 	},
 	{
 		kind: 'clip',
@@ -82,7 +82,7 @@ export const scenes: Scene[] = [
 		durationInFrames: 6 * BEAT,
 		zoom: 'out',
 		enter: 'clock',
-		caption: {script: 'fold it', main: 'Soft, easy\nloungewear'},
+		caption: {script: 'dóblalo', main: 'Ropa de casa\nsuave y cómoda'},
 	},
 	{
 		kind: 'clip',
@@ -93,7 +93,7 @@ export const scenes: Scene[] = [
 		durationInFrames: 6 * BEAT,
 		zoom: 'in',
 		enter: 'whip',
-		caption: {script: '& pack it', main: 'Every set in its\nown gift bag'},
+		caption: {script: 'y guárdalo', main: 'Cada set en su\nbolsa de regalo'},
 	},
 	{
 		kind: 'clip',
@@ -104,7 +104,7 @@ export const scenes: Scene[] = [
 		durationInFrames: 7 * BEAT,
 		zoom: 'in',
 		enter: 'wipe',
-		caption: {script: 'cozy season', main: 'Nights in\nby the tree'},
+		caption: {script: 'noches acogedoras', main: 'En casa,\njunto al árbol'},
 	},
 	{
 		kind: 'clip',
@@ -115,7 +115,7 @@ export const scenes: Scene[] = [
 		durationInFrames: 10 * BEAT,
 		zoom: 'out',
 		enter: 'ribbon',
-		caption: {script: 'the gift', main: "they'll actually\nwear"},
+		caption: {script: 'el regalo', main: 'que sí van\na usar'},
 	},
 	{
 		kind: 'endcard',
