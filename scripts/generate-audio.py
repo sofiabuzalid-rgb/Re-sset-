@@ -304,7 +304,7 @@ def up(n, k=1):
     return n[:-1] + str(int(n[-1]) + k)
 
 
-def music():
+def music(FINAL_BAR=FINAL_BAR):
     dur = FINAL_BAR * BAR + 3.0
     keys = Bus(dur, 0.35)      # celesta, pizz
     strs = Bus(dur, 0.4)       # strings
@@ -448,6 +448,8 @@ if __name__ == "__main__":
     for f in os.listdir(OUT):
         os.remove(os.path.join(OUT, f))
     write_wav(os.path.join(OUT, "music.wav"), music(), peak=0.93)
+    # shorter cut for the "Magic of Christmas" reel: final chord on bar 17
+    write_wav(os.path.join(OUT, "music-magic.wav"), music(FINAL_BAR=17), peak=0.93)
     write_wav(os.path.join(OUT, "whoosh.wav"), whoosh(), peak=0.7)
     write_wav(os.path.join(OUT, "shimmer.wav"), shimmer(), peak=0.8)
     write_wav(os.path.join(OUT, "sparkle.wav"), sparkle(), peak=0.8)

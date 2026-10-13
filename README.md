@@ -2,6 +2,15 @@
 
 A premium Christmas promo for **RE:SET**, a pajama and loungewear brand. It's a 21-second vertical Reel (1080×1920, 30 fps) for Instagram Reels and TikTok, built with **React + [Remotion](https://www.remotion.dev/)**. All on-screen text is in Spanish.
 
+## Videos in this project
+
+| Composition | Length | What it is |
+|---|---|---|
+| `ChristmasReel` | 21 s | Premium ad: gift-wrapped hook, gold editorial titles, end card with CTA |
+| `MagicChristmas` | 17.7 s | **The Magic of Christmas.** The four pajama sets (red nordic, green gingerbread, striped teddy, white) revealed one after another in the original footage, with layered photoreal snow, golden particle trails following each gift bag, snow-vortex transitions between sets and a finale on the stacked collection. No text. `npm run build:magic` |
+
+`MagicChristmas` uses segments cut from the original iPhone clips by `scripts/cut-magic-segments.py` (trim, speed, reverse). Edit timing in `src/magic/timeline.ts` and effects in `src/magic/effects.tsx`.
+
 ## Quick start
 
 ```bash

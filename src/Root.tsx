@@ -1,6 +1,8 @@
 import React from 'react';
 import {Composition} from 'remotion';
 import {ChristmasReel} from './ChristmasReel';
+import {MagicReel} from './magic/MagicReel';
+import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
 
 export const RemotionRoot: React.FC = () => (
@@ -14,5 +16,7 @@ export const RemotionRoot: React.FC = () => (
 			width={1080}
 			height={1920}
 		/>
+		{/* "The Magic of Christmas": four sets, snow-vortex reveals, no on-screen text */}
+		<Composition id="MagicChristmas" component={MagicReel} durationInFrames={MAGIC_TOTAL} fps={FPS} width={1080} height={1920} />
 	</>
 );
