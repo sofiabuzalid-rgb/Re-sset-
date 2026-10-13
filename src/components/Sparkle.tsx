@@ -5,7 +5,7 @@ import {colors} from '../theme';
 /** A four-point twinkle star. */
 export const Star: React.FC<{size: number; color?: string; style?: React.CSSProperties}> = ({
 	size,
-	color = colors.goldBright,
+	color = colors.goldLight,
 	style,
 }) => (
 	<svg width={size} height={size} viewBox="-50 -50 100 100" style={{overflow: 'visible', ...style}}>

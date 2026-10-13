@@ -1,83 +1,65 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Easing, interpolate, random, Sequence, staticFile, useCurrentFrame} from 'remotion';
-import {Confetti} from './components/Confetti';
 import {EndCard} from './components/EndCard';
 import {Footage} from './components/Footage';
-import {HookTitle} from './components/HookTitle';
+import {GiftWrap} from './components/GiftWrap';
+import {Framed, Triptych} from './components/Layouts';
+import {GoldFlare, LightLeak} from './components/Light';
+import {LuxText} from './components/LuxText';
 import {Grain, TopScrim, Vignette} from './components/Overlays';
 import {Snowfall} from './components/Snowfall';
-import {SparkleField} from './components/Sparkle';
-import {Starburst} from './components/Starburst';
-import {StickerText} from './components/StickerText';
 import {colors} from './theme';
-import type {Caption, Enter, Scene} from './timeline';
-import {BEAT, DROP, END_START, FINAL_HIT, sceneDuration, scenes, TOTAL_FRAMES} from './timeline';
+import type {Enter, Scene, Text} from './timeline';
+import {BAR, DROP, END_START, FINAL_HIT, sceneDuration, scenes, TOTAL_FRAMES} from './timeline';
 
-const ENTER_FRAMES = 7;
+const ease = Easing.bezier(0.16, 1, 0.3, 1);
 
-/** Motion on the first frames after a hard cut — this is what sells the "edit". */
+/** Motion on the first frames after a cut. */
 const EnterAnim: React.FC<{type: Enter; children: React.ReactNode}> = ({type, children}) => {
-	const frame = useCurrentFrame();
-	const p = Easing.out(Easing.cubic)(Math.min(1, frame / ENTER_FRAMES));
-	const q = 1 - p;
+	const f = useCurrentFrame();
+	const len = type === 'flare' ? 16 : type === 'slideUp' ? 12 : 9;
+	const q = 1 - ease(Math.min(1, f / len));
 	let transform = '';
 	let blur = 0;
-	switch (type) {
-		case 'impact':
-			transform = `scale(${1 + q * 0.5})`;
-			blur = q * 8;
-			break;
-		case 'punch':
-			transform = `scale(${1 + q * 0.25})`;
-			blur = q * 6;
-			break;
-		case 'whip':
-			transform = `translateX(${q * 100}%) skewX(${-q * 12}deg)`;
-			blur = q * 26;
-			break;
-		case 'slideUp':
-			transform = `translateY(${q * 100}%)`;
-			blur = q * 16;
-			break;
-		case 'spin':
-			transform = `rotate(${-q * 25}deg) scale(${1 + q * 0.5})`;
-			blur = q * 10;
-			break;
+	if (type === 'zoom') {
+		transform = `scale(${1 + q * 0.18})`;
+		blur = q * 10;
+	} else if (type === 'slideUp') {
+		transform = `translateY(${q * 100}%)`;
+		blur = q * 14;
+	} else if (type === 'flare') {
+		transform = `scale(${1 + q * 0.1})`;
+		blur = q * 6;
 	}
 	return <AbsoluteFill style={{transform, filter: blur > 0.3 ? `blur(${blur}px)` : undefined}}>{children}</AbsoluteFill>;
 };
 
-/** Camera feel on the whole picture: bump on every beat, shake on the drop and the final hit. */
+/** Subtle camera life: a soft push on each downbeat after the drop, a short shake on the big hits. */
 const CameraRig: React.FC<{children: React.ReactNode}> = ({children}) => {
 	const f = useCurrentFrame();
-	const since = f % BEAT;
-	const bumpAmt = f >= DROP ? 0.035 : 0.015;
-	const bump = 1 + bumpAmt * Math.exp(-since / 3);
-	const shakeFor = (at: number, len: number, amp: number) =>
-		f >= at && f < at + len ? amp * (1 - (f - at) / len) : 0;
-	const shake = shakeFor(DROP, 18, 26) + shakeFor(0, 10, 16) + shakeFor(FINAL_HIT, 14, 18);
+	const since = f >= DROP ? (f - DROP) % BAR : 99;
+	const bump = 1 + 0.014 * Math.exp(-since / 5);
+	const shakeFor = (at: number, len: number, amp: number) => (f >= at && f < at + len ? amp * (1 - (f - at) / len) : 0);
+	const shake = shakeFor(DROP, 14, 12) + shakeFor(FINAL_HIT, 10, 6);
 	const dx = (random(`cx-${f}`) - 0.5) * 2 * shake;
 	const dy = (random(`cy-${f}`) - 0.5) * 2 * shake;
 	return <AbsoluteFill style={{transform: `translate(${dx}px, ${dy}px) scale(${bump})`}}>{children}</AbsoluteFill>;
 };
 
-const CaptionView: React.FC<{caption: Caption}> = ({caption}) => {
-	if (caption.burst) {
+const TextBlock: React.FC<{text: Text}> = ({text}) => {
+	if (text.position === 'center') {
 		return (
-			<AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', paddingBottom: 200}}>
-				<Starburst size={1600} />
-				<div style={{transform: 'rotate(-6deg)'}}>
-					<StickerText main={caption.main} size={168} stagger={0} color={colors.cream} />
-				</div>
-				<SparkleField count={12} seed="sorpresa" area={{x: 40, y: 500, w: 1000, h: 700}} maxSize={80} />
+			<AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', paddingBottom: 120}}>
+				<AbsoluteFill style={{background: 'radial-gradient(ellipse 70% 30% at 50% 46%, rgba(30,0,8,0.65), rgba(30,0,8,0) 100%)'}} />
+				<LuxText kicker={text.kicker} title={text.title} size={140} exitAt={6} />
 			</AbsoluteFill>
 		);
 	}
 	return (
 		<>
 			<TopScrim />
-			<div style={{position: 'absolute', top: 230, left: 40, right: 40}}>
-				<StickerText top={caption.top} main={caption.main} size={140} delay={1} />
+			<div style={{position: 'absolute', top: 250, left: 40, right: 40}}>
+				<LuxText kicker={text.kicker} title={text.title} size={132} exitAt={6} />
 			</div>
 		</>
 	);
@@ -85,28 +67,23 @@ const CaptionView: React.FC<{caption: Caption}> = ({caption}) => {
 
 const SceneView: React.FC<{scene: Scene; index: number}> = ({scene, index}) => {
 	const duration = sceneDuration(index);
+	let picture: React.ReactNode;
+	if (scene.layout === 'triptych') picture = <Triptych footage={scene.footage} />;
+	else if (scene.layout === 'framed') picture = <Framed footage={scene.footage[0]} />;
+	else picture = <Footage src={scene.footage[0].src} segments={scene.footage[0].segments} zoom={scene.zoom} blur={scene.blur} />;
 	return (
 		<AbsoluteFill>
-			<EnterAnim type={scene.enter}>
-				<Footage src={scene.src} segments={scene.segments} zoom={scene.zoom} blur={scene.id === 'end' ? 18 : 0} />
-			</EnterAnim>
-			{scene.captions?.map((c, i) => {
-				const at = c.at ?? 0;
+			<EnterAnim type={scene.enter}>{picture}</EnterAnim>
+			{scene.text?.map((t, i) => {
+				const at = t.at ?? 0;
 				return (
-					<Sequence key={i} from={at} durationInFrames={(c.until ?? duration) - at} layout="none">
-						<CaptionView caption={c} />
+					<Sequence key={i} from={at} durationInFrames={(t.until ?? duration) - at} layout="none">
+						<TextBlock text={t} />
 					</Sequence>
 				);
 			})}
 		</AbsoluteFill>
 	);
-};
-
-const Flash: React.FC<{at: number; len?: number; color?: string}> = ({at, len = 5, color = '#fff'}) => {
-	const f = useCurrentFrame();
-	const o = interpolate(f, [at, at + len], [0.95, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-	if (f < at || o <= 0) return null;
-	return <AbsoluteFill style={{backgroundColor: color, opacity: o, pointerEvents: 'none'}} />;
 };
 
 const Sfx: React.FC<{src: string; at: number; volume?: number; len?: number}> = ({src, at, volume = 1, len = 60}) => (
@@ -116,10 +93,8 @@ const Sfx: React.FC<{src: string; at: number; volume?: number; len?: number}> = 
 );
 
 export const ChristmasReel: React.FC = () => {
-	const captionCues = scenes.flatMap((s) => (s.captions ?? []).map((c) => ({at: s.start + (c.at ?? 0), burst: !!c.burst})));
-
 	return (
-		<AbsoluteFill style={{backgroundColor: colors.cranberryDeep}}>
+		<AbsoluteFill style={{backgroundColor: colors.wine}}>
 			<CameraRig>
 				{scenes.map((scene, i) => (
 					<Sequence key={scene.id} from={scene.start} durationInFrames={sceneDuration(i)} premountFor={20}>
@@ -128,44 +103,48 @@ export const ChristmasReel: React.FC = () => {
 				))}
 			</CameraRig>
 
-			<Snowfall intensity={0.7} />
-
-			{/* HOOK */}
-			<Sequence from={0} durationInFrames={DROP}>
-				<HookTitle duration={DROP} />
+			{/* HOOK title over the montage, after the gift opens */}
+			<Sequence from={48} durationInFrames={DROP - 48}>
+				<AbsoluteFill style={{background: 'radial-gradient(ellipse 80% 32% at 50% 36%, rgba(30,0,8,0.7), rgba(30,0,8,0) 100%)'}} />
+				<div style={{position: 'absolute', top: 470, left: 30, right: 30}}>
+					<LuxText kicker="Esta Navidad" title={'¿Qué hay\ndentro?'} size={176} exitAt={5} />
+				</div>
 			</Sequence>
 
-			{/* DROP */}
-			<Sequence from={DROP} durationInFrames={95}>
-				<Confetti start={0} x={540} y={1300} count={170} seed="drop" power={1.15} />
-			</Sequence>
+			<Snowfall intensity={0.6} />
 
-			{/* END CARD */}
 			<Sequence from={END_START}>
 				<EndCard />
 			</Sequence>
 
-			<Flash at={DROP} len={6} />
-			<Flash at={FINAL_HIT} len={6} color={colors.goldBright} />
-			<Vignette strength={0.45} />
-			<Grain opacity={0.06} />
+			{/* the wrapped-screen opener sits on top of everything */}
+			<Sequence from={0} durationInFrames={54}>
+				<GiftWrap />
+			</Sequence>
 
-			{/* SOUND: music (150 BPM, drop at bar 2) + SFX layered on the edit */}
+			<GoldFlare at={DROP} pre={6} post={24} />
+			<GoldFlare at={END_START} pre={6} post={18} strength={0.6} />
+			<GoldFlare at={FINAL_HIT} pre={3} post={20} strength={0.7} y="40%" />
+			<LightLeak at={scenes.find((s) => s.id === 'triptych')!.start} />
+			<LightLeak at={scenes.find((s) => s.id === 'lineup')!.start} />
+			<Vignette strength={0.5} />
+			<Grain opacity={0.05} />
+
+			{/* SOUND */}
 			<Audio
 				src={staticFile('audio/music.wav')}
-				volume={(f) => interpolate(f, [TOTAL_FRAMES - 10, TOTAL_FRAMES - 1], [1, 0], {extrapolateLeft: 'clamp'})}
+				volume={(fr) => interpolate(fr, [TOTAL_FRAMES - 12, TOTAL_FRAMES - 1], [1, 0], {extrapolateLeft: 'clamp'})}
 			/>
-			<Sfx src="impact.wav" at={DROP} volume={0.7} />
+			<Sfx src="whoosh.wav" at={25} volume={0.5} len={15} />
+			<Sfx src="rip.wav" at={34} volume={0.55} len={17} />
+			<Sfx src="shimmer.wav" at={36} volume={0.35} len={60} />
 			{scenes
-				.filter((s) => s.enter !== 'impact' && s.start > 0)
+				.filter((s) => s.start > 0 && s.enter !== 'none')
 				.map((s) => (
-					<Sfx key={`w-${s.id}`} src="whoosh.wav" at={s.start - 6} volume={0.45} len={15} />
+					<Sfx key={s.id} src="whoosh.wav" at={s.start - 6} volume={0.32} len={15} />
 				))}
-			{captionCues.map((c, i) => (
-				<Sfx key={`p-${i}`} src={c.burst ? 'sparkle.wav' : 'pop.wav'} at={c.at + 1} volume={c.burst ? 0.5 : 0.6} len={c.burst ? 50 : 6} />
-			))}
-			<Sfx src="sparkle.wav" at={END_START + 8} volume={0.5} len={50} />
-			<Sfx src="pop.wav" at={END_START + 48} volume={0.7} len={6} />
+			<Sfx src="shimmer.wav" at={DROP - 2} volume={0.4} len={70} />
+			<Sfx src="sparkle.wav" at={END_START + 8} volume={0.45} len={60} />
 		</AbsoluteFill>
 	);
 };

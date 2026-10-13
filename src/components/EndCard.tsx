@@ -1,90 +1,100 @@
 import React from 'react';
-import {AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {colors, fonts} from '../theme';
-import {BAR, BEAT} from '../timeline';
+import {AbsoluteFill, Easing, interpolate, useCurrentFrame} from 'remotion';
+import {colors, fonts, goldFoil} from '../theme';
+import {BAR, FINAL_HIT, END_START} from '../timeline';
 import {Bokeh} from './Bokeh';
 import {Confetti} from './Confetti';
 import {Garland} from './Garland';
 import {Logo} from './Logo';
+import {LuxText} from './LuxText';
 import {SparkleField} from './Sparkle';
-import {StickerText} from './StickerText';
 
-/** Closing card (drawn over blurred footage): logo, bouncing CTA, confetti on the final hit. */
+const ease = Easing.bezier(0.16, 1, 0.3, 1);
+const GOLDS = ['#F8E7B0', '#D9B25F', '#FFF4D0', '#B88A35', '#FFFFFF'];
+
+/** Closing card over blurred footage: gold wordmark, tagline, call to action, gold burst on the final hit. */
 export const EndCard: React.FC = () => {
 	const frame = useCurrentFrame();
-	const {fps} = useVideoConfig();
-	const cta = spring({frame: frame - BAR, fps, config: {damping: 8, stiffness: 140}});
-	const bounce = 1 + 0.06 * Math.exp(-((frame % BEAT) / 4)); // pumps on every beat
-	const shimmer = interpolate(frame % 36, [0, 36], [-120, 220]);
-	const bg = interpolate(frame, [0, 8], [0, 1], {extrapolateRight: 'clamp'});
+	const bg = ease(Math.min(1, frame / 12));
+	const sub = ease(Math.min(1, Math.max(0, (frame - 30) / 16)));
+	const ctaP = ease(Math.min(1, Math.max(0, (frame - 2 * BAR) / 16)));
+	const final = FINAL_HIT - END_START;
+	const pulse = frame >= final ? 1 + 0.05 * Math.exp(-(frame - final) / 6) : 1;
+	const shine = interpolate((frame - 2 * BAR) % 45, [0, 45], [-40, 160]);
 
 	return (
 		<AbsoluteFill>
 			<AbsoluteFill
 				style={{
 					opacity: bg,
-					background: 'linear-gradient(170deg, rgba(150,10,35,0.9) 0%, rgba(110,10,28,0.78) 50%, rgba(8,50,32,0.92) 100%)',
+					background: `linear-gradient(180deg, rgba(58,4,14,0.86) 0%, rgba(94,7,22,0.72) 45%, rgba(6,36,26,0.9) 100%)`,
 				}}
 			/>
-			<Bokeh count={18} opacity={0.7} seed="end" />
-			<Garland y={150} sag={70} delay={2} />
-			<AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', paddingBottom: 140}}>
-				<div style={{position: 'relative', textAlign: 'center'}}>
-					<StickerText top="¡feliz navidad con" main="" size={120} delay={2} />
-					<div style={{marginTop: -10}}>
-						<Logo size={250} delay={8} />
-					</div>
+			<Bokeh count={18} opacity={0.6} seed="end" />
+			<Garland y={140} sag={60} delay={4} />
+			<AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', paddingBottom: 160}}>
+				<div style={{textAlign: 'center', transform: `scale(${pulse})`}}>
+					<LuxText kicker="Feliz Navidad" title="" size={10} delay={2} />
+					<Logo size={240} delay={6} />
 					<div
 						style={{
-							marginTop: 10,
-							fontFamily: fonts.sans,
-							fontWeight: 700,
-							fontSize: 40,
-							letterSpacing: 10,
+							fontFamily: fonts.caps,
+							fontWeight: 600,
+							fontSize: 34,
+							letterSpacing: '0.3em',
+							marginRight: '-0.3em',
 							color: colors.cream,
-							opacity: interpolate(frame, [20, 30], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}),
+							opacity: sub,
+							transform: `translateY(${(1 - sub) * 16}px)`,
 						}}
 					>
-						PIJAMAS Y ROPA DE CASA
+						PIJAMAS & ROPA DE CASA
 					</div>
 					<div
 						style={{
+							marginTop: 90,
+							display: 'inline-block',
 							position: 'relative',
 							overflow: 'hidden',
-							display: 'inline-block',
-							marginTop: 80,
-							padding: '30px 70px 22px',
+							padding: '30px 76px',
 							borderRadius: 999,
-							background: `linear-gradient(180deg, ${colors.sunny}, ${colors.gold})`,
-							border: `6px solid ${colors.outline}`,
-							boxShadow: `0 12px 0 ${colors.outline}, 0 20px 50px rgba(0,0,0,0.4)`,
-							fontFamily: fonts.fun,
-							fontSize: 78,
-							color: colors.cranberry,
-							opacity: frame < BAR ? 0 : 1,
-							transform: `scale(${cta * bounce}) rotate(-3deg)`,
+							background: goldFoil(100),
+							boxShadow: '0 16px 40px rgba(0,0,0,0.45), inset 0 2px 0 rgba(255,255,255,0.5)',
+							fontFamily: fonts.sans,
+							fontWeight: 700,
+							fontSize: 38,
+							letterSpacing: '0.24em',
+							color: colors.wine,
+							whiteSpace: 'nowrap',
+							opacity: ctaP,
+							transform: `translateY(${(1 - ctaP) * 40}px)`,
 						}}
 					>
-						¡PIDE LA TUYA! 🎁
+						<span style={{marginRight: '-0.24em'}}>COMPRA AHORA</span>
 						<div
 							style={{
 								position: 'absolute',
-								top: 0,
-								bottom: 0,
-								left: `${shimmer}%`,
-								width: '30%',
-								background: 'linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%)',
-								transform: 'skewX(-20deg)',
+								inset: 0,
+								background: `linear-gradient(100deg, transparent ${shine - 15}%, rgba(255,255,255,0.75) ${shine}%, transparent ${shine + 15}%)`,
 							}}
 						/>
 					</div>
-					<div style={{marginTop: 40}}>
-						<StickerText main="link en la bio 👆" size={56} color={colors.cream} delay={BAR + 10} stagger={2} />
+					<div
+						style={{
+							marginTop: 28,
+							fontFamily: fonts.serif,
+							fontStyle: 'italic',
+							fontSize: 40,
+							color: colors.goldLight,
+							opacity: ctaP,
+						}}
+					>
+						link en la bio
 					</div>
-					<SparkleField count={12} start={6} seed="end" area={{x: -80, y: -60, w: 1000, h: 900}} maxSize={60} />
 				</div>
+				<SparkleField count={12} start={8} seed="end" area={{x: 80, y: 500, w: 920, h: 800}} maxSize={56} />
 			</AbsoluteFill>
-			<Confetti start={2 * BAR} x={540} y={1250} count={160} seed="final" power={1.1} />
+			<Confetti start={final} x={540} y={1150} count={130} seed="gold" power={1} palette={GOLDS} emoji={false} />
 		</AbsoluteFill>
 	);
 };

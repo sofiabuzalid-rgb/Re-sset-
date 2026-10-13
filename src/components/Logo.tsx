@@ -1,43 +1,37 @@
 import React from 'react';
-import {spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {colors, fonts} from '../theme';
+import {Easing, interpolate, useCurrentFrame} from 'remotion';
+import {colors, fonts, goldFoil} from '../theme';
 
-const LETTERS = ['R', 'E', ':', 'S', 'E', 'T'];
+const ease = Easing.bezier(0.16, 1, 0.3, 1);
 
-/** RE:SET wordmark — letters drop in like ornaments, the colon glows gold. */
-export const Logo: React.FC<{size?: number; delay?: number; stagger?: number}> = ({
-	size = 230,
-	delay = 0,
-	stagger = 3,
-}) => {
-	const frame = useCurrentFrame();
-	const {fps} = useVideoConfig();
+/** RE:SET wordmark in gold foil: letters rise from a mask with a soft blur, then a shine passes. */
+export const Logo: React.FC<{size?: number; delay?: number}> = ({size = 230, delay = 0}) => {
+	const frame = useCurrentFrame() - delay;
+	const letters = ['R', 'E', ':', 'S', 'E', 'T'];
+	const shine = interpolate(frame, [18, 50], [-40, 160], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
 	return (
-		<div style={{display: 'flex', justifyContent: 'center', alignItems: 'baseline'}}>
-			{LETTERS.map((ch, i) => {
-				const s = spring({
-					frame: frame - delay - i * stagger,
-					fps,
-					config: {damping: 9, stiffness: 140, mass: 0.7},
-				});
-				const isColon = ch === ':';
+		<div style={{display: 'flex', justifyContent: 'center', overflow: 'hidden', padding: `0 0 ${size * 0.1}px`}}>
+			{letters.map((ch, i) => {
+				const p = ease(Math.min(1, Math.max(0, (frame - i * 2) / 18)));
+				const colon = ch === ':';
 				return (
 					<span
 						key={i}
 						style={{
 							display: 'inline-block',
 							fontFamily: fonts.serif,
-							fontWeight: 900,
+							fontWeight: 800,
 							fontSize: size,
 							lineHeight: 1,
-							letterSpacing: size * 0.02,
-							color: isColon ? colors.gold : colors.cream,
-							opacity: Math.min(1, s * 1.5),
-							transform: `translateY(${(1 - s) * -size * 0.8}px) rotate(${(1 - s) * (i % 2 ? 12 : -12)}deg)`,
-							textShadow: isColon
-								? `0 0 ${size * 0.15}px rgba(255,210,130,0.9)`
-								: '0 8px 30px rgba(40,0,10,0.6), 0 2px 6px rgba(0,0,0,0.4)',
-							margin: isColon ? `0 ${size * 0.04}px` : 0,
+							margin: colon ? `0 ${size * 0.03}px` : 0,
+							transform: `translateY(${(1 - p) * 100}%)`,
+							filter: `blur(${(1 - p) * 8}px) drop-shadow(0 6px 3px rgba(40,0,8,0.5))`,
+							backgroundImage: colon
+								? `linear-gradient(${colors.cream}, ${colors.cream})`
+								: `${`linear-gradient(100deg, transparent ${shine - 15 - i * 8}%, rgba(255,255,255,0.9) ${shine - i * 8}%, transparent ${shine + 15 - i * 8}%)`}, ${goldFoil(100)}`,
+							WebkitBackgroundClip: 'text',
+							backgroundClip: 'text',
+							color: 'transparent',
 						}}
 					>
 						{ch}

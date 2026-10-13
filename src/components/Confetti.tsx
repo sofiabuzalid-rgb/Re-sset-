@@ -5,13 +5,24 @@ const COLORS = ['#E3243B', '#FFD84D', '#1E8F5A', '#FFFFFF', '#FF8FA3', '#7FD3FF'
 const EMOJI = ['🎁', '⭐', '❄️', '🎄', '✨'];
 
 /** Physics-y confetti + emoji burst fired from a point at `start`. */
-export const Confetti: React.FC<{start: number; x?: number; y?: number; count?: number; seed?: string; power?: number}> = ({
+export const Confetti: React.FC<{
+	start: number;
+	x?: number;
+	y?: number;
+	count?: number;
+	seed?: string;
+	power?: number;
+	palette?: string[];
+	emoji?: boolean;
+}> = ({
 	start,
 	x = 540,
 	y = 1000,
 	count = 140,
 	seed = 'confetti',
 	power = 1,
+	palette = COLORS,
+	emoji = true,
 }) => {
 	const frame = useCurrentFrame();
 	const {height} = useVideoConfig();
@@ -28,14 +39,14 @@ export const Confetti: React.FC<{start: number; x?: number; y?: number; count?: 
 					vr: (r('vr') - 0.5) * 30,
 					w: 14 + r('w') * 18,
 					h: 8 + r('h') * 26,
-					color: COLORS[Math.floor(r('c') * COLORS.length)],
+					color: palette[Math.floor(r('c') * palette.length)],
 					round: r('s') > 0.7,
-					emoji: r('e') > 0.88 ? EMOJI[Math.floor(r('em') * EMOJI.length)] : null,
+					emoji: emoji && r('e') > 0.88 ? EMOJI[Math.floor(r('em') * EMOJI.length)] : null,
 					flutter: 2 + r('f') * 4,
 					phase: r('p') * 6.28,
 				};
 			}),
-		[count, seed, power],
+		[count, seed, power, palette, emoji],
 	);
 
 	const t = frame - start;

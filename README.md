@@ -1,6 +1,6 @@
 # RE:SET — Christmas Reel 🎄
 
-A high-energy Christmas promo for **RE:SET**, a pajama and loungewear brand. It's a 24-second vertical Reel (1080×1920, 30 fps) for Instagram Reels and TikTok, built with **React + [Remotion](https://www.remotion.dev/)**. All on-screen text is in Spanish.
+A premium Christmas promo for **RE:SET**, a pajama and loungewear brand. It's a 21-second vertical Reel (1080×1920, 30 fps) for Instagram Reels and TikTok, built with **React + [Remotion](https://www.remotion.dev/)**. All on-screen text is in Spanish.
 
 ## Quick start
 
@@ -11,53 +11,42 @@ npm run build      # render → out/reset-christmas-reel.mp4
 npm run audio      # (optional) regenerate music + SFX (python3 + numpy)
 ```
 
-## Structure (150 BPM: 1 beat = 12 frames, 1 bar = 48 frames, every cut on the beat)
+## Storyboard
 
-| Time       | What happens |
-|------------|--------------|
-| 0.0–3.2 s  | **HOOK.** "¿QUÉ HAY DENTRO? 👀" slams in on frame 0 over a gift bag, followed by a rapid one-beat montage of the other bags. The text shakes harder as a snare roll and riser build up. |
-| 3.2 s      | **DROP.** The bag is unwrapped: "¡SORPRESA!" over a spinning sunburst, a confetti and emoji burst, camera shake and a white flash. |
-| 4.8 s      | "¡son PIJAMAS NAVIDEÑAS! 🎄" |
-| 6.4 s      | White print set reveal with a speed ramp: "estampados SÚPER FESTIVOS ✨" |
-| 9.6 s      | "comodidad NIVEL: SOFÁ 🛋️" |
-| 11.2 s     | "...y viene en su BOLSITA 🎁" |
-| 12.8 s     | "¡lista para REGALAR! 🎀" |
-| 14.4 s     | "combina con TU ÁRBOL 🎄" |
-| 16.0 s     | Gift lineup: "el regalo que SÍ VAN A USAR 😍", then "¿CUÁL ELIGES? 👇" (asks viewers to comment) |
-| 19.2–24 s  | **End card.** "¡feliz navidad con RE:SET", a bouncing "¡PIDE LA TUYA! 🎁" button, "link en la bio 👆", fairy lights, and a confetti burst on the final hit. |
+Music: *Carol of the Bells* in 3/4 at 180 BPM. 1 bar = 1 s = 30 frames, and every cut lands on a bar or a beat.
 
-## What makes it feel produced
+| Time      | What happens |
+|-----------|--------------|
+| 0.0–1.7 s | **HOOK: the screen is a gift.** Red foil wrapping paper, gold satin ribbons, a bow and a *"Para ti — de RE:SET"* tag, with the headline **"TIENES UN REGALO · Ábrelo..."**. The bow wobbles on the beat, the ribbons are pulled off and the paper tears open down the middle, with light pouring out. |
+| 1.6–4.0 s | Montage of the gift bags, one per beat: **"ESTA NAVIDAD · ¿Qué hay dentro?"**. Celesta and pizzicato tension, timpani roll and a swell. |
+| 4.0 s     | **DROP.** A golden lens flare as the pajamas unfold: **"NAVIDAD 2026 · Pijamas navideñas"**. |
+| 6.0 s     | White print set reveal with a speed ramp: **"ESTAMPADOS · que enamoran"** |
+| 8.0 s     | Triptych of 3 prints with gold dividers: **"DÉJALO EN COMENTARIOS · ¿Cuál es tu favorita?"** (asks viewers to comment) |
+| 10.0 s    | Footage shown as a framed print on red velvet: **"LISTA PARA REGALAR · con su propia bolsa de regalo"** |
+| 12.0 s    | Gift lineup: **"EL REGALO QUE · sí van a usar"** |
+| 14.0 s    | **"HECHAS PARA · noches de película"** |
+| 16–21 s   | **End card.** "FELIZ NAVIDAD", the gold-foil **RE:SET** logo, "PIJAMAS & ROPA DE CASA", a **COMPRA AHORA** button and "link en la bio". A gold confetti burst lands on the final major chord. |
 
-- **Speed ramps.** Each scene is built from segments, and every segment plays its own slice of the clip at its own speed: fast through the boring part, slower on the reveal. See `segments` in `src/timeline.ts`.
-- **Hard cuts with motion.** Every cut is on the beat and gets an entry move: punch-in, whip pan, slide-up or spin, each with motion blur and a whoosh.
-- **Camera rig.** The picture bumps on every kick and shakes on the drop and the final hit.
-- **Sticker captions.** Luckiest Guy font with a thick outline and a hard drop shadow. Words spring in one after another with a little tilt and wobble on the beat, and each caption plays a pop sound.
-- **Effects.** Confetti and emoji bursts, a comic sunburst behind "¡SORPRESA!", snowfall, fairy-light garland, soft drifting lights, sparkles, a punchy warm grade, vignette and film grain.
+## Design system
+
+- **Typography.** Headlines are *Playfair Display Italic* in a gold-foil gradient with a moving shine; each line rises out of an invisible mask. Kickers are wide-tracked *Montserrat* small caps between thin gold rules. Supporting lines use *Cinzel*, and the gift tag uses *Great Vibes*. All fonts are bundled under the SIL OFL license.
+- **Palette.** Deep wine and cranberry, pine green, cream, and metallic gold (see `goldFoil()` in `src/theme.ts`).
+- **Finishing.** Golden lens flares and film light-leaks on key cuts, a soft camera push on each downbeat, snow, bokeh, a warm grade, vignette and fine grain.
 
 ## Audio
 
-`scripts/generate-audio.py` synthesizes everything with numpy, so there are no licensing issues:
+`scripts/generate-audio.py` synthesizes everything with numpy (no samples, no licensing issues):
 
-- `music.wav`: a dance-pop *Jingle Bells* (public domain, 1857) at 150 BPM. It has a 2-bar hook build-up (impact, teaser, snare roll, riser), then a drop with four-on-the-floor kick, claps, a bouncy octave bass with sidechain pump, off-beat chord stabs, a bright lead with glockenspiel, and sleigh bells. It ends on a final button hit.
-- `whoosh.wav`, `pop.wav`, `sparkle.wav`, `impact.wav`: sound effects placed on cuts and captions.
+- `music.wav`: a cinematic **Carol of the Bells**. The melody is *Shchedryk* by M. Leontovych (1916), which is public domain. It's arranged for celesta, pizzicato, spiccato and legato strings, a formant "aah" choir, taiko, snare, toms, shaker and sleigh bells. Everything goes through a synthetic convolution reverb with mastering EQ, and it ends on a bright G-major chord.
+- `rip.wav` (paper tear), `whoosh.wav`, `shimmer.wav` and `sparkle.wav`: sound effects.
 
-You can use a trending or licensed track instead by swapping `audio/music.wav` in `src/ChristmasReel.tsx`. For best results, pick a 150 BPM track with a drop about 3.2 s in.
+You can swap in a licensed or trending track via `audio/music.wav` in `src/ChristmasReel.tsx`. For best results, pick one whose drop hits at 4.0 s.
 
 ## Editing
 
-- **Copy, timing, speed ramps and transitions**: `src/timeline.ts`. Keep each `start` on a multiple of `BEAT`.
-- **Hook text**: `src/components/HookTitle.tsx`. **End card**: `src/components/EndCard.tsx`.
-- **Colors and fonts**: `src/theme.ts`. The fonts are bundled in `public/fonts` (SIL OFL). Emoji use the system color-emoji font.
-
-## Layout
-
-```
-public/clips/   trimmed H.264 1080×1920 product footage
-public/audio/   generated music + SFX
-public/fonts/   Luckiest Guy, Playfair Display, Montserrat, Great Vibes
-src/timeline.ts           scenes, captions, speed ramps, beat grid
-src/ChristmasReel.tsx     composition: camera rig, scenes, overlays, audio
-src/components/           Footage, StickerText, HookTitle, Confetti, Starburst, EndCard, Snowfall, ...
-```
+- **Scenes, copy, speed ramps, layouts (`full` / `triptych` / `framed`) and transitions**: `src/timeline.ts`
+- **Hook**: `src/components/GiftWrap.tsx` and the "¿Qué hay dentro?" block in `src/ChristmasReel.tsx`
+- **End card**: `src/components/EndCard.tsx`
+- **Type system**: `src/components/LuxText.tsx`. **Colors and fonts**: `src/theme.ts`
 
 On-screen text stays out of the top ~200 px and the bottom ~350 px, where the platform UI sits.
