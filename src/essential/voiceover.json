@@ -1,0 +1,19 @@
+{
+  "fps": 30,
+  "source": "The_Face_Method_4.m4a (studio voice-over, 16.64 s, mono 48 kHz)",
+  "note": "Phrase times are seconds in the original voice-over file (measured from the waveform + speech recognition). voice.wav is trimmed at trimStart.",
+  "trimStart": 0.55,
+  "trimEnd": 14.95,
+  "endHold": 60,
+  "phrases": [
+    {"id": "belleza", "a": 0.72, "b": 2.15, "text": "Es una belleza esta pijama,"},
+    {"id": "nombre", "a": 2.5, "b": 3.95, "text": "es la Essential de Botones."},
+    {"id": "cuello", "a": 4.1, "b": 5.05, "text": "Tiene su cuello V,"},
+    {"id": "manga", "a": 5.4, "b": 6.2, "text": "manga larga,"},
+    {"id": "jareta", "a": 6.4, "b": 7.65, "text": "jareta para que te acomode."},
+    {"id": "pantalon", "a": 7.95, "b": 9.35, "text": "El pantalón es abierto."},
+    {"id": "precio1", "a": 9.45, "b": 11.0, "text": "Esta pijama puede ser tuya"},
+    {"id": "precio2", "a": 11.0, "b": 12.95, "text": "por solo $999 pesos."},
+    {"id": "cta", "a": 13.55, "b": 14.65, "text": "¿Qué esperas para llevarte la tuya?"}
+  ]
+}

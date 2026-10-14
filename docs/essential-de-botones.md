@@ -1,5 +1,14 @@
 # RE:SET — "Essential de Botones" · Meta Ads (Reels / Stories)
 
+> **Update — studio voice-over.** The on-camera audio was replaced by the voice-over `The_Face_Method_4.m4a`.
+> Script: *"Es una belleza esta pijama, es la Essential de Botones, tiene su cuello V, manga larga, jareta para que te acomode,
+> el pantalón es abierto, esta pijama puede ser tuya por solo $999 pesos. ¿Qué esperas para llevarte la tuya?"*
+> Phrase timings live in `src/essential/voiceover.json`; cuts, tags and subtitles are derived from them (`src/essential/timeline.ts`).
+> Voice processing (`scripts/build-essential-voice.py`): noise profile learned from the file's silent tail → spectral noise reduction
+> (max 18 dB, no artefacts) → EQ (−2 dB @250 Hz, +2.5 dB @3.2 kHz, air shelf) → de-ess → compression → post-expander → **−14 LUFS / −1 dBTP**.
+> Measured: voice +8.5 dB louder, room tone between phrases −3.4 dB, voice-to-background separation 23 → 35 dB. Final length 16.2 s.
+> The sections below describe the first cut (on-camera audio); the visual system and QC procedure are unchanged.
+
 **Concept:** *Los detalles que importan.* The real narration drives the edit. Each feature is shown
 up close and labelled at the moment it is said. The pajama is always the protagonist.
 
