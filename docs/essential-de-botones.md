@@ -1,5 +1,13 @@
 # RE:SET — "Essential de Botones" · Meta Ads (Reels / Stories)
 
+> **Update — official brand system** (from the RE:SET brand manual):
+> - **Logo:** official vector logo extracted from `RESET_LOGOTIPO.pdf` → `public/brand/reset-logo-black.png` / `reset-logo-white.png` (2255×825, transparent).
+> - **Typography:** Bebas Neue (logotype face) for the title and feature tags. Gotham (institutional) for subtitles and the CTA.
+>   Gotham is a commercial font, so Montserrat stands in until the licensed `.woff2/.otf` files are added (`INSTITUTIONAL` in `EssentialAd.tsx`).
+>   Miller Text appears only inside the logo artwork.
+> - **Palette:** Pantone 386 U `#E2EC95`, 536 U `#7B95AB`, 679 U `#B07E7F`, Black U `#000000`, White U `#E5E5E3` (sRGB approximations).
+>   The three colours form a thin stripe under the logo and title, and each feature tag gets one colour as its bullet.
+>
 > **Update — studio voice-over.** The on-camera audio was replaced by the voice-over `The_Face_Method_4.m4a`.
 > Script: *"Es una belleza esta pijama, es la Essential de Botones, tiene su cuello V, manga larga, jareta para que te acomode,
 > el pantalón es abierto, esta pijama puede ser tuya por solo $999 pesos. ¿Qué esperas para llevarte la tuya?"*

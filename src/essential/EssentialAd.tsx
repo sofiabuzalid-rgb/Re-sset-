@@ -1,21 +1,49 @@
 import {loadFont} from '@remotion/fonts';
 import React from 'react';
-import {AbsoluteFill, Audio, Easing, interpolate, OffthreadVideo, Sequence, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Audio, Easing, Img, interpolate, OffthreadVideo, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import type {Cam, Shot, Tag} from './timeline';
 import {END_CARD, H, shots, subtitles, tags, TITLE, TOTAL, voiceRanges, W} from './timeline';
 
-loadFont({family: 'Manrope', url: staticFile('fonts/Manrope-Variable.woff2'), weight: '200 800'});
-loadFont({family: 'Oswald', url: staticFile('fonts/Oswald-Variable.woff2'), weight: '200 700'});
+// RE:SET brand manual:
+//  - Logotipo: official vector logo (public/brand/reset-logo-*.png, from RESET_LOGOTIPO.pdf) — Bebas Neue + Miller Text
+//  - Tipografía institucional: Gotham Book / Bold. Gotham is a commercial font; until the licensed files are added,
+//    Montserrat (its closest open equivalent) stands in. To switch, drop Gotham-Book/Bold.woff2 in public/fonts and
+//    change INSTITUTIONAL below.
+//  - Paleta: Pantone 386 U, 536 U, 679 U, Black U, White U (sRGB approximations).
+loadFont({family: 'Bebas Neue', url: staticFile('fonts/BebasNeue-Regular.woff2'), weight: '400'});
+loadFont({family: 'Montserrat', url: staticFile('fonts/Montserrat-Variable.woff2'), weight: '100 900'});
 
-const SANS = 'Manrope, Inter, Helvetica, Arial, sans-serif';
-const C = {
-	ink: '#1E1A17',
-	cream: '#F5F1EB',
-	paper: '#EFE9E1',
-	line: 'rgba(250,246,240,0.92)',
-	glass: 'rgba(24,20,18,0.58)',
-	taupe: '#8C7B6E',
+const INSTITUTIONAL = 'Gotham, Montserrat, Helvetica, Arial, sans-serif';
+const SANS = INSTITUTIONAL;
+const DISPLAY = '"Bebas Neue", Gotham, Montserrat, sans-serif';
+export const PALETTE = {
+	p386: '#E2EC95', // Pantone 386 U — lime
+	p536: '#7B95AB', // Pantone 536 U — blue grey
+	p679: '#B07E7F', // Pantone 679 U — dusty rose
+	black: '#000000', // Pantone Black U
+	white: '#E5E5E3', // Pantone White U
 };
+const C = {
+	ink: PALETTE.black,
+	cream: PALETTE.white,
+	paper: PALETTE.white,
+	line: 'rgba(229,229,227,0.95)',
+	glass: 'rgba(0,0,0,0.55)',
+};
+const ACCENTS = [PALETTE.p679, PALETTE.p536, PALETTE.p386];
+
+/** The three brand colours as a thin stripe — the visual signature used under the logo and the title. */
+const BrandStripe: React.FC<{width: number; p?: number}> = ({width, p = 1}) => (
+	<div style={{display: 'flex', width: width * p, height: 5, overflow: 'hidden'}}>
+		{ACCENTS.map((c) => (
+			<div key={c} style={{flex: 1, background: c}} />
+		))}
+	</div>
+);
+
+const Logo: React.FC<{variant: 'black' | 'white'; width: number}> = ({variant, width}) => (
+	<Img src={staticFile(`brand/reset-logo-${variant}.png`)} style={{width, height: 'auto', display: 'block'}} />
+);
 const ease = Easing.bezier(0.25, 0.1, 0.25, 1);
 const easeOut = Easing.bezier(0.16, 1, 0.3, 1);
 
@@ -60,7 +88,7 @@ const ShotView: React.FC<{shot: Shot; children?: (cam: Cam) => React.ReactNode}>
 // ---------------------------------------------------------------- graphics
 
 /** Thin rectangular focus frame around a detail + its label. Follows the camera. */
-const FeatureTag: React.FC<{tag: Tag; shot: Shot}> = ({tag, shot}) => {
+const FeatureTag: React.FC<{tag: Tag; shot: Shot; accent: string}> = ({tag, shot, accent}) => {
 	const f = useCurrentFrame(); // relative to tag start
 	const dur = tag.to - tag.from;
 	const cam = camAt(shot, tag.from - shot.from + f);
@@ -103,21 +131,22 @@ const FeatureTag: React.FC<{tag: Tag; shot: Shot}> = ({tag, shot}) => {
 					display: 'inline-flex',
 					alignItems: 'center',
 					gap: 14,
-					padding: '13px 22px 13px 18px',
-					borderRadius: 12,
+					padding: '10px 24px 8px 18px',
+					borderRadius: 10,
 					background: C.glass,
-					border: '1.5px solid rgba(255,255,255,0.5)',
+					border: '1.5px solid rgba(229,229,227,0.55)',
 					backdropFilter: 'blur(10px)',
 					WebkitBackdropFilter: 'blur(10px)',
-					fontFamily: SANS,
-					fontWeight: 600,
-					fontSize: 36,
-					letterSpacing: '0.01em',
+					fontFamily: DISPLAY,
+					fontWeight: 400,
+					fontSize: 46,
+					lineHeight: 1,
+					letterSpacing: '0.08em',
 					color: C.cream,
 					whiteSpace: 'nowrap',
 				}}
 			>
-				<span style={{width: 9, height: 9, borderRadius: 2, background: C.cream, opacity: 0.85}} />
+				<span style={{width: 12, height: 12, borderRadius: 2, background: accent, marginTop: -4}} />
 				{tag.text}
 			</div>
 		</AbsoluteFill>
@@ -134,13 +163,14 @@ const Subtitle: React.FC<{text: string; dur: number}> = ({text, dur}) => {
 					maxWidth: 880,
 					padding: '12px 22px 14px',
 					borderRadius: 12,
-					background: 'rgba(20,17,15,0.62)',
+					background: 'rgba(0,0,0,0.6)',
 					fontFamily: SANS,
-					fontWeight: 600,
-					fontSize: 46,
+					fontWeight: 700,
+					fontSize: 44,
 					lineHeight: 1.25,
 					color: '#FFFFFF',
 					textAlign: 'center',
+					letterSpacing: '0.01em',
 				}}
 			>
 				{text}
@@ -158,31 +188,23 @@ const ProductTitle: React.FC<{dur: number}> = ({dur}) => {
 			<div
 				style={{
 					display: 'inline-block',
-					padding: '22px 28px 24px',
-					borderRadius: 14,
+					padding: '26px 30px 24px',
+					borderRadius: 12,
 					background: C.glass,
-					border: '1.5px solid rgba(255,255,255,0.45)',
+					border: '1.5px solid rgba(229,229,227,0.45)',
 					backdropFilter: 'blur(10px)',
 					WebkitBackdropFilter: 'blur(10px)',
 				}}
 			>
-				<div style={{fontFamily: SANS, fontWeight: 600, fontSize: 24, letterSpacing: '0.32em', color: 'rgba(245,241,235,0.8)'}}>{TITLE.kicker}</div>
-				<div style={{height: 1.5, width: 56, background: 'rgba(245,241,235,0.6)', margin: '14px 0 12px'}} />
-				<div style={{fontFamily: SANS, fontWeight: 600, fontSize: 56, letterSpacing: '-0.01em', color: C.cream, lineHeight: 1.1}}>{TITLE.text}</div>
+				<Logo variant="white" width={230} />
+				<div style={{margin: '18px 0 16px'}}>
+					<BrandStripe width={230} p={inP} />
+				</div>
+				<div style={{fontFamily: DISPLAY, fontSize: 76, letterSpacing: '0.05em', color: C.cream, lineHeight: 0.95}}>{TITLE.text}</div>
 			</div>
 		</div>
 	);
 };
-
-/** Wordmark set in a condensed, widely tracked sans to echo the printed RE:SET logo (replace with the official file). */
-const Wordmark: React.FC<{size?: number; color?: string}> = ({size = 84, color = C.ink}) => (
-	<div style={{textAlign: 'center', color}}>
-		<div style={{fontFamily: 'Oswald, sans-serif', fontWeight: 300, fontSize: size, letterSpacing: '0.42em', marginRight: '-0.42em', lineHeight: 1}}>RE:SET</div>
-		<div style={{fontFamily: SANS, fontWeight: 500, fontSize: size * 0.24, letterSpacing: '0.5em', marginRight: '-0.5em', marginTop: size * 0.28, opacity: 0.75}}>
-			LOUNGEWEAR
-		</div>
-	</div>
-);
 
 /** End card: the full product stays on screen; wordmark on a soft paper fade at the top, CTA over the product (inside the Reels safe zone). */
 const EndCard: React.FC = () => {
@@ -194,25 +216,26 @@ const EndCard: React.FC = () => {
 			<AbsoluteFill
 				style={{
 					opacity: p,
-					background: `linear-gradient(180deg, rgba(239,233,225,0.96) 0%, rgba(239,233,225,0.9) 16%, rgba(239,233,225,0) 25%)`,
+					background: `linear-gradient(180deg, rgba(229,229,227,0.97) 0%, rgba(229,229,227,0.92) 17%, rgba(229,229,227,0) 26%)`,
 				}}
 			/>
-			<div style={{position: 'absolute', top: 290, left: 0, right: 0, opacity: k, transform: `translateY(${(1 - k) * 10}px)`}}>
-				<Wordmark size={72} />
+			<div style={{position: 'absolute', top: 278, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18, opacity: k, transform: `translateY(${(1 - k) * 10}px)`}}>
+				<Logo variant="black" width={360} />
+				<BrandStripe width={360} p={k} />
 			</div>
 			<div style={{position: 'absolute', top: 1150, left: 0, right: 0, display: 'flex', justifyContent: 'center', opacity: k, transform: `translateY(${(1 - k) * 12}px)`}}>
 				<div
 					style={{
-						padding: '20px 46px 22px',
+						padding: '22px 48px 22px',
 						borderRadius: 999,
-						background: C.paper,
-						border: `1.5px solid ${C.ink}`,
-						boxShadow: '0 10px 30px rgba(0,0,0,0.18)',
+						background: PALETTE.black,
+						boxShadow: '0 10px 30px rgba(0,0,0,0.25)',
 						fontFamily: SANS,
-						fontWeight: 600,
-						fontSize: 38,
-						letterSpacing: '0.03em',
-						color: C.ink,
+						fontWeight: 700,
+						fontSize: 34,
+						letterSpacing: '0.12em',
+						textTransform: 'uppercase',
+						color: PALETTE.white,
 					}}
 				>
 					Descubre la colección
@@ -254,11 +277,11 @@ export const EssentialAd: React.FC<EssentialAdProps> = ({musicSrc, musicUnderVoi
 				<ProductTitle dur={TITLE.to - TITLE.from} />
 			</Sequence>
 
-			{tags.map((t) => {
+			{tags.map((t, i) => {
 				const shot = shots.find((s) => t.from >= s.from && t.from < s.from + s.dur)!;
 				return (
 					<Sequence key={t.text} from={t.from} durationInFrames={t.to - t.from}>
-						<FeatureTag tag={t} shot={shot} />
+						<FeatureTag tag={t} shot={shot} accent={ACCENTS[i % ACCENTS.length]} />
 					</Sequence>
 				);
 			})}
