@@ -1,0 +1,48 @@
+{
+  "fps": 30,
+  "source": "IMG PIJAMA_VIDEO_EDITABLE.MOV (1080x1920 HEVC, 18.63 s)",
+  "note": "All values are frames of the SOURCE clip at 30 fps. Voice segments are concatenated in this order; each shot plays the given video range. The last shot (price + CTA + end card) is one continuous slow-motion take under the voice (J-cut) because the original has the board turning at that moment.",
+  "voice": [
+    {
+      "id": "belleza",
+      "a": 66,
+      "b": 89
+    },
+    {
+      "id": "nombre",
+      "a": 0,
+      "b": 62
+    },
+    {
+      "id": "cuello",
+      "a": 90,
+      "b": 140
+    },
+    {
+      "id": "manga",
+      "a": 140,
+      "b": 170
+    },
+    {
+      "id": "jareta",
+      "a": 212,
+      "b": 262
+    },
+    {
+      "id": "pantalon",
+      "a": 266,
+      "b": 301
+    },
+    {
+      "id": "precio",
+      "a": 370,
+      "b": 476
+    },
+    {
+      "id": "cta",
+      "a": 481,
+      "b": 542
+    }
+  ],
+  "endHold": 60
+}
