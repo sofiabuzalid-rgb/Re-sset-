@@ -69,6 +69,13 @@ y[:] = 0
 for k, f in enumerate(fr):
     y[k * HOP:k * HOP + N] += f
 x = (y / np.maximum(nr, 1e-8))[N:N + len(x)]
+# room-echo tail after "cómoda" (src 13.68-14.12 s, before "y la calidad") -> -30 dB, 30 ms fades
+ga = np.ones(len(x))
+i0, i1, fd_ = int(13.68 * SR), int(14.12 * SR), int(0.03 * SR)
+ga[i0:i1] = 10 ** (-30 / 20)
+ga[i0 - fd_:i0] = np.linspace(1, 10 ** (-30 / 20), fd_)
+ga[i1:i1 + fd_] = np.linspace(10 ** (-30 / 20), 1, fd_)
+x = x * ga
 sf.write(p, x.astype("float32"), SR)
 chain = ("equalizer=f=250:t=q:w=1.2:g=-2.5,equalizer=f=3200:t=q:w=1:g=3,equalizer=f=9000:t=h:w=0.7:g=1.5,deesser=i=0.3,"
          "acompressor=threshold=-22dB:ratio=3:attack=6:release=120:makeup=2,agate=threshold=0.012:ratio=2.5:range=0.12:attack=4:release=200,alimiter=limit=0.9")
