@@ -58,6 +58,17 @@ for k, f in enumerate(fr):
     y[k * HOP:k * HOP + N] += f
     nr[k * HOP:k * HOP + N] += WIN ** 2
 x = (y / np.maximum(nr, 1e-8))[N:N + len(x)]
+# repair: whistly rising glide on "cómoda" (src 13.42-13.80 s, iPhone processing artifact) -> -10 dB from 1.5 to 6 kHz
+t_f = (np.arange(len(fr)) * HOP - N) / SR
+fb = np.fft.rfftfreq(N, 1 / SR)
+tw = np.clip(np.minimum((t_f - 13.42) / 0.05, (13.80 - t_f) / 0.05), 0, 1)
+fw = np.clip(np.minimum((fb - 1300) / 400, (6500 - fb) / 500), 0, 1)
+att = 1 - (1 - 10 ** (-10 / 20)) * np.outer(tw, fw)
+fr = np.fft.irfft(S * np.maximum(g, 10 ** (-20 / 20)) * att, axis=1) * WIN
+y[:] = 0
+for k, f in enumerate(fr):
+    y[k * HOP:k * HOP + N] += f
+x = (y / np.maximum(nr, 1e-8))[N:N + len(x)]
 sf.write(p, x.astype("float32"), SR)
 chain = ("equalizer=f=250:t=q:w=1.2:g=-2.5,equalizer=f=3200:t=q:w=1:g=3,equalizer=f=9000:t=h:w=0.7:g=1.5,deesser=i=0.3,"
          "acompressor=threshold=-22dB:ratio=3:attack=6:release=120:makeup=2,agate=threshold=0.012:ratio=2.5:range=0.12:attack=4:release=200,alimiter=limit=0.9")
@@ -177,9 +188,10 @@ for b in range(n_bars):
         # tambourine 8ths + claps on 2 & 4 always; kick only on the montage
         for k in range(8):
             put("dr", sleigh(1.0 if k % 2 else 0.5), t0 + k * BEAT / 2)
-        put("dr", clap(0.7), t0 + BEAT)
-        put("dr", clap(0.7), t0 + 3 * BEAT)
         if full:
+            # claps only on the montage: under the voice they fell on her words (e.g. "cómoda")
+            put("dr", clap(0.7), t0 + BEAT)
+            put("dr", clap(0.7), t0 + 3 * BEAT)
             for k in range(4):
                 put("dr", kick(0.9), t0 + k * BEAT)
             put("dr", kick(0.5), t0 + 3.5 * BEAT)
