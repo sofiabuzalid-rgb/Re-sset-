@@ -1,0 +1,21 @@
+{
+  "fps": 30,
+  "bpm": 120,
+  "source": "v1c044g50000db8itv7og65rqs0jimkg.mp4 (576x1024, 30 fps, 43.4 s)",
+  "shots": [
+    {"id": "hook",  "part": "hook",     "in": 0.95,  "out": 2.95,  "note": "steps out, smiles to camera, turn + hair flip: full set from frame 1"},
+    {"id": "p1",    "part": "product",  "in": 5.10,  "out": 6.60,  "note": "hand in hair, smile, settles the hem"},
+    {"id": "p2",    "part": "product",  "in": 31.00, "out": 32.50, "note": "adjusts the top, looks up smiling"},
+    {"id": "p3",    "part": "product",  "in": 35.40, "out": 37.40, "note": "front view, to camera, hands in pockets"},
+    {"id": "m1",    "part": "movement", "in": 6.90,  "out": 7.90,  "note": "side view, glance over the shoulder"},
+    {"id": "m2",    "part": "movement", "in": 23.20, "out": 24.20, "note": "back view"},
+    {"id": "m3",    "part": "movement", "in": 12.45, "out": 13.95, "note": "steps out smiling, spins: the fabric moves and falls"},
+    {"id": "close", "part": "close",    "in": 40.83, "out": 43.33, "note": "walks out, hair flip, ends facing camera"}
+  ],
+  "holdSeconds": 1.5,
+  "texts": [
+    {"id": "hook", "from": 0.15, "to": 1.85},
+    {"id": "logo", "from": 12.55, "to": 14.5},
+    {"id": "tagline", "from": 12.95, "to": 14.5}
+  ]
+}
