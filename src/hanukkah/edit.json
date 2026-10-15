@@ -1,0 +1,189 @@
+{
+  "fps": 30,
+  "bpm": 120,
+  "note": "Shots are pre-cut by scripts/build-hanukkah-media.py (speed applied, 1080x1920, no audio). Every shot length is a multiple of a beat (15 frames) so every cut lands on the music.",
+  "shots": [
+    {
+      "id": "h1-untie",
+      "src": "IMG_1344",
+      "in": 0.3,
+      "out": 3.3,
+      "rate": 1.5,
+      "zoom": [
+        1.18,
+        1.26
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "h2-pull",
+      "src": "IMG_1344",
+      "in": 6.8,
+      "out": 9.8,
+      "rate": 1.5,
+      "zoom": [
+        1.0,
+        1.06
+      ],
+      "focus": [
+        0.5,
+        0.6
+      ]
+    },
+    {
+      "id": "h3-unfold",
+      "src": "IMG_1344",
+      "in": 9.8,
+      "out": 12.3,
+      "rate": 1.25,
+      "zoom": [
+        1.08,
+        1.12
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "m1-pants",
+      "src": "IMG_1345",
+      "in": 1.6,
+      "out": 3.1,
+      "rate": 1.5,
+      "zoom": [
+        1.05,
+        1.1
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "m2-detail",
+      "src": "IMG_1344",
+      "in": 13.5,
+      "out": 14.5,
+      "rate": 1.0,
+      "zoom": [
+        1.45,
+        1.55
+      ],
+      "focus": [
+        0.35,
+        0.62
+      ]
+    },
+    {
+      "id": "m3-lift",
+      "src": "IMG_1345",
+      "in": 7.0,
+      "out": 8.0,
+      "rate": 1.0,
+      "zoom": [
+        1.1,
+        1.14
+      ],
+      "focus": [
+        0.5,
+        0.45
+      ]
+    },
+    {
+      "id": "m4-detail",
+      "src": "IMG_1345",
+      "in": 8.0,
+      "out": 9.0,
+      "rate": 1.0,
+      "zoom": [
+        1.5,
+        1.6
+      ],
+      "focus": [
+        0.62,
+        0.4
+      ]
+    },
+    {
+      "id": "hero",
+      "src": "IMG_1344",
+      "in": 12.4,
+      "out": 14.4,
+      "rate": 1.0,
+      "zoom": [
+        1.05,
+        1.12
+      ],
+      "focus": [
+        0.5,
+        0.55
+      ]
+    },
+    {
+      "id": "pack",
+      "src": "IMG_1346",
+      "in": 7.8,
+      "out": 11.8,
+      "rate": 2.0,
+      "zoom": [
+        1.15,
+        1.2
+      ],
+      "focus": [
+        0.5,
+        0.6
+      ]
+    },
+    {
+      "id": "close",
+      "src": "IMG_1344",
+      "in": 12.5,
+      "out": 14.5,
+      "rate": 0.5,
+      "zoom": [
+        1.04,
+        1.1
+      ],
+      "focus": [
+        0.5,
+        0.55
+      ]
+    }
+  ],
+  "texts": [
+    {
+      "from": 0,
+      "to": 60,
+      "kind": "hook",
+      "text": "8 NOCHES PARA CELEBRAR."
+    },
+    {
+      "from": 60,
+      "to": 165,
+      "kind": "hook",
+      "text": "UNA PIJAMA PARA DISFRUTARLAS."
+    },
+    {
+      "from": 180,
+      "to": 297,
+      "kind": "label",
+      "kicker": "RE:SET",
+      "text": "HANUKKAH COLLECTION"
+    },
+    {
+      "from": 300,
+      "to": 357,
+      "kind": "label",
+      "kicker": "8 NOCHES",
+      "text": "TU LOOK PARA LAS 8 NOCHES"
+    }
+  ],
+  "close": {
+    "title": "CELEBRA HANUKKAH CON RE:SET",
+    "cta": "DESCUBRE LA COLECCIÓN"
+  }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import {Composition} from 'remotion';
 import {ChristmasReel} from './ChristmasReel';
 import {EssentialAd, essentialDefaults, ESSENTIAL_TOTAL} from './essential/EssentialAd';
+import {HanukkahAd, HANUKKAH_TOTAL} from './hanukkah/HanukkahAd';
 import {MagicReel} from './magic/MagicReel';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
@@ -32,5 +33,6 @@ export const RemotionRoot: React.FC = () => (
 		/>
 		{/* Meta Ads: "Soft Winter" — six clips, one narrative, logo only at the end */}
 		<Composition id="SoftWinter" component={SoftWinterAd} durationInFrames={SOFTWINTER_TOTAL} fps={FPS} width={1080} height={1920} />
+		<Composition id="Hanukkah" component={HanukkahAd} durationInFrames={HANUKKAH_TOTAL} fps={FPS} width={1080} height={1920} />
 	</>
 );
