@@ -1,0 +1,50 @@
+{
+  "fps": 30,
+  "bpm": 120,
+  "note": "Version B — 'La lista de Navidad'. Product-first: opens on the print macro with her real line about the perfect gift, a wish-list card ticks off what she says (cómoda, calidad, espectacular), full-look reveal in a fast on-the-beat montage, closes on a cream Christmas-card frame. Voice = IMG_8504 only. 8504 shots are lip-synced (sync: true).",
+  "voice": [
+    {"a": 5.40, "b": 7.40},
+    {"a": 7.66, "b": 11.25},
+    {"a": 11.58, "b": 14.67},
+    {"a": 14.91, "b": 16.50},
+    {"a": 16.83, "b": 18.15}
+  ],
+  "shots": [
+    {"id": "h1", "src": "IMG_8508", "in": 0.8, "frames": 30, "zoom": [1.3, 1.1], "focus": [0.6, 0.3]},
+    {"id": "h2", "src": "IMG_8506", "in": 2.1, "frames": 30, "zoom": [1.25, 1.08], "focus": [0.4, 0.4]},
+    {"id": "t1", "src": "IMG_8504", "in": 7.66, "frames": 60, "zoom": [1.12, 1.18], "focus": [0.5, 0.45], "sync": true},
+    {"id": "t2", "src": "IMG_8509", "in": 10.2, "frames": 48, "zoom": [1.04, 1.1], "focus": [0.5, 0.4]},
+    {"id": "t3", "src": "IMG_8507", "in": 3.0, "frames": 45, "zoom": [1.0, 1.08], "focus": [0.5, 0.45]},
+    {"id": "t4", "src": "IMG_8506", "in": 8.5, "frames": 48, "zoom": [1.0, 1.06], "focus": [0.5, 0.5]},
+    {"id": "t5", "src": "IMG_8498", "in": 8.2, "frames": 48, "zoom": [1.06, 1.12], "focus": [0.5, 0.5]},
+    {"id": "t6", "src": "IMG_8504", "in": 16.83, "frames": 51, "zoom": [1.0, 1.06], "focus": [0.5, 0.35], "sync": true},
+    {"id": "m01", "src": "IMG_8508", "in": 3.0, "frames": 15, "zoom": [1.15, 1.05], "focus": [0.5, 0.5], "punch": true},
+    {"id": "m02", "src": "IMG_8506", "in": 3.2, "frames": 15, "zoom": [1.15, 1.05], "focus": [0.5, 0.5], "punch": true},
+    {"id": "m03", "src": "IMG_8507", "in": 5.0, "frames": 15, "zoom": [1.12, 1.04], "focus": [0.5, 0.5], "punch": true},
+    {"id": "m04", "src": "IMG_8509", "in": 1.2, "frames": 15, "zoom": [1.12, 1.04], "focus": [0.5, 0.5], "punch": true},
+    {"id": "m05", "src": "IMG_8498", "in": 1.8, "frames": 30, "zoom": [1.18, 1.08], "focus": [0.5, 0.45], "punch": true},
+    {"id": "m06", "src": "IMG_8509", "in": 13.0, "frames": 30, "zoom": [1.08, 1.02], "focus": [0.5, 0.4], "punch": true},
+    {"id": "m07", "src": "IMG_8506", "in": 11.0, "frames": 15, "zoom": [1.12, 1.04], "focus": [0.5, 0.5], "punch": true},
+    {"id": "m08", "src": "IMG_8507", "in": 1.5, "frames": 15, "zoom": [1.12, 1.04], "focus": [0.5, 0.5], "punch": true},
+    {"id": "m09", "src": "IMG_8508", "in": 4.2, "frames": 15, "zoom": [1.15, 1.05], "focus": [0.5, 0.5], "punch": true},
+    {"id": "m10", "src": "IMG_8509", "in": 14.2, "frames": 15, "zoom": [1.1, 1.03], "focus": [0.5, 0.4], "punch": true},
+    {"id": "m11", "src": "IMG_8507", "in": 9.7, "frames": 30, "zoom": [1.1, 1.02], "focus": [0.5, 0.35], "punch": true},
+    {"id": "m12", "src": "IMG_8498", "in": 0.0, "frames": 30, "zoom": [1.12, 1.04], "focus": [0.5, 0.45], "punch": true},
+    {"id": "close", "src": "IMG_8498", "in": 4.6, "frames": 150, "zoom": [1.0, 1.04], "focus": [0.5, 0.45]}
+  ],
+  "subtitles": [
+    {"v": 0, "a": 5.40, "b": 7.40, "text": "Si estás buscando el *regalo perfecto* para Navidad,", "hook": true},
+    {"v": 1, "a": 7.66, "b": 9.70, "text": "te tengo aquí la *mejor opción,*"},
+    {"v": 1, "a": 9.70, "b": 11.25, "text": "que es la pijama del Grinch,"},
+    {"v": 2, "a": 11.58, "b": 14.67, "text": "pero no están entendiendo lo *cómoda* y la *calidad.*"},
+    {"v": 3, "a": 14.91, "b": 16.50, "text": "Aparte va a quedar *espectacular* para ustedes."},
+    {"v": 4, "a": 16.83, "b": 18.15, "text": "Encuéntrenla aquí en *RE:SET.*"}
+  ],
+  "list": {"title": "MI LISTA DE NAVIDAD", "from": 168, "to": 330, "items": [
+    {"text": "CÓMODA", "v": 2, "at": 13.25},
+    {"text": "CALIDAD", "v": 2, "at": 14.15},
+    {"text": "ESPECTACULAR", "v": 3, "at": 15.55}
+  ]},
+  "label": {"from": "m05", "to": "m10", "kicker": "RE:SET · NAVIDAD 2026", "text": "EL REGALO PERFECTO"},
+  "close": {"title": "TU NAVIDAD EMPIEZA EN RE:SET.", "cta": "DESCUBRE LA COLECCIÓN NAVIDEÑA"}
+}
