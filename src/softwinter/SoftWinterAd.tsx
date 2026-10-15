@@ -1,7 +1,7 @@
 import {loadFont} from '@remotion/fonts';
 import React from 'react';
 import {AbsoluteFill, Audio, Easing, Img, interpolate, OffthreadVideo, Sequence, staticFile, useCurrentFrame} from 'remotion';
-import edit from './edit-v2.json';
+import edit from './edit-v3.json';
 
 // Brand: Bebas Neue (logotype face) for headlines, Gotham for text (Montserrat stands in until licensed files are added).
 loadFont({family: 'Bebas Neue', url: staticFile('fonts/BebasNeue-Regular.woff2'), weight: '400'});
@@ -14,12 +14,12 @@ const easeOut = Easing.bezier(0.16, 1, 0.3, 1);
 const FPS = edit.fps;
 const fr = (s: number) => Math.round(s * FPS);
 
-type Seg = (typeof edit.segments)[number] & {from: number; dur: number; zoom?: number};
+type Seg = (typeof edit.segments)[number] & {from: number; dur: number; zoom?: number; rate?: number};
 const segs: Seg[] = [];
 {
 	let t = 0;
 	for (const s of edit.segments) {
-		const dur = fr(s.out) - fr(s.in);
+		const dur = Math.round((fr(s.out) - fr(s.in)) / ((s as {rate?: number}).rate ?? 1));
 		segs.push({...s, from: t, dur});
 		t += dur;
 	}
@@ -51,6 +51,7 @@ const Shot: React.FC<{s: Seg}> = ({s}) => {
 				muted
 				src={staticFile(`softwinter/${s.src}.mp4`)}
 				trimBefore={fr(s.in)}
+				playbackRate={s.rate ?? 1}
 				style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${z})`, transformOrigin: '50% 40%'}}
 			/>
 		</AbsoluteFill>
@@ -196,7 +197,8 @@ export const SoftWinterAd: React.FC = () => {
 	const route = edit.routeTexts.map((r, i) => {
 		const s = seg(r.seg);
 		// "VEN A CONOCER" spans the whole walk (both walk shots); the storefront caption spans the entrance
-		const until = r.seg === 'walk-1' ? seg('walk-2').from + seg('walk-2').dur : s.from + s.dur;
+		const u = seg((r as {until?: string}).until ?? r.seg);
+		const until = u.from + u.dur;
 		return {key: `r${i}`, from: s.from + 4, dur: until - s.from - 4, title: r.title, sub: r.sub === 'address' ? edit.address : r.sub};
 	});
 	const looks = edit.lookTexts.map((l, i) => {
@@ -234,7 +236,7 @@ export const SoftWinterAd: React.FC = () => {
 			<Sequence from={CUTS_END} durationInFrames={END}>
 				<EndCard dur={END} />
 			</Sequence>
-			<Audio src={staticFile('softwinter/mix-v2.wav')} />
+			<Audio src={staticFile('softwinter/mix-v3.wav')} />
 		</AbsoluteFill>
 	);
 };
