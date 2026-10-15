@@ -1,0 +1,221 @@
+{
+  "fps": 30,
+  "note": "Source times in seconds. Video and voice of the same take share in/out times, so lip-sync is exact. Output times are derived by concatenating the video cuts in order.",
+  "grade": {
+    "8483": {
+      "r": 1.012,
+      "b": 1.0,
+      "gamma": 0.9,
+      "contrast": 1.04,
+      "bright": 0.02
+    },
+    "8484": {
+      "r": 1.0,
+      "b": 1.0,
+      "gamma": 0.95,
+      "contrast": 1.03,
+      "bright": 0.01
+    },
+    "8488": {
+      "r": 0.978,
+      "b": 1.01,
+      "gamma": 0.93,
+      "contrast": 1.05,
+      "bright": 0.02
+    },
+    "8490": {
+      "r": 0.995,
+      "b": 1.0,
+      "gamma": 1.0,
+      "contrast": 1.04,
+      "bright": -0.01
+    },
+    "8491": {
+      "r": 0.99,
+      "b": 1.0,
+      "gamma": 1.0,
+      "contrast": 1.04,
+      "bright": -0.015
+    },
+    "8493": {
+      "r": 0.995,
+      "b": 1.0,
+      "gamma": 1.0,
+      "contrast": 1.04,
+      "bright": -0.01
+    }
+  },
+  "cuts": [
+    {
+      "id": "hook",
+      "src": "8483",
+      "in": 0.05,
+      "out": 8.98,
+      "zoom": 1.0,
+      "audio": "voice"
+    },
+    {
+      "id": "enter",
+      "src": "8484",
+      "in": 0.45,
+      "out": 3.85,
+      "zoom": 1.0,
+      "audio": "amb"
+    },
+    {
+      "id": "walk-in",
+      "src": "8488",
+      "in": 0.35,
+      "out": 1.12,
+      "zoom": 1.0,
+      "audio": "amb"
+    },
+    {
+      "id": "modelos",
+      "src": "8488",
+      "in": 1.12,
+      "out": 5.35,
+      "zoom": 1.0,
+      "audio": "voice"
+    },
+    {
+      "id": "calidad",
+      "src": "8488",
+      "in": 5.35,
+      "out": 10.32,
+      "zoom": 1.12,
+      "audio": "voice"
+    },
+    {
+      "id": "nino",
+      "src": "8488",
+      "in": 11.38,
+      "out": 13.36,
+      "zoom": 1.0,
+      "audio": "voice"
+    },
+    {
+      "id": "probar",
+      "src": "8488",
+      "in": 13.84,
+      "out": 16.8,
+      "zoom": 1.12,
+      "audio": "voice"
+    },
+    {
+      "id": "pose-1",
+      "src": "8493",
+      "in": 2.0,
+      "out": 3.3,
+      "zoom": 1.0,
+      "audio": "amb"
+    },
+    {
+      "id": "pose-2",
+      "src": "8490",
+      "in": 1.1,
+      "out": 2.2,
+      "zoom": 1.0,
+      "audio": "amb"
+    },
+    {
+      "id": "pose-3",
+      "src": "8491",
+      "in": 2.1,
+      "out": 3.2,
+      "zoom": 1.0,
+      "audio": "amb"
+    },
+    {
+      "id": "pose-4",
+      "src": "8493",
+      "in": 9.4,
+      "out": 10.6,
+      "zoom": 1.0,
+      "audio": "amb"
+    },
+    {
+      "id": "pose-5",
+      "src": "8490",
+      "in": 4.3,
+      "out": 5.3,
+      "zoom": 1.0,
+      "audio": "amb"
+    }
+  ],
+  "logoSeconds": 2.0,
+  "subtitles": [
+    {
+      "src": "8483",
+      "a": 0.1,
+      "b": 2.0,
+      "text": "Si eres como yo, que te encanta estar en pijama,"
+    },
+    {
+      "src": "8483",
+      "a": 2.0,
+      "b": 3.95,
+      "text": "pero te es súper difícil encontrar"
+    },
+    {
+      "src": "8483",
+      "a": 4.05,
+      "b": 5.55,
+      "text": "un modelo que sea cómodo y bonito,"
+    },
+    {
+      "src": "8483",
+      "a": 5.55,
+      "b": 6.5,
+      "text": "tienes que conocer RE:SET"
+    },
+    {
+      "src": "8483",
+      "a": 6.5,
+      "b": 8.98,
+      "text": "y su nuevo modelo Soft Winter."
+    },
+    {
+      "src": "8488",
+      "a": 1.15,
+      "b": 3.7,
+      "text": "Y bueno, de este lado, aquí están todos los modelos."
+    },
+    {
+      "src": "8488",
+      "a": 3.7,
+      "b": 5.35,
+      "text": "Por favor, quiero que los vean."
+    },
+    {
+      "src": "8488",
+      "a": 5.35,
+      "b": 8.35,
+      "text": "Y de verdad, no están dimensionando la calidad"
+    },
+    {
+      "src": "8488",
+      "a": 8.35,
+      "b": 10.32,
+      "text": "de esta nueva colección."
+    },
+    {
+      "src": "8488",
+      "a": 11.4,
+      "b": 13.36,
+      "text": "¡Por favor, hay de niño!"
+    },
+    {
+      "src": "8488",
+      "a": 13.84,
+      "b": 15.15,
+      "text": "Pero bueno, no se preocupen,"
+    },
+    {
+      "src": "8488",
+      "a": 15.15,
+      "b": 16.8,
+      "text": "que yo me la voy a probar por ustedes."
+    }
+  ]
+}

@@ -2,3 +2,6 @@ node_modules/
 out/
 .DS_Store
 *.log
+
+# regenerable intermediates (scripts/build-softwinter-media.py)
+public/softwinter/*.mp4
