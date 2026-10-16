@@ -19,9 +19,10 @@ FPS, SR, BPM = e["fps"], 48000, e["bpm"]
 os.makedirs(OUT, exist_ok=True)
 
 # ---------------------------------------------------------------- picture
-# The rack video is a white/grey room under cool LEDs: neutral already. Gentle contrast and a touch of warmth so it sits
-# with the warm studio photos. Saturation is left alone so the reds, greens and navy stay true.
-GRADE = ("colorchannelmixer=rr=1.01:bb=0.985,eq=contrast=1.05:brightness=0.005:gamma=0.98,"
+# The iPhone source is HDR (HLG, BT.2020, 10-bit): tone-map to SDR BT.709 (Hable, no desaturation) so the reds, greens
+# and navy keep their real hues, then a small gamma lift to restore the room's brightness. No channel or saturation changes.
+GRADE = ("zscale=tin=arib-std-b67:min=bt2020nc:pin=bt2020:rin=tv:t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,"
+         "tonemap=tonemap=hable:desat=0:peak=4,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,eq=gamma=1.12:contrast=1.03,"
          "scale=1080:1920:flags=lanczos,unsharp=5:5:0.25:5:5:0,format=yuv420p")
 total = 0.0
 for s in e["shots"]:

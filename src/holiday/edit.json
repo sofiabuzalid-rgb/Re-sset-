@@ -26,7 +26,7 @@
 
     {"id": "e1", "scene": "close", "kind": "video", "src": "b", "in": 7.6, "out": 9.1, "zoom": [1.0, 1.05], "focus": [0.5, 0.45]},
     {"id": "e2", "scene": "close", "kind": "triptych", "dur": 1.5},
-    {"id": "e3", "scene": "close", "kind": "video", "src": "a", "in": 6.4, "out": 7.4, "zoom": [1.08, 1.14], "focus": [0.55, 0.5]},
+    {"id": "e3", "scene": "close", "kind": "photo", "src": "red", "dur": 1.0, "from": [0.5, 0.46, 1.0], "to": [0.5, 0.46, 1.08]},
     {"id": "e4", "scene": "close", "kind": "endcard", "dur": 3.0}
   ],
   "texts": [

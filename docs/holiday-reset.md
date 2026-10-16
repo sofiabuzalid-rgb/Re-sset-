@@ -13,8 +13,10 @@ Composition `HolidayReset`. Edit in `src/holiday/edit.json`; graphics in `src/ho
 | 10.0 | Navy panel sweep (navy from the print) + impact | |
 | 10.0–16.0 | Bear set push-in · print pan · both sizes as a catalogue print · close-up of the menorah-sweater bear | **HANUKKAH COLLECTION** tag (blue) |
 | 16.0–19.0 | She points at the rack · triptych 01/02/03 | **¿CUÁL ES TU FAVORITA?** |
-| 19.0–20.0 | Her hand on the reindeer set | **ENCUENTRA TU HOLIDAY RE:SET** |
+| 19.0–20.0 | Reindeer set, studio photo (the rack shot here showed the Grinch print) | **ENCUENTRA TU HOLIDAY RE:SET** |
 | 20.0–23.0 | Split: reindeer (Christmas) / bears (Hanukkah) behind the official logo | YOUR HOLIDAY · logo · **DESCUBRE LA COLECCIÓN** |
+
+HDR fix: IMG_1526 is iPhone HLG; shots are tone-mapped to SDR BT.709 (Hable, no desaturation) so the reds and greens are true.
 
 Christmas and Hanukkah are kept apart: the bear/menorah print appears only in the Hanukkah section, labelled 03 · HANUKKAH in the triptych, and never with Christmas graphics. No religious symbols were added. The only blue-and-white used is the navy taken from the print.
 
