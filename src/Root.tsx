@@ -9,6 +9,7 @@ import {XmasListAd, XMAS_LIST_TOTAL} from './xmas2/XmasListAd';
 import {BtsFilm, BTS_TOTAL} from './bts/BtsFilm';
 import {ComfyAd, COMFY_TOTAL} from './comfy/ComfyAd';
 import {PinkDetail, PINK_TOTAL} from './pink/PinkDetail';
+import {BlueDetail, BLUE_TOTAL} from './blue/BlueDetail';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
@@ -44,5 +45,6 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="LoQueNoVes" component={BtsFilm} durationInFrames={BTS_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="YourComfyEra" component={ComfyAd} durationInFrames={COMFY_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="PinkDetail" component={PinkDetail} durationInFrames={PINK_TOTAL} fps={FPS} width={1080} height={1920} />
+		<Composition id="BlueDetail" component={BlueDetail} durationInFrames={BLUE_TOTAL} fps={FPS} width={1080} height={1920} />
 	</>
 );

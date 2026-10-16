@@ -6,15 +6,16 @@ PINK PAJAMA DETAIL EDIT media from IMG_1694 + IMG_1695 (iPhone HLG HDR, 1080x192
   electric-piano Fmaj7–Am7–Dm7–Bbmaj7, soft kick + finger snap, light shaker, round bass, sparse bell motif;
   ends on a held Fmaj9 on the closing card.
 Output: public/pink/<shot>.mp4, public/pink/mix.wav
-Usage: python3 scripts/build-pink-media.py /folder/with/originals
+Usage: python3 scripts/build-pink-media.py /folder/with/originals [project]   (project = src/<project>/edit.json, default "pink")
 """
 import glob, json, os, re, subprocess, sys
 import numpy as np, soundfile as sf
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 SRC = sys.argv[1]
-OUT = os.path.join(ROOT, "public", "pink")
-e = json.load(open(os.path.join(ROOT, "src", "pink", "edit.json")))
+NAME = sys.argv[2] if len(sys.argv) > 2 else "pink"
+OUT = os.path.join(ROOT, "public", NAME)
+e = json.load(open(os.path.join(ROOT, "src", NAME, "edit.json")))
 FPS, SR, BPM = e["fps"], 48000, e["bpm"]
 os.makedirs(OUT, exist_ok=True)
 run = lambda c: subprocess.run(c, check=True)  # noqa: E731
@@ -34,7 +35,7 @@ TOTAL = t
 print("total", TOTAL)
 
 L = int(TOTAL / FPS * SR) + SR
-rng = np.random.default_rng(1694)
+rng = np.random.default_rng(e.get("seed", 1694))
 BEAT, BAR = 60 / BPM, 240 / BPM
 bus = {k: np.zeros(L) for k in ("dr", "ep", "ba", "fx")}
 NOTE = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "Bb": 10, "B": 11}
