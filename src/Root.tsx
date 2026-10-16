@@ -6,6 +6,7 @@ import {HanukkahAd, HANUKKAH_TOTAL} from './hanukkah/HanukkahAd';
 import {MagicReel} from './magic/MagicReel';
 import {XmasAd, XMAS_TOTAL} from './xmas/XmasAd';
 import {XmasListAd, XMAS_LIST_TOTAL} from './xmas2/XmasListAd';
+import {BtsFilm, BTS_TOTAL} from './bts/BtsFilm';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
@@ -38,5 +39,6 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="Hanukkah" component={HanukkahAd} durationInFrames={HANUKKAH_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="Christmas2026" component={XmasAd} durationInFrames={XMAS_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="Christmas2026B" component={XmasListAd} durationInFrames={XMAS_LIST_TOTAL} fps={FPS} width={1080} height={1920} />
+		<Composition id="LoQueNoVes" component={BtsFilm} durationInFrames={BTS_TOTAL} fps={FPS} width={1080} height={1920} />
 	</>
 );

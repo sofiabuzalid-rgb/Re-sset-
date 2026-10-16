@@ -1,0 +1,52 @@
+{
+  "fps": 30,
+  "bpm": 90,
+  "gridOffset": 15,
+  "note": "LO QUE NO VES — brand documentary. Voice = Ilana Baradon (IMG_1523, long take). Her shots are lip-synced (sync: true): shot.in equals the voice segment start. B-roll audio is not used (background radio and side conversations on every clip). Music grid: beat = 20 frames, first downbeat at frame 15.",
+  "voice": [
+    {"a": 0.12, "b": 5.52},
+    {"a": 5.85, "b": 7.90},
+    {"a": 8.28, "b": 8.92},
+    {"a": 9.27, "b": 13.66},
+    {"a": 13.74, "b": 15.76}
+  ],
+  "voiceAt": [0, 252, 314, 333, 465],
+  "shots": [
+    {"id": "i1", "src": "IMG_1523", "in": 0.12, "frames": 162, "zoom": [1.0, 1.06], "focus": [0.5, 0.3], "sync": true},
+    {"id": "p1", "photo": "photo-inventory.jpg", "frames": 90, "zoom": [1.12, 1.0], "focus": [0.5, 0.55]},
+    {"id": "i2", "src": "IMG_1523", "in": 5.85, "frames": 62, "zoom": [1.04, 1.08], "focus": [0.5, 0.35], "sync": true},
+    {"id": "i3", "src": "IMG_1523", "in": 8.28, "frames": 19, "zoom": [1.0, 1.0], "focus": [0.5, 0.4], "sync": true},
+    {"id": "i4", "src": "IMG_1523", "in": 9.27, "frames": 132, "zoom": [1.0, 1.07], "focus": [0.5, 0.4], "sync": true},
+    {"id": "i5", "src": "IMG_1523", "in": 13.74, "frames": 30, "zoom": [1.07, 1.1], "focus": [0.5, 0.35], "sync": true},
+    {"id": "b01", "src": "IMG_1361", "in": 1.0, "frames": 60, "zoom": [1.0, 1.08], "focus": [0.5, 0.7]},
+    {"id": "b02", "src": "IMG_1394", "in": 6.4, "frames": 60, "zoom": [1.0, 1.05], "focus": [0.5, 0.3]},
+    {"id": "b03", "src": "IMG_1394", "in": 16.0, "frames": 40, "zoom": [1.08, 1.12], "focus": [0.5, 0.35]},
+    {"id": "b04", "src": "IMG_1381", "in": 0.0, "frames": 60, "zoom": [1.0, 1.04], "focus": [0.5, 0.3]},
+    {"id": "b05", "src": "IMG_1395", "in": 0.0, "frames": 40, "zoom": [1.0, 1.05], "focus": [0.5, 0.6]},
+    {"id": "b06", "src": "IMG_1407", "in": 15.0, "frames": 60, "speed": 1.5, "zoom": [1.0, 1.04], "focus": [0.4, 0.4]},
+    {"id": "b07", "src": "IMG_1410", "in": 2.0, "frames": 60, "zoom": [1.0, 1.05], "focus": [0.5, 0.4]},
+    {"id": "b08", "src": "IMG_1351", "in": 10.4, "frames": 60, "speed": 1.25, "zoom": [1.1, 1.14], "focus": [0.5, 0.45]},
+    {"id": "b09", "src": "IMG_1403", "in": 0.0, "frames": 40, "speed": 1.5, "zoom": [1.1, 1.12], "focus": [0.45, 0.35]},
+    {"id": "r1", "src": "IMG_1403", "in": 3.6, "frames": 60, "zoom": [1.0, 1.05], "focus": [0.5, 0.5]},
+    {"id": "p2", "photo": "photo-orders.jpg", "frames": 80, "zoom": [1.0, 1.1], "focus": [0.3, 0.5]},
+    {"id": "r2", "src": "IMG_1397", "in": 0.0, "frames": 80, "zoom": [1.04, 1.1], "focus": [0.5, 0.45]},
+    {"id": "end", "src": "IMG_1340", "in": 0.2, "frames": 95, "zoom": [1.06, 1.0], "focus": [0.5, 0.4]}
+  ],
+  "subtitles": [
+    {"v": 0, "a": 0.12, "b": 2.05, "text": "¿Has visto lo que hay atrás de una tienda?"},
+    {"v": 0, "a": 2.15, "b": 3.62, "text": "¿Te lo has cuestionado alguna vez?"},
+    {"v": 0, "a": 3.62, "b": 5.52, "text": "Es muy divertido entrar atrás de una tienda."},
+    {"v": 1, "a": 5.85, "b": 7.90, "text": "Lo primero que tiene que haber es *un orden puro.*"},
+    {"v": 2, "a": 8.28, "b": 8.92, "text": "Tiene que haber"},
+    {"v": 3, "a": 9.27, "b": 11.15, "text": "todo dividido por tallas y por colores,"},
+    {"v": 3, "a": 11.15, "b": 13.66, "text": "y son mangas chicas y son mangas largas."},
+    {"v": 4, "a": 13.74, "b": 15.76, "text": "Esta es la parte atrás de la tienda de RE:SET."}
+  ],
+  "lowerThird": {"name": "ILANA BARADON", "role": "Fundadora de RE:SET", "from": 18, "to": 132},
+  "texts": [
+    {"from": 168, "to": 250, "kicker": "LO QUE NO VES", "lines": ["Tú ves una pijama.", "Nosotras vemos todo lo que pasó antes."], "top": 760},
+    {"from": 560, "to": 652, "kicker": "", "lines": ["CADA DETALLE CUENTA"], "top": 330, "caps": true},
+    {"from": 1040, "to": 1150, "kicker": "", "lines": ["Hay mucho más detrás", "de lo que ves."], "top": 330}
+  ],
+  "close": {"from": 1202, "tagline": "Time to be you."}
+}
