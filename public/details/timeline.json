@@ -1,0 +1,1477 @@
+{
+ "total": 1516,
+ "voiceEnd": 1450,
+ "shots": [
+  {
+   "id": "s01",
+   "at": "start",
+   "src": "1688",
+   "in": 0.2,
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "why": "general: cacao set, short sleeve, collar, buttons, long pants",
+   "from": 0,
+   "frames": 73
+  },
+  {
+   "id": "s02",
+   "at": "veces#1",
+   "src": "1694",
+   "in": 0.1,
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "why": "general: pink long-sleeve set",
+   "from": 73,
+   "frames": 33
+  },
+  {
+   "id": "s03",
+   "at": "hasta#1",
+   "src": "1690",
+   "in": 1.1,
+   "zoom": [
+    1.0,
+    1.1
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "de cerca: button close-up",
+   "from": 106,
+   "frames": 49
+  },
+  {
+   "id": "s04",
+   "at": "por#1",
+   "src": "1700",
+   "in": 0.2,
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "focus": [
+    0.5,
+    0.4
+   ],
+   "why": "general: blue set",
+   "from": 155,
+   "frames": 31
+  },
+  {
+   "id": "s05",
+   "at": "fíjate#1",
+   "src": "1688",
+   "in": 2.9,
+   "zoom": [
+    1.45,
+    1.5
+   ],
+   "focus": [
+    0.5,
+    0.12
+   ],
+   "why": "cuello: hand on the cacao collar",
+   "from": 186,
+   "frames": 55
+  },
+  {
+   "id": "s06",
+   "at": "abertura#1",
+   "src": "1690",
+   "in": 10.1,
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "focus": [
+    0.5,
+    0.3
+   ],
+   "why": "abertura con solapas: olive collar flat",
+   "from": 241,
+   "frames": 24
+  },
+  {
+   "id": "s07",
+   "at": "solapas#1",
+   "src": "1694",
+   "in": 0.4,
+   "zoom": [
+    1.55,
+    1.6
+   ],
+   "focus": [
+    0.52,
+    0.1
+   ],
+   "why": "solapas: pink collar (match cut)",
+   "from": 265,
+   "frames": 37
+  },
+  {
+   "id": "s08",
+   "at": "estilo#1",
+   "src": "1700",
+   "in": 12.6,
+   "zoom": [
+    1.5,
+    1.55
+   ],
+   "focus": [
+    0.5,
+    0.1
+   ],
+   "why": "solapas: blue collar (match cut)",
+   "from": 302,
+   "frames": 41
+  },
+  {
+   "id": "s09",
+   "at": "arreglado#1",
+   "src": "1690",
+   "in": 17.1,
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "focus": [
+    0.5,
+    0.3
+   ],
+   "why": "collar + neckline, olive",
+   "from": 343,
+   "frames": 37
+  },
+  {
+   "id": "s10",
+   "at": "parte#1",
+   "src": "1688",
+   "in": 9.0,
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "botones: cacao placket macro",
+   "from": 380,
+   "frames": 39
+  },
+  {
+   "id": "s11",
+   "at": "botones#1",
+   "src": "1690",
+   "in": 3.0,
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "botones: finger on olive buttons",
+   "from": 419,
+   "frames": 28
+  },
+  {
+   "id": "s12",
+   "at": "encanta#1",
+   "src": "1700",
+   "in": 5.0,
+   "zoom": [
+    1.2,
+    1.25
+   ],
+   "focus": [
+    0.5,
+    0.4
+   ],
+   "why": "front: blue placket being handled",
+   "from": 447,
+   "frames": 41
+  },
+  {
+   "id": "s13",
+   "at": "caída#1",
+   "src": "1694",
+   "in": 3.0,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.4
+   ],
+   "why": "caída: pink shirt front lifted and released",
+   "from": 488,
+   "frames": 41
+  },
+  {
+   "id": "s14",
+   "at": "también#1",
+   "src": "1688",
+   "in": 14.3,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "caída: cacao pant leg swings and falls",
+   "from": 529,
+   "frames": 71
+  },
+  {
+   "id": "s15",
+   "at": "manga#1",
+   "src": "1688",
+   "in": 0.6,
+   "zoom": [
+    1.35,
+    1.4
+   ],
+   "focus": [
+    0.85,
+    0.3
+   ],
+   "why": "manga corta: cacao short sleeve",
+   "from": 600,
+   "frames": 30
+  },
+  {
+   "id": "s16",
+   "at": "manga#2",
+   "kind": "split",
+   "panels": [
+    {
+     "src": "1688",
+     "in": 1.6,
+     "zoom": 1.7,
+     "focus": [
+      0.85,
+      0.3
+     ],
+     "label": "MANGA CORTA"
+    },
+    {
+     "src": "1700",
+     "in": 1.0,
+     "zoom": 1.5,
+     "focus": [
+      0.75,
+      0.45
+     ],
+     "label": "MANGA LARGA"
+    }
+   ],
+   "why": "short vs long, side by side",
+   "from": 630,
+   "frames": 52
+  },
+  {
+   "id": "s17",
+   "at": "cortes#1",
+   "src": "1688",
+   "in": 12.9,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.55
+   ],
+   "why": "pantalón: cacao pants, full length",
+   "from": 682,
+   "frames": 22
+  },
+  {
+   "id": "s18",
+   "at": "pantalón#1",
+   "src": "1700",
+   "in": 15.0,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.55
+   ],
+   "why": "pantalón: blue pants with drawstring, full length",
+   "from": 704,
+   "frames": 39
+  },
+  {
+   "id": "s19",
+   "at": "puedas#1",
+   "src": "1694",
+   "in": 12.0,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.55
+   ],
+   "why": "pantalón: pink pants, full length",
+   "from": 743,
+   "frames": 34
+  },
+  {
+   "id": "s20",
+   "at": "conjunto#1",
+   "src": "1695",
+   "in": 0.0,
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "el conjunto: pink set with its RE:SET bag",
+   "from": 777,
+   "frames": 68
+  },
+  {
+   "id": "s21",
+   "at": "algo#1",
+   "src": "1690",
+   "in": 18.2,
+   "zoom": [
+    1.0,
+    1.08
+   ],
+   "focus": [
+    0.5,
+    0.4
+   ],
+   "why": "esto: RE:SET print inside the neck",
+   "from": 845,
+   "frames": 65
+  },
+  {
+   "id": "s22",
+   "at": "acabados#1",
+   "src": "1690",
+   "in": 5.0,
+   "zoom": [
+    1.15,
+    1.2
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "acabados: piping along the placket",
+   "from": 910,
+   "frames": 35
+  },
+  {
+   "id": "s23",
+   "at": "botones#2",
+   "src": "1688",
+   "in": 10.2,
+   "zoom": [
+    1.1,
+    1.15
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "botones: cacao buttons",
+   "from": 945,
+   "frames": 27
+  },
+  {
+   "id": "s24",
+   "at": "mangas#1",
+   "src": "1687",
+   "in": 1.9,
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "focus": [
+    0.5,
+    0.6
+   ],
+   "why": "mangas: cuffed short sleeve",
+   "from": 972,
+   "frames": 33
+  },
+  {
+   "id": "s25",
+   "at": "cada#1",
+   "src": "1687",
+   "in": 3.0,
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "focus": [
+    0.4,
+    0.4
+   ],
+   "why": "detalle del diseño: ruched shoulder",
+   "from": 1005,
+   "frames": 43
+  },
+  {
+   "id": "s26",
+   "at": "diseño#1",
+   "src": "1533",
+   "in": 1.9,
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "focus": [
+    0.3,
+    0.4
+   ],
+   "why": "detalle del diseño: ruched sleeve, beige",
+   "from": 1048,
+   "frames": 27
+  },
+  {
+   "id": "s27",
+   "at": "porque#1",
+   "src": "1688",
+   "in": 16.3,
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "focus": [
+    0.5,
+    0.6
+   ],
+   "why": "finish: pant hem with piping",
+   "from": 1075,
+   "frames": 66
+  },
+  {
+   "id": "c1",
+   "at": "estampado#1",
+   "src": "1688",
+   "in": 1.2,
+   "dur": 0.3,
+   "zoom": [
+    1.0,
+    1.0
+   ],
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "why": "colour: cacao",
+   "from": 1141,
+   "frames": 9
+  },
+  {
+   "id": "c2",
+   "src": "1694",
+   "in": 1.2,
+   "dur": 0.3,
+   "zoom": [
+    1.0,
+    1.0
+   ],
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "why": "colour: pink",
+   "from": 1150,
+   "frames": 9
+  },
+  {
+   "id": "c3",
+   "src": "1700",
+   "in": 0.6,
+   "dur": 0.3,
+   "zoom": [
+    1.0,
+    1.0
+   ],
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "why": "colour: blue",
+   "from": 1159,
+   "frames": 9
+  },
+  {
+   "id": "c4",
+   "src": "1690",
+   "in": 14.8,
+   "dur": 0.3,
+   "zoom": [
+    1.0,
+    1.0
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "colour: olive",
+   "from": 1168,
+   "frames": 9
+  },
+  {
+   "id": "c5",
+   "src": "1533",
+   "in": 0.6,
+   "zoom": [
+    1.0,
+    1.0
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "colour: beige",
+   "from": 1177,
+   "frames": 13
+  },
+  {
+   "id": "s28",
+   "at": "también#2",
+   "src": "1690",
+   "in": 3.8,
+   "zoom": [
+    1.1,
+    1.14
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "cómo está hecha: hand on placket and buttons",
+   "from": 1190,
+   "frames": 97
+  },
+  {
+   "id": "s29",
+   "at": "queda#1",
+   "src": "1700",
+   "in": 11.0,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "why": "general: blue set buttoned (no worn footage exists)",
+   "from": 1287,
+   "frames": 24
+  },
+  {
+   "id": "s30",
+   "at": "cuál#1",
+   "kind": "grid",
+   "panels": [
+    {
+     "src": "1688",
+     "in": 0.4,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "src": "1694",
+     "in": 0.3,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "src": "1700",
+     "in": 0.4,
+     "focus": [
+      0.5,
+      0.42
+     ]
+    }
+   ],
+   "why": "the three full sets",
+   "from": 1311,
+   "frames": 92
+  },
+  {
+   "id": "s31",
+   "at": "descubre#1",
+   "kind": "end",
+   "src": "1694",
+   "in": 0.05,
+   "still": true,
+   "zoom": [
+    1.02,
+    1.08
+   ],
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "why": "close over the product: still of the full pink set (1695 put its bag print behind the logo)",
+   "from": 1403,
+   "frames": 113
+  }
+ ],
+ "labels": [
+  {
+   "text": "CUELLO CON SOLAPAS",
+   "from": 265,
+   "to": 380
+  },
+  {
+   "text": "BOTONES FRONTALES",
+   "from": 419,
+   "to": 488
+  },
+  {
+   "text": "LA CAÍDA DE LA TELA",
+   "from": 488,
+   "to": 600
+  },
+  {
+   "text": "LOS ACABADOS",
+   "from": 910,
+   "to": 1005
+  },
+  {
+   "text": "DETALLES DEL DISEÑO",
+   "from": 1005,
+   "to": 1075
+  }
+ ],
+ "phrases": [
+  [
+   {
+    "w": "Hay",
+    "hl": false,
+    "s": 0.3,
+    "e": 0.5
+   },
+   {
+    "w": "detalles",
+    "hl": false,
+    "s": 0.5,
+    "e": 0.92
+   },
+   {
+    "w": "en",
+    "hl": false,
+    "s": 0.92,
+    "e": 1.18
+   },
+   {
+    "w": "una",
+    "hl": false,
+    "s": 1.18,
+    "e": 1.36
+   },
+   {
+    "w": "pijama",
+    "hl": false,
+    "s": 1.36,
+    "e": 1.86
+   }
+  ],
+  [
+   {
+    "w": "que",
+    "hl": false,
+    "s": 1.86,
+    "e": 2.42
+   },
+   {
+    "w": "a",
+    "hl": false,
+    "s": 2.42,
+    "e": 2.5
+   },
+   {
+    "w": "veces",
+    "hl": false,
+    "s": 2.5,
+    "e": 2.74
+   },
+   {
+    "w": "no",
+    "hl": false,
+    "s": 2.74,
+    "e": 2.96
+   },
+   {
+    "w": "notas,",
+    "hl": false,
+    "s": 2.96,
+    "e": 3.5
+   }
+  ],
+  [
+   {
+    "w": "hasta",
+    "hl": false,
+    "s": 3.6,
+    "e": 3.94
+   },
+   {
+    "w": "la",
+    "hl": false,
+    "s": 3.94,
+    "e": 4.1
+   },
+   {
+    "w": "ves",
+    "hl": false,
+    "s": 4.1,
+    "e": 4.34
+   },
+   {
+    "w": "de",
+    "hl": false,
+    "s": 4.34,
+    "e": 4.48
+   },
+   {
+    "w": "cerca.",
+    "hl": false,
+    "s": 4.48,
+    "e": 4.82
+   }
+  ],
+  [
+   {
+    "w": "Por",
+    "hl": false,
+    "s": 5.23,
+    "e": 5.41
+   },
+   {
+    "w": "ejemplo,",
+    "hl": false,
+    "s": 5.41,
+    "e": 5.77
+   },
+   {
+    "w": "fíjate",
+    "hl": false,
+    "s": 6.27,
+    "e": 6.59
+   },
+   {
+    "w": "en",
+    "hl": false,
+    "s": 6.59,
+    "e": 6.73
+   },
+   {
+    "w": "el",
+    "hl": false,
+    "s": 6.73,
+    "e": 6.85
+   },
+   {
+    "w": "cuello,",
+    "hl": true,
+    "s": 6.85,
+    "e": 7.29
+   }
+  ],
+  [
+   {
+    "w": "tiene",
+    "hl": false,
+    "s": 7.65,
+    "e": 7.85
+   },
+   {
+    "w": "esta",
+    "hl": false,
+    "s": 7.85,
+    "e": 8.11
+   },
+   {
+    "w": "abertura",
+    "hl": false,
+    "s": 8.11,
+    "e": 8.63
+   },
+   {
+    "w": "con",
+    "hl": false,
+    "s": 8.63,
+    "e": 8.89
+   },
+   {
+    "w": "solapas",
+    "hl": true,
+    "s": 8.89,
+    "e": 9.43
+   }
+  ],
+  [
+   {
+    "w": "que",
+    "hl": false,
+    "s": 9.43,
+    "e": 9.57
+   },
+   {
+    "w": "le",
+    "hl": false,
+    "s": 9.57,
+    "e": 9.69
+   },
+   {
+    "w": "da",
+    "hl": false,
+    "s": 9.69,
+    "e": 9.87
+   },
+   {
+    "w": "un",
+    "hl": false,
+    "s": 9.87,
+    "e": 10.13
+   },
+   {
+    "w": "estilo",
+    "hl": false,
+    "s": 10.13,
+    "e": 10.57
+   },
+   {
+    "w": "mucho",
+    "hl": false,
+    "s": 10.57,
+    "e": 11.25
+   },
+   {
+    "w": "más",
+    "hl": false,
+    "s": 11.25,
+    "e": 11.49
+   },
+   {
+    "w": "arreglado.",
+    "hl": false,
+    "s": 11.49,
+    "e": 12.05
+   }
+  ],
+  [
+   {
+    "w": "La",
+    "hl": false,
+    "s": 12.45,
+    "e": 12.73
+   },
+   {
+    "w": "parte",
+    "hl": false,
+    "s": 12.73,
+    "e": 13.01
+   },
+   {
+    "w": "de",
+    "hl": false,
+    "s": 13.01,
+    "e": 13.17
+   },
+   {
+    "w": "enfrente",
+    "hl": false,
+    "s": 13.17,
+    "e": 13.65
+   },
+   {
+    "w": "lleva",
+    "hl": false,
+    "s": 13.65,
+    "e": 14.03
+   },
+   {
+    "w": "botones",
+    "hl": true,
+    "s": 14.03,
+    "e": 14.57
+   }
+  ],
+  [
+   {
+    "w": "y",
+    "hl": false,
+    "s": 14.57,
+    "e": 14.87
+   },
+   {
+    "w": "me",
+    "hl": false,
+    "s": 14.87,
+    "e": 14.97
+   },
+   {
+    "w": "encanta",
+    "hl": false,
+    "s": 14.97,
+    "e": 15.39
+   },
+   {
+    "w": "cómo",
+    "hl": false,
+    "s": 15.39,
+    "e": 15.87
+   },
+   {
+    "w": "se",
+    "hl": false,
+    "s": 15.87,
+    "e": 16.09
+   },
+   {
+    "w": "ve",
+    "hl": false,
+    "s": 16.09,
+    "e": 16.17
+   }
+  ],
+  [
+   {
+    "w": "la",
+    "hl": false,
+    "s": 16.17,
+    "e": 16.33
+   },
+   {
+    "w": "caída",
+    "hl": true,
+    "s": 16.33,
+    "e": 16.69
+   },
+   {
+    "w": "de",
+    "hl": true,
+    "s": 16.69,
+    "e": 16.85
+   },
+   {
+    "w": "la",
+    "hl": true,
+    "s": 16.85,
+    "e": 16.99
+   },
+   {
+    "w": "tela.",
+    "hl": true,
+    "s": 16.99,
+    "e": 17.29
+   }
+  ],
+  [
+   {
+    "w": "También",
+    "hl": false,
+    "s": 17.69,
+    "e": 18.19
+   },
+   {
+    "w": "tenemos",
+    "hl": false,
+    "s": 18.19,
+    "e": 18.71
+   },
+   {
+    "w": "diferentes",
+    "hl": false,
+    "s": 18.71,
+    "e": 19.17
+   },
+   {
+    "w": "versiones",
+    "hl": false,
+    "s": 19.17,
+    "e": 19.93
+   }
+  ],
+  [
+   {
+    "w": "de",
+    "hl": false,
+    "s": 19.93,
+    "e": 20.07
+   },
+   {
+    "w": "manga",
+    "hl": true,
+    "s": 20.07,
+    "e": 20.27
+   },
+   {
+    "w": "corta,",
+    "hl": true,
+    "s": 20.27,
+    "e": 20.87
+   },
+   {
+    "w": "manga",
+    "hl": true,
+    "s": 21.07,
+    "e": 21.25
+   },
+   {
+    "w": "larga",
+    "hl": true,
+    "s": 21.25,
+    "e": 21.77
+   }
+  ],
+  [
+   {
+    "w": "y",
+    "hl": false,
+    "s": 21.77,
+    "e": 22.31
+   },
+   {
+    "w": "con",
+    "hl": false,
+    "s": 22.31,
+    "e": 22.53
+   },
+   {
+    "w": "distintos",
+    "hl": false,
+    "s": 22.53,
+    "e": 22.79
+   },
+   {
+    "w": "cortes",
+    "hl": true,
+    "s": 22.79,
+    "e": 23.39
+   },
+   {
+    "w": "de",
+    "hl": true,
+    "s": 23.39,
+    "e": 23.51
+   },
+   {
+    "w": "pantalón",
+    "hl": true,
+    "s": 23.51,
+    "e": 24.37
+   }
+  ],
+  [
+   {
+    "w": "para",
+    "hl": false,
+    "s": 24.37,
+    "e": 24.65
+   },
+   {
+    "w": "que",
+    "hl": false,
+    "s": 24.65,
+    "e": 24.83
+   },
+   {
+    "w": "puedas",
+    "hl": false,
+    "s": 24.83,
+    "e": 25.19
+   },
+   {
+    "w": "elegir",
+    "hl": false,
+    "s": 25.19,
+    "e": 25.71
+   }
+  ],
+  [
+   {
+    "w": "el",
+    "hl": false,
+    "s": 25.71,
+    "e": 25.95
+   },
+   {
+    "w": "conjunto",
+    "hl": false,
+    "s": 25.95,
+    "e": 26.39
+   },
+   {
+    "w": "que",
+    "hl": false,
+    "s": 26.39,
+    "e": 26.65
+   },
+   {
+    "w": "más",
+    "hl": false,
+    "s": 26.65,
+    "e": 26.87
+   },
+   {
+    "w": "te",
+    "hl": false,
+    "s": 26.87,
+    "e": 27.01
+   },
+   {
+    "w": "guste.",
+    "hl": false,
+    "s": 27.01,
+    "e": 27.45
+   }
+  ],
+  [
+   {
+    "w": "Y",
+    "hl": false,
+    "s": 27.45,
+    "e": 28.23
+   },
+   {
+    "w": "algo",
+    "hl": false,
+    "s": 28.23,
+    "e": 28.45
+   },
+   {
+    "w": "que",
+    "hl": false,
+    "s": 28.45,
+    "e": 28.63
+   },
+   {
+    "w": "quiero",
+    "hl": false,
+    "s": 28.63,
+    "e": 28.83
+   },
+   {
+    "w": "enseñarte",
+    "hl": false,
+    "s": 28.83,
+    "e": 29.49
+   },
+   {
+    "w": "es",
+    "hl": false,
+    "s": 29.49,
+    "e": 29.65
+   },
+   {
+    "w": "esto,",
+    "hl": false,
+    "s": 29.65,
+    "e": 29.97
+   }
+  ],
+  [
+   {
+    "w": "los",
+    "hl": false,
+    "s": 30.35,
+    "e": 30.41
+   },
+   {
+    "w": "acabados,",
+    "hl": true,
+    "s": 30.41,
+    "e": 31.05
+   },
+   {
+    "w": "los",
+    "hl": false,
+    "s": 31.43,
+    "e": 31.55
+   },
+   {
+    "w": "botones,",
+    "hl": true,
+    "s": 31.55,
+    "e": 32.17
+   },
+   {
+    "w": "las",
+    "hl": false,
+    "s": 32.35,
+    "e": 32.47
+   },
+   {
+    "w": "mangas",
+    "hl": true,
+    "s": 32.47,
+    "e": 33.07
+   }
+  ],
+  [
+   {
+    "w": "y",
+    "hl": false,
+    "s": 33.07,
+    "e": 33.55
+   },
+   {
+    "w": "cada",
+    "hl": false,
+    "s": 33.55,
+    "e": 33.79
+   },
+   {
+    "w": "pequeño",
+    "hl": false,
+    "s": 33.79,
+    "e": 34.17
+   },
+   {
+    "w": "detalle",
+    "hl": true,
+    "s": 34.17,
+    "e": 34.79
+   },
+   {
+    "w": "del",
+    "hl": true,
+    "s": 34.79,
+    "e": 35.01
+   },
+   {
+    "w": "diseño.",
+    "hl": true,
+    "s": 35.01,
+    "e": 35.85
+   }
+  ],
+  [
+   {
+    "w": "Porque",
+    "hl": false,
+    "s": 35.89,
+    "e": 36.21
+   },
+   {
+    "w": "una",
+    "hl": false,
+    "s": 36.21,
+    "e": 36.35
+   },
+   {
+    "w": "pijama",
+    "hl": false,
+    "s": 36.35,
+    "e": 36.79
+   },
+   {
+    "w": "no",
+    "hl": false,
+    "s": 36.79,
+    "e": 37.01
+   },
+   {
+    "w": "solamente",
+    "hl": false,
+    "s": 37.01,
+    "e": 37.41
+   }
+  ],
+  [
+   {
+    "w": "trata",
+    "hl": false,
+    "s": 37.41,
+    "e": 37.85
+   },
+   {
+    "w": "del",
+    "hl": false,
+    "s": 37.85,
+    "e": 38.09
+   },
+   {
+    "w": "estampado,",
+    "hl": false,
+    "s": 38.09,
+    "e": 38.65
+   },
+   {
+    "w": "del",
+    "hl": false,
+    "s": 38.65,
+    "e": 38.85
+   },
+   {
+    "w": "color,",
+    "hl": false,
+    "s": 38.85,
+    "e": 39.19
+   }
+  ],
+  [
+   {
+    "w": "también",
+    "hl": false,
+    "s": 39.73,
+    "e": 40.09
+   },
+   {
+    "w": "importa",
+    "hl": false,
+    "s": 40.09,
+    "e": 40.93
+   },
+   {
+    "w": "cómo",
+    "hl": false,
+    "s": 40.93,
+    "e": 41.57
+   },
+   {
+    "w": "está",
+    "hl": false,
+    "s": 41.57,
+    "e": 41.81
+   },
+   {
+    "w": "hecha",
+    "hl": false,
+    "s": 41.81,
+    "e": 42.19
+   }
+  ],
+  [
+   {
+    "w": "y",
+    "hl": false,
+    "s": 42.19,
+    "e": 42.47
+   },
+   {
+    "w": "cómo",
+    "hl": false,
+    "s": 42.47,
+    "e": 42.73
+   },
+   {
+    "w": "te",
+    "hl": false,
+    "s": 42.73,
+    "e": 42.95
+   },
+   {
+    "w": "queda.",
+    "hl": false,
+    "s": 42.95,
+    "e": 43.33
+   }
+  ],
+  [
+   {
+    "w": "¿Cuál",
+    "hl": false,
+    "s": 43.75,
+    "e": 43.95
+   },
+   {
+    "w": "de",
+    "hl": false,
+    "s": 43.95,
+    "e": 44.07
+   },
+   {
+    "w": "estos",
+    "hl": false,
+    "s": 44.07,
+    "e": 44.27
+   },
+   {
+    "w": "conjuntos",
+    "hl": false,
+    "s": 44.27,
+    "e": 45.11
+   }
+  ],
+  [
+   {
+    "w": "es",
+    "hl": false,
+    "s": 45.11,
+    "e": 45.55
+   },
+   {
+    "w": "más",
+    "hl": false,
+    "s": 45.55,
+    "e": 45.75
+   },
+   {
+    "w": "tu",
+    "hl": false,
+    "s": 45.75,
+    "e": 45.93
+   },
+   {
+    "w": "estilo?",
+    "hl": false,
+    "s": 45.93,
+    "e": 46.41
+   }
+  ],
+  [
+   {
+    "w": "Descubre",
+    "hl": false,
+    "s": 46.83,
+    "e": 47.49
+   },
+   {
+    "w": "tu",
+    "hl": false,
+    "s": 47.49,
+    "e": 47.61
+   },
+   {
+    "w": "favorito.",
+    "hl": false,
+    "s": 47.61,
+    "e": 48.21
+   }
+  ]
+ ]
+}

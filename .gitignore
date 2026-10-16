@@ -5,3 +5,4 @@ out/
 
 # regenerable intermediates (scripts/build-softwinter-media.py)
 public/softwinter/*.mp4
+public/details/*.key
