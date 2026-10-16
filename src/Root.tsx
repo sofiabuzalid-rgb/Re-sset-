@@ -5,6 +5,7 @@ import {EssentialAd, essentialDefaults, ESSENTIAL_TOTAL} from './essential/Essen
 import {HanukkahAd, HANUKKAH_TOTAL} from './hanukkah/HanukkahAd';
 import {MagicReel} from './magic/MagicReel';
 import {XmasAd, XMAS_TOTAL} from './xmas/XmasAd';
+import {HolidayAd, HOLIDAY_TOTAL} from './holiday/HolidayAd';
 import {LookbookAd, LOOKBOOK_TOTAL} from './lookbook/LookbookAd';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
@@ -39,5 +40,7 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="Christmas2026" component={XmasAd} durationInFrames={XMAS_TOTAL} fps={FPS} width={1080} height={1920} />
 		{/* "Mini Lookbook" — editorial Reel: best takes of the loungewear set, original music, logo at the close */}
 		<Composition id="MiniLookbook" component={LookbookAd} durationInFrames={LOOKBOOK_TOTAL} fps={FPS} width={1080} height={1920} />
+		{/* "Your Holiday RE:SET" — Meta ad: Christmas + Hanukkah collections, photo sequences, CTA close */}
+		<Composition id="HolidayReset" component={HolidayAd} durationInFrames={HOLIDAY_TOTAL} fps={FPS} width={1080} height={1920} />
 	</>
 );

@@ -1,0 +1,40 @@
+{
+  "fps": 30,
+  "bpm": 120,
+  "sources": {
+    "b": "IMG_1526 (14.3 s): part 1 of the rack video",
+    "a": "IMG_1526 (20.8 s): part 2 of the rack video"
+  },
+  "shots": [
+    {"id": "h1", "scene": "hook", "kind": "video", "src": "b", "in": 9.55, "out": 10.05, "zoom": [1.12, 1.18], "focus": [0.62, 0.42]},
+    {"id": "h2", "scene": "hook", "kind": "photo", "src": "bear_detail", "dur": 0.5, "from": [0.5, 0.42, 1.25], "to": [0.5, 0.48, 1.4]},
+    {"id": "h3", "scene": "hook", "kind": "photo", "src": "green", "dur": 0.5, "from": [0.6, 0.55, 1.55], "to": [0.62, 0.52, 1.7]},
+    {"id": "h4", "scene": "hook", "kind": "photo", "src": "bear", "dur": 0.5, "from": [0.5, 0.5, 1.05], "to": [0.5, 0.5, 1.15]},
+    {"id": "h5", "scene": "hook", "kind": "video", "src": "a", "in": 0.5, "out": 1.5, "zoom": [1.0, 1.06], "focus": [0.6, 0.45]},
+
+    {"id": "c1", "scene": "christmas", "kind": "photo", "src": "red", "dur": 1.5, "from": [0.3, 0.5, 1.05], "to": [0.72, 0.5, 1.12]},
+    {"id": "c2", "scene": "christmas", "kind": "photo", "src": "red", "dur": 1.0, "from": [0.27, 0.3, 1.55], "to": [0.27, 0.37, 1.7]},
+    {"id": "c3", "scene": "christmas", "kind": "card", "src": "green", "dur": 1.5, "crop": [180, 0, 1160, 880]},
+    {"id": "c4", "scene": "christmas", "kind": "video", "src": "a", "in": 1.5, "out": 2.5, "zoom": [1.1, 1.16], "focus": [0.62, 0.45]},
+    {"id": "c5", "scene": "christmas", "kind": "photo", "src": "red", "dur": 1.0, "from": [0.68, 0.58, 1.9], "to": [0.74, 0.56, 2.1]},
+    {"id": "c6", "scene": "christmas", "kind": "photo", "src": "green", "dur": 1.0, "from": [0.26, 0.5, 1.25], "to": [0.34, 0.5, 1.3]},
+
+    {"id": "k1", "scene": "hanukkah", "kind": "photo", "src": "bear", "dur": 1.5, "from": [0.5, 0.48, 1.0], "to": [0.5, 0.46, 1.12]},
+    {"id": "k2", "scene": "hanukkah", "kind": "photo", "src": "bear_detail", "dur": 1.5, "from": [0.5, 0.3, 1.15], "to": [0.5, 0.62, 1.15]},
+    {"id": "k3", "scene": "hanukkah", "kind": "card", "src": "bear_rack", "dur": 1.5, "crop": [290, 40, 1250, 880]},
+    {"id": "k4", "scene": "hanukkah", "kind": "photo", "src": "bear_detail", "dur": 1.5, "from": [0.66, 0.56, 1.6], "to": [0.66, 0.56, 1.95]},
+
+    {"id": "e1", "scene": "close", "kind": "video", "src": "b", "in": 7.6, "out": 9.1, "zoom": [1.0, 1.05], "focus": [0.5, 0.45]},
+    {"id": "e2", "scene": "close", "kind": "triptych", "dur": 1.5},
+    {"id": "e3", "scene": "close", "kind": "video", "src": "a", "in": 6.4, "out": 7.4, "zoom": [1.08, 1.14], "focus": [0.55, 0.5]},
+    {"id": "e4", "scene": "close", "kind": "endcard", "dur": 3.0}
+  ],
+  "texts": [
+    {"id": "hookQ", "from": 0.0, "to": 2.0},
+    {"id": "hookA", "from": 2.0, "to": 3.0},
+    {"id": "christmas", "from": 3.1, "to": 9.9},
+    {"id": "hanukkah", "from": 10.1, "to": 15.9},
+    {"id": "favorite", "from": 16.0, "to": 19.0},
+    {"id": "find", "from": 19.0, "to": 20.0}
+  ]
+}
