@@ -1,12 +1,14 @@
 """
 "The Details Edit" media: the voice-over drives the whole timeline.
 
-1. Voice: the creator's own recording (Las_Quesadillas_de_Anita.m4a). Spectral noise reduction (noise profile = quietest
+1. Voice: the creator's own recording (edit.json `voiceFile`; currently Las_Quesadillas_de_Anita_2.m4a). Spectral noise reduction (noise profile = quietest
    10 % of frames, Wiener gain with a floor), 80 Hz high-pass, de-mud / presence EQ, soft de-ess, gentle compression,
    limiter. Pauses between sentences are shortened to `gap` seconds; words are never cut or re-ordered.
 2. Timeline: every shot in edit.json starts on a WORD of the voice ("fíjate#1" = first "fíjate"), so the picture always
    shows what the voice is naming. Word times come from src/details/transcript.json (faster-whisper small); the
-   subtitle text is the hand-corrected script in edit.json, and the script checks that the word counts match.
+   subtitle text is the hand-corrected script in edit.json, and the script checks that the word counts match
+   ("~" = a hesitation the model heard as a word, kept in the audio but not subtitled; "a_b" = two words the model
+   heard as one).
 3. Video: iPhone HDR (HLG, BT.2020) tone-mapped to SDR BT.709 (Hable, no desaturation, gamma 1.12): true colours,
    no channel or saturation changes.
 4. Music: ORIGINAL instrumental (no samples or third-party material): chic editorial pop, 112 BPM, D major, ducked
@@ -45,8 +47,10 @@ for c in e["voice"]:
         j += 1
         a = round(c["at"] + max(w[0], c["in"]) - c["in"], 3)
         b = round(c["at"] + min(w[1], c["out"]) - c["in"], 3)
+        if tok == "~":  # a hesitation the model heard as a word: kept in the audio, not shown
+            continue
         word = tok.lstrip("*")
-        phrases[-1].append({"w": word, "hl": tok.startswith("*"), "s": a, "e": b})
+        phrases[-1].append({"w": word.replace("_", " "), "hl": tok.startswith("*"), "s": a, "e": b})
         k = norm(word)
         count[k] = count.get(k, 0) + 1
         key_t[f"{k}#{count[k]}"] = a
@@ -133,7 +137,7 @@ def denoise(x):
 
 
 raw = os.path.join(OUT, "_vo.wav")
-subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", os.path.join(SRC, "vo.m4a"), "-ac", "1", "-ar", str(SR),
+subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", os.path.join(SRC, e.get("voiceFile", "vo.m4a")), "-ac", "1", "-ar", str(SR),
                 "-af", "highpass=f=80:poles=2", raw], check=True)
 x, _ = sf.read(raw, dtype="float64")
 sf.write(raw, denoise(x).astype("float32"), SR)

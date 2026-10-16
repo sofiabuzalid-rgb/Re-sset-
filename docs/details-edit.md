@@ -1,6 +1,6 @@
-# RE:SET — "The Details Edit" (9:16, 50.5 s)
+# RE:SET — "The Details Edit" (9:16, 42.7 s)
 
-Product breakdown driven by the creator's voice-over (`Las_Quesadillas_de_Anita.m4a`, 51.5 s). Composition `DetailsEdit`.
+Product breakdown driven by the creator's voice-over (`Las_Quesadillas_de_Anita_2.m4a`, 41.7 s; it replaces the first recording entirely). Composition `DetailsEdit`.
 Every shot starts on a word of the voice (`edit.json` → `"at": "fíjate#1"`), so the picture shows what the voice names.
 
 ## Material
@@ -21,9 +21,14 @@ All sources are iPhone HDR (HLG). They are tone-mapped to SDR BT.709 (Hable, no 
 
 ## Transcript (exact; faster-whisper small, checked word by word)
 
-"Hay detalles en una pijama que a veces no notas, hasta la ves de cerca. Por ejemplo, fíjate en el cuello, tiene esta abertura con solapas que le da un estilo mucho más arreglado. La parte de enfrente lleva botones y me encanta cómo se ve la caída de la tela. También tenemos diferentes versiones de manga corta, manga larga y con distintos cortes de pantalón para que puedas elegir el conjunto que más te guste. Y algo que quiero enseñarte es esto, los acabados, los botones, las mangas y cada pequeño detalle del diseño. Porque una pijama no solamente trata del estampado, del color, también importa cómo está hecha y cómo te queda. ¿Cuál de estos conjuntos es más tu estilo? Descubre tu favorito."
+"Hay detalles en una pijama que a veces no notas hasta que la ves de cerca. Por ejemplo, fíjate en el cuello, tiene esa abertura… con solapas que le da un estilo mucho más arreglado. La parte de enfrente lleva botones y me encanta cómo se ve la caída de la tela. También tenemos diferentes versiones de manga corta, manga larga y con distintos cortes de pantalón para que puedas elegir el conjunto que más te guste. Y ahora lo que quiero enseñarte es esto: los acabados, los botones, las mangas y cada pequeño detalle del diseño, porque una pijama, la verdad, no solamente se trata del estampado o del color, también importa mucho cómo está hecha y cómo te queda. ¿Cuál de estos conjuntos es más tu estilo? Descubre tu favorito aquí en RE:SET, te esperamos."
 
-To confirm by ear: "hasta la ves de cerca" (the model hears no "que", although the script said "hasta que la ves") and "trata del estampado, del color" (an "o"/"y" between them is possible). Only pauses between sentences were shortened, to 0.3 s. No words were cut.
+To confirm by ear:
+- "abertura… con solapas": there is a hesitation (the model hears "que con") that stays in the audio and is not subtitled.
+- "cómo está hecha": the two passes heard "hecho" once and "hecha" once.
+- "¿Cuál de estos conjuntos": the model heard "¿Cuáles son juntos". The subtitle uses the script's wording.
+
+Only pauses between sentences were shortened, to 0.3 s. No words were cut.
 
 ## Word → picture
 
@@ -31,29 +36,29 @@ To confirm by ear: "hasta la ves de cerca" (the model hears no "que", although t
 |---|---|
 | Hay detalles en una pijama / que a veces no notas | Cacao set (general) → pink set (general) |
 | hasta la ves de cerca | Button macro, olive |
-| Por ejemplo, fíjate en el cuello | Blue set → hand on the cacao collar |
+| Por ejemplo, fíjate en el cuello | Hand on the cacao collar |
 | abertura / con solapas / estilo / arreglado | Match cut between collars: olive → pink → blue → olive · **CUELLO CON SOLAPAS** |
 | La parte de enfrente lleva botones | Cacao placket macro → finger on olive buttons · **BOTONES FRONTALES** |
 | me encanta cómo se ve / la caída de la tela | Blue placket → pink shirt front lifted and released → cacao pant leg swinging · **LA CAÍDA DE LA TELA** |
 | manga corta, manga larga | Cacao short sleeve → split screen **MANGA CORTA / MANGA LARGA** (cacao / blue) |
 | distintos cortes de pantalón / para que puedas elegir | Cacao pants → blue pants with drawstring → pink pants (full length) |
 | el conjunto que más te guste | Pink set with its RE:SET bag |
-| algo que quiero enseñarte es esto | RE:SET print inside the neck |
+| Y ahora lo que quiero enseñarte es esto | RE:SET print inside the neck |
 | los acabados, los botones, las mangas | Placket piping → cacao buttons → cuffed sleeve · **LOS ACABADOS** |
 | cada pequeño detalle del diseño | Ruched shoulder → ruched sleeve · **DETALLES DEL DISEÑO** |
-| Porque una pijama no solamente | Pant hem with piping |
-| trata del estampado, del color | Colour run: cacao, pink, blue, olive, beige (no names, since the voice names none) |
+| porque una pijama, la verdad, | Pant hem with piping |
+| no solamente se trata del estampado o del color | Colour run: cacao, pink, blue, olive, beige (no names, since the voice names none) |
 | cómo está hecha | Hand over placket and buttons |
 | y cómo te queda | Blue set, buttoned. **There is no worn footage**, so this is a general product shot. A worn shot is needed to really show the fit. |
 | ¿Cuál de estos conjuntos es más tu estilo? | Three full sets side by side · **¿CUÁL ES MÁS TU ESTILO?** |
-| Descubre tu favorito. | Pink set behind DESCUBRE TU + logo + *Your RE:SET, your way.* |
+| Descubre tu favorito aquí en RE:SET, te esperamos. | Pink set behind DESCUBRE TU + logo + *Your RE:SET, your way.* |
 
 The pants all look full length in the footage. "Distintos cortes" is shown as three different pants (wide cuffed, drawstring, elastic). No pant length is labelled.
 
 ## Audio
 
 - **Voice**: spectral noise reduction, then 80 Hz HP, −2.5 dB @250 Hz, +2 dB @3.4 kHz, +1.5 dB @9 kHz, de-ess, 2.6:1 compression, limiter, and 20 ms fades.
-- **Music**: an original instrumental (no samples or third-party material, OK for ads), chic editorial pop at 112 BPM in D major, ducked −15 dB under the voice, with a resolve under the logo. Mix at −14.7 LUFS.
+- **Music**: an original instrumental (no samples or third-party material, OK for ads), chic editorial pop at 112 BPM in D major, ducked −15 dB under the voice, with a resolve under the logo. Mix at −14.4 LUFS.
 
 ## Type
 
@@ -62,6 +67,6 @@ Labels: Bebas Neue (logotype face). Subtitles and copy: Montserrat in place of G
 ## Rebuild
 
 ```bash
-python3 scripts/build-details-media.py <folder with 1687/1688/1690/1694/1695/1700/1533.mov and vo.m4a>   # unchanged shots are cached
+python3 scripts/build-details-media.py <folder with 1687/1688/1690/1694/1695/1700/1533.mov and vo2.m4a>   # unchanged shots are cached
 npx remotion render src/index.ts DetailsEdit out/RESET_TheDetailsEdit_1080x1920.mp4 --crf=16 --audio-codec=aac --audio-bitrate=256k
 ```
