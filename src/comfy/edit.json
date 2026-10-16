@@ -1,0 +1,54 @@
+{
+  "fps": 30,
+  "bpm": 120,
+  "note": "YOUR COMFY ERA — one ad from IMG_1522 + IMG_1525 (Ilana in the store). Voice = her real phrases only, re-ordered into one thread with pauses removed. sync: true shots share source time with their voice segment; the others are garment-only crops (face out of frame) used as cutaways.",
+  "voice": [
+    {"src": "IMG_1522", "a": 0.62, "b": 3.62, "at": 0},
+    {"src": "IMG_1522", "a": 7.78, "b": 9.72, "at": 90},
+    {"src": "IMG_1525", "a": 4.45, "b": 5.25, "at": 152},
+    {"src": "IMG_1525", "a": 6.69, "b": 10.88, "at": 185},
+    {"src": "IMG_1525", "a": 13.35, "b": 15.42, "at": 318},
+    {"src": "IMG_1525", "a": 15.72, "b": 16.82, "at": 380},
+    {"src": "IMG_1525", "a": 17.15, "b": 20.00, "at": 416},
+    {"src": "IMG_1525", "a": 20.65, "b": 23.45, "at": 505}
+  ],
+  "shots": [
+    {"id": "s01", "src": "IMG_1522", "in": 0.62, "frames": 90, "zoom": [1.1, 1.16], "focus": [0.5, 0.62], "sync": true},
+    {"id": "s02", "src": "IMG_1522", "in": 7.78, "frames": 60, "zoom": [1.22, 1.28], "focus": [0.5, 0.7], "sync": true},
+    {"id": "s03", "src": "IMG_1525", "in": 4.38, "frames": 34, "zoom": [1.06, 1.1], "focus": [0.45, 0.45], "sync": true},
+    {"id": "s04", "src": "IMG_1525", "in": 6.657, "frames": 60, "zoom": [1.85, 1.95], "focus": [0.4, 0.42], "sync": true},
+    {"id": "s05", "src": "IMG_1525", "in": 8.657, "frames": 74, "zoom": [1.12, 1.18], "focus": [0.45, 0.4], "sync": true},
+    {"id": "s06", "src": "IMG_1525", "in": 7.6, "frames": 29, "zoom": [1.5, 1.55], "focus": [0.4, 0.66]},
+    {"id": "s07", "src": "IMG_1525", "in": 13.4, "frames": 33, "zoom": [1.42, 1.48], "focus": [0.6, 0.72]},
+    {"id": "s08", "src": "IMG_1525", "in": 17.4, "frames": 36, "zoom": [1.6, 1.65], "focus": [0.22, 0.7]},
+    {"id": "s09", "src": "IMG_1525", "in": 17.15, "frames": 67, "zoom": [1.04, 1.1], "focus": [0.5, 0.5], "sync": true},
+    {"id": "s10", "src": "IMG_1522", "in": 11.0, "frames": 22, "zoom": [1.6, 1.64], "focus": [0.5, 0.85]},
+    {"id": "s11", "src": "IMG_1525", "in": 20.65, "frames": 84, "zoom": [1.04, 1.08], "focus": [0.5, 0.55], "sync": true},
+    {"id": "close", "src": "IMG_1525", "in": 17.7, "frames": 90, "zoom": [1.4, 1.46], "focus": [0.45, 0.8]}
+  ],
+  "subtitles": [
+    {"v": 0, "a": 0.62, "b": 1.95, "text": "¿Ya viste esta belleza"},
+    {"v": 0, "a": 1.95, "b": 3.62, "text": "que acabamos de sacar en RE:SET?"},
+    {"v": 1, "a": 7.78, "b": 9.72, "text": "Son pijamas *calientitas* para esta temporada."},
+    {"v": 2, "a": 4.45, "b": 5.25, "text": "Este print"},
+    {"v": 3, "a": 6.69, "b": 7.55, "text": "se llama *herringbone,*"},
+    {"v": 3, "a": 7.55, "b": 10.88, "text": "que es como el hueso de un pescado."},
+    {"v": 4, "a": 13.35, "b": 14.30, "text": "La tenemos en *café,*"},
+    {"v": 4, "a": 14.30, "b": 15.42, "text": "en *verde*"},
+    {"v": 5, "a": 15.72, "b": 16.82, "text": "y en *azul marino.*"},
+    {"v": 6, "a": 17.15, "b": 18.25, "text": "La tenemos para mujer,"},
+    {"v": 6, "a": 18.25, "b": 20.00, "text": "para hombre y para niño."},
+    {"v": 7, "a": 20.65, "b": 22.20, "text": "¿Qué esperas para venir por tu set?"}
+  ],
+  "hook": {"from": 4, "to": 84, "kicker": "NUEVO EN RE:SET", "title": "3 COLORES · 1 PRINT"},
+  "tags": [
+    {"from": 194, "to": 306, "text": "PRINT HERRINGBONE", "x": 70, "y": 330},
+    {"from": 318, "to": 347, "text": "CAFÉ", "x": 70, "y": 330, "swatch": "#A89A8C"},
+    {"from": 347, "to": 380, "text": "VERDE", "x": 70, "y": 330, "swatch": "#A7AE9A"},
+    {"from": 380, "to": 416, "text": "AZUL MARINO", "x": 70, "y": 330, "swatch": "#7B95AB"},
+    {"from": 512, "to": 589, "text": "AZUL MARINO", "x": 110, "y": 560, "swatch": "#7B95AB"},
+    {"from": 518, "to": 589, "text": "VERDE", "x": 640, "y": 610, "swatch": "#A7AE9A"}
+  ],
+  "favorite": {"from": 556, "to": 589, "text": "¿CUÁL ES TU FAVORITA?"},
+  "close": {"from": 589, "title": "ENCUENTRA TU RE:SET", "cta": "DESCUBRE LA COLECCIÓN"}
+}
