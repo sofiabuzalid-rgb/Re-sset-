@@ -1,0 +1,27 @@
+{
+  "fps": 30,
+  "bpm": 120,
+  "seed": 1688,
+  "note": "BROWN PAJAMA DETAIL EDIT — IMG_1688 only (short sleeve). Shared system: src/detail/DetailEdit.tsx. No voice-over received; original audio muted.",
+  "shots": [
+    {"id": "h1", "src": "IMG_1688", "in": 0.3, "frames": 75, "zoom": [1.08, 1.0], "focus": [0.5, 0.45]},
+    {"id": "c1", "src": "IMG_1688", "in": 1.0, "frames": 60, "zoom": [2.0, 2.08], "focus": [0.5, 0.12]},
+    {"id": "b1", "src": "IMG_1688", "in": 9.2, "frames": 75, "zoom": [1.0, 1.05], "focus": [0.5, 0.5]},
+    {"id": "m1", "src": "IMG_1688", "in": 2.4, "frames": 60, "zoom": [1.7, 1.76], "focus": [0.1, 0.3]},
+    {"id": "f1", "src": "IMG_1688", "in": 7.0, "frames": 60, "zoom": [1.04, 1.08], "focus": [0.5, 0.45]},
+    {"id": "p1", "src": "IMG_1688", "in": 12.7, "frames": 45, "zoom": [1.0, 1.04], "focus": [0.5, 0.5]},
+    {"id": "p2", "src": "IMG_1688", "in": 13.0, "frames": 45, "zoom": [1.7, 1.76], "focus": [0.5, 0.12]},
+    {"id": "p3", "src": "IMG_1688", "in": 14.2, "frames": 60, "zoom": [1.0, 1.04], "focus": [0.5, 0.5]},
+    {"id": "close", "src": "IMG_1688", "in": 0.3, "frames": 90, "speed": 0.6, "zoom": [1.0, 1.04], "focus": [0.5, 0.45]}
+  ],
+  "hook": {"from": 4, "to": 72, "kicker": "LOS DETALLES", "title": "BROWN RE:SET"},
+  "labels": [
+    {"shot": "c1", "text": "CUELLO ABIERTO"},
+    {"shot": "b1", "text": "BOTONES AL FRENTE"},
+    {"shot": "m1", "text": "MANGA CORTA"},
+    {"shot": "f1", "text": "ASÍ CAE LA TELA"},
+    {"shot": "p1", "text": "PANTALÓN LARGO"},
+    {"shot": "p2", "text": "CINTURA ELÁSTICA"}
+  ],
+  "close": {"title": "¿TE LA PONDRÍAS?", "cta": "DESCUBRE TU FAVORITA EN RE:SET"}
+}
