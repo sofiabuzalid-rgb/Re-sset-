@@ -1,14 +1,14 @@
 """
 "The Details Edit" media: the voice-over drives the whole timeline.
 
-1. Voice: the creator's own recording (edit.json `voiceFile`; currently Las_Quesadillas_de_Anita_2.m4a). Spectral noise reduction (noise profile = quietest
+1. Voice: the creator's own recording (edit.json `voiceFile`; currently AUDIO-2026-10-16-15-53-31.m4a). Spectral noise reduction (noise profile = quietest
    10 % of frames, Wiener gain with a floor), 80 Hz high-pass, de-mud / presence EQ, soft de-ess, gentle compression,
    limiter. Pauses between sentences are shortened to `gap` seconds; words are never cut or re-ordered.
 2. Timeline: every shot in edit.json starts on a WORD of the voice ("fíjate#1" = first "fíjate"), so the picture always
    shows what the voice is naming. Word times come from src/details/transcript.json (faster-whisper small); the
    subtitle text is the hand-corrected script in edit.json, and the script checks that the word counts match
    ("~" = a hesitation the model heard as a word, kept in the audio but not subtitled; "a_b" = two words the model
-   heard as one).
+   heard as one; "^" = the second half of a word the model split in two).
 3. Video: iPhone HDR (HLG, BT.2020) tone-mapped to SDR BT.709 (Hable, no desaturation, gamma 1.12): true colours,
    no channel or saturation changes.
 4. Music: ORIGINAL instrumental (no samples or third-party material): chic editorial pop, 112 BPM, D major, ducked
@@ -48,6 +48,9 @@ for c in e["voice"]:
         a = round(c["at"] + max(w[0], c["in"]) - c["in"], 3)
         b = round(c["at"] + min(w[1], c["out"]) - c["in"], 3)
         if tok == "~":  # a hesitation the model heard as a word: kept in the audio, not shown
+            continue
+        if tok == "^":  # the model split one word in two: extend the previous word
+            phrases[-1][-1]["e"] = b
             continue
         word = tok.lstrip("*")
         phrases[-1].append({"w": word.replace("_", " "), "hl": tok.startswith("*"), "s": a, "e": b})

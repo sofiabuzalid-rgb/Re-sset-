@@ -4,40 +4,40 @@
  "gap": 0.3,
  "voice": [
   {
-   "in": 0.0,
-   "out": 3.8,
+   "in": 0.45,
+   "out": 4.42,
    "at": 0.3,
-   "text": "| Hay detalles en una pijama | que a veces no notas | hasta que la ves de cerca."
+   "text": "| Hay detalles en una pijama | que a veces no notas | hasta que ya la ves de cerca."
   },
   {
-   "in": 4.4,
-   "out": 10.52,
-   "text": "| Por ejemplo, fíjate en el *cuello, | tiene esa abertura… ~ con *solapas | que le da un estilo mucho más arreglado."
+   "in": 4.92,
+   "out": 11.05,
+   "text": "| Por ejemplo, fíjate en el *cuello. | Tiene esta abertura con *solapas ^ | que le da un estilo mucho más arreglado."
   },
   {
-   "in": 10.82,
-   "out": 14.52,
-   "text": "| La parte de enfrente lleva *botones | y me encanta cómo se ve | la *caída *de *la *tela."
+   "in": 11.55,
+   "out": 15.05,
+   "text": "| La parte de enfrente lleva ^ *botones | y me encanta cómo se ve | la *caída *de *la *tela."
   },
   {
-   "in": 15.0,
-   "out": 22.06,
-   "text": "| También tenemos diferentes versiones | de *manga *corta, *manga *larga | y con distintos *cortes *de *pantalón | para que puedas elegir | el conjunto que más te guste."
+   "in": 15.55,
+   "out": 24.2,
+   "text": "| También tenemos en diferentes versiones, | por ejemplo, *manga *corta, *manga *larga | y con distintos *cortes *de *pantalón | para que puedas elegir | el conjunto que más te guste."
   },
   {
-   "in": 22.5,
-   "out": 35.62,
-   "text": "| Y ahora lo que quiero enseñarte es esto: | los *acabados, los *botones, las *mangas | y cada pequeño *detalle *del *diseño, | porque una pijama, la verdad, | no solamente se trata | del estampado o del color, | también importa mucho cómo está hecha | y cómo te queda."
+   "in": 24.75,
+   "out": 38.4,
+   "text": "| Y algo que quiero enseñarte es esto. | Los *acabados, los *botones, las *mangas | y cada pequeño *detalle *del *diseño, | porque una pijama no solamente | se trata del estampado, del color, | sino también importa muchísimo | cómo está hecha y cómo te queda."
   },
   {
-   "in": 35.95,
-   "out": 38.05,
-   "text": "| ¿Cuál_de estos conjuntos | es más tu estilo?"
+   "in": 39.0,
+   "out": 41.7,
+   "text": "| Así que, ¿cuál de estos conjuntos | es más tu estilo?"
   },
   {
-   "in": 38.45,
-   "out": 40.98,
-   "text": "| Descubre tu favorito | aquí en RE:SET, | te esperamos."
+   "in": 42.05,
+   "out": 43.95,
+   "text": "| Descubre tu favorito | en RE:SET."
   }
  ],
  "endSeconds": 2.2,
@@ -342,7 +342,7 @@
   },
   {
    "id": "s21",
-   "at": "ahora#1",
+   "at": "algo#1",
    "src": "1690",
    "in": 18.2,
    "zoom": [
@@ -552,7 +552,7 @@
   },
   {
    "id": "s30",
-   "at": "cuál_de#1",
+   "at": "cuál#1",
    "kind": "grid",
    "panels": [
     {
@@ -627,5 +627,5 @@
    "text": "DETALLES DEL DISEÑO"
   }
  ],
- "voiceFile": "vo2.m4a"
+ "voiceFile": "vo3.m4a"
 }
