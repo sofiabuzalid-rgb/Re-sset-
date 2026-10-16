@@ -1,0 +1,28 @@
+{
+  "fps": 30,
+  "bpm": 120,
+  "note": "PINK PAJAMA DETAIL EDIT — IMG_1694 + IMG_1695 only. Built WITHOUT the voice-over (not received yet): every label sits on the shot that shows that detail; when the voice arrives, voice segments + subtitles get added and shot lengths follow the phrases. Original audio muted (store background music).",
+  "shots": [
+    {"id": "h1", "src": "IMG_1694", "in": 0.1, "frames": 60, "zoom": [1.08, 1.0], "focus": [0.5, 0.45]},
+    {"id": "c1", "src": "IMG_1694", "in": 2.0, "frames": 60, "zoom": [2.0, 2.1], "focus": [0.5, 0.12]},
+    {"id": "b1", "src": "IMG_1694", "in": 2.5, "frames": 60, "zoom": [1.9, 2.0], "focus": [0.62, 0.52]},
+    {"id": "f1", "src": "IMG_1694", "in": 3.6, "frames": 90, "zoom": [1.06, 1.12], "focus": [0.5, 0.45]},
+    {"id": "m1", "src": "IMG_1694", "in": 7.8, "frames": 75, "zoom": [1.25, 1.3], "focus": [0.25, 0.55]},
+    {"id": "m2", "src": "IMG_1694", "in": 9.6, "frames": 45, "zoom": [1.6, 1.65], "focus": [0.18, 0.62]},
+    {"id": "p1", "src": "IMG_1694", "in": 12.1, "frames": 75, "zoom": [1.0, 1.05], "focus": [0.5, 0.5]},
+    {"id": "p2", "src": "IMG_1694", "in": 16.6, "frames": 45, "zoom": [1.7, 1.75], "focus": [0.5, 0.12]},
+    {"id": "bag", "src": "IMG_1695", "in": 0.8, "frames": 75, "zoom": [1.1, 1.16], "focus": [0.35, 0.45]},
+    {"id": "close", "src": "IMG_1694", "in": 0.1, "frames": 90, "speed": 0.75, "zoom": [1.0, 1.04], "focus": [0.5, 0.45]}
+  ],
+  "hook": {"from": 4, "to": 58, "kicker": "ROSA SUAVE", "title": "PINK RE:SET"},
+  "labels": [
+    {"shot": "c1", "text": "CUELLO ABIERTO"},
+    {"shot": "b1", "text": "BOTONES AL FRENTE"},
+    {"shot": "f1", "text": "ASÍ CAE LA TELA"},
+    {"shot": "m1", "text": "MANGA LARGA", "to": "m2"},
+    {"shot": "p1", "text": "PANTALÓN LARGO"},
+    {"shot": "p2", "text": "CINTURA ELÁSTICA"},
+    {"shot": "bag", "text": "DETALLES QUE HACEN LA DIFERENCIA", "top": 300}
+  ],
+  "close": {"title": "¿TE LA PONDRÍAS?", "cta": "DESCUBRE TU FAVORITA EN RE:SET"}
+}
