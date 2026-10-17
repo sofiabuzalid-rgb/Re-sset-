@@ -12,6 +12,7 @@ import {PinkDetail, PINK_TOTAL} from './pink/PinkDetail';
 import {BlueDetail, BLUE_TOTAL} from './blue/BlueDetail';
 import {BrownDetail, BROWN_TOTAL} from './brown/BrownDetail';
 import {GreyDetail, GREY_TOTAL} from './grey/GreyDetail';
+import {HotbookRecap, HOTBOOK_TOTAL} from './hotbook/HotbookRecap';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
@@ -50,5 +51,7 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="BlueDetail" component={BlueDetail} durationInFrames={BLUE_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="BrownDetail" component={BrownDetail} durationInFrames={BROWN_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="GreyDetail" component={GreyDetail} durationInFrames={GREY_TOTAL} fps={FPS} width={1080} height={1920} />
+		{/* Event recap: "Así vivimos HOTBOOK BAZAR" — all bazaar clips, stand photo close, logo only at the end */}
+		<Composition id="HotbookBazar" component={HotbookRecap} durationInFrames={HOTBOOK_TOTAL} fps={FPS} width={1080} height={1920} />
 	</>
 );

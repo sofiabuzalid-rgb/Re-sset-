@@ -7,6 +7,7 @@
     "dev": "remotion studio",
     "build": "remotion render ChristmasReel out/reset-christmas-reel.mp4",
     "build:magic": "remotion render MagicChristmas out/reset-magia-navidad.mp4",
+    "build:hotbook": "remotion render HotbookBazar out/reset-hotbook-bazar.mp4",
     "still": "remotion still ChristmasReel out/poster.png --frame=60",
     "audio": "python3 scripts/generate-audio.py",
     "typecheck": "tsc --noEmit"

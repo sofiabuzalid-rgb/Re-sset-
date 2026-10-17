@@ -1,0 +1,31 @@
+{
+  "fps": 30,
+  "bpm": 120,
+  "note": "ASÍ VIVIMOS HOTBOOK BAZAR — event recap. Music grid: beat = 15 frames, bar = 60 frames, every cut on a beat. 'xf' = frames of soft cross-dissolve INTO that shot (media is rendered with a tail handle so the previous shot keeps moving under it). Original clip audio is not used.",
+  "shots": [
+    {"id": "s01", "src": "IMG_1784", "in": 0.2, "frames": 60, "zoom": [1.0, 1.06], "focus": [0.5, 0.45], "what": "stand wide, HOT THINGS INSIDE, people shopping (hook)"},
+    {"id": "s02", "src": "IMG_1751", "in": 1.0, "frames": 30, "zoom": [1.04, 1.08], "focus": [0.5, 0.55], "what": "RE:SET drawstring bags"},
+    {"id": "s03", "src": "IMG_1785", "in": 0.3, "frames": 30, "zoom": [1.06, 1.02], "focus": [0.5, 0.4], "what": "blue set on the mannequin, grey set hanging"},
+    {"id": "s04", "src": "IMG_1788", "in": 0.8, "frames": 45, "zoom": [1.0, 1.05], "focus": [0.5, 0.45], "what": "team folding and setting up"},
+    {"id": "s05", "src": "IMG_1759", "in": 4.0, "frames": 30, "zoom": [1.08, 1.12], "focus": [0.5, 0.6], "what": "the full table"},
+    {"id": "s06", "src": "IMG_1751", "in": 8.6, "frames": 30, "zoom": [1.04, 1.08], "focus": [0.5, 0.6], "what": "prints, a hand reaching in"},
+    {"id": "s07", "src": "IMG_1794", "in": 0.2, "frames": 45, "zoom": [1.0, 1.06], "focus": [0.5, 0.6], "what": "hand on the print, RE:SET label"},
+    {"id": "s08", "src": "IMG_1809", "in": 0.3, "frames": 30, "zoom": [1.04, 1.08], "focus": [0.5, 0.55], "what": "red nordic set, team at the table"},
+    {"id": "s09", "src": "IMG_1810", "in": 0.8, "frames": 30, "zoom": [1.04, 1.08], "focus": [0.45, 0.45], "what": "hands opening a mint set"},
+    {"id": "s10", "src": "IMG_1805", "in": 1.1, "frames": 45, "zoom": [1.0, 1.05], "focus": [0.45, 0.45], "what": "RE:SET packaging in hand"},
+    {"id": "s11", "src": "IMG_1807", "in": 15.6, "frames": 45, "zoom": [1.0, 1.04], "focus": [0.5, 0.5], "what": "mint shirt held up"},
+    {"id": "s12", "src": "IMG_1761", "in": 0.6, "frames": 60, "zoom": [1.0, 1.05], "focus": [0.45, 0.45], "xf": 6, "what": "dad and baby at the table"},
+    {"id": "s13", "src": "IMG_1788", "in": 8.4, "frames": 30, "zoom": [1.04, 1.08], "focus": [0.5, 0.45], "what": "team lifting a pink set"},
+    {"id": "s14", "src": "IMG_1811", "in": 0.3, "frames": 75, "zoom": [1.0, 1.05], "focus": [0.5, 0.35], "xf": 6, "what": "woman at the stand, smiling, talking"},
+    {"id": "s15", "src": "IMG_1784", "in": 4.6, "frames": 45, "zoom": [1.22, 1.28], "focus": [0.45, 0.6], "what": "people browsing the stand"},
+    {"id": "s16", "src": "IMG_1821", "in": 0.5, "frames": 60, "zoom": [1.0, 1.05], "focus": [0.5, 0.4], "what": "leaving with the pink RE:SET bag"},
+    {"id": "end", "photo": "photo-stand.jpg", "frames": 135, "xf": 12, "what": "stand photo, framed on cream (close)"}
+  ],
+  "texts": [
+    {"from": 0, "to": 57, "kind": "hook", "lines": ["Así vivimos", "HOTBOOK BAZAR"]},
+    {"from": 92, "to": 162, "lines": ["Pijamas hechas para quedarte"]},
+    {"from": 228, "to": 298, "lines": ["Detalles que se sienten"]},
+    {"from": 632, "to": 686, "lines": ["Un fin de semana muy RESSET"]}
+  ],
+  "close": {"title": "Gracias por vivirlo con nosotras", "sub": "RESSET · @re.setmx"}
+}
