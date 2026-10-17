@@ -1,0 +1,216 @@
+{
+ "fps": 30,
+ "bpm": 96,
+ "voiceFile": "vo.m4a",
+ "voice": {
+  "in": 0.45,
+  "out": 16.95,
+  "at": 0.17
+ },
+ "subtitles": "| Este fin de semana fui a | HOTBOOK BAZAR | y me encontré con RE:SET. | Me encantaron sus pijamas, | los colores, los detalles | y lo cómodas que se ven. | Me llevé una | y ahora entiendo perfecto por qué: | es de esas cosas que te hacen querer | llegar a tu casa, bañarte | y ponértela inmediatamente.",
+ "shots": [
+  {
+   "id": "b01",
+   "src": "1783",
+   "in": 3.6,
+   "at": 0.0,
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "the bazaar: crowd walking past the HOT THINGS INSIDE stand"
+  },
+  {
+   "id": "b02",
+   "src": "1795",
+   "in": 0.0,
+   "at": 2.68,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "y me encontré con: approaching the shelves"
+  },
+  {
+   "id": "b03",
+   "src": "1792",
+   "in": 0.2,
+   "at": 3.42,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "RE:SET: the stand, RE:SET bags on the table"
+  },
+  {
+   "id": "b04",
+   "src": "1810",
+   "in": 0.5,
+   "at": 4.36,
+   "zoom": [
+    1.05,
+    1.1
+   ],
+   "focus": [
+    0.5,
+    0.55
+   ],
+   "why": "me encantaron sus pijamas: her hands on the pajamas"
+  },
+  {
+   "id": "b05",
+   "src": "1800",
+   "in": 2.35,
+   "at": 5.92,
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "los colores: lilac + navy"
+  },
+  {
+   "id": "b06",
+   "src": "1792",
+   "in": 4.2,
+   "at": 6.64,
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "focus": [
+    0.5,
+    0.4
+   ],
+   "why": "los detalles: RE:SET logo bags close"
+  },
+  {
+   "id": "b07",
+   "src": "1804",
+   "in": 5.4,
+   "at": 7.4,
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "why": "lo cómodas que se ven: she holds a set to her"
+  },
+  {
+   "id": "b08",
+   "src": "1801",
+   "in": 5.9,
+   "at": 8.96,
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "focus": [
+    0.5,
+    0.55
+   ],
+   "why": "me llevé una: her pink pajama being packed"
+  },
+  {
+   "id": "b09",
+   "src": "1813",
+   "in": 0.0,
+   "at": 10.36,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "her RE:SET bag (WOMAN SMALL)"
+  },
+  {
+   "id": "b10",
+   "src": "1764",
+   "in": 5.6,
+   "at": 11.26,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "pause: the shelves"
+  },
+  {
+   "id": "b11",
+   "src": "1804",
+   "in": 8.0,
+   "at": 11.98,
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "why": "es de esas cosas: holding the bag"
+  },
+  {
+   "id": "b12",
+   "src": "1813",
+   "in": 0.84,
+   "at": 13.56,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "why": "leaving with the bag, looks back"
+  },
+  {
+   "id": "b13",
+   "src": "1802",
+   "in": 5.3,
+   "at": 15.56,
+   "zoom": [
+    1.1,
+    1.2
+   ],
+   "focus": [
+    0.5,
+    0.7
+   ],
+   "why": "close-up: soft pink fabric of the same pink set (packed at the stand)"
+  },
+  {
+   "id": "end",
+   "kind": "end",
+   "at": 17.96,
+   "src": "1802",
+   "in": 7.6,
+   "dur": 1.0
+  }
+ ]
+}

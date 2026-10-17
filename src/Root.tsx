@@ -5,6 +5,7 @@ import {EssentialAd, essentialDefaults, ESSENTIAL_TOTAL} from './essential/Essen
 import {HanukkahAd, HANUKKAH_TOTAL} from './hanukkah/HanukkahAd';
 import {MagicReel} from './magic/MagicReel';
 import {XmasAd, XMAS_TOTAL} from './xmas/XmasAd';
+import {BazarAd, BAZAR_TOTAL} from './bazar/BazarAd';
 import {DetailsAd, DETAILS_TOTAL} from './details/DetailsAd';
 import {FeelAd, FEEL_TOTAL} from './feel/FeelAd';
 import {HolidayAd, HOLIDAY_TOTAL} from './holiday/HolidayAd';
@@ -48,5 +49,7 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="FeelTheDifference" component={FeelAd} durationInFrames={FEEL_TOTAL} fps={FPS} width={1080} height={1920} />
 		{/* "The Details Edit" — product breakdown driven by the creator's voice-over, every cut on its word */}
 		<Composition id="DetailsEdit" component={DetailsAd} durationInFrames={DETAILS_TOTAL} fps={FPS} width={1080} height={1920} />
+		{/* Customer testimonial: her HOTBOOK BAZAR find, her own voice, 1 s end card */}
+		<Composition id="BazarFind" component={BazarAd} durationInFrames={BAZAR_TOTAL} fps={FPS} width={1080} height={1920} />
 	</>
 );
