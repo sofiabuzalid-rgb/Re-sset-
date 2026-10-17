@@ -4,8 +4,8 @@
   (lifted shadows, soft contrast, a touch of warmth, gentle sharpening) so every clip matches, native 1080x1920, muted.
   A shot with "xf" gets xf extra frames before its in-point so it can dissolve in over the previous one.
   Reds and greens (the Christmas prints) are pulled back a little so the cut stays in cream / pink / blue / beige.
-- No music is generated: the master is silent (edit.json "music": null) and the track is chosen on the platform,
-  or a supplied track is dropped in public/hotbook/ and named in edit.json.
+- Music is built separately by scripts/build-hotbook-music.py (or set edit.json "music" to null for a silent master,
+  or drop a supplied track in public/hotbook/ and name it there).
 Output: public/hotbook/<shot>.mp4
 Usage: python3 scripts/build-hotbook-media.py /folder/with/originals
 """

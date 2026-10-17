@@ -1,8 +1,8 @@
 {
   "fps": 30,
   "bpm": 120,
-  "note": "ASÍ VIVIMOS HOTBOOK BAZAR — event recap, v2. Cut on a 120 BPM grid (beat = 15 frames) so any 115–125 BPM track sits on the cuts. Pastel shots (cream, pink, blue, sage) lead; the Christmas prints are kept to short detail beats. 'xf' = frames of soft dissolve INTO that shot. 'music' = file in public/hotbook/ or null for a silent master (the track is added on the platform).",
-  "music": null,
+  "note": "ASÍ VIVIMOS HOTBOOK BAZAR — event recap, v2. Cut on a 120 BPM grid (beat = 15 frames) so any 115–125 BPM track sits on the cuts. Pastel shots (cream, pink, blue, sage) lead; the Christmas prints are kept to short detail beats. 'xf' = frames of soft dissolve INTO that shot. 'music' = file in public/hotbook/ (scripts/build-hotbook-music.py) or null for a silent master.",
+  "music": "music.wav",
   "shots": [
     {"id": "s01", "src": "IMG_1751", "in": 1.9, "frames": 45, "zoom": [1.0, 1.08], "focus": [0.55, 0.7], "what": "pink and sage RE:SET bags, close (hook)"},
     {"id": "s02", "src": "IMG_1785", "in": 0.3, "frames": 30, "zoom": [1.06, 1.02], "focus": [0.5, 0.4], "what": "blue set on the mannequin, grey set hanging"},
