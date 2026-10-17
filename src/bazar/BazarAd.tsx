@@ -3,12 +3,9 @@ import React from 'react';
 import {AbsoluteFill, Audio, Easing, Img, OffthreadVideo, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import tl from '../../public/bazar/timeline.json';
 
-// Gotham (Montserrat stands in) for subtitles; Playfair Display Italic stands in for Miller Text on the closing line.
+// Gotham (Montserrat stands in until licensed files are added) for subtitles and the end card.
 loadFont({family: 'Montserrat', url: staticFile('fonts/Montserrat-Variable.woff2'), weight: '100 900'});
-loadFont({family: 'Playfair Display', url: staticFile('fonts/PlayfairDisplay-Italic-Variable.woff2'), weight: '400 900', style: 'italic'});
 const SANS = 'Gotham, Montserrat, Helvetica, Arial, sans-serif';
-const SERIF = '"Miller Text", "Playfair Display", Georgia, serif';
-const SHADOW = '0 1px 2px rgba(0,0,0,0.35), 0 3px 20px rgba(0,0,0,0.35)';
 const easeOut = Easing.bezier(0.16, 1, 0.3, 1);
 const FPS = 30;
 
@@ -28,20 +25,24 @@ const VideoShot: React.FC<{s: Shot}> = ({s}) => {
 	);
 };
 
-/** 1 s end card over the pink pajama (blurred), soft warm veil, line + logo + handle. */
+/** 1 s end card: warm blush panel over the softly blurred pajama; clean sans type, official logo, handle. */
 const EndCard: React.FC<{s: Shot}> = ({s}) => {
 	const f = useCurrentFrame();
-	const k = (d: number) => easeOut(Math.min(1, Math.max(0, (f - d) / 9)));
+	const k = (d: number) => easeOut(Math.min(1, Math.max(0, (f - d) / 8)));
 	return (
 		<AbsoluteFill style={{overflow: 'hidden'}}>
-			<Img src={staticFile('bazar/end.jpg')} style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${1.15 + 0.03 * (f / s.frames)})`, transformOrigin: '50% 70%', filter: 'blur(6px)'}} />
-			<AbsoluteFill style={{background: 'rgba(60,35,35,0.38)'}} />
-			<div style={{position: 'absolute', top: 700, left: 90, right: 90, textAlign: 'center', color: '#fff', textShadow: SHADOW}}>
-				<div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 70, lineHeight: 1.2, opacity: k(0), transform: `translateY(${(1 - k(0)) * 16}px)`}}>Tu nueva parte favorita de llegar a casa.</div>
-				<div style={{marginTop: 60, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 22, opacity: k(4)}}>
-					<Img src={staticFile('brand/reset-logo-white.png')} style={{width: 250}} />
-					<span style={{fontFamily: SANS, fontWeight: 500, fontSize: 40, opacity: 0.9}}>·</span>
-					<span style={{fontFamily: SANS, fontWeight: 500, fontSize: 38, letterSpacing: '0.04em'}}>@re.setmx</span>
+			<Img src={staticFile('bazar/end.jpg')} style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${1.15 + 0.03 * (f / s.frames)})`, transformOrigin: '50% 70%', filter: 'blur(14px)'}} />
+			<AbsoluteFill style={{background: 'rgba(88,58,56,0.55)'}} />
+			<div style={{position: 'absolute', top: 760, left: 110, right: 110, textAlign: 'center', color: '#fff'}}>
+				<div style={{fontFamily: SANS, fontWeight: 500, fontSize: 62, lineHeight: 1.22, letterSpacing: '-0.005em', opacity: k(0), transform: `translateY(${(1 - k(0)) * 14}px)`}}>
+					Tu nueva parte favorita
+					<br />
+					de llegar a casa.
+				</div>
+				<div style={{width: 80, height: 3, background: 'rgba(255,255,255,0.8)', margin: '48px auto 44px', opacity: k(3)}} />
+				<div style={{opacity: k(5)}}>
+					<Img src={staticFile('brand/reset-logo-white.png')} style={{width: 330}} />
+					<div style={{fontFamily: SANS, fontWeight: 500, fontSize: 34, letterSpacing: '0.08em', marginTop: 18}}>@re.setmx</div>
 				</div>
 			</div>
 		</AbsoluteFill>
@@ -59,10 +60,10 @@ const Subtitles: React.FC = () => {
 	const p = phrases[idx];
 	const k = easeOut(Math.min(1, (t - (p[0].s - 0.06)) / 0.15));
 	return (
-		<div style={{position: 'absolute', left: 80, right: 80, top: 1330, textAlign: 'center', opacity: k}}>
-			<span style={{fontFamily: SANS, fontWeight: 600, fontSize: 48, lineHeight: 1.3, color: '#fff', textShadow: '0 0 2px rgba(0,0,0,0.6), 0 2px 10px rgba(0,0,0,0.55), 0 4px 24px rgba(0,0,0,0.35)'}}>
+		<div style={{position: 'absolute', left: 90, right: 90, top: 1300, display: 'flex', justifyContent: 'center', opacity: k, transform: `translateY(${(1 - k) * 8}px)`}}>
+			<div style={{maxWidth: 860, padding: '16px 30px 18px', borderRadius: 18, background: 'rgba(20,16,16,0.58)', textAlign: 'center', fontFamily: SANS, fontWeight: 500, fontSize: 46, lineHeight: 1.28, color: '#fff'}}>
 				{p.map((w) => w.w).join(' ')}
-			</span>
+			</div>
 		</div>
 	);
 };

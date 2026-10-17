@@ -2,9 +2,9 @@
 "Mi hallazgo en HOTBOOK BAZAR" media: a customer's voice-over (AUDIO-2026-10-17-17-00-25.m4a) over her bazaar clips.
 
 Video: iPhone HDR (HLG) tone-mapped to SDR BT.709 (Hable, no desaturation), a touch of warmth (R +1.5 %, B -1.5 %),
-gentle contrast. No saturation change. Voice: spectral noise reduction + EQ + soft compression. Subtitles: word times
+gentle contrast. No saturation change. Voice: spectral noise reduction from the real pauses (noiseProfile), 110 Hz high-pass, FFT denoise, soft gate between phrases, EQ, soft compression. Subtitles: word times
 from src/bazar/transcript.json (faster-whisper small) mapped onto the hand-checked text in edit.json. Music: ORIGINAL
-cozy lo-fi pop (no samples, no third-party material), 96 BPM, ducked -14 dB under the voice.
+cozy pop (no samples, no third-party material), 96 BPM, ducked -17 dB under the voice.
 
 Usage: python3 scripts/build-bazar-media.py <folder with the IMG_17xx/18xx .mov files and vo.m4a>
 """
@@ -70,13 +70,17 @@ N_FFT, HOP = 2048, 512
 win = np.hanning(N_FFT)
 
 
-def denoise(x):
+def denoise(x, regions):
     pad = np.concatenate([np.zeros(N_FFT), x, np.zeros(N_FFT)])
-    idx = range(0, len(pad) - N_FFT, HOP)
+    idx = list(range(0, len(pad) - N_FFT, HOP))
     X = np.array([np.fft.rfft(pad[i:i + N_FFT] * win) for i in idx])
     P = np.abs(X) ** 2
-    noise = P[P.sum(1) <= np.percentile(P.sum(1), 10)].mean(0) + 1e-12
-    g = np.maximum(np.maximum(1 - 1.6 * noise / (P + 1e-12), 0.0), 0.15)
+    tc = (np.array(idx) - N_FFT + N_FFT / 2) / SR
+    sel = np.zeros(len(idx), bool)
+    for a, b in regions:
+        sel |= (tc >= a) & (tc <= b)
+    noise = P[sel].mean(0) + 1e-12
+    g = np.maximum(np.maximum(1 - 2.2 * noise / (P + 1e-12), 0.0), 0.08)
     for q in range(1, len(g)):
         g[q] = 0.6 * g[q] + 0.4 * g[q - 1]
     y = np.zeros(len(pad)); nrm = np.zeros(len(pad))
@@ -86,11 +90,11 @@ def denoise(x):
 
 
 raw = os.path.join(OUT, "_vo.wav")
-subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", os.path.join(SRC, e["voiceFile"]), "-ac", "1", "-ar", str(SR), "-af", "highpass=f=80", raw], check=True)
+subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", os.path.join(SRC, e["voiceFile"]), "-ac", "1", "-ar", str(SR), "-af", "highpass=f=110:poles=2", raw], check=True)
 x, _ = sf.read(raw, dtype="float64")
-sf.write(raw, denoise(x).astype("float32"), SR)
+sf.write(raw, denoise(x, e["noiseProfile"]).astype("float32"), SR)
 cl = os.path.join(OUT, "_voc.wav")
-subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", raw, "-af", "equalizer=f=250:t=q:w=1.2:g=-2,equalizer=f=3200:t=q:w=1.4:g=2,"
+subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", raw, "-af", "afftdn=nr=10:nf=-48,agate=threshold=0.012:ratio=4:attack=5:release=180:range=0.06,equalizer=f=250:t=q:w=1.2:g=-2.5,equalizer=f=3200:t=q:w=1.4:g=2,"
                 "equalizer=f=9000:t=q:w=1:g=1.5,deesser=i=0.3,acompressor=threshold=0.09:ratio=2.5:attack=8:release=150:makeup=2,alimiter=limit=0.89", cl], check=True)
 clean, _ = sf.read(cl, dtype="float64"); os.remove(raw); os.remove(cl)
 N = TOTAL_F * SR // FPS + SR
@@ -173,8 +177,7 @@ for b in range(int(np.ceil(END_T / BAR))):
         if k in (0, 3, 4):
             put("drums", kick(0.6), tk)
         if k in (2, 6):
-            put("drums", rim(0.5), tk)
-        put("drums", hat(0.4 if k % 2 else 0.2), tk + (0.03 if k % 2 else 0))
+            put("drums", rim(0.25), tk)
         if k % 2 == 0:
             put("bass", bass(hz(RT[c]), BEAT * 0.9, 0.5), tk)
         put("lead", bell(hz(MEL[c][k % 4]), 0.6, 0.08), tk)
@@ -190,7 +193,7 @@ music = lp + 0.25 * np.fft.irfft(np.fft.rfft(bus["keys"] + bus["lead"], size) * 
 music = np.tanh(music / np.max(np.abs(music)) * 1.2) / np.tanh(1.2)
 ev = np.convolve(np.abs(voice), np.ones(int(0.03 * SR)) / int(0.03 * SR), "same")
 talk = np.minimum(1, np.convolve((ev > 0.01).astype(float), np.ones(int(0.4 * SR)) / int(0.4 * SR), "same") * 3)
-music *= 1 - talk * (1 - 10 ** (-14 / 20))
+music *= 1 - talk * (1 - 10 ** (-17 / 20))
 mix = 0.5 * music + 0.95 * voice / np.max(np.abs(voice))
 mix = mix[: TOTAL_F * SR // FPS]
 fo = int(0.6 * SR); mix[-fo:] *= np.linspace(1, 0, fo) ** 1.5; mix[:64] *= np.linspace(0, 1, 64)

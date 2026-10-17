@@ -54,18 +54,18 @@
   },
   {
    "id": "b04",
-   "src": "1810",
+   "src": "1804",
    "in": 0.5,
    "at": 4.36,
    "zoom": [
-    1.05,
-    1.1
+    1.0,
+    1.06
    ],
    "focus": [
-    0.5,
-    0.55
+    0.55,
+    0.5
    ],
-   "why": "me encantaron sus pijamas: her hands on the pajamas",
+   "why": "me encantaron sus pijamas: her hands on a set at the table (1810 showed the Grinch print)",
    "from": 131,
    "frames": 47
   },
@@ -135,24 +135,7 @@
    ],
    "why": "me llevé una: her pink pajama being packed",
    "from": 269,
-   "frames": 42
-  },
-  {
-   "id": "b09",
-   "src": "1813",
-   "in": 0.0,
-   "at": 10.36,
-   "zoom": [
-    1.0,
-    1.04
-   ],
-   "focus": [
-    0.5,
-    0.5
-   ],
-   "why": "her RE:SET bag (WOMAN SMALL)",
-   "from": 311,
-   "frames": 27
+   "frames": 69
   },
   {
    "id": "b10",
@@ -191,7 +174,7 @@
   {
    "id": "b12",
    "src": "1813",
-   "in": 0.84,
+   "in": 0.0,
    "at": 13.56,
    "zoom": [
     1.0,
@@ -201,15 +184,15 @@
     0.5,
     0.5
    ],
-   "why": "leaving with the bag, looks back",
+   "why": "her pink RE:SET bag, then she walks off with it (cut before she turns)",
    "from": 407,
-   "frames": 60
+   "frames": 41
   },
   {
    "id": "b13",
    "src": "1802",
-   "in": 5.3,
-   "at": 15.56,
+   "in": 4.9,
+   "at": 14.93,
    "zoom": [
     1.1,
     1.2
@@ -219,8 +202,8 @@
     0.7
    ],
    "why": "close-up: soft pink fabric of the same pink set (packed at the stand)",
-   "from": 467,
-   "frames": 72
+   "from": 448,
+   "frames": 91
   },
   {
    "id": "end",
