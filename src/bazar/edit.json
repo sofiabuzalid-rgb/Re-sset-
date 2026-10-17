@@ -1,0 +1,183 @@
+{
+ "fps": 30,
+ "bpm": 120,
+ "note": "HOTBOOK BAZAR — the RE:SET bag in colour, everything else B&W. Masks: scripts/build-bazar-media.py (box tracking + pink colour key, feathered). Shots in story order. hint = frame + normalised point inside the bag where tracking starts (tracked forward and backward from there). keys = hand-placed bag boxes [frame, x0, y0, x1, y1] (normalised) used instead of the tracker where the bag passes hands over pink products.",
+ "shots": [
+  {
+   "id": "s01",
+   "file": "8e8bc672-IMG_1812",
+   "in": 0.25,
+   "frames": 75,
+   "hint": {
+    "frame": 74,
+    "x": 0.35,
+    "y": 0.66
+   },
+   "keys": [
+    [
+     0,
+     0.0,
+     0.74,
+     0.15,
+     0.83
+    ],
+    [
+     15,
+     0.0,
+     0.7,
+     0.39,
+     0.79
+    ],
+    [
+     30,
+     0.0,
+     0.72,
+     0.41,
+     0.81
+    ],
+    [
+     45,
+     0.09,
+     0.68,
+     0.39,
+     0.81
+    ],
+    [
+     60,
+     0.2,
+     0.61,
+     0.45,
+     0.74
+    ],
+    [
+     74,
+     0.17,
+     0.58,
+     0.53,
+     0.76
+    ]
+   ]
+  },
+  {
+   "id": "s02",
+   "file": "8e8bc672-IMG_1812",
+   "in": 2.5,
+   "frames": 45,
+   "hint": {
+    "frame": 0,
+    "x": 0.35,
+    "y": 0.66
+   }
+  },
+  {
+   "id": "s03",
+   "file": "56b04117-IMG_1819",
+   "in": 0.0,
+   "frames": 30,
+   "hint": {
+    "frame": 0,
+    "x": 0.5,
+    "y": 0.62
+   }
+  },
+  {
+   "id": "s04",
+   "file": "0d339b33-IMG_1818",
+   "in": 0.0,
+   "frames": 60,
+   "hint": {
+    "frame": 0,
+    "x": 0.42,
+    "y": 0.52
+   }
+  },
+  {
+   "id": "s05",
+   "file": "87a80b1b-IMG_1817",
+   "in": 0.5,
+   "frames": 45,
+   "hint": {
+    "frame": 0,
+    "x": 0.3,
+    "y": 0.57
+   }
+  },
+  {
+   "id": "s06",
+   "file": "febedb7e-IMG_1817",
+   "in": 0.0,
+   "frames": 45,
+   "hint": {
+    "frame": 0,
+    "x": 0.35,
+    "y": 0.56
+   }
+  },
+  {
+   "id": "s07",
+   "file": "37a10cc3-IMG_1817",
+   "in": 3.0,
+   "frames": 45,
+   "hint": {
+    "frame": 0,
+    "x": 0.15,
+    "y": 0.58
+   }
+  },
+  {
+   "id": "s08",
+   "file": "87a80b1b-IMG_1817",
+   "in": 4.0,
+   "frames": 45,
+   "hint": {
+    "frame": 0,
+    "x": 0.31,
+    "y": 0.55
+   }
+  },
+  {
+   "id": "s09",
+   "file": "800c34b5-IMG_1818",
+   "in": 6.9,
+   "frames": 60,
+   "hint": {
+    "frame": 0,
+    "x": 0.4,
+    "y": 0.53
+   }
+  },
+  {
+   "id": "s10",
+   "file": "800c34b5-IMG_1818",
+   "in": 12.75,
+   "frames": 30,
+   "hint": {
+    "frame": 20,
+    "x": 0.23,
+    "y": 0.52
+   }
+  },
+  {
+   "id": "s11",
+   "file": "915a26e8-IMG_1820",
+   "in": 0.0,
+   "frames": 90,
+   "speed": 0.85,
+   "hint": {
+    "frame": 0,
+    "x": 0.4,
+    "y": 0.38
+   }
+  }
+ ],
+ "intro": {
+  "from": 3,
+  "to": 33,
+  "text": "RE:SET en HOTBOOK BAZAR"
+ },
+ "outro": {
+  "from": 500,
+  "text": "Llévate un pedacito de RE:SET",
+  "handle": "@re.setmx"
+ }
+}
