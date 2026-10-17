@@ -76,13 +76,15 @@ const ShotView: React.FC<{ s: Shot }> = ({ s }) => {
   );
 };
 
-/** One short line per moment: rises in, settles, fades. The hook is two lines, the second in tracked caps. */
+/** Two-line editorial caption: a light lead-in over a heavier second line, each rising out of its own mask.
+ *  The hook's second line is tracked caps and is readable by frame ~8. */
 const Caption: React.FC<{ t: (typeof edit.texts)[number] }> = ({ t }) => {
   const f = useCurrentFrame();
   const dur = t.to - t.from;
   const hook = t.kind === "hook";
   const out = interpolate(f, [dur - 8, dur], [1, 0], clamp);
-  const top = hook ? 300 : 1250;
+  const top = hook ? 330 : 1150;
+  const rule = ramp(f, hook ? 2 : 6, 14);
   return (
     <>
       <div
@@ -90,18 +92,18 @@ const Caption: React.FC<{ t: (typeof edit.texts)[number] }> = ({ t }) => {
           position: "absolute",
           left: -120,
           right: -120,
-          top: top - 150,
-          height: hook ? 520 : 380,
+          top: top - 160,
+          height: 500,
           opacity: out * ramp(f, 0, hook ? 4 : 10),
           background:
-            "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.22) 55%, rgba(0,0,0,0) 100%)",
+            "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(20,12,6,0.46) 0%, rgba(20,12,6,0.2) 55%, rgba(20,12,6,0) 100%)",
         }}
       />
       <div
         style={{
           position: "absolute",
-          left: 70,
-          right: 70,
+          left: 60,
+          right: 60,
           top,
           display: "flex",
           flexDirection: "column",
@@ -114,27 +116,37 @@ const Caption: React.FC<{ t: (typeof edit.texts)[number] }> = ({ t }) => {
         }}
       >
         {t.lines.map((l, i) => {
-          // the hook is readable by frame ~6; later captions ease in more slowly
-          const p = hook ? ramp(f, i * 5, 10) : ramp(f, 0, 14);
-          const caps = hook && i === 1;
+          const p = hook ? ramp(f, i * 4, 10) : ramp(f, i * 7, 16);
+          const second = i === 1;
+          const caps = hook && second;
           return (
-            <div
-              key={l}
-              style={{
-                fontWeight: caps ? 600 : hook ? 400 : 500,
-                fontSize: hook ? (caps ? 84 : 72) : 62,
-                letterSpacing: caps ? "0.08em" : "0",
-                whiteSpace: "nowrap",
-                lineHeight: 1.15,
-                marginTop: caps ? 10 : 0,
-                opacity: p,
-                transform: `translateY(${(1 - p) * 14}px)`,
-              }}
-            >
-              {l}
+            <div key={l} style={{ overflow: "hidden", padding: "6px 20px" }}>
+              <div
+                style={{
+                  fontWeight: second ? 600 : 300,
+                  fontSize: caps ? 86 : second ? 76 : 60,
+                  letterSpacing: caps ? "0.08em" : second ? "-0.01em" : "0.01em",
+                  whiteSpace: "nowrap",
+                  lineHeight: 1.1,
+                  opacity: p,
+                  transform: `translateY(${(1 - p) * 70}%)`,
+                }}
+              >
+                {l}
+              </div>
             </div>
           );
         })}
+        <div
+          style={{
+            marginTop: 18,
+            width: 70 * rule,
+            height: 2,
+            background: C.cream,
+            opacity: 0.85,
+            boxShadow: "0 1px 6px rgba(0,0,0,0.3)",
+          }}
+        />
       </div>
     </>
   );
@@ -245,6 +257,6 @@ export const HotbookRecap: React.FC = () => (
         <Caption t={t} />
       </Sequence>
     ))}
-    <Audio src={staticFile("hotbook/mix.wav")} />
+    {edit.music ? <Audio src={staticFile(`hotbook/${edit.music}`)} /> : null}
   </AbsoluteFill>
 );
