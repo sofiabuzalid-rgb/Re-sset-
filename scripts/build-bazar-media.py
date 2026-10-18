@@ -2,11 +2,12 @@
 HOTBOOK BAZAR — colour-isolation media: the RE:SET bag stays in its real colour, everything else becomes editorial B&W.
 Per shot (src/bazar/edit.json):
   1. decode the iPhone HLG clip tone-mapped to SDR BT.709 (hable), 1080x1920;
-  2. track the bag frame by frame with an OpenCV CSRT tracker on a half-res copy, started from `hint`
-     (a frame + a point inside the bag) and run forward AND backward from there;
-  3. inside the tracked box (+ margin) key the bag's own pink (OpenCV HSV: hue >= 158 or <= 3, low-mid saturation,
-     bright), close + fill holes so the printed logo is part of the bag, keep the components touching the box,
-     feather 4 px and smooth over time so the edge doesn't flicker;
+  2. track the bag frame by frame (OpenCV CSRT on a half-res copy, from `hint`, forward and backward), or use
+     hand-placed keyframe boxes (`keys`) where the bag passes over pink products / a pinkish top;
+  3. inside the box, segment the bag as a solid object with GrabCut seeded by its pink (strong pink = sure
+     foreground), keep only what touches clearly-pink fabric, fill holes (printed logo, folds), keep skin out,
+     clip to the box, erode 2 px + feather so no colour halos; when the bag can't be separated (hidden, motion
+     blur) the last good shape follows the box;
   4. composite: original colour (lifted +4 % so the bag reads as lit) through the mask, B&W elsewhere
      (BT.709 luma, S-curve contrast, deep blacks — not washed-out grey).
   s01 fades the colour in on the hand-off (the hook).
@@ -81,6 +82,66 @@ def track(small, k, box):
     return np.stack([np.convolve(pad[:, j], ker, mode="valid") for j in range(4)], 1)
 
 
+
+def segment(img, X0, Y0, X1, Y1, x, y, w, h):
+    """Solid bag mask: GrabCut seeded by the tracked box + the bag's pink, holes filled, skin kept out."""
+    roi = img[Y0:Y1, X0:X1]
+    rh, rw = roi.shape[:2]
+    if rh < 8 or rw < 8:
+        return None
+    k = min(1.0, 320 / max(rh, rw))
+    sm = cv2.resize(roi, (max(8, int(rw * k)), max(8, int(rh * k))), interpolation=cv2.INTER_AREA)
+    hsv = cv2.cvtColor(sm, cv2.COLOR_BGR2HSV)
+    hh, ss, vv = hsv[..., 0], hsv[..., 1], hsv[..., 2]
+    pink_lo = ((hh >= 155) | (hh <= 3)) & (ss >= 10) & (ss <= 160) & (vv >= 70)
+    pink_hi = ((hh >= 160) | (hh <= 2)) & (ss >= 24) & (ss <= 150) & (vv >= 110)
+    skin = (hh >= 5) & (hh <= 22) & (ss >= 55) & (vv < 235)  # real skin is more saturated than the bag's warm shadows
+    gc = np.full(sm.shape[:2], cv2.GC_BGD, np.uint8)
+    bx0, by0 = int((x - X0) * k), int((y - Y0) * k)
+    bx1, by1 = int((x + w - X0) * k), int((y + h - Y0) * k)
+    inner = np.zeros(sm.shape[:2], bool)
+    inner[max(0, by0):by1, max(0, bx0):bx1] = True
+    gc[inner] = cv2.GC_PR_BGD
+    gc[inner & pink_lo] = cv2.GC_PR_FGD
+    gc[inner & pink_hi] = cv2.GC_FGD
+    gc[skin] = cv2.GC_BGD
+    if (gc == cv2.GC_FGD).sum() < 15:
+        return None
+    bgd, fgd = np.zeros((1, 65), np.float64), np.zeros((1, 65), np.float64)
+    try:
+        cv2.grabCut(sm, gc, None, bgd, fgd, 3, cv2.GC_INIT_WITH_MASK)
+    except cv2.error:
+        return None
+    fg = ((gc == cv2.GC_FGD) | (gc == cv2.GC_PR_FGD)).astype(np.uint8)
+    fg = cv2.morphologyEx(fg, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+    n, lab, st, _ = cv2.connectedComponentsWithStats(fg)
+    if n < 2:
+        return None
+    big = 1 + int(np.argmax(st[1:, cv2.CC_STAT_AREA]))
+    keep = np.zeros_like(fg)
+    for j in range(1, n):
+        if st[j, cv2.CC_STAT_AREA] >= 0.3 * st[big, cv2.CC_STAT_AREA]:
+            keep[lab == j] = 1
+    keep = cv2.morphologyEx(keep, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9)))
+    filled = keep.copy()
+    cnts, _ = cv2.findContours(keep, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    cv2.drawContours(filled, cnts, -1, 1, thickness=-1)
+    # only keep what lies near clearly-pink bag fabric: GrabCut spill onto the pale mauve top / sweater is dropped
+    near_pink = cv2.dilate(pink_hi.astype(np.uint8), cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (25, 25)))
+    keep = filled & near_pink
+    cnts, _ = cv2.findContours(keep, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    cv2.drawContours(keep, cnts, -1, 1, thickness=-1)
+    keep = keep & (~skin).astype(np.uint8)
+    # never colour anything outside the tracked bag box (+6 %): stops tint creeping onto a pinkish top / neighbours
+    ex, ey = int(0.06 * (bx1 - bx0)) + 2, int(0.06 * (by1 - by0)) + 2
+    clip = np.zeros_like(keep)
+    clip[max(0, by0 - ey):by1 + ey, max(0, bx0 - ex):bx1 + ex] = 1
+    keep = keep & clip
+    full = np.zeros(img.shape[:2], np.uint8)
+    full[Y0:Y1, X0:X1] = cv2.resize(keep, (rw, rh), interpolation=cv2.INTER_LINEAR)
+    return full
+
+
 def bw(img):
     y = (0.0722 * img[..., 0] + 0.7152 * img[..., 1] + 0.2126 * img[..., 2]) / 255.0
     y = np.clip((y - 0.04) / 0.94, 0, 1)
@@ -111,38 +172,28 @@ for s in e["shots"]:
                             "-c:v", "libx264", "-preset", "medium", "-crf", "14", "-g", "15", "-pix_fmt", "yuv420p",
                             "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", out], stdin=subprocess.PIPE)
     prev = None
+    last = None
     dbg = []
     for i in range(n):
         img = fr[i]
         x, y, w, h = boxes[i]
-        mx, my = margin * w + 12, margin * h + 12
+        mx, my = 0.15 * w + 16, 0.15 * h + 16
         X0, Y0 = int(max(0, x - mx)), int(max(0, y - my))
         X1, Y1 = int(min(W, x + w + mx)), int(min(H, y + h + my))
-        m = np.zeros((H, W), np.uint8)
-        roi = pink(img[Y0:Y1, X0:X1])
-        roi = cv2.morphologyEx(roi, cv2.MORPH_CLOSE, np.ones((15, 15), np.uint8))
-        nl, lab, st, _ = cv2.connectedComponentsWithStats(roi)
-        keep = np.zeros_like(roi)
-        # inner box (the tracked box itself) in ROI coordinates
-        ix0, iy0, ix1, iy1 = x - X0, y - Y0, x + w - X0, y + h - Y0
-        for j in range(1, nl):
-            cx0, cy0, cw, ch, area = st[j]
-            if area < 120:
-                continue
-            if cx0 + cw < ix0 or cx0 > ix1 or cy0 + ch < iy0 or cy0 > iy1:
-                continue  # doesn't touch the tracked bag box
-            keep[lab == j] = 1
-        # fill holes (printed logo / shadows inside the bag outline)
-        filled = keep.copy()
-        cnts, _ = cv2.findContours(keep, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        cv2.drawContours(filled, cnts, -1, 1, thickness=-1)
-        hsv = cv2.cvtColor(img[Y0:Y1, X0:X1], cv2.COLOR_BGR2HSV)
-        skin = ((hsv[..., 0] >= 4) & (hsv[..., 0] <= 25) & (hsv[..., 1] >= 35)).astype(np.uint8)  # fingers over the bag stay B&W
-        keep = keep | (filled & (1 - skin))
-        m[Y0:Y1, X0:X1] = keep
-        mf = cv2.GaussianBlur(m.astype(np.float32), (0, 0), 4)
+        m = segment(img, X0, Y0, X1, Y1, x, y, w, h)
+        if m is None:  # bag not separable in this frame (occluded/blurred): carry the last shape along with the box
+            m = np.zeros((H, W), np.uint8)
+            if last is not None:
+                lm, (lx, ly) = last
+                dx, dy = int(x - lx), int(y - ly)
+                M = np.float32([[1, 0, dx], [0, 1, dy]])
+                m = cv2.warpAffine(lm, M, (W, H))
+        else:
+            last = (m, (x, y))
+        m = cv2.erode(m, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5)))  # feather inward: no colour halo
+        mf = cv2.GaussianBlur(m.astype(np.float32), (0, 0), 2.5)
         if prev is not None:
-            mf = 0.65 * mf + 0.35 * prev
+            mf = 0.8 * mf + 0.2 * np.minimum(prev, mf)  # steadies the edge without leaving a ghost where the bag was
         prev = mf
         a = mf.copy()
         if s["id"] == "s01":  # hook: colour blooms on the bag as it is handed over
@@ -152,9 +203,9 @@ for s in e["shots"]:
         o = np.clip(comp, 0, 255).astype(np.uint8)
         enc.stdin.write(o.tobytes())
         if DEBUG and i % max(1, n // 6) == 0 and len(dbg) < 6:
-            d = o.copy()
-            cv2.rectangle(d, (int(x), int(y)), (int(x + w), int(y + h)), (0, 255, 0), 4)
-            dbg.append(cv2.resize(d, (216, 384)))
+            cx, cy, r = int(x + w / 2), int(y + h / 2), int(max(w, h) * 0.9) + 40
+            c = o[max(0, cy - r):cy + r, max(0, cx - r):cx + r]
+            dbg.append(cv2.resize(c, (240, 240)))
     enc.stdin.close()
     enc.wait()
     if DEBUG:
