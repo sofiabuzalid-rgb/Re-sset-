@@ -1,0 +1,179 @@
+{
+ "fps": 30,
+ "bpm": 120,
+ "note": "DAY 2 AT HOTBOOK BAZAR recap. All 16 clips. Sections: hook 0-60, rhythm of the day 60-300, clients & experience 300-600, beat montage 600-810, close 810-900. Every cut on the 120 BPM grid (15 frames).",
+ "shots": [
+  {
+   "id": "s01",
+   "file": "e3c85828-IMG_1752",
+   "in": 1.5,
+   "frames": 30
+  },
+  {
+   "id": "s02",
+   "file": "6ee2065f-IMG_1795",
+   "in": 0.3,
+   "frames": 30
+  },
+  {
+   "id": "s03",
+   "file": "37a02fd3-IMG_1785",
+   "in": 0.5,
+   "frames": 30
+  },
+  {
+   "id": "s04",
+   "file": "ac479279-IMG_1797",
+   "in": 3.6,
+   "frames": 45
+  },
+  {
+   "id": "s05",
+   "file": "1a86fc7a-IMG_1810",
+   "in": 2.0,
+   "frames": 30
+  },
+  {
+   "id": "s06",
+   "file": "87fabada-IMG_1796",
+   "in": 2.6,
+   "frames": 30
+  },
+  {
+   "id": "s07",
+   "file": "f1150443-IMG_1791",
+   "in": 0.3,
+   "frames": 30
+  },
+  {
+   "id": "s08",
+   "file": "64f65014-IMG_1809",
+   "in": 1.0,
+   "frames": 30
+  },
+  {
+   "id": "s09",
+   "file": "bc858e56-IMG_1794",
+   "in": 0.2,
+   "frames": 30
+  },
+  {
+   "id": "s10",
+   "file": "64f65014-IMG_1809",
+   "in": 3.8,
+   "frames": 15
+  },
+  {
+   "id": "s11",
+   "file": "da31b84a-IMG_1786",
+   "in": 1.4,
+   "frames": 60
+  },
+  {
+   "id": "s12",
+   "file": "2216797b-IMG_1787",
+   "in": 1.8,
+   "frames": 45
+  },
+  {
+   "id": "s13",
+   "file": "9c297e90-IMG_1789",
+   "in": 1.0,
+   "frames": 45
+  },
+  {
+   "id": "s14",
+   "file": "ff93dc22-IMG_1788",
+   "in": 5.6,
+   "frames": 60
+  },
+  {
+   "id": "s15",
+   "file": "bc7854b1-IMG_1790",
+   "in": 3.5,
+   "frames": 45
+  },
+  {
+   "id": "s16",
+   "file": "ed353aa8-IMG_1792",
+   "in": 1.6,
+   "frames": 45
+  },
+  {
+   "id": "s17",
+   "file": "ed353aa8-IMG_1792",
+   "in": 4.0,
+   "frames": 15
+  },
+  {
+   "id": "s18",
+   "file": "1a86fc7a-IMG_1810",
+   "in": 6.5,
+   "frames": 15
+  },
+  {
+   "id": "s19",
+   "file": "87fabada-IMG_1796",
+   "in": 0.5,
+   "frames": 15
+  },
+  {
+   "id": "s20",
+   "file": "bc7854b1-IMG_1790",
+   "in": 9.0,
+   "frames": 15
+  },
+  {
+   "id": "s21",
+   "file": "ac479279-IMG_1797",
+   "in": 0.3,
+   "frames": 15
+  },
+  {
+   "id": "s22",
+   "file": "da31b84a-IMG_1786",
+   "in": 4.6,
+   "frames": 30
+  },
+  {
+   "id": "s23",
+   "file": "e3c85828-IMG_1752",
+   "in": 4.6,
+   "frames": 15
+  },
+  {
+   "id": "s24",
+   "file": "2216797b-IMG_1787",
+   "in": 6.5,
+   "frames": 30
+  },
+  {
+   "id": "s25",
+   "file": "7a24bc2d-IMG_1820",
+   "in": 0.3,
+   "frames": 45
+  },
+  {
+   "id": "s26",
+   "file": "f1150443-IMG_1791",
+   "in": 2.6,
+   "frames": 15
+  },
+  {
+   "id": "s27",
+   "file": "37a02fd3-IMG_1785",
+   "in": 0.0,
+   "frames": 90
+  }
+ ],
+ "intro": {
+  "from": 2,
+  "to": 58,
+  "text": "DAY 2 AT HOTBOOK BAZAR"
+ },
+ "outro": {
+  "from": 812,
+  "title": "See you tomorrow",
+  "sub": "RE:SET \u00b7 @re.setmx"
+ }
+}
