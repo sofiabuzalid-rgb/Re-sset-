@@ -1,0 +1,314 @@
+{
+ "fps": 30,
+ "bpm": 120,
+ "note": "GAME DAY — \"En esta casa no todos le vamos al mismo equipo\". Built from scratch. The hand-swipe reveals on the rack (a hand pushes one team aside and the next appears) are the team-change match cuts; every cut sits on the 120 BPM grid (15 frames). Only one promo section (frames 345-450).",
+ "shots": [
+  {
+   "id": "g01",
+   "file": "aad56d97-IMG_1901.mov",
+   "in": 1.0,
+   "frames": 15,
+   "speed": 1,
+   "zoom": [
+    1.06,
+    1.0
+   ]
+  },
+  {
+   "id": "g02",
+   "file": "0b4b24cd-IMG_1907.mov",
+   "in": 2.4,
+   "frames": 15,
+   "speed": 1,
+   "zoom": [
+    1.06,
+    1.0
+   ]
+  },
+  {
+   "id": "g03",
+   "file": "36803ad2-IMG_1904.mov",
+   "in": 2.4,
+   "frames": 15,
+   "speed": 1,
+   "zoom": [
+    1.06,
+    1.0
+   ]
+  },
+  {
+   "id": "g04",
+   "file": "8ccb306f-IMG_1906.mov",
+   "in": 2.5,
+   "frames": 15,
+   "speed": 1,
+   "zoom": [
+    1.06,
+    1.0
+   ]
+  },
+  {
+   "id": "g05",
+   "file": "057209cd-IMG_1902.mov",
+   "in": 0.3,
+   "frames": 30,
+   "speed": 1,
+   "zoom": [
+    1.08,
+    1.0
+   ]
+  },
+  {
+   "id": "g06",
+   "file": "929cafeb-IMG_1903.mov",
+   "in": 0.85,
+   "frames": 45,
+   "speed": 1.2,
+   "zoom": [
+    1.0,
+    1.04
+   ]
+  },
+  {
+   "id": "g07",
+   "file": "0b4b24cd-IMG_1907.mov",
+   "in": 0.85,
+   "frames": 45,
+   "speed": 1.2,
+   "zoom": [
+    1.0,
+    1.04
+   ]
+  },
+  {
+   "id": "g08",
+   "file": "36803ad2-IMG_1904.mov",
+   "in": 0.85,
+   "frames": 30,
+   "speed": 1.25,
+   "zoom": [
+    1.0,
+    1.04
+   ]
+  },
+  {
+   "id": "g09",
+   "file": "a149fe9f-IMG_1905.mov",
+   "in": 0.9,
+   "frames": 30,
+   "speed": 1.25,
+   "zoom": [
+    1.0,
+    1.04
+   ]
+  },
+  {
+   "id": "g10",
+   "file": "11eb7054-IMG_1900.mov",
+   "in": 0.0,
+   "frames": 75,
+   "speed": 1,
+   "zoom": [
+    1.22,
+    1.0
+   ]
+  },
+  {
+   "id": "g11",
+   "file": "aad56d97-IMG_1901.mov",
+   "in": 1.4,
+   "frames": 30,
+   "speed": 1,
+   "zoom": [
+    1.0,
+    1.05
+   ]
+  },
+  {
+   "id": "g12",
+   "file": "0b4b24cd-IMG_1907.mov",
+   "in": 3.2,
+   "frames": 60,
+   "speed": 1,
+   "zoom": [
+    1.0,
+    1.04
+   ]
+  },
+  {
+   "id": "g13",
+   "file": "057209cd-IMG_1902.mov",
+   "in": 4.25,
+   "frames": 45,
+   "speed": 1,
+   "zoom": [
+    1.0,
+    1.04
+   ]
+  },
+  {
+   "id": "g14",
+   "file": "8ccb306f-IMG_1906.mov",
+   "in": 2.8,
+   "frames": 15,
+   "speed": 1,
+   "zoom": [
+    1.08,
+    1.0
+   ]
+  },
+  {
+   "id": "g15",
+   "file": "929cafeb-IMG_1903.mov",
+   "in": 3.5,
+   "frames": 15,
+   "speed": 1,
+   "zoom": [
+    1.08,
+    1.0
+   ]
+  },
+  {
+   "id": "g16",
+   "file": "36803ad2-IMG_1904.mov",
+   "in": 3.5,
+   "frames": 15,
+   "speed": 1,
+   "zoom": [
+    1.08,
+    1.0
+   ]
+  },
+  {
+   "id": "g17",
+   "file": "12d79fa0-IMG_1908.mov",
+   "in": 2.6,
+   "frames": 75,
+   "speed": 1,
+   "zoom": [
+    1.0,
+    1.05
+   ]
+  }
+ ],
+ "hookLines": [
+  {
+   "at": 0,
+   "text": "EN ESTA CASA"
+  },
+  {
+   "at": 15,
+   "text": "NO TODOS"
+  },
+  {
+   "at": 30,
+   "text": "LE VAMOS AL"
+  },
+  {
+   "at": 45,
+   "text": "MISMO EQUIPO…"
+  }
+ ],
+ "beats": [
+  {
+   "from": 60,
+   "to": 89,
+   "lines": [
+    "¿Y EN LA TUYA?"
+   ],
+   "size": 120
+  },
+  {
+   "from": 104,
+   "to": 178,
+   "lines": [
+    "¿TEAM DALLAS"
+   ],
+   "size": 104,
+   "stagger": [
+    0
+   ]
+  },
+  {
+   "from": 152,
+   "to": 178,
+   "lines": [
+    "O TEAM KANSAS?"
+   ],
+   "size": 104,
+   "top": 430
+  },
+  {
+   "from": 184,
+   "to": 238,
+   "lines": [
+    "ELIGE TU EQUIPO."
+   ],
+   "size": 84
+  },
+  {
+   "from": 244,
+   "to": 343,
+   "lines": [
+    "TU EQUIPO.",
+    "TU FAMILIA.",
+    "TU MATCH."
+   ],
+   "size": 96,
+   "steps": [
+    0,
+    25,
+    50
+   ]
+  },
+  {
+   "from": 350,
+   "to": 402,
+   "price": true
+  },
+  {
+   "from": 408,
+   "to": 448,
+   "lines": [
+    "COMPRA 2",
+    "Y EL ENVÍO ES GRATIS."
+   ],
+   "size": 80
+  },
+  {
+   "from": 452,
+   "to": 498,
+   "lines": [
+    "¿A QUÉ EQUIPO LE VAN",
+    "EN TU CASA?"
+   ],
+   "size": 76
+  }
+ ],
+ "price": {
+  "adult": "$999",
+  "kid": "$699"
+ },
+ "close": {
+  "from": 500,
+  "title": "ENCUENTRA SU MATCH EN RE:SET.",
+  "cta": "COMPRA EN LÍNEA"
+ },
+ "hits": [
+  0,
+  15,
+  30,
+  45,
+  60,
+  90,
+  135,
+  180,
+  210,
+  240,
+  345,
+  450,
+  465,
+  480,
+  495
+ ]
+}
