@@ -1,0 +1,184 @@
+{
+ "fps": 30,
+ "bpm": 120,
+ "note": "NFL family-match sales ad. Hook + close on IMG_1900 (kid + adult Dallas on one hanger = the family match). Price badge on screen from 3 s to the end. Cuts on the 15-frame beat grid.",
+ "shots": [
+  {
+   "id": "s01",
+   "file": "11eb7054-IMG_1900.mov",
+   "in": 0.0,
+   "frames": 90,
+   "speed": 1.0
+  },
+  {
+   "id": "s02",
+   "file": "aad56d97-IMG_1901.mov",
+   "in": 1.4,
+   "frames": 45,
+   "speed": 1.0
+  },
+  {
+   "id": "s03",
+   "file": "36803ad2-IMG_1904.mov",
+   "in": 3.0,
+   "frames": 45,
+   "speed": 1.0
+  },
+  {
+   "id": "s04",
+   "file": "a149fe9f-IMG_1905.mov",
+   "in": 2.5,
+   "frames": 30,
+   "speed": 1.0
+  },
+  {
+   "id": "s05",
+   "file": "0b4b24cd-IMG_1907.mov",
+   "in": 4.5,
+   "frames": 30,
+   "speed": 1.0
+  },
+  {
+   "id": "s06",
+   "file": "057209cd-IMG_1902.mov",
+   "in": 2.5,
+   "frames": 45,
+   "speed": 1.0
+  },
+  {
+   "id": "s07",
+   "file": "929cafeb-IMG_1903.mov",
+   "in": 4.5,
+   "frames": 45,
+   "speed": 1.0
+  },
+  {
+   "id": "s08",
+   "file": "8ccb306f-IMG_1906.mov",
+   "in": 0.5,
+   "frames": 30,
+   "speed": 1.0
+  },
+  {
+   "id": "s09",
+   "file": "12d79fa0-IMG_1908.mov",
+   "in": 4.0,
+   "frames": 45,
+   "speed": 1.0
+  },
+  {
+   "id": "s10",
+   "file": "36803ad2-IMG_1904.mov",
+   "in": 6.5,
+   "frames": 45,
+   "speed": 1.0
+  },
+  {
+   "id": "s11",
+   "file": "0b4b24cd-IMG_1907.mov",
+   "in": 7.5,
+   "frames": 45,
+   "speed": 1.0
+  },
+  {
+   "id": "s12",
+   "file": "a149fe9f-IMG_1905.mov",
+   "in": 0.5,
+   "frames": 45,
+   "speed": 1.0
+  },
+  {
+   "id": "s13",
+   "file": "12d79fa0-IMG_1908.mov",
+   "in": 7.0,
+   "frames": 45,
+   "speed": 1.0
+  },
+  {
+   "id": "s14",
+   "file": "929cafeb-IMG_1903.mov",
+   "in": 0.3,
+   "frames": 45,
+   "speed": 1.0
+  },
+  {
+   "id": "s15",
+   "file": "11eb7054-IMG_1900.mov",
+   "in": 0.5,
+   "frames": 120,
+   "speed": 0.62
+  }
+ ],
+ "hook": {
+  "from": 0,
+  "to": 88,
+  "lines": [
+   "MAMÁ, PAPÁ E HIJO…",
+   "¿A QUÉ EQUIPO LE VAN?"
+  ]
+ },
+ "cards": [
+  {
+   "from": 92,
+   "to": 178,
+   "kicker": "NFL MATCH",
+   "text": "PARA MAMÁ, PAPÁ E HIJO"
+  },
+  {
+   "from": 180,
+   "to": 268,
+   "kicker": "PRECIOS",
+   "text": "ADULTOS $999 · NIÑOS $699"
+  },
+  {
+   "from": 272,
+   "to": 358,
+   "kicker": "BENEFICIO",
+   "text": "COMPRA 2 Y ENVÍO GRATIS"
+  },
+  {
+   "from": 362,
+   "to": 448,
+   "kicker": "PAGO",
+   "text": "PAGA HASTA EN 8 QUINCENAS"
+  },
+  {
+   "from": 452,
+   "to": 508,
+   "kicker": "RE:SET",
+   "text": "EXCELENTE CALIDAD"
+  },
+  {
+   "from": 512,
+   "to": 568,
+   "kicker": "DÓNDE",
+   "text": "2 SUCURSALES Y TIENDA EN LÍNEA"
+  },
+  {
+   "from": 572,
+   "to": 628,
+   "kicker": "ENVÍO",
+   "text": "ENTREGA DE 3 A 5 DÍAS"
+  }
+ ],
+ "badge": {
+  "from": 90,
+  "to": 630,
+  "lines": [
+   "ADULTOS $999",
+   "NIÑOS $699"
+  ]
+ },
+ "trust": {
+  "from": 572,
+  "to": 628,
+  "text": "MÁS DE 5 AÑOS EN EL MERCADO"
+ },
+ "close": {
+  "from": 632,
+  "title": "TU MATCH FAMILIAR NFL ESTÁ EN RE:SET",
+  "price": "ADULTOS $999 · NIÑOS $699",
+  "cta": "COMPRA AHORA",
+  "sub": "Tienda en línea · 2 sucursales"
+ }
+}
