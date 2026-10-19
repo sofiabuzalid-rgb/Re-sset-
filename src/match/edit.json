@@ -1,0 +1,275 @@
+{
+ "fps": 30,
+ "bpm": 120,
+ "note": "EL MATCH EMPIEZA EN CASA. Product-only footage: adult + kids sizes of the same herringbone collection are confirmed by the RE:SET bags (WOMAN XS / KIDS 2-4) and the two sizes hanging together. Music half-time until the price section (frame 390), full groove after, lift at 570, final chord on the close.",
+ "shots": [
+  {
+   "id": "s01",
+   "file": "14b4d56c-IMG_1893.mov",
+   "in": 0.0,
+   "frames": 45,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s02",
+   "file": "e058c850-IMG_1898.mov",
+   "in": 0.5,
+   "frames": 45,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s03",
+   "file": "0c0eb599-IMG_1897.mov",
+   "in": 1.0,
+   "frames": 45,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s04",
+   "file": "be7f44ab-IMG_1892.mov",
+   "in": 6.2,
+   "frames": 45,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s05",
+   "file": "4f620ffe-IMG_1891.mov",
+   "in": 0.8,
+   "frames": 60,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s06",
+   "file": "a4ca25f0-IMG_1888.mov",
+   "in": 0.3,
+   "frames": 45,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s07",
+   "file": "d501a6f1-IMG_1889.mov",
+   "in": 1.0,
+   "frames": 45,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s08",
+   "file": "bcbc75ef-IMG_1896.mov",
+   "in": 2.6,
+   "frames": 30,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s09",
+   "file": "afc57e8c-IMG_1890.mov",
+   "in": 1.6,
+   "frames": 30,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s10",
+   "file": "1ac6dd8e-IMG_1887.mov",
+   "in": 2.4,
+   "frames": 60,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s11",
+   "file": "14b4d56c-IMG_1893.mov",
+   "in": 1.8,
+   "frames": 60,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s12",
+   "file": "5a4c5233-IMG_1894.mov",
+   "in": 5.0,
+   "frames": 60,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s13",
+   "file": "be7f44ab-IMG_1892.mov",
+   "in": 9.5,
+   "frames": 45,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s14",
+   "file": "1ac6dd8e-IMG_1887.mov",
+   "in": 13.5,
+   "frames": 45,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s15",
+   "file": "14b4d56c-IMG_1893.mov",
+   "in": 9.5,
+   "frames": 60,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s16",
+   "file": "0c0eb599-IMG_1897.mov",
+   "in": 4.0,
+   "frames": 120,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  }
+ ],
+ "texts": [
+  {
+   "from": 2,
+   "to": 44,
+   "lines": [
+    "¿EL MEJOR PLAN",
+    "EN FAMILIA?"
+   ]
+  },
+  {
+   "from": 46,
+   "to": 88,
+   "lines": [
+    "EMPIEZA EN PIJAMA."
+   ],
+   "accent": true
+  },
+  {
+   "from": 92,
+   "to": 178,
+   "lines": [
+    "PARA LOS GRANDES."
+   ]
+  },
+  {
+   "from": 182,
+   "to": 238,
+   "lines": [
+    "Y PARA LOS",
+    "MÁS PEQUEÑOS."
+   ],
+   "accent": true
+  },
+  {
+   "from": 244,
+   "to": 386,
+   "lines": [
+    "LOS PEQUEÑOS",
+    "DETALLES IMPORTAN."
+   ]
+  },
+  {
+   "from": 392,
+   "to": 448,
+   "lines": [
+    "ADULTOS $999"
+   ],
+   "big": true
+  },
+  {
+   "from": 452,
+   "to": 508,
+   "lines": [
+    "NIÑOS $699"
+   ],
+   "big": true
+  },
+  {
+   "from": 512,
+   "to": 568,
+   "lines": [
+    "COMPRA 2 Y OBTÉN",
+    "ENVÍO GRATIS"
+   ],
+   "accent": true
+  },
+  {
+   "from": 574,
+   "to": 716,
+   "lines": [
+    "UN MATCH",
+    "PARA COMPARTIR."
+   ]
+  }
+ ],
+ "badge": {
+  "from": 390,
+  "to": 720,
+  "lines": [
+   "ADULTOS $999",
+   "NIÑOS $699"
+  ]
+ },
+ "close": {
+  "from": 722,
+  "title": [
+   "EL MATCH",
+   "EMPIEZA EN CASA."
+  ],
+  "price": "ADULTOS $999 · NIÑOS $699",
+  "sub": "COMPRA EN LÍNEA O EN NUESTRAS 2 SUCURSALES"
+ }
+}
