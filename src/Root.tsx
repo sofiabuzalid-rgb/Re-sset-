@@ -14,6 +14,7 @@ import {BrownDetail, BROWN_TOTAL} from './brown/BrownDetail';
 import {GreyDetail, GREY_TOTAL} from './grey/GreyDetail';
 import {BazarReel, BAZAR_TOTAL} from './bazar/BazarReel';
 import {Day2Reel, DAY2_TOTAL} from './day2/Day2Reel';
+import {RotationReel, ROTATION_TOTAL} from './rotation/RotationReel';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
@@ -54,5 +55,6 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="GreyDetail" component={GreyDetail} durationInFrames={GREY_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="HotbookBazar" component={BazarReel} durationInFrames={BAZAR_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="HotbookDay2" component={Day2Reel} durationInFrames={DAY2_TOTAL} fps={FPS} width={1080} height={1920} />
+		<Composition id="MyRotation" component={RotationReel} durationInFrames={ROTATION_TOTAL} fps={FPS} width={1080} height={1920} />
 	</>
 );

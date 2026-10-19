@@ -1,0 +1,225 @@
+{
+ "fps": 30,
+ "bpm": 120,
+ "note": "MY RE:SET ROTATION. On-model looks: herringbone azul (pink-curtain fitting room, b05f3ae8, SDR 720p) and herringbone verde (IMG_1554/1545/1548); hanger looks: rosa (1694), verde olivo (1690/1691/1692 bag), cafe (1688), azul (1700), bolsa (1702). Cuts on the 15-frame beat grid.",
+ "shots": [
+  {
+   "id": "s01",
+   "file": "b05f3ae8-d33faccdf92c4d739bd8d9cae814a728.mov",
+   "in": 1.8,
+   "frames": 45,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.45
+   ]
+  },
+  {
+   "id": "s02",
+   "file": "b05f3ae8-d33faccdf92c4d739bd8d9cae814a728.mov",
+   "in": 25.6,
+   "frames": 30,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s03",
+   "file": "b05f3ae8-d33faccdf92c4d739bd8d9cae814a728.mov",
+   "in": 29.6,
+   "frames": 30,
+   "zoom": 1.35,
+   "focus": [
+    0.5,
+    0.62
+   ]
+  },
+  {
+   "id": "s04",
+   "file": "b05f3ae8-d33faccdf92c4d739bd8d9cae814a728.mov",
+   "in": 31.0,
+   "frames": 30,
+   "zoom": 1.05,
+   "focus": [
+    0.5,
+    0.45
+   ]
+  },
+  {
+   "id": "s05",
+   "file": "920fdc3c-IMG_1554.mov",
+   "in": 1.0,
+   "frames": 30,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s06",
+   "file": "07cfc09e-IMG_1545.mov",
+   "in": 0.5,
+   "frames": 30,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s07",
+   "file": "970054dd-IMG_1548.mov",
+   "in": 2.2,
+   "frames": 30,
+   "zoom": 1.05,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s08",
+   "file": "0d685884-IMG_1694.mov",
+   "in": 3.7,
+   "frames": 30,
+   "zoom": 1.05,
+   "focus": [
+    0.5,
+    0.45
+   ]
+  },
+  {
+   "id": "s09",
+   "file": "0d685884-IMG_1694.mov",
+   "in": 2.4,
+   "frames": 15,
+   "zoom": 1.9,
+   "focus": [
+    0.62,
+    0.52
+   ]
+  },
+  {
+   "id": "s10",
+   "file": "45392946-IMG_1690.mov",
+   "in": 1.0,
+   "frames": 30,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s11",
+   "file": "d24dc5d8-IMG_1691.mov",
+   "in": 4.5,
+   "frames": 15,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s12",
+   "file": "dcd0f142-IMG_1692.mov",
+   "in": 0.5,
+   "frames": 15,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s13",
+   "file": "813db07d-IMG_1688.mov",
+   "in": 9.5,
+   "frames": 15,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s14",
+   "file": "72b6fbe1-IMG_1700.mov",
+   "in": 6.6,
+   "frames": 15,
+   "zoom": 1.7,
+   "focus": [
+    0.5,
+    0.45
+   ]
+  },
+  {
+   "id": "s15",
+   "file": "a3848d41-IMG_1702.mov",
+   "in": 0.3,
+   "frames": 15,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "s16",
+   "file": "b05f3ae8-d33faccdf92c4d739bd8d9cae814a728.mov",
+   "in": 40.6,
+   "frames": 75,
+   "zoom": 1.0,
+   "focus": [
+    0.5,
+    0.45
+   ]
+  }
+ ],
+ "hook": {
+  "from": 0,
+  "to": 44,
+  "text": "current RE:SET rotation"
+ },
+ "tags": [
+  {
+   "from": 48,
+   "to": 133,
+   "text": "herringbone · azul"
+  },
+  {
+   "from": 138,
+   "to": 223,
+   "text": "herringbone · verde"
+  },
+  {
+   "from": 228,
+   "to": 268,
+   "text": "rosa"
+  },
+  {
+   "from": 273,
+   "to": 328,
+   "text": "verde olivo"
+  },
+  {
+   "from": 331,
+   "to": 344,
+   "text": "café"
+  },
+  {
+   "from": 346,
+   "to": 359,
+   "text": "azul"
+  }
+ ],
+ "close": {
+  "from": 378,
+  "title": "WHICH RE:SET ARE YOU?",
+  "sub": "Discover your favorite."
+ }
+}
