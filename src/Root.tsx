@@ -18,6 +18,7 @@ import {RotationReel, ROTATION_TOTAL} from './rotation/RotationReel';
 import {NflAd, NFL_TOTAL} from './nfl/NflAd';
 import {MatchAd, MATCH_TOTAL} from './match/MatchAd';
 import {GameDayAd, GAMEDAY_TOTAL} from './gameday/GameDayAd';
+import {MamaAd, MAMA_TOTAL} from './mama/MamaAd';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
@@ -62,5 +63,6 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="NflFamily" component={NflAd} durationInFrames={NFL_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="MatchEnCasa" component={MatchAd} durationInFrames={MATCH_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="GameDay" component={GameDayAd} durationInFrames={GAMEDAY_TOTAL} fps={FPS} width={1080} height={1920} />
+		<Composition id="MamaYYo" component={MamaAd} durationInFrames={MAMA_TOTAL} fps={FPS} width={1080} height={1920} />
 	</>
 );

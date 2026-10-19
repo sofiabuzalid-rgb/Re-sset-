@@ -1,0 +1,238 @@
+{
+ "fps": 30,
+ "bpm": 120,
+ "note": "MAMÁ Y YO, EN MODO NAVIDAD. Adult + kid size of the same reindeer/snowflake print (IMG_1913/1914 show both together). One idea, one text at a time; prices appear once (405-555). Cuts on the 15-frame grid.",
+ "shots": [
+  {
+   "id": "x01",
+   "file": "3a913d96-IMG_1914.mov",
+   "in": 0.5,
+   "frames": 45,
+   "speed": 1,
+   "zoom": [
+    1.06,
+    1.0
+   ]
+  },
+  {
+   "id": "x02",
+   "file": "bfea5ae0-IMG_1913.mov",
+   "in": 2.6,
+   "frames": 45,
+   "speed": 1,
+   "zoom": [
+    1.0,
+    1.04
+   ]
+  },
+  {
+   "id": "x03",
+   "file": "3a913d96-IMG_1914.mov",
+   "in": 4.0,
+   "frames": 30,
+   "speed": 1,
+   "zoom": [
+    1.04,
+    1.0
+   ]
+  },
+  {
+   "id": "x04",
+   "file": "134052e9-IMG_1915.mov",
+   "in": 0.2,
+   "frames": 30,
+   "speed": 1,
+   "zoom": [
+    1.0,
+    1.04
+   ]
+  },
+  {
+   "id": "x05",
+   "file": "41833c88-IMG_1916.mov",
+   "in": 0.3,
+   "frames": 45,
+   "speed": 1,
+   "zoom": [
+    1.0,
+    1.03
+   ]
+  },
+  {
+   "id": "x06",
+   "file": "41833c88-IMG_1916.mov",
+   "in": 3.6,
+   "frames": 30,
+   "speed": 1,
+   "zoom": [
+    1.0,
+    1.03
+   ]
+  },
+  {
+   "id": "x07",
+   "file": "631112b3-IMG_1917.mov",
+   "in": 0.3,
+   "frames": 30,
+   "speed": 1,
+   "zoom": [
+    1.0,
+    1.03
+   ]
+  },
+  {
+   "id": "x08",
+   "file": "45799a91-IMG_1918.mov",
+   "in": 0.0,
+   "frames": 30,
+   "speed": 1,
+   "zoom": [
+    1.03,
+    1.0
+   ]
+  },
+  {
+   "id": "x09",
+   "file": "bfea5ae0-IMG_1913.mov",
+   "in": 3.5,
+   "frames": 60,
+   "speed": 1,
+   "zoom": [
+    1.0,
+    1.05
+   ]
+  },
+  {
+   "id": "x10",
+   "file": "3a913d96-IMG_1914.mov",
+   "in": 6.0,
+   "frames": 60,
+   "speed": 1,
+   "zoom": [
+    1.05,
+    1.0
+   ]
+  },
+  {
+   "id": "x11",
+   "file": "41833c88-IMG_1916.mov",
+   "in": 5.8,
+   "frames": 45,
+   "speed": 1,
+   "zoom": [
+    1.0,
+    1.03
+   ]
+  },
+  {
+   "id": "x12",
+   "file": "45799a91-IMG_1918.mov",
+   "in": 4.5,
+   "frames": 60,
+   "speed": 1,
+   "zoom": [
+    1.0,
+    1.03
+   ]
+  },
+  {
+   "id": "x13",
+   "file": "45799a91-IMG_1918.mov",
+   "in": 6.4,
+   "frames": 45,
+   "speed": 1,
+   "zoom": [
+    1.03,
+    1.0
+   ]
+  },
+  {
+   "id": "x14",
+   "file": "3a913d96-IMG_1914.mov",
+   "in": 2.0,
+   "frames": 90,
+   "speed": 0.8,
+   "zoom": [
+    1.0,
+    1.05
+   ]
+  }
+ ],
+ "texts": [
+  {
+   "from": 0,
+   "to": 57,
+   "lines": [
+    "¿YA TIENEN SUS",
+    "PIJAMAS DE NAVIDAD"
+   ],
+   "size": 74
+  },
+  {
+   "from": 60,
+   "to": 118,
+   "lines": [
+    "PARA HACER",
+    "MATCH?"
+   ],
+   "size": 96,
+   "accent": 1
+  },
+  {
+   "from": 124,
+   "to": 198,
+   "lines": [
+    "MISMO",
+    "ESTAMPADO."
+   ],
+   "size": 84
+  },
+  {
+   "from": 202,
+   "to": 282,
+   "lines": [
+    "DIFERENTES",
+    "TAMAÑOS."
+   ],
+   "size": 84
+  },
+  {
+   "from": 290,
+   "to": 402,
+   "mama": true
+  },
+  {
+   "from": 408,
+   "to": 500,
+   "price": true
+  },
+  {
+   "from": 504,
+   "to": 552,
+   "lines": [
+    "COMPRA 2 Y OBTÉN",
+    "ENVÍO GRATIS"
+   ],
+   "size": 74,
+   "accent": 1
+  }
+ ],
+ "price": [
+  [
+   "ADULTOS",
+   "$999"
+  ],
+  [
+   "NIÑOS",
+   "$699"
+  ]
+ ],
+ "close": {
+  "from": 556,
+  "title": [
+   "ESTA NAVIDAD,",
+   "HAGAN MATCH."
+  ],
+  "sub": "DESCUBRE LA COLECCIÓN EN RE:SET."
+ }
+}
