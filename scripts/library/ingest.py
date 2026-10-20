@@ -9,6 +9,9 @@ probes technical metadata (duration, resolution, orientation, fps, HDR, audio), 
 then upserts the entry in library/catalog.json with status "descargado — pendiente de revisión visual".
 
 Usage: python3 scripts/library/ingest.py <tool-result.json> [...]
+       python3 scripts/library/ingest.py --local <drive_id> <local_file>   (byte-identical copy already on disk,
+       e.g. a file the user uploaded to chat: same name and exact byte size as the Drive original; recorded as
+       origen_revision = "copia local idéntica (mismo tamaño en bytes)")
 """
 import base64, csv, json, os, subprocess, sys
 
@@ -83,13 +86,29 @@ def speech(p, dur):
     return txt.strip()
 
 
-for src in sys.argv[1:]:
-    d = json.load(open(src))
-    fid, title = d["id"], d["title"]
-    data = base64.b64decode(d["content"])
-    path = os.path.join(CACHE, f"{fid}__{title}")
-    with open(path, "wb") as fh:
-        fh.write(data)
+jobs = []
+if sys.argv[1] == "--local":
+    for i in range(2, len(sys.argv), 2):
+        jobs.append(("local", sys.argv[i], sys.argv[i + 1]))
+else:
+    jobs = [("drive", s, None) for s in sys.argv[1:]]
+for kind, src, local in jobs:
+    if kind == "drive":
+        d = json.load(open(src))
+        fid, title = d["id"], d["title"]
+        data = base64.b64decode(d["content"])
+        path = os.path.join(CACHE, f"{fid}__{title}")
+        with open(path, "wb") as fh:
+            fh.write(data)
+        nbytes = len(data)
+    else:
+        fid = src
+        title = inv[fid]["archivo"]
+        path = os.path.join(CACHE, f"{fid}__{title}")
+        if not os.path.exists(path):
+            os.symlink(os.path.abspath(local), path)
+        nbytes = os.path.getsize(local)
+        d = {"mimeType": "video/quicktime" if title.lower().endswith(".mov") else "video/mp4"}
     expected = inv.get(fid, {}).get("MB")
     e = cat.get(fid, {})
     e.update({
@@ -97,8 +116,9 @@ for src in sys.argv[1:]:
         "archivo": title,
         "carpeta_drive": inv.get(fid, {}).get("carpeta", ""),
         "mime": d.get("mimeType"),
-        "bytes": len(data),
-        "verificado_tamano": expected is not None and abs(len(data) / 1e6 - float(expected)) < 0.06,
+        "bytes": nbytes,
+        "verificado_tamano": expected is not None and abs(nbytes / 1e6 - float(expected)) < 0.06,
+        "origen_revision": "descarga Drive" if kind == "drive" else "copia local idéntica (mismo tamaño en bytes)",
         "cache": os.path.relpath(path, ROOT),
     })
     info = probe(path) if d.get("mimeType", "").startswith("video") else None
@@ -109,5 +129,5 @@ for src in sys.argv[1:]:
             e["voz_detectada"] = speech(path, info["duracion_s"])
     e.setdefault("estado", "descargado — pendiente de revisión visual")
     cat[fid] = e
-    print(title, len(data), info and (info["duracion_s"], info["resolucion"], info["hdr"]), e.get("voz_detectada", "")[:60] if e.get("voz_detectada") else "")
+    print(title, nbytes, info and (info["duracion_s"], info["resolucion"], info["hdr"]), e.get("voz_detectada", "")[:60] if e.get("voz_detectada") else "")
 json.dump(cat, open(CAT, "w"), ensure_ascii=False, indent=1)
