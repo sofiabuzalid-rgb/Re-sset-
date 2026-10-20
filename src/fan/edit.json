@@ -1,0 +1,318 @@
+{
+ "fps": 30,
+ "bpm": 120,
+ "total": 540,
+ "shots": [
+  {
+   "id": "h1",
+   "src": "u:IMG_2037",
+   "in": 0.4,
+   "frames": 45,
+   "from": 0,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "snap": 1
+  },
+  {
+   "id": "h2",
+   "src": "u:IMG_2040",
+   "in": 0.4,
+   "frames": 45,
+   "from": 45,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "whip": 1
+  },
+  {
+   "id": "t1",
+   "src": "u:IMG_2037",
+   "in": 2.0,
+   "frames": 15,
+   "from": 90,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "id": "t1d",
+   "src": "u:IMG_2037",
+   "in": 2.6,
+   "frames": 15,
+   "from": 105,
+   "z": 1.35,
+   "cx": 0.0,
+   "cy": 0.19
+  },
+  {
+   "id": "t2",
+   "src": "u:IMG_2036",
+   "in": 1.0,
+   "frames": 15,
+   "from": 120,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "id": "t2d",
+   "src": "u:IMG_2036",
+   "in": 1.6,
+   "frames": 15,
+   "from": 135,
+   "z": 1.35,
+   "cx": 1.0,
+   "cy": 0.69
+  },
+  {
+   "id": "t3",
+   "src": "u:IMG_2038",
+   "in": 1.5,
+   "frames": 15,
+   "from": 150,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "id": "t3d",
+   "src": "u:IMG_2038",
+   "in": 2.1,
+   "frames": 15,
+   "from": 165,
+   "z": 1.35,
+   "cx": 1.0,
+   "cy": 0.23
+  },
+  {
+   "id": "t4",
+   "src": "u:IMG_2039",
+   "in": 1.5,
+   "frames": 15,
+   "from": 180,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "id": "t4d",
+   "src": "u:IMG_2039",
+   "in": 2.1,
+   "frames": 15,
+   "from": 195,
+   "z": 1.35,
+   "cx": 1.0,
+   "cy": 0.96
+  },
+  {
+   "id": "t5",
+   "src": "u:IMG_2040",
+   "in": 2.0,
+   "frames": 15,
+   "from": 210,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "id": "t5d",
+   "src": "u:IMG_2040",
+   "in": 2.6,
+   "frames": 15,
+   "from": 225,
+   "z": 1.35,
+   "cx": 0.0,
+   "cy": 0.12
+  },
+  {
+   "id": "pm",
+   "src": "u:IMG_2036",
+   "in": 0.2,
+   "frames": 120,
+   "from": 240,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "push": [
+    1.0,
+    1.05
+   ]
+  },
+  {
+   "id": "pr",
+   "src": "u:IMG_2037",
+   "in": 3.6,
+   "frames": 90,
+   "from": 360,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "push": [
+    1.0,
+    1.03
+   ]
+  },
+  {
+   "id": "f1",
+   "src": "u:IMG_2038",
+   "in": 4.0,
+   "frames": 15,
+   "from": 450,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "id": "f2",
+   "src": "u:IMG_2039",
+   "in": 4.0,
+   "frames": 15,
+   "from": 465,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "id": "f3",
+   "src": "u:IMG_2040",
+   "in": 3.4,
+   "frames": 15,
+   "from": 480,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "id": "end",
+   "src": "u:IMG_2040",
+   "in": 3.9,
+   "frames": 45,
+   "from": 495,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "push": [
+    1.0,
+    1.03
+   ]
+  }
+ ],
+ "texts": [
+  {
+   "type": "hook",
+   "from": 0,
+   "to": 44,
+   "lines": [
+    "¿TU HIJO",
+    "YA LE VA"
+   ]
+  },
+  {
+   "type": "hook",
+   "from": 45,
+   "to": 89,
+   "lines": [
+    "AL MISMO",
+    "EQUIPO QUE TÚ?"
+   ]
+  },
+  {
+   "type": "kicker",
+   "from": 90,
+   "to": 239,
+   "text": "ELIGE TU EQUIPO"
+  },
+  {
+   "type": "city",
+   "from": 90,
+   "to": 119,
+   "text": "DALLAS"
+  },
+  {
+   "type": "city",
+   "from": 120,
+   "to": 149,
+   "text": "PITTSBURGH"
+  },
+  {
+   "type": "city",
+   "from": 150,
+   "to": 179,
+   "text": "SAN FRANCISCO"
+  },
+  {
+   "type": "city",
+   "from": 180,
+   "to": 209,
+   "text": "MIAMI"
+  },
+  {
+   "type": "city",
+   "from": 210,
+   "to": 239,
+   "text": "KANSAS CITY"
+  },
+  {
+   "type": "stack",
+   "from": 240,
+   "to": 299,
+   "lines": [
+    "MISMO EQUIPO.",
+    "DIFERENTES TAMAÑOS."
+   ]
+  },
+  {
+   "type": "match",
+   "from": 300,
+   "to": 359,
+   "title": "PAPÁ + MINI MATCH",
+   "tags": [
+    {
+     "text": "MINI",
+     "x": 302,
+     "y": 585
+    },
+    {
+     "text": "PAPÁ",
+     "x": 734,
+     "y": 660
+    }
+   ]
+  },
+  {
+   "type": "price",
+   "from": 360,
+   "to": 449,
+   "items": [
+    {
+     "who": "NIÑOS",
+     "v": "$699",
+     "x": 350
+    },
+    {
+     "who": "ADULTOS",
+     "v": "$999",
+     "x": 720
+    }
+   ]
+  },
+  {
+   "type": "stack",
+   "from": 450,
+   "to": 494,
+   "lines": [
+    "¿A QUÉ EQUIPO LE VAN",
+    "EN TU CASA?"
+   ]
+  },
+  {
+   "type": "end",
+   "from": 495,
+   "to": 539,
+   "title": "HAZ MATCH CON RE:SET.",
+   "cta": "COMPRA EN LÍNEA"
+  }
+ ],
+ "note": "LIKE FATHER, LIKE FAN — escaleta aprobada (library/ESCALETA_LIKE_FATHER_LIKE_FAN.md). Cortes en la rejilla de 15 fotogramas (120 BPM)."
+}
