@@ -4,19 +4,19 @@ Archivos en el inventario de Drive: **267**
 
 ## Estado
 
-- revisado visualmente: 104
-- pendiente de descarga y revisión: 97
+- revisado visualmente: 125
+- pendiente de descarga y revisión: 79
 - NO DESCARGABLE por el conector: 51
-- duplicado: 15
+- duplicado: 12
 
 ## Revisados por campaña
 
-- Pijamas y productos: 45
+- Pijamas y productos: 60
 - Navidad: 42
+- Tienda: 12
 - General: 7
-- Tienda: 6
 - NFL: 4
 
-Lotes completados: lote-01, lote-02, lote-03, lote-04, lote-05, lote-06, lote-07, lote-08, lote-09, lote-10
+Lotes completados: lote-01, lote-02, lote-03, lote-04, lote-05, lote-06, lote-07, lote-08, lote-09, lote-10, lote-11
 
 Ver `catalogo_maestro.csv` (catálogo completo) y `sheets/` (hojas de contacto de cada video revisado).

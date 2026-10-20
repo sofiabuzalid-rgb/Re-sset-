@@ -1,0 +1,303 @@
+{
+ "IMG_1233.HEIC": {
+  "descripcion": "Pantalón gris verdoso de punto acanalado con cordón, extendido sobre terrazo rosa.",
+  "producto": "Pantalón gris verdoso acanalado",
+  "colores": "gris verdoso, rosa (fondo)",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "cenital",
+  "iluminacion": "interior",
+  "calidad": "3",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "catálogo",
+   "carrusel"
+  ],
+  "mejores_momentos": "—",
+  "notas": ""
+ },
+ "IMG_1241.HEIC": {
+  "descripcion": "Sudadera infantil gris verdosa acanalada con bolsa de tela 'RE:SET KIDS 4' colgada al cuello y otra bolsa 'KIDS 8-10' al lado, sobre terrazo rosa.",
+  "producto": "Conjunto infantil gris verdoso de punto acanalado + bolsa RE:SET KIDS",
+  "colores": "gris verdoso, negro (texto), rosa",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "cenital horizontal",
+  "iluminacion": "interior",
+  "calidad": "3",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "catálogo",
+   "carrusel (tallas KIDS)"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Casi idéntica a IMG_1242."
+ },
+ "IMG_1242.HEIC": {
+  "descripcion": "Igual que IMG_1241: sudadera infantil con bolsas RE:SET KIDS 4 y KIDS 8-10.",
+  "producto": "Conjunto infantil gris verdoso de punto acanalado + bolsa RE:SET KIDS",
+  "colores": "gris verdoso, rosa",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "cenital horizontal",
+  "iluminacion": "interior",
+  "calidad": "3",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "catálogo"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Duplicado visual de IMG_1241."
+ },
+ "IMG_1245.HEIC": {
+  "descripcion": "Sudadera infantil gris verdosa en gancho con bolsa RE:SET KIDS 4 y bolsa KIDS 8-10 a un lado.",
+  "producto": "Conjunto infantil gris verdoso de punto acanalado + bolsa RE:SET KIDS",
+  "colores": "gris verdoso, rosa",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "cenital",
+  "iluminacion": "interior",
+  "calidad": "3",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "catálogo",
+   "carrusel"
+  ],
+  "mejores_momentos": "—",
+  "notas": ""
+ },
+ "IMG_1246.HEIC": {
+  "descripcion": "Conjunto infantil gris verdoso completo (sudadera en gancho + pantalón) con bolsa RE:SET KIDS al lado.",
+  "producto": "Conjunto infantil gris verdoso de punto acanalado + bolsa RE:SET KIDS",
+  "colores": "gris verdoso, rosa",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "cenital",
+  "iluminacion": "interior",
+  "calidad": "4",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "catálogo",
+   "anuncio estático (set completo + empaque)",
+   "carrusel"
+  ],
+  "mejores_momentos": "—",
+  "notas": ""
+ },
+ "IMG_1247.HEIC": {
+  "descripcion": "Conjunto infantil gris verdoso completo con bolsa RE:SET KIDS 4-6; variante de IMG_1246.",
+  "producto": "Conjunto infantil gris verdoso de punto acanalado + bolsa RE:SET KIDS",
+  "colores": "gris verdoso, rosa",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "cenital",
+  "iluminacion": "interior",
+  "calidad": "4",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "catálogo",
+   "carrusel"
+  ],
+  "mejores_momentos": "—",
+  "notas": ""
+ },
+ "IMG_1248.HEIC": {
+  "descripcion": "Conjunto infantil gris verdoso (sudadera en gancho + pantalón) con bolsa RE:SET Loungewear KIDS 4-6, bien encuadrado.",
+  "producto": "Conjunto infantil gris verdoso de punto acanalado + bolsa RE:SET KIDS",
+  "colores": "gris verdoso, negro, rosa",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "cenital",
+  "iluminacion": "interior",
+  "calidad": "4",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "anuncio estático (mejor toma del set infantil)",
+   "catálogo",
+   "carrusel"
+  ],
+  "mejores_momentos": "—",
+  "notas": ""
+ },
+ "IMG_1249.HEIC": {
+  "descripcion": "Variante casi idéntica de IMG_1248.",
+  "producto": "Conjunto infantil gris verdoso de punto acanalado + bolsa RE:SET KIDS",
+  "colores": "gris verdoso, rosa",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "cenital",
+  "iluminacion": "interior",
+  "calidad": "4",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "catálogo"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Duplicado visual de IMG_1248."
+ },
+ "IMG_1250.HEIC": {
+  "descripcion": "Macro de la tela de espiga (herringbone) gris/blanco de una prenda sobre terrazo rosa.",
+  "producto": "Tela de espiga gris",
+  "colores": "gris, blanco, rosa",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "macro",
+  "iluminacion": "interior",
+  "calidad": "4",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "carrusel de detalles",
+   "fondo de textura para gráficos"
+  ],
+  "mejores_momentos": "—",
+  "notas": ""
+ },
+ "IMG_1251.HEIC": {
+  "descripcion": "Detalle de la bolsa RE:SET Loungewear KIDS 4-6 sobre la sudadera de espiga gris en gancho.",
+  "producto": "Bolsa RE:SET KIDS + sudadera de espiga",
+  "colores": "gris, negro, rosa",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "detalle",
+  "iluminacion": "interior",
+  "calidad": "4",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "carrusel",
+   "anuncio estático (marca en empaque)"
+  ],
+  "mejores_momentos": "—",
+  "notas": ""
+ },
+ "IMG_1256.HEIC": {
+  "descripcion": "Conjunto infantil gris verdoso en gancho con bolsa RE:SET KIDS 4-6, pantalón arriba; etiqueta de precio visible.",
+  "producto": "Conjunto infantil gris verdoso de punto acanalado + bolsa RE:SET KIDS",
+  "colores": "gris verdoso, rosa",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "cenital",
+  "iluminacion": "interior",
+  "calidad": "3",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "catálogo"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Etiqueta de precio visible: tapar si no se quiere mostrar."
+ },
+ "IMG_1257.HEIC": {
+  "descripcion": "Variante de IMG_1256.",
+  "producto": "Conjunto infantil gris verdoso de punto acanalado + bolsa RE:SET KIDS",
+  "colores": "gris verdoso, rosa",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "cenital",
+  "iluminacion": "interior",
+  "calidad": "3",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "catálogo"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Duplicado visual de IMG_1256."
+ },
+ "IMG_1258.HEIC": {
+  "descripcion": "Conjunto infantil gris (sudadera en gancho + pantalón) con bolsa RE:SET KIDS 4-6 y etiqueta colgante; horizontal.",
+  "producto": "Conjunto infantil gris verdoso de punto acanalado + bolsa RE:SET KIDS",
+  "colores": "gris, rosa",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "cenital horizontal",
+  "iluminacion": "interior",
+  "calidad": "4",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "catálogo",
+   "carrusel"
+  ],
+  "mejores_momentos": "—",
+  "notas": ""
+ },
+ "IMG_1275.HEIC": {
+  "descripcion": "Pared con la frase 'ALL DAY . EVERYDAY' sobre racks: playeras lisas en tonos neutros/azules y playeras estampadas (rojas, blancas, azul claro).",
+  "producto": "Racks de playeras y conjuntos",
+  "colores": "gris, azul, negro, rojo, blanco",
+  "accion": "—",
+  "locacion": "interior de tienda RE:SET",
+  "encuadre": "plano general",
+  "iluminacion": "interior",
+  "calidad": "4",
+  "campana": "Tienda",
+  "usos": [
+   "anuncio 15–30 s (frase de marca)",
+   "reel orgánico"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Revisar estampados de las playeras por posibles marcas de terceros."
+ },
+ "IMG_1276.HEIC": {
+  "descripcion": "Interior de la tienda: mesa de terrazo rosa con prendas, racks, letrero 'FIND YOUR MATCH', ícono de rebobinar, globo rosa RE:SET y piso de mármol.",
+  "producto": "Tienda (vista general)",
+  "colores": "gris, rosa, blanco, mármol",
+  "accion": "—",
+  "locacion": "interior de tienda RE:SET",
+  "encuadre": "plano general",
+  "iluminacion": "interior",
+  "calidad": "4",
+  "campana": "Tienda",
+  "usos": [
+   "anuncio 15–30 s (cierre 'visítanos')",
+   "reel orgánico"
+  ],
+  "mejores_momentos": "—",
+  "notas": ""
+ },
+ "IMG_1277.HEIC": {
+  "descripcion": "Pared 'FIND YOUR MATCH' con conjuntos tipo jersey de fútbol: blanco/azul cielo 'Manchester City', rojo con mangas azules número 19 y blanco número 9; globo metálico.",
+  "producto": "Conjuntos estilo jersey de fútbol",
+  "colores": "rojo, azul, blanco, azul cielo",
+  "accion": "—",
+  "locacion": "interior de tienda RE:SET",
+  "encuadre": "plano medio",
+  "iluminacion": "interior",
+  "calidad": "4",
+  "campana": "Tienda",
+  "usos": [
+   "reel orgánico (temporada de fútbol)"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Riesgo de propiedad intelectual: nombre y estética de clubes/selecciones (Manchester City, escudo tipo España). No usar en anuncios pagados sin licencia."
+ },
+ "IMG_1278.HEIC": {
+  "descripcion": "Conjunto rojo con mangas azules, número 19 y escudo tipo selección española, colgado en la pared.",
+  "producto": "Conjunto estilo jersey rojo/azul #19",
+  "colores": "rojo, azul, amarillo",
+  "accion": "—",
+  "locacion": "interior de tienda RE:SET",
+  "encuadre": "plano medio",
+  "iluminacion": "interior",
+  "calidad": "4",
+  "campana": "Tienda",
+  "usos": [
+   "reel orgánico"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Escudo tipo selección española: riesgo de propiedad intelectual."
+ },
+ "IMG_1279.HEIC": {
+  "descripcion": "Acercamiento del mismo conjunto rojo/azul #19.",
+  "producto": "Conjunto estilo jersey rojo/azul #19",
+  "colores": "rojo, azul, amarillo",
+  "accion": "—",
+  "locacion": "interior de tienda RE:SET",
+  "encuadre": "detalle",
+  "iluminacion": "interior",
+  "calidad": "4",
+  "campana": "Tienda",
+  "usos": [
+   "reel orgánico"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Riesgo de propiedad intelectual (escudo)."
+ }
+}
