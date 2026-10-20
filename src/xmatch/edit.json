@@ -1,0 +1,451 @@
+{
+ "fps": 30,
+ "total": 904,
+ "voice": [
+  {
+   "src": "u:IMG_1522",
+   "in": 0.62,
+   "frames": 150,
+   "from": 0
+  },
+  {
+   "src": "u:IMG_1522",
+   "in": 7.76,
+   "frames": 156,
+   "from": 150
+  },
+  {
+   "src": "u:IMG_1522",
+   "in": 12.95,
+   "frames": 93,
+   "from": 306
+  },
+  {
+   "src": "u:IMG_1525",
+   "in": 4.45,
+   "frames": 197,
+   "from": 399
+  },
+  {
+   "src": "u:IMG_1525",
+   "in": 17.2,
+   "frames": 86,
+   "from": 596
+  },
+  {
+   "src": "u:IMG_1522",
+   "in": 16.3,
+   "frames": 65,
+   "from": 682
+  },
+  {
+   "src": "u:IMG_1522",
+   "in": 18.85,
+   "frames": 68,
+   "from": 747
+  },
+  {
+   "src": "u:IMG_1525",
+   "in": 20.7,
+   "frames": 53,
+   "from": 815
+  }
+ ],
+ "layers": [
+  {
+   "src": "u:IMG_1522",
+   "in": 0.62,
+   "from": 0,
+   "frames": 150,
+   "zoom": 1.16,
+   "cx": 0.6,
+   "cy": 0.22,
+   "push": [
+    1.0,
+    1.06
+   ],
+   "id": "v00"
+  },
+  {
+   "src": "u:IMG_1522",
+   "in": 7.76,
+   "from": 150,
+   "frames": 109,
+   "zoom": 1.16,
+   "cx": 0.6,
+   "cy": 0.22,
+   "push": [
+    1.0,
+    1.04
+   ],
+   "id": "v01"
+  },
+  {
+   "src": "d:IMG_1224.MOV",
+   "in": 0.5,
+   "from": 259,
+   "frames": 47,
+   "push": [
+    1.0,
+    1.08
+   ],
+   "id": "v02"
+  },
+  {
+   "src": "u:IMG_1522",
+   "in": 12.95,
+   "from": 306,
+   "frames": 15,
+   "zoom": 1.16,
+   "cx": 0.6,
+   "cy": 0.22,
+   "id": "v03"
+  },
+  {
+   "src": "d:IMG_1222.MOV",
+   "in": 1.0,
+   "from": 321,
+   "frames": 22,
+   "push": [
+    1.04,
+    1.0
+   ],
+   "id": "v04"
+  },
+  {
+   "src": "u:IMG_1525",
+   "in": 16.6,
+   "from": 343,
+   "frames": 36,
+   "zoom": 1.35,
+   "cx": 0.45,
+   "cy": 0.45,
+   "id": "v05"
+  },
+  {
+   "src": "u:IMG_1887",
+   "in": 2.6,
+   "from": 379,
+   "frames": 20,
+   "push": [
+    1.0,
+    1.05
+   ],
+   "id": "v06"
+  },
+  {
+   "src": "u:IMG_1525",
+   "in": 4.45,
+   "from": 399,
+   "frames": 73,
+   "zoom": 1.12,
+   "cx": 0.52,
+   "cy": 0.2,
+   "push": [
+    1.0,
+    1.05
+   ],
+   "id": "v07"
+  },
+  {
+   "src": "u:IMG_1889",
+   "in": 0.8,
+   "from": 472,
+   "frames": 52,
+   "push": [
+    1.0,
+    1.06
+   ],
+   "id": "v08"
+  },
+  {
+   "src": "u:IMG_1525",
+   "in": 8.617,
+   "from": 524,
+   "frames": 72,
+   "zoom": 1.12,
+   "cx": 0.52,
+   "cy": 0.2,
+   "push": [
+    1.05,
+    1.1
+   ],
+   "id": "v09"
+  },
+  {
+   "src": "u:IMG_1525",
+   "in": 17.2,
+   "from": 596,
+   "frames": 16,
+   "zoom": 1.12,
+   "cx": 0.52,
+   "cy": 0.2,
+   "id": "v10"
+  },
+  {
+   "src": "u:IMG_1887",
+   "in": 14.2,
+   "from": 612,
+   "frames": 22,
+   "push": [
+    1.0,
+    1.05
+   ],
+   "id": "v11"
+  },
+  {
+   "src": "u:IMG_1525",
+   "in": 18.467,
+   "from": 634,
+   "frames": 16,
+   "zoom": 1.12,
+   "cx": 0.52,
+   "cy": 0.2,
+   "id": "v12"
+  },
+  {
+   "src": "d:IMG_1891.MOV",
+   "in": 0.8,
+   "from": 650,
+   "frames": 32,
+   "push": [
+    1.0,
+    1.06
+   ],
+   "id": "v13",
+   "zoom": 1.32,
+   "cx": 0.4,
+   "cy": 1.0
+  },
+  {
+   "src": "u:IMG_1522",
+   "in": 16.3,
+   "from": 682,
+   "frames": 65,
+   "zoom": 1.16,
+   "cx": 0.6,
+   "cy": 0.22,
+   "push": [
+    1.0,
+    1.05
+   ],
+   "id": "v14"
+  },
+  {
+   "src": "u:IMG_1522",
+   "in": 18.85,
+   "from": 747,
+   "frames": 68,
+   "zoom": 1.42,
+   "cx": 0.6,
+   "cy": 0.12,
+   "push": [
+    1.0,
+    1.04
+   ],
+   "id": "v15"
+  },
+  {
+   "src": "u:IMG_1525",
+   "in": 20.7,
+   "from": 815,
+   "frames": 53,
+   "zoom": 1.12,
+   "cx": 0.52,
+   "cy": 0.2,
+   "push": [
+    1.0,
+    1.05
+   ],
+   "id": "v16"
+  },
+  {
+   "src": "u:IMG_1894",
+   "in": 1.0,
+   "from": 868,
+   "frames": 36,
+   "push": [
+    1.0,
+    1.04
+   ],
+   "id": "v17"
+  }
+ ],
+ "subs": [
+  {
+   "from": 2,
+   "to": 41,
+   "text": "¿Ya viste esta belleza",
+   "hl": []
+  },
+  {
+   "from": 41,
+   "to": 94,
+   "text": "que acabamos de sacar en RE:SET",
+   "hl": [
+    "RE:SET"
+   ]
+  },
+  {
+   "from": 94,
+   "to": 149,
+   "text": "para papás, mamás y niños?",
+   "hl": [
+    "papás,",
+    "mamás",
+    "niños?"
+   ]
+  },
+  {
+   "from": 152,
+   "to": 187,
+   "text": "Son pijamas calientitas",
+   "hl": [
+    "calientitas"
+   ]
+  },
+  {
+   "from": 187,
+   "to": 217,
+   "text": "para esta temporada",
+   "hl": []
+  },
+  {
+   "from": 217,
+   "to": 270,
+   "text": "y vienen con este estampado",
+   "hl": [
+    "estampado"
+   ]
+  },
+  {
+   "from": 270,
+   "to": 306,
+   "text": "en tres colores:",
+   "hl": []
+  },
+  {
+   "from": 306,
+   "to": 340,
+   "text": "vienen verde,",
+   "hl": [
+    "verde,"
+   ]
+  },
+  {
+   "from": 344,
+   "to": 366,
+   "text": "en azul",
+   "hl": [
+    "azul"
+   ]
+  },
+  {
+   "from": 379,
+   "to": 399,
+   "text": "y en café.",
+   "hl": [
+    "café."
+   ]
+  },
+  {
+   "from": 400,
+   "to": 432,
+   "text": "Este print,",
+   "hl": []
+  },
+  {
+   "from": 433,
+   "to": 474,
+   "text": "que es como unas rayitas,",
+   "hl": [
+    "rayitas,"
+   ]
+  },
+  {
+   "from": 474,
+   "to": 506,
+   "text": "se llama herringbone,",
+   "hl": [
+    "herringbone,"
+   ]
+  },
+  {
+   "from": 506,
+   "to": 596,
+   "text": "que es como el hueso de un pescado.",
+   "hl": []
+  },
+  {
+   "from": 597,
+   "to": 632,
+   "text": "La tenemos para mujer,",
+   "hl": [
+    "mujer,"
+   ]
+  },
+  {
+   "from": 632,
+   "to": 650,
+   "text": "para hombre",
+   "hl": [
+    "hombre"
+   ]
+  },
+  {
+   "from": 650,
+   "to": 682,
+   "text": "y para niño.",
+   "hl": [
+    "niño."
+   ]
+  },
+  {
+   "from": 683,
+   "to": 701,
+   "text": "Y por supuesto,",
+   "hl": []
+  },
+  {
+   "from": 701,
+   "to": 746,
+   "text": "para hacer match con tu mamá.",
+   "hl": [
+    "match",
+    "mamá."
+   ]
+  },
+  {
+   "from": 748,
+   "to": 814,
+   "text": "A mí me encanta este set.",
+   "hl": []
+  },
+  {
+   "from": 817,
+   "to": 867,
+   "text": "¿Qué esperas para venir por tu set?",
+   "hl": []
+  }
+ ],
+ "price": {
+  "from": 690,
+  "to": 812,
+  "items": [
+   [
+    "ADULTOS",
+    "$999"
+   ],
+   [
+    "NIÑOS",
+    "$699"
+   ]
+  ]
+ },
+ "end": {
+  "from": 850,
+  "title": "Encuentra tu match en RE:SET",
+  "sub": "COMPRA EN LÍNEA O EN NUESTRAS 2 SUCURSALES"
+ },
+ "note": "Christmas Match — escaleta aprobada (library/ESCALETA_CHRISTMAS_MATCH.md). Voz real de IMG_1522/IMG_1525; cutaways solo donde ella nombra el detalle."
+}

@@ -1,0 +1,151 @@
+"""
+RE:SET — CHRISTMAS MATCH (one ad, creator-led) — media + audio.
+Edit decision list: src/xmatch/edit.json (approved outline: library/ESCALETA_CHRISTMAS_MATCH.md).
+- Video layers: iPhone HLG -> SDR BT.709 (hable), cover-crop to 1080x1920 with per-layer zoom/centre, gentle grade.
+- Voice: only her real words (IMG_1522 / IMG_1525), cut at the EDL in/out points.
+  Clean-up per source: high-pass, FFT denoise (store hum/air), mud cut, presence lift, de-ess, gentle compression,
+  then both sources matched to the same loudness; 8 ms fades at every cut.
+- Music: ORIGINAL modern Christmas pop (numpy, no samples), 112 BPM, ducked under the voice (sidechain from the
+  voice envelope), lifts on the product cutaways and the end card. Final mix -14 LUFS / -1 dBTP.
+Usage: python3 scripts/build-xmatch-media.py
+"""
+import importlib.util, json, os, re, subprocess, sys
+import numpy as np, soundfile as sf
+
+ROOT = os.path.join(os.path.dirname(__file__), "..")
+OUT = os.path.join(ROOT, "public", "xmatch")
+os.makedirs(OUT, exist_ok=True)
+e = json.load(open(os.path.join(ROOT, "src", "xmatch", "edit.json")))
+FPS, SR = e["fps"], 48000
+spec = importlib.util.spec_from_file_location("m4", os.path.join(ROOT, "scripts", "build-meta4-media.py"))
+m4 = importlib.util.module_from_spec(spec)
+sys.argv = [sys.argv[0]]
+spec.loader.exec_module(m4)  # reuse resolve()/probe() (no ads passed -> builds nothing)
+syn = importlib.util.spec_from_file_location("mu", os.path.join(ROOT, "scripts", "build-meta4-music.py"))
+mu = importlib.util.module_from_spec(syn)
+syn.loader.exec_module(mu)
+TM = m4.TM
+GRADE = "eq=gamma=1.04:contrast=1.03:saturation=1.06,colorbalance=rm=0.012:bm=-0.01,unsharp=5:5:0.3:5:5:0"
+
+# ---------------- video layers
+procs = []
+for l in e["layers"]:
+    src = m4.resolve(l["src"])
+    w, h, hdr = m4.probe(src)
+    z, cx, cy = l.get("zoom", 1.0), l.get("cx", 0.5), l.get("cy", 0.5)
+    W, H = (round(1080 * z / 2) * 2, round(1920 * z / 2) * 2)
+    sc = f"scale=-2:{H}:flags=lanczos" if w / h > 1080 / 1920 else f"scale={W}:-2:flags=lanczos"
+    vf = ([TM] if hdr else []) + [sc, f"crop=1080:1920:(iw-1080)*{cx}:(ih-1920)*{cy}", GRADE, "format=yuv420p"]
+    procs.append(subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-ss", str(l["in"]), "-i", src, "-an", "-vf", ",".join(vf),
+                                   "-frames:v", str(l["frames"]), "-r", "30", "-c:v", "libx264", "-preset", "medium", "-crf", "14",
+                                   "-g", "15", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
+                                   os.path.join(OUT, f"{l['id']}.mp4")]))
+    while len(procs) >= 6:
+        procs.pop(0).wait()
+for p in procs:
+    p.wait()
+
+# ---------------- voice
+CHAIN = ("highpass=f=85:poles=2,afftdn=nr=14:nf=-32:tn=1,equalizer=f=220:t=q:w=1.1:g=-2.5,"
+         "equalizer=f=3300:t=q:w=1.0:g=2.2,equalizer=f=9000:t=h:w=1:g=1.0,deesser=i=0.35,"
+         "acompressor=threshold=-21dB:ratio=3:attack=6:release=90:makeup=2,lowpass=f=15500")
+clean = {}
+for ref in sorted({v["src"] for v in e["voice"]}):
+    tmp = os.path.join(OUT, f"_v_{ref[2:]}.wav")
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", m4.resolve(ref), "-vn", "-ac", "1", "-ar", str(SR), "-af", CHAIN, tmp], check=True)
+    a, _ = sf.read(tmp, dtype="float64")
+    os.remove(tmp)
+    clean[ref] = a
+# loudness match between the two recordings: equal RMS over speech-only samples
+def speech_rms(a):
+    hop = int(0.02 * SR)
+    r = np.array([np.sqrt(np.mean(a[i:i + hop] ** 2)) for i in range(0, len(a) - hop, hop)])
+    return np.sqrt(np.mean(r[r > np.percentile(r, 60)] ** 2))
+ref_rms = np.mean([speech_rms(a) for a in clean.values()])
+for k in clean:
+    clean[k] *= ref_rms / speech_rms(clean[k])
+TOTAL = e["total"]
+L = int(TOTAL / FPS * SR) + SR
+voice = np.zeros(L)
+fd = int(0.008 * SR)
+for v in e["voice"]:
+    a = clean[v["src"]]
+    i0 = int(round(v["in"] * SR))
+    n = int(round(v["frames"] / FPS * SR))
+    seg = a[i0:i0 + n].copy()
+    seg[:fd] *= np.linspace(0, 1, fd)
+    seg[-fd:] *= np.linspace(1, 0, fd)
+    j = int(round(v["from"] / FPS * SR))
+    voice[j:j + len(seg)] += seg
+voice /= np.max(np.abs(voice)) / 0.7
+
+# ---------------- music (original)
+BPM = 112
+B = 60 / BPM
+mx = mu.Mix(TOTAL, tail=1.0)
+CH = [["D4", "F#4", "A4"], ["B3", "D4", "F#4"], ["G3", "B3", "D4"], ["A3", "C#4", "E4"]]
+RT = ["D2", "B1", "G1", "A1"]
+HOOK = [["A5", "F#5", "D6", None], ["F#5", "B5", "A5", None], ["G5", "B5", "D6", "B5"], ["A5", "C#6", "E6", None]]
+cut_s = sorted({l["from"] / FPS for l in e["layers"]})
+end_s = e["end"]["from"] / FPS
+nb = int(TOTAL / FPS / (4 * B)) + 1
+for b in range(nb):
+    t0 = b * 4 * B
+    c = b % 4
+    mx.put("mu", mu.pad(mu.chord(CH[c]), 4 * B, 0.14), t0)
+    for k in range(4):
+        tb = t0 + k * B
+        if tb >= TOTAL / FPS - 0.3:
+            break
+        mx.put("dr", mu.kick(0.75, 0.12), tb)
+        if k in (1, 3):
+            mx.put("dr", mu.clap(0.45), tb)
+        for h in range(2):
+            mx.put("dr", mu.sleigh(0.75 if h else 0.45), tb + h * B / 2)
+        mx.put("ba", mu.bass(mu.hz(RT[c]), B * 0.45, 0.5), tb + B / 2)
+        mx.put("mu", mu.piano(mu.chord(CH[c])[k % 3] * 2, 0.12, 0.5), tb + B / 2)
+        n = HOOK[c][k]
+        if n:
+            mx.put("mu", mu.bell(mu.hz(n), 0.15, 0.45), tb)
+for t in cut_s:  # soft air on product cutaways only (not on every jump cut)
+    pass
+for l in e["layers"]:
+    if not l["src"] in ("u:IMG_1522", "u:IMG_1525"):
+        mx.put("fx", mu.noise(0.25, 0.08, 0.05, 2), l["from"] / FPS - 0.05)
+for k, n in enumerate(["D6", "F#6", "A6"]):  # sparkle on the price and on the end card
+    mx.put("fx", mu.bell(mu.hz(n), 0.12, 0.5), e["price"]["from"] / FPS + k * 0.06)
+    mx.put("fx", mu.bell(mu.hz(n), 0.14, 0.7), end_s + k * 0.08)
+music = mx.b["dr"] + mx.b["mu"] + mx.b["ba"] + mx.b["fx"]
+ir_n = int(1.4 * SR)
+rng = np.random.default_rng(7)
+ir = rng.standard_normal(ir_n) * np.exp(-np.arange(ir_n) / SR / 0.3)
+ir /= np.sqrt(np.sum(ir ** 2))
+size = 1 << (L + ir_n).bit_length()
+music = music + 0.16 * np.fft.irfft(np.fft.rfft(mx.b["mu"], size) * np.fft.rfft(ir, size), size)[:L]
+music = np.tanh(music / np.max(np.abs(music)) * 1.2) / np.tanh(1.2)
+
+# sidechain duck from the voice envelope: music ~ -15 dB under speech, back up in gaps / end card
+hop = int(0.01 * SR)
+env = np.array([np.sqrt(np.mean(voice[i:i + hop] ** 2)) for i in range(0, L, hop)])
+on = (env > 0.02).astype(float)
+k = int(0.25 / 0.01)
+on = np.convolve(on, np.ones(k) / k, "same") > 0.05
+g = np.where(on, 10 ** (-15 / 20), 10 ** (-6 / 20))
+sm = np.zeros_like(g)
+for i in range(len(g)):  # attack 30 ms / release 250 ms
+    prev = sm[i - 1] if i else g[0]
+    sm[i] = prev + (g[i] - prev) * (0.33 if g[i] < prev else 0.04)
+gain = np.repeat(sm, hop)[:L]
+mix = voice + music[:L] * gain * 0.55
+end = int(TOTAL / FPS * SR)
+mix = mix[:end]
+fo = int(0.6 * SR)
+mix[-fo:] *= np.linspace(1, 0, fo) ** 1.5
+pre = os.path.join(OUT, "_pre.wav")
+sf.write(pre, np.stack([mix, mix], 1).astype("float32"), SR)
+pr = subprocess.run(["ffmpeg", "-hide_banner", "-i", pre, "-af", "loudnorm=I=-14:TP=-1:LRA=8:print_format=json", "-f", "null", "-"], capture_output=True, text=True).stderr
+j = json.loads(re.search(r"\{[^{}]*\"input_i\"[^{}]*\}", pr, re.S).group(0))
+subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", pre, "-af", f"loudnorm=I=-14:TP=-1:LRA=8:measured_I={j['input_i']}:measured_TP={j['input_tp']}:measured_LRA={j['input_lra']}:measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true", "-ar", "48000", os.path.join(OUT, "mix.wav")], check=True)
+os.remove(pre)
+sf.write(os.path.join(OUT, "_voice_only.wav"), voice[:end].astype("float32"), SR)
+print("xmatch", len(e["layers"]), "layers,", TOTAL / FPS, "s")
