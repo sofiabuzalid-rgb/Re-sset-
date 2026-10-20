@@ -95,11 +95,15 @@ const Hero: React.FC<{ t: any; f: number; accent: string }> = ({ t, f, accent })
             fontSize: t.size,
             lineHeight: 1.02,
             letterSpacing: "-0.01em",
-            color: t.accent && i === t.lines.length - 1 ? accent : "#fff",
+            color: "#fff",
             textShadow: SHADOW,
           }}
         >
-          {l}
+          {t.accent && i === t.lines.length - 1 ? (
+            <span style={{ background: accent, color: INK, textShadow: "none", padding: "0 0.18em" }}>{l}</span>
+          ) : (
+            l
+          )}
         </div>
       </Rise>
     ))}
@@ -196,43 +200,23 @@ const End: React.FC<{ t: any; f: number; accent: string }> = ({ t, f, accent }) 
   return (
     <AbsoluteFill>
       <AbsoluteFill style={{ background: `rgba(10,10,10,${d})` }} />
-      <div style={{ position: "absolute", top: 330, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: ramp(f, 2, 14) }}>
-        <Logo width={360} />
-      </div>
-      <div style={{ position: "absolute", top: 600, left: 70, right: 70, textAlign: "center" }}>
+      <div style={{ position: "absolute", top: 330, left: 80, right: 80, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+        <div style={{ opacity: ramp(f, 2, 14) }}>
+          <Logo width={340} />
+        </div>
+        <div style={{ height: 70 }} />
         {t.title.map((l: string, i: number) => (
           <Rise key={i} f={f} at={8 + i * 4}>
-            <div style={{ fontFamily: SANS, fontWeight: 900, fontSize: 84, lineHeight: 1.06, color: "#fff", textShadow: SHADOW }}>{l}</div>
+            <div style={{ fontFamily: SANS, fontWeight: 900, fontSize: 68, lineHeight: 1.1, color: "#fff", textShadow: SHADOW, whiteSpace: "nowrap" }}>{l}</div>
           </Rise>
         ))}
-      </div>
-      {t.price ? (
-        <div style={{ position: "absolute", top: 830, left: 0, right: 0, textAlign: "center", opacity: ramp(f, 18, 12) }}>
-          <div style={{ fontFamily: DISPLAY, fontSize: 150, lineHeight: 1, color: accent, textShadow: SHADOW }}>{t.price}</div>
-        </div>
-      ) : null}
-      {t.sub ? (
-        <div
-          style={{
-            position: "absolute",
-            top: t.price ? 1010 : 850,
-            left: 90,
-            right: 90,
-            textAlign: "center",
-            fontFamily: SANS,
-            fontWeight: 600,
-            fontSize: 30,
-            lineHeight: 1.5,
-            letterSpacing: "0.18em",
-            color: CREAM,
-            textShadow: SHADOW,
-            opacity: ramp(f, 20, 12),
-          }}
-        >
-          {t.sub}
-        </div>
-      ) : null}
-      <div style={{ position: "absolute", top: 1120, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
+        {t.price ? (
+          <div style={{ fontFamily: DISPLAY, fontSize: 150, lineHeight: 1, color: CREAM, textShadow: SHADOW, marginTop: 30, opacity: ramp(f, 18, 12) }}>{t.price}</div>
+        ) : null}
+        {t.sub ? (
+          <div style={{ fontFamily: SANS, fontWeight: 600, fontSize: 30, lineHeight: 1.5, letterSpacing: "0.16em", color: CREAM, textShadow: SHADOW, marginTop: 40, maxWidth: 820, opacity: ramp(f, 20, 12) }}>{t.sub}</div>
+        ) : null}
+        <div style={{ height: 60 }} />
         <Button text={t.cta} f={f} at={26} accent={accent} />
       </div>
     </AbsoluteFill>
