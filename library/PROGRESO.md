@@ -6,8 +6,8 @@ Archivos en el inventario de Drive: **267**
 
 - revisado visualmente: 205
 - NO DESCARGABLE por el conector: 51
-- duplicado: 7
-- pendiente de descarga y revisión: 4
+- duplicado: 8
+- documento de texto: 3
 
 ## Revisados por campaña
 

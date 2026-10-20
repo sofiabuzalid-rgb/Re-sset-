@@ -22,6 +22,8 @@ for r in inv:
         e = {"archivo": r["archivo"], "carpeta_drive": r["carpeta"], "drive_id": r["drive_id"]}
         if r["duplicado"]:
             e["estado"] = "duplicado (no se revisa por separado)"
+        elif r["origen"] == "Documento":
+            e["estado"] = "documento de texto (fuera del alcance audiovisual; no se revisa visualmente)"
         elif r["drive_id"] in nd or float(r["MB"] or 0) > 10:
             e["estado"] = "NO DESCARGABLE por el conector (" + r["MB"] + " MB) — pendiente, no revisado"
         else:
