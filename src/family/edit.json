@@ -1,0 +1,285 @@
+{
+ "fps": 30,
+ "bpm": 104.86,
+ "total": 655,
+ "shots": [
+  {
+   "id": "h1",
+   "src": "u:IMG_2052",
+   "in": 0.3,
+   "frames": 51,
+   "from": 0,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "snap": 1
+  },
+  {
+   "id": "h2",
+   "src": "u:IMG_2041",
+   "in": 0.5,
+   "frames": 52,
+   "from": 51,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "push": [
+    1.0,
+    1.04
+   ]
+  },
+  {
+   "id": "c1",
+   "src": "u:IMG_2043",
+   "in": 1.0,
+   "frames": 34,
+   "from": 103,
+   "z": 1.3,
+   "cx": 0.0,
+   "cy": 0.71
+  },
+  {
+   "id": "c2",
+   "src": "u:IMG_2045",
+   "in": 1.0,
+   "frames": 35,
+   "from": 137,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "id": "c3",
+   "src": "u:IMG_2046",
+   "in": 1.0,
+   "frames": 34,
+   "from": 172,
+   "z": 1.3,
+   "cx": 0.71,
+   "cy": 0.71
+  },
+  {
+   "id": "c4",
+   "src": "u:IMG_2051",
+   "in": 1.0,
+   "frames": 34,
+   "from": 206,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "id": "c5",
+   "src": "u:IMG_2053",
+   "in": 1.0,
+   "frames": 35,
+   "from": 240,
+   "z": 1.3,
+   "cx": 0.5,
+   "cy": 0.93
+  },
+  {
+   "id": "m1",
+   "src": "u:IMG_2044",
+   "in": 0.5,
+   "frames": 68,
+   "from": 275,
+   "z": 1.3,
+   "cx": 0.28,
+   "cy": 0.94,
+   "push": [
+    1.0,
+    1.03
+   ]
+  },
+  {
+   "id": "m2",
+   "src": "u:IMG_2052",
+   "in": 2.7,
+   "frames": 69,
+   "from": 343,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "push": [
+    1.0,
+    1.05
+   ]
+  },
+  {
+   "id": "p1",
+   "src": "u:IMG_2041",
+   "in": 3.0,
+   "frames": 86,
+   "from": 412,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "push": [
+    1.0,
+    1.04
+   ]
+  },
+  {
+   "id": "p2",
+   "src": "u:IMG_2045",
+   "in": 3.0,
+   "frames": 68,
+   "from": 498,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "push": [
+    1.04,
+    1.0
+   ]
+  },
+  {
+   "id": "r1",
+   "src": "u:IMG_2041",
+   "in": 6.0,
+   "frames": 18,
+   "from": 566,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "id": "r2",
+   "src": "u:IMG_2045",
+   "in": 2.0,
+   "frames": 17,
+   "from": 584,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "id": "r3",
+   "src": "u:IMG_2052",
+   "in": 2.1,
+   "frames": 17,
+   "from": 601,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "id": "end",
+   "src": "u:IMG_2051",
+   "in": 3.5,
+   "frames": 37,
+   "from": 618,
+   "z": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "push": [
+    1.0,
+    1.04
+   ]
+  }
+ ],
+ "texts": [
+  {
+   "type": "hero",
+   "from": 0,
+   "to": 50,
+   "lines": [
+    "¿YA TIENES TU",
+    "PIJAMA DE NAVIDAD?"
+   ],
+   "size": 82
+  },
+  {
+   "type": "hero",
+   "from": 51,
+   "to": 102,
+   "lines": [
+    "ESTE AÑO,",
+    "HAGAN MATCH."
+   ],
+   "size": 104,
+   "hl": "MATCH."
+  },
+  {
+   "type": "hero",
+   "from": 275,
+   "to": 342,
+   "lines": [
+    "MISMO DISEÑO."
+   ],
+   "size": 96,
+   "tags": [
+    {
+     "text": "NIÑOS",
+     "x": 216,
+     "y": 600
+    },
+    {
+     "text": "ADULTOS",
+     "x": 695,
+     "y": 1170
+    }
+   ]
+  },
+  {
+   "type": "hero",
+   "from": 343,
+   "to": 411,
+   "lines": [
+    "PARA GRANDES",
+    "Y PEQUEÑOS."
+   ],
+   "size": 104
+  },
+  {
+   "type": "price",
+   "from": 412,
+   "to": 497,
+   "items": [
+    [
+     "ADULTOS",
+     "$999"
+    ],
+    [
+     "NIÑOS",
+     "$699"
+    ]
+   ]
+  },
+  {
+   "type": "hero",
+   "from": 498,
+   "to": 565,
+   "lines": [
+    "COMPRA 2 Y OBTÉN",
+    "ENVÍO GRATIS."
+   ],
+   "size": 88,
+   "hl": "GRATIS."
+  },
+  {
+   "type": "hero",
+   "from": 566,
+   "to": 617,
+   "lines": [
+    "¿CUÁL VAN",
+    "A ELEGIR?"
+   ],
+   "size": 110
+  },
+  {
+   "type": "end",
+   "from": 618,
+   "to": 654,
+   "lines": [
+    "HAZ MATCH ESTA NAVIDAD",
+    "CON RE:SET."
+   ],
+   "cta": "COMPRA EN LÍNEA"
+  }
+ ],
+ "music": "SPACETRAIN UNLIMITED — Christmas Wonderland (Artlist.io, tag: 'Licensed for video by Artlist.io'); segment ends on the song's final hit.",
+ "note": "THE FAMILY MATCH — escaleta aprobada (library/ESCALETA_FAMILY_MATCH.md). Sin diseño Grinch. Cortes en rejilla de 15 fotogramas (120 BPM); re-sincronizar al beat de la pista de la clienta cuando llegue.",
+ "track_offset": 90.206
+}
