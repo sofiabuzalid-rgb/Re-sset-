@@ -1,0 +1,200 @@
+{
+"id": "a4",
+"name": "Conversión directa",
+"fps": 30,
+"bpm": 120,
+"shots": [
+{
+"id": "d01",
+"src": "u:IMG_8490",
+"in": 2.0,
+"frames": 60,
+"zoom": [
+1.12,
+1.02
+]
+},
+{
+"id": "d02",
+"src": "u:IMG_1694",
+"in": 1.5,
+"frames": 15
+},
+{
+"id": "d03",
+"src": "u:IMG_1700",
+"in": 1.9,
+"frames": 15
+},
+{
+"id": "d04",
+"src": "u:IMG_1688",
+"in": 1.6,
+"frames": 15
+},
+{
+"id": "d05",
+"src": "u:IMG_1893",
+"in": 3.5,
+"frames": 15
+},
+{
+"id": "d06",
+"src": "u:IMG_1918",
+"in": 4.8,
+"frames": 15
+},
+{
+"id": "d07",
+"src": "d:E42BD255-8551-4BF5-A937-38A23B9F2E1F.png",
+"frames": 15,
+"fit": "contain",
+"bg": "#FFFFFF"
+},
+{
+"id": "d08",
+"src": "u:IMG_0953",
+"in": 1.0,
+"frames": 15
+},
+{
+"id": "d09",
+"src": "u:IMG_1914",
+"in": 2.0,
+"frames": 45,
+"zoom": [
+1.0,
+1.06
+]
+},
+{
+"id": "d10",
+"src": "u:IMG_8484",
+"in": 0.0,
+"frames": 135,
+"zoom": [
+1.0,
+1.04
+]
+},
+{
+"id": "d11",
+"src": "u:IMG_8490",
+"in": 5.0,
+"frames": 120,
+"zoom": [
+1.04,
+1.1
+]
+}
+],
+"accent": "#E2EC95",
+"theme": "bold",
+"texts": [
+{
+"from": 0,
+"to": 59,
+"type": "bigprice",
+"kick": "PIJAMAS",
+"pre": "DESDE",
+"price": "$999",
+"y": 250
+},
+{
+"from": 60,
+"to": 164,
+"type": "hero",
+"lines": [
+"ELIGE LA TUYA."
+],
+"size": 96,
+"y": 300,
+"keep": 1
+},
+{
+"from": 60,
+"to": 74,
+"type": "chip",
+"text": "ROSA",
+"y": 1280
+},
+{
+"from": 75,
+"to": 89,
+"type": "chip",
+"text": "AZUL",
+"y": 1280
+},
+{
+"from": 90,
+"to": 104,
+"type": "chip",
+"text": "CAFÉ",
+"y": 1280
+},
+{
+"from": 105,
+"to": 119,
+"type": "chip",
+"text": "ESPIGA",
+"y": 1280
+},
+{
+"from": 120,
+"to": 134,
+"type": "chip",
+"text": "NAVIDAD",
+"y": 1280
+},
+{
+"from": 135,
+"to": 149,
+"type": "chip",
+"text": "OSITOS",
+"y": 1280
+},
+{
+"from": 150,
+"to": 164,
+"type": "chip",
+"text": "GRIS",
+"y": 1280
+},
+{
+"from": 60,
+"to": 164,
+"type": "tag",
+"text": "DESDE $999",
+"y": 1380
+},
+{
+"from": 165,
+"to": 209,
+"type": "bigprice",
+"kick": "NIÑOS",
+"pre": "DESDE",
+"price": "$699",
+"y": 250
+},
+{
+"from": 210,
+"to": 344,
+"type": "stack",
+"lines": [
+"COMPRA EN LÍNEA",
+"O VISÍTANOS EN NUESTRAS",
+"2 SUCURSALES"
+],
+"badge": "+5 AÑOS EN EL MERCADO",
+"y": 980
+},
+{
+"from": 345,
+"to": 465,
+"type": "cta",
+"cta": "COMPRA AHORA",
+"sub": "ADULTO DESDE $999 · NIÑO DESDE $699",
+"y": 1120
+}
+]
+}

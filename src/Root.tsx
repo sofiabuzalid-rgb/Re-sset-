@@ -19,6 +19,7 @@ import {NflAd, NFL_TOTAL} from './nfl/NflAd';
 import {MatchAd, MATCH_TOTAL} from './match/MatchAd';
 import {GameDayAd, GAMEDAY_TOTAL} from './gameday/GameDayAd';
 import {MamaAd, MAMA_TOTAL} from './mama/MamaAd';
+import {ADS, adTotal, MetaAd} from './meta4/MetaAd';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
@@ -64,5 +65,9 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="MatchEnCasa" component={MatchAd} durationInFrames={MATCH_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="GameDay" component={GameDayAd} durationInFrames={GAMEDAY_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="MamaYYo" component={MamaAd} durationInFrames={MAMA_TOTAL} fps={FPS} width={1080} height={1920} />
+		<Composition id="Meta1Navidad" component={MetaAd} defaultProps={{ad: 'a1'}} durationInFrames={adTotal(ADS.a1)} fps={30} width={1080} height={1920} />
+		<Composition id="Meta2Producto" component={MetaAd} defaultProps={{ad: 'a2'}} durationInFrames={adTotal(ADS.a2)} fps={30} width={1080} height={1920} />
+		<Composition id="Meta3MamaYYo" component={MetaAd} defaultProps={{ad: 'a3'}} durationInFrames={adTotal(ADS.a3)} fps={30} width={1080} height={1920} />
+		<Composition id="Meta4Conversion" component={MetaAd} defaultProps={{ad: 'a4'}} durationInFrames={adTotal(ADS.a4)} fps={30} width={1080} height={1920} />
 	</>
 );

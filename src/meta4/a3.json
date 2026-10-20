@@ -1,0 +1,213 @@
+{
+"id": "a3",
+"name": "Mamá y yo",
+"fps": 30,
+"bpm": 90,
+"shots": [
+{
+"id": "c01",
+"src": "u:IMG_1894",
+"in": 0.7,
+"frames": 60,
+"zoom": [
+1.12,
+1.0
+]
+},
+{
+"id": "c02",
+"src": "u:IMG_1898",
+"in": 0.5,
+"frames": 40,
+"zoom": [
+1.0,
+1.05
+]
+},
+{
+"id": "c03",
+"kind": "split",
+"src": "u:IMG_1887",
+"in": 13.0,
+"right": {
+"src": "d:IMG_1891.MOV",
+"in": 0.5
+},
+"frames": 80
+},
+{
+"id": "c04",
+"src": "u:IMG_1892",
+"in": 1.0,
+"frames": 60,
+"zoom": [
+1.0,
+1.05
+]
+},
+{
+"id": "c05",
+"src": "d:IMG_1266.MOV",
+"in": 0.8,
+"frames": 40,
+"zoom": [
+1.0,
+1.03
+]
+},
+{
+"id": "c06",
+"src": "d:IMG_1248.HEIC",
+"frames": 40,
+"zoom": [
+1.0,
+1.07
+]
+},
+{
+"id": "c07",
+"src": "d:IMG_1251.HEIC",
+"frames": 40,
+"zoom": [
+1.07,
+1.0
+]
+},
+{
+"id": "c08",
+"src": "d:IMG_1245.HEIC",
+"frames": 40,
+"zoom": [
+1.0,
+1.06
+]
+},
+{
+"id": "c09",
+"src": "u:IMG_1914",
+"in": 0.5,
+"frames": 60,
+"zoom": [
+1.0,
+1.05
+]
+},
+{
+"id": "c10",
+"src": "u:IMG_1897",
+"in": 4.0,
+"frames": 100,
+"zoom": [
+1.0,
+1.05
+]
+},
+{
+"id": "c11",
+"src": "u:IMG_1894",
+"in": 4.0,
+"frames": 100,
+"zoom": [
+1.05,
+1.12
+]
+}
+],
+"accent": "#B07E7F",
+"theme": "soft",
+"texts": [
+{
+"from": 0,
+"to": 58,
+"type": "hero",
+"lines": [
+"MISMA",
+"PIJAMA."
+],
+"size": 150,
+"y": 300
+},
+{
+"from": 60,
+"to": 98,
+"type": "hero",
+"lines": [
+"DOS",
+"TAMAÑOS."
+],
+"size": 150,
+"y": 300,
+"accent": 1
+},
+{
+"from": 104,
+"to": 178,
+"type": "split",
+"left": "PARA TI",
+"right": "PARA TU MINI",
+"y": 1250
+},
+{
+"from": 182,
+"to": 238,
+"type": "hero",
+"lines": [
+"LA TUYA",
+"Y LA SUYA."
+],
+"size": 130,
+"y": 300
+},
+{
+"from": 242,
+"to": 398,
+"type": "sizes",
+"kick": "TALLAS KIDS",
+"text": "2-4 · 4-6 · 8-10",
+"note": "*Disponibilidad según modelo",
+"y": 1200
+},
+{
+"from": 402,
+"to": 458,
+"type": "hero",
+"lines": [
+"Y EN NAVIDAD,",
+"TAMBIÉN."
+],
+"size": 110,
+"y": 320,
+"accent": 1
+},
+{
+"from": 462,
+"to": 558,
+"type": "price",
+"items": [
+[
+"ADULTO",
+"DESDE",
+"$999"
+],
+[
+"NIÑO",
+"DESDE",
+"$699"
+]
+],
+"y": 1080
+},
+{
+"from": 560,
+"to": 660,
+"type": "end",
+"title": [
+"MAMÁ Y YO,",
+"A JUEGO."
+],
+"sub": "COMPRA EN LÍNEA O EN NUESTRAS 2 SUCURSALES",
+"cta": "COMPRA AHORA",
+"dim": 0.5
+}
+]
+}

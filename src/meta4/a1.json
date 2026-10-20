@@ -1,0 +1,237 @@
+{
+"id": "a1",
+"name": "Navidad en familia",
+"fps": 30,
+"bpm": 120,
+"shots": [
+{
+"id": "a01",
+"src": "u:IMG_1913",
+"in": 0.2,
+"frames": 30,
+"zoom": [
+1.08,
+1.0
+]
+},
+{
+"id": "a02",
+"src": "u:IMG_1913",
+"in": 2.7,
+"frames": 60,
+"zoom": [
+1.0,
+1.06
+]
+},
+{
+"id": "a04",
+"src": "d:IMG_1324.HEIC",
+"frames": 45,
+"zoom": [
+1.0,
+1.08
+]
+},
+{
+"id": "a05",
+"src": "d:IMG_1329.HEIC",
+"frames": 45,
+"zoom": [
+1.08,
+1.0
+]
+},
+{
+"id": "a03",
+"src": "u:IMG_1916",
+"in": 0.3,
+"frames": 45,
+"zoom": [
+1.04,
+1.0
+]
+},
+{
+"id": "a07",
+"src": "d:IMG_1404.MOV",
+"in": 0.5,
+"frames": 75,
+"zoom": [
+1.0,
+1.04
+]
+},
+{
+"id": "a08",
+"src": "d:IMG_1341.mov",
+"in": 4.8,
+"frames": 60,
+"zoom": [
+1.06,
+1.0
+]
+},
+{
+"id": "a09",
+"src": "d:IMG_1397.MOV",
+"in": 0.0,
+"frames": 45,
+"zoom": [
+1.0,
+1.05
+]
+},
+{
+"id": "a10",
+"src": "d:IMG_1400.MOV",
+"in": 8.0,
+"frames": 45,
+"cx": 0.66,
+"zoom": [
+1.0,
+1.04
+]
+},
+{
+"id": "a11",
+"src": "u:IMG_1914",
+"in": 5.0,
+"frames": 90,
+"zoom": [
+1.0,
+1.05
+]
+},
+{
+"id": "a12",
+"src": "u:IMG_1913",
+"in": 3.0,
+"frames": 105,
+"zoom": [
+1.05,
+1.12
+]
+}
+],
+"accent": "#E8C9C3",
+"theme": "warm",
+"texts": [
+{
+"from": 0,
+"to": 29,
+"type": "hero",
+"lines": [
+"ESTE AÑO,"
+],
+"size": 120,
+"y": 330
+},
+{
+"from": 30,
+"to": 88,
+"type": "hero",
+"lines": [
+"TODOS",
+"A JUEGO."
+],
+"size": 150,
+"y": 300,
+"accent": 1
+},
+{
+"from": 92,
+"to": 134,
+"type": "kicker",
+"kick": "WOMAN XL",
+"lines": [
+"PARA ELLA."
+],
+"y": 330
+},
+{
+"from": 137,
+"to": 179,
+"type": "kicker",
+"kick": "MAN LARGE",
+"lines": [
+"PARA ÉL."
+],
+"y": 330
+},
+{
+"from": 182,
+"to": 224,
+"type": "kicker",
+"kick": "KIDS 8-10",
+"lines": [
+"Y PARA LOS",
+"PEQUES."
+],
+"y": 330
+},
+{
+"from": 228,
+"to": 298,
+"type": "hero",
+"lines": [
+"ENVUÉLVELA."
+],
+"size": 104,
+"y": 340
+},
+{
+"from": 302,
+"to": 358,
+"type": "hero",
+"lines": [
+"ÁBRANLA",
+"JUNTOS."
+],
+"size": 120,
+"y": 330,
+"accent": 1
+},
+{
+"from": 362,
+"to": 448,
+"type": "hero",
+"lines": [
+"ESTRÉNENLA EN",
+"NOCHEBUENA."
+],
+"size": 92,
+"y": 330
+},
+{
+"from": 452,
+"to": 538,
+"type": "price",
+"items": [
+[
+"ADULTO",
+"DESDE",
+"$999"
+],
+[
+"NIÑO",
+"DESDE",
+"$699"
+]
+],
+"y": 1080
+},
+{
+"from": 540,
+"to": 645,
+"type": "end",
+"title": [
+"PIJAMAS NAVIDEÑAS",
+"PARA TODA LA FAMILIA."
+],
+"sub": "COMPRA EN LÍNEA O EN NUESTRAS 2 SUCURSALES",
+"cta": "COMPRA AHORA",
+"dim": 0.55
+}
+]
+}

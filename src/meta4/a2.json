@@ -1,0 +1,227 @@
+{
+"id": "a2",
+"name": "El producto es el protagonista",
+"fps": 30,
+"bpm": 120,
+"shots": [
+{
+"id": "b01",
+"src": "d:IMG_1222.MOV",
+"in": 1.0,
+"frames": 45,
+"zoom": [
+1.1,
+1.0
+]
+},
+{
+"id": "b02",
+"src": "d:IMG_1224.MOV",
+"in": 0.5,
+"frames": 30,
+"zoom": [
+1.0,
+1.06
+]
+},
+{
+"id": "b03",
+"src": "u:IMG_1889",
+"in": 0.5,
+"frames": 45,
+"zoom": [
+1.0,
+1.0
+]
+},
+{
+"id": "b04",
+"src": "u:IMG_1690",
+"in": 1.2,
+"frames": 45,
+"zoom": [
+1.0,
+1.04
+]
+},
+{
+"id": "b05",
+"src": "u:IMG_1694",
+"in": 4.0,
+"frames": 30,
+"zoom": [
+1.0,
+1.04
+]
+},
+{
+"id": "b06",
+"src": "u:IMG_1700",
+"in": 13.5,
+"frames": 45,
+"zoom": [
+1.0,
+1.04
+]
+},
+{
+"id": "b07",
+"src": "d:IMG_1227.MOV",
+"in": 1.0,
+"frames": 45,
+"zoom": [
+1.0,
+1.04
+]
+},
+{
+"id": "b08",
+"src": "u:IMG_1695",
+"in": 0.3,
+"frames": 45,
+"zoom": [
+1.0,
+1.04
+]
+},
+{
+"id": "b09",
+"src": "u:IMG_1694",
+"in": 1.5,
+"frames": 15
+},
+{
+"id": "b10",
+"src": "u:IMG_1700",
+"in": 1.9,
+"frames": 15
+},
+{
+"id": "b11",
+"src": "u:IMG_1688",
+"in": 1.6,
+"frames": 15
+},
+{
+"id": "b12",
+"src": "u:IMG_1692",
+"in": 0.5,
+"frames": 15
+},
+{
+"id": "b13",
+"src": "u:IMG_1893",
+"in": 3.5,
+"frames": 15
+},
+{
+"id": "b14",
+"src": "u:IMG_0953",
+"in": 1.0,
+"frames": 15
+},
+{
+"id": "b15",
+"src": "d:IMG_1250.HEIC",
+"frames": 105,
+"zoom": [
+1.0,
+1.08
+]
+}
+],
+"accent": "#7B95AB",
+"theme": "clean",
+"texts": [
+{
+"from": 0,
+"to": 43,
+"type": "hero",
+"lines": [
+"MÍRALA",
+"DE CERCA."
+],
+"size": 130,
+"y": 330
+},
+{
+"from": 45,
+"to": 74,
+"type": "label",
+"n": "01",
+"text": "Tejido de espiga",
+"y": 1290
+},
+{
+"from": 75,
+"to": 119,
+"type": "label",
+"n": "02",
+"text": "Acabado en el cuello",
+"y": 1290
+},
+{
+"from": 120,
+"to": 164,
+"type": "label",
+"n": "03",
+"text": "Botones al frente",
+"y": 1290
+},
+{
+"from": 165,
+"to": 194,
+"type": "label",
+"n": "04",
+"text": "Así cae la tela",
+"y": 1290
+},
+{
+"from": 195,
+"to": 239,
+"type": "label",
+"n": "05",
+"text": "Cintura con lazo",
+"y": 1290
+},
+{
+"from": 240,
+"to": 284,
+"type": "label",
+"n": "06",
+"text": "Puño en el tobillo",
+"y": 1290
+},
+{
+"from": 285,
+"to": 329,
+"type": "label",
+"n": "07",
+"text": "En su bolsa RE:SET",
+"y": 1290
+},
+{
+"from": 330,
+"to": 419,
+"type": "hero",
+"lines": [
+"ELIGE",
+"TU COLOR."
+],
+"size": 130,
+"y": 330
+},
+{
+"from": 420,
+"to": 525,
+"type": "end",
+"title": [
+"DETALLES QUE",
+"SE SIENTEN."
+],
+"price": "DESDE $999",
+"cta": "DESCÚBRELA EN LÍNEA",
+"dim": 0.5
+}
+]
+}
