@@ -3077,7 +3077,24 @@
   "resolucion": "1200x1310",
   "orientacion": "vertical",
   "hoja_contacto": "library/sheets/photos/3A39FD16-D49E-4EC6-BB12-0881EBF7BDDA.jpg",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Foto de producto recortada sobre fondo blanco: camisa de pijama roja con estampado nórdico blanco (renos, copos), cuello en V, manga larga.",
+  "producto": "Pijama roja nórdica (camisa)",
+  "colores": "rojo, blanco",
+  "accion": "—",
+  "locacion": "fondo blanco (packshot)",
+  "encuadre": "producto completo",
+  "iluminacion": "estudio uniforme",
+  "calidad": "5",
+  "campana": "Navidad",
+  "usos": [
+   "catálogo / e-commerce",
+   "anuncio estático o carrusel",
+   "gráfico de precio en video"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Packshot limpio, listo para gráficos.",
+  "lote": "lote-10"
  },
  "1r0xDWIN-kWSufLXXGxMu6LzilGLALaVO": {
   "drive_id": "1r0xDWIN-kWSufLXXGxMu6LzilGLALaVO",
@@ -3092,7 +3109,22 @@
   "resolucion": "2062x3664",
   "orientacion": "vertical",
   "hoja_contacto": "library/sheets/photos/19DE7CED-852B-407F-9D7E-40F3472BD681.jpg",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Selfie de una mujer de cabello oscuro recargada en una chamarra/prenda café con franja rosa; detrás, estantes con bolsas de tela estampadas.",
+  "producto": "Prenda café con rosa (no identificable con certeza)",
+  "colores": "café, rosa, gris",
+  "accion": "selfie / pose",
+  "locacion": "bodega o tienda con bolsas al fondo",
+  "encuadre": "primer plano vertical",
+  "iluminacion": "natural interior",
+  "calidad": "3",
+  "campana": "General",
+  "usos": [
+   "reel orgánico (equipo / lifestyle)"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Persona identificable: confirmar autorización de imagen.",
+  "lote": "lote-10"
  },
  "1uDSeTpKnDUDlTtmR9wAVG6iFP5f6l9VV": {
   "drive_id": "1uDSeTpKnDUDlTtmR9wAVG6iFP5f6l9VV",
@@ -3107,7 +3139,23 @@
   "resolucion": "1024x1536",
   "orientacion": "vertical",
   "hoja_contacto": "library/sheets/photos/AA76E2B8-ECE5-4779-A442-3A66DD1B77FD.jpg",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Pijama blanca (camisa cuello en V y pantalón) con estampado navideño de flores de nochebuena/acebo, sobre fondo negro con halo blanco.",
+  "producto": "Pijama blanca estampado nochebuena/acebo",
+  "colores": "blanco, verde, rojo, negro (fondo)",
+  "accion": "—",
+  "locacion": "fondo negro (render/packshot)",
+  "encuadre": "producto completo",
+  "iluminacion": "halo artificial",
+  "calidad": "3",
+  "campana": "Navidad",
+  "usos": [
+   "referencia de producto",
+   "carrusel"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Parece imagen generada o render (halo artificial); confirmar si es un producto real antes de anunciarlo.",
+  "lote": "lote-10"
  },
  "1kQqKeeESX_IZe1ILaOFfsT3sdoznENcK": {
   "drive_id": "1kQqKeeESX_IZe1ILaOFfsT3sdoznENcK",
@@ -3122,7 +3170,22 @@
   "resolucion": "640x476",
   "orientacion": "horizontal",
   "hoja_contacto": "library/sheets/photos/Colores.jpg",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Paleta de marca: Pantone 386 U, 536 U, 679 U, Black U y White U.",
+  "producto": "Ninguno (guía de marca)",
+  "colores": "verde lima 386U, azul 536U, rosa viejo 679U, negro, blanco",
+  "accion": "—",
+  "locacion": "—",
+  "encuadre": "gráfico",
+  "iluminacion": "—",
+  "calidad": "5",
+  "campana": "General",
+  "usos": [
+   "guía de marca para edición"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Fuente oficial de los colores de marca.",
+  "lote": "lote-10"
  },
  "1Lq-5OaCl1jue8JoN4BClQmqKsUYFKkF6": {
   "drive_id": "1Lq-5OaCl1jue8JoN4BClQmqKsUYFKkF6",
@@ -3137,7 +3200,23 @@
   "resolucion": "1024x1536",
   "orientacion": "vertical",
   "hoja_contacto": "library/sheets/photos/D69FD917-B85C-4A8E-BB32-DE309DAF7AF1.jpg",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Foto de producto recortada sobre fondo blanco: pantalón de pijama rojo con estampado nórdico blanco y cordón.",
+  "producto": "Pijama roja nórdica (pantalón)",
+  "colores": "rojo, blanco",
+  "accion": "—",
+  "locacion": "fondo blanco (packshot)",
+  "encuadre": "producto completo",
+  "iluminacion": "estudio uniforme",
+  "calidad": "5",
+  "campana": "Navidad",
+  "usos": [
+   "catálogo / e-commerce",
+   "anuncio estático o carrusel"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Hace par con 3A39FD16 (camisa).",
+  "lote": "lote-10"
  },
  "17KEB3Eo9uAz460iUWqNOQqlcaPl8P5iZ": {
   "drive_id": "17KEB3Eo9uAz460iUWqNOQqlcaPl8P5iZ",
@@ -3152,7 +3231,23 @@
   "resolucion": "1200x1310",
   "orientacion": "vertical",
   "hoja_contacto": "library/sheets/photos/E42BD255-8551-4BF5-A937-38A23B9F2E1F.jpg",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Foto de producto recortada sobre fondo blanco: sudadera de pijama de rayas azul marino y blanco con ositos.",
+  "producto": "Pijama de rayas azul con ositos (top)",
+  "colores": "azul marino, blanco, café",
+  "accion": "—",
+  "locacion": "fondo blanco (packshot)",
+  "encuadre": "producto completo",
+  "iluminacion": "estudio uniforme",
+  "calidad": "5",
+  "campana": "Navidad",
+  "usos": [
+   "catálogo / e-commerce",
+   "anuncio estático o carrusel"
+  ],
+  "mejores_momentos": "—",
+  "notas": "",
+  "lote": "lote-10"
  },
  "1zjb0cNcvxnco5LpmCMXUApeCDKz6ay-P": {
   "drive_id": "1zjb0cNcvxnco5LpmCMXUApeCDKz6ay-P",
@@ -3167,7 +3262,24 @@
   "resolucion": "3024x4032",
   "orientacion": "vertical",
   "hoja_contacto": "library/sheets/photos/IMG_0951.jpg",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Fachada de la tienda RE:SET en centro comercial: letrero 'RE:SET' sobre la entrada, aparador de vidrio con globos rosas con borlas y conjuntos en maniquí.",
+  "producto": "Tienda RE:SET (fachada)",
+  "colores": "negro, rosa, beige, mármol",
+  "accion": "—",
+  "locacion": "tienda RE:SET (centro comercial)",
+  "encuadre": "plano general vertical",
+  "iluminacion": "interior de mall",
+  "calidad": "4",
+  "campana": "Tienda",
+  "usos": [
+   "anuncio 15–30 s (cierre 'visítanos')",
+   "reel orgánico",
+   "campaña de venta (ubicación)"
+  ],
+  "mejores_momentos": "—",
+  "notas": "",
+  "lote": "lote-10"
  },
  "1ICRAfzJj1Y50z8Bz3Og3XqvDDxcoHTto": {
   "drive_id": "1ICRAfzJj1Y50z8Bz3Og3XqvDDxcoHTto",
@@ -3182,7 +3294,24 @@
   "resolucion": "3024x4032",
   "orientacion": "vertical",
   "hoja_contacto": "library/sheets/photos/IMG_1208.jpg",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Pared gris con la frase en vinil 'TIME : TO BE YOU' sobre un rack con conjuntos en tonos neutros, rosa, azul y negro.",
+  "producto": "Rack de conjuntos (varios colores)",
+  "colores": "gris, beige, rosa, azul, negro",
+  "accion": "—",
+  "locacion": "interior de tienda RE:SET",
+  "encuadre": "plano general",
+  "iluminacion": "interior",
+  "calidad": "4",
+  "campana": "Tienda",
+  "usos": [
+   "anuncio 15–30 s (frase de marca)",
+   "reel orgánico",
+   "fondo para texto"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Frase de marca visible. Existe duplicado 'IMG_1208 (1).jpeg' (mismo tamaño).",
+  "lote": "lote-10"
  },
  "119Ty64ukuv2iI12FcYXwhq0vw_qWE5BC": {
   "drive_id": "119Ty64ukuv2iI12FcYXwhq0vw_qWE5BC",
@@ -3197,7 +3326,23 @@
   "resolucion": "3024x4032",
   "orientacion": "vertical",
   "hoja_contacto": "library/sheets/photos/IMG_0956.jpg",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Aparador de la tienda RE:SET con globo rosa con borlas y logo, conjuntos verde olivo y verde agua colgados; reflejos del pasillo.",
+  "producto": "Conjuntos verde olivo / verde agua en aparador",
+  "colores": "verde olivo, rosa, mármol",
+  "accion": "—",
+  "locacion": "aparador de tienda RE:SET",
+  "encuadre": "plano medio vertical",
+  "iluminacion": "interior de mall",
+  "calidad": "4",
+  "campana": "Tienda",
+  "usos": [
+   "reel orgánico",
+   "campaña de venta (aparador)"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Reflejos en el vidrio.",
+  "lote": "lote-10"
  },
  "1ADSJjMeyBEzhefz-cR05INHX8-578EHR": {
   "drive_id": "1ADSJjMeyBEzhefz-cR05INHX8-578EHR",
@@ -3212,7 +3357,23 @@
   "resolucion": "3024x4032",
   "orientacion": "vertical",
   "hoja_contacto": "library/sheets/photos/IMG_1209.jpg",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Rack con conjuntos de manga corta en rosa, beige, arena, café, gris, verde agua, azul y negro.",
+  "producto": "Conjuntos de manga corta (gama de colores)",
+  "colores": "rosa, beige, café, gris, verde agua, azul, negro",
+  "accion": "—",
+  "locacion": "interior de tienda RE:SET",
+  "encuadre": "plano medio",
+  "iluminacion": "interior",
+  "calidad": "4",
+  "campana": "Tienda",
+  "usos": [
+   "anuncio estático (variedad de colores)",
+   "reel orgánico"
+  ],
+  "mejores_momentos": "—",
+  "notas": "",
+  "lote": "lote-10"
  },
  "1_18ItuRZzxzFEQbspWrWVLt-kP476F5H": {
   "drive_id": "1_18ItuRZzxzFEQbspWrWVLt-kP476F5H",
@@ -3227,7 +3388,23 @@
   "resolucion": "3024x4032",
   "orientacion": "vertical",
   "hoja_contacto": "library/sheets/photos/IMG_1216.jpg",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Detalle del cuello de la camisa rosa palo de botones con etiqueta interior 'RE:SET XSMALL'.",
+  "producto": "Pijama rosa palo de botones",
+  "colores": "rosa palo, blanco",
+  "accion": "—",
+  "locacion": "tienda",
+  "encuadre": "detalle",
+  "iluminacion": "interior suave",
+  "calidad": "4",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "carrusel de detalles",
+   "video de producto (foto fija)"
+  ],
+  "mejores_momentos": "—",
+  "notas": "",
+  "lote": "lote-10"
  },
  "1fNhe24z5fPh_CwiaKbLeKI-ZFDX9ULmq": {
   "drive_id": "1fNhe24z5fPh_CwiaKbLeKI-ZFDX9ULmq",
@@ -3242,7 +3419,24 @@
   "resolucion": "3024x4032",
   "orientacion": "vertical",
   "hoja_contacto": "library/sheets/photos/IMG_1213.jpg",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Conjunto rosa palo en gancho: camisa con lazo en el cuello y botones, etiqueta RE:SET; detrás, prendas en arena y café.",
+  "producto": "Conjunto rosa palo con lazo",
+  "colores": "rosa palo, arena, café",
+  "accion": "—",
+  "locacion": "interior de tienda RE:SET",
+  "encuadre": "plano medio",
+  "iluminacion": "interior",
+  "calidad": "4",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "catálogo",
+   "carrusel",
+   "anuncio estático"
+  ],
+  "mejores_momentos": "—",
+  "notas": "",
+  "lote": "lote-10"
  },
  "1RwbOfWzz70aQ7-614CCuAOf_YQBkL_Ll": {
   "drive_id": "1RwbOfWzz70aQ7-614CCuAOf_YQBkL_Ll",
@@ -3257,7 +3451,22 @@
   "resolucion": "3024x4032",
   "orientacion": "vertical",
   "hoja_contacto": "library/sheets/photos/IMG_1217.jpg",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Detalle del hombro y la costura de la camisa rosa palo sobre terrazo rosa; mano con uña roja y suéter café en el borde.",
+  "producto": "Pijama rosa palo de botones",
+  "colores": "rosa palo, café, rosa (fondo)",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "detalle",
+  "iluminacion": "interior suave",
+  "calidad": "3",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "carrusel de detalles"
+  ],
+  "mejores_momentos": "—",
+  "notas": "",
+  "lote": "lote-10"
  },
  "1VDuPPjUI58c1JCLr46q0cA3P6rSTpey8": {
   "drive_id": "1VDuPPjUI58c1JCLr46q0cA3P6rSTpey8",
@@ -3272,7 +3481,23 @@
   "resolucion": "3024x4032",
   "orientacion": "vertical",
   "hoja_contacto": "library/sheets/photos/IMG_1219.jpg",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Bolsa de tela gris de espiga con logo RE:SET y 'WOMAN XS', cordón, sobre terrazo rosa (vista cenital).",
+  "producto": "Bolsa de tela RE:SET gris de espiga",
+  "colores": "gris, rosa (fondo)",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "cenital",
+  "iluminacion": "interior suave",
+  "calidad": "4",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "carrusel",
+   "anuncio estático (empaque)"
+  ],
+  "mejores_momentos": "—",
+  "notas": "Casi igual a IMG_1220.",
+  "lote": "lote-10"
  },
  "1v5zrSLj4N0EUUhw5Htwc4ZsfOmrI7FNh": {
   "drive_id": "1v5zrSLj4N0EUUhw5Htwc4ZsfOmrI7FNh",
@@ -3287,6 +3512,22 @@
   "resolucion": "3024x4032",
   "orientacion": "vertical",
   "hoja_contacto": "library/sheets/photos/IMG_1220.jpg",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Bolsa de tela gris de espiga con logo RE:SET y 'WOMAN XS' sobre terrazo rosa, encuadre más cerrado.",
+  "producto": "Bolsa de tela RE:SET gris de espiga",
+  "colores": "gris, rosa (fondo)",
+  "accion": "—",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "cenital",
+  "iluminacion": "interior suave",
+  "calidad": "4",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "carrusel",
+   "anuncio estático (empaque)"
+  ],
+  "mejores_momentos": "—",
+  "notas": "",
+  "lote": "lote-10"
  }
 }
