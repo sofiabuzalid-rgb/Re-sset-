@@ -2040,7 +2040,22 @@
   "audio": true,
   "hoja_contacto": "library/sheets/IMG_1346.jpg",
   "voz_detectada": "Y ahora lo han hecho",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Cenital: persona con chamarra negra mete una pijama de rayas azul marino con ositos en su bolsa de tela del mismo estampado y amarra el cordón.",
+  "producto": "Pijama y bolsa de tela de rayas azul con ositos",
+  "colores": "azul marino, blanco, café",
+  "accion": "empaca y amarra",
+  "locacion": "bodega RE:SET, mesa de madera",
+  "encuadre": "cenital",
+  "iluminacion": "natural, franja de luz dura",
+  "calidad": "3",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "b-roll detrás de cámaras"
+  ],
+  "mejores_momentos": "5–10 s (bolsa cerrada)",
+  "notas": "Cabeza de la persona entra en cuadro.",
+  "lote": "lote-08"
  },
  "1bqrr9EHlLFEs3ebBAw24cj_UAcAy6e3z": {
   "drive_id": "1bqrr9EHlLFEs3ebBAw24cj_UAcAy6e3z",
@@ -2060,7 +2075,22 @@
   "audio": true,
   "hoja_contacto": "library/sheets/IMG_1351.jpg",
   "voz_detectada": "",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Cenital: persona dobla una prenda blanca con estampado verde navideño (personaje verde, moños rojos) y la mete en su bolsa de tela a juego; amarra el cordón.",
+  "producto": "Pijama/bolsa blanca con personaje verde navideño",
+  "colores": "blanco, verde, rojo",
+  "accion": "empaca y amarra",
+  "locacion": "bodega RE:SET, mesa de madera",
+  "encuadre": "cenital",
+  "iluminacion": "natural",
+  "calidad": "3",
+  "campana": "Navidad",
+  "usos": [
+   "b-roll detrás de cámaras"
+  ],
+  "mejores_momentos": "10–13 s (bolsa terminada)",
+  "notas": "Estampado parece del Grinch: riesgo de propiedad intelectual en anuncios pagados.",
+  "lote": "lote-08"
  },
  "1iz8J9ZzXKndOeTf8kisNP3sWJ5ChwJ4h": {
   "drive_id": "1iz8J9ZzXKndOeTf8kisNP3sWJ5ChwJ4h",
@@ -2080,7 +2110,23 @@
   "audio": true,
   "hoja_contacto": "library/sheets/IMG_1336.jpg",
   "voz_detectada": "",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Cenital: persona extiende y dobla una pijama roja con estampado nórdico blanco (renos, copos) hasta formar un paquete compacto.",
+  "producto": "Pijama roja estampado nórdico de renos",
+  "colores": "rojo, blanco",
+  "accion": "dobla la prenda",
+  "locacion": "bodega RE:SET, mesa de madera",
+  "encuadre": "cenital",
+  "iluminacion": "natural",
+  "calidad": "3",
+  "campana": "Navidad",
+  "usos": [
+   "b-roll detrás de cámaras",
+   "reel orgánico (timelapse de doblado)"
+  ],
+  "mejores_momentos": "0–2 s (prenda extendida completa); 10–13 s paquete",
+  "notas": "Cuerpo de la persona tapa parte del cuadro al inicio.",
+  "lote": "lote-08"
  },
  "1YvzeubwU8GcdKFAOXYUT7DSjmJ7Dz4Lw": {
   "drive_id": "1YvzeubwU8GcdKFAOXYUT7DSjmJ7Dz4Lw",
@@ -2100,7 +2146,24 @@
   "audio": true,
   "hoja_contacto": "library/sheets/IMG_1404.jpg",
   "voz_detectada": "",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Manos (suéter rojo) amarran con moño una bolsa de tela verde navideña (gingerbread, bastones, regalos) con etiqueta de cartón; plano cercano frontal.",
+  "producto": "Bolsa de tela RE:SET navideña (gingerbread verde)",
+  "colores": "verde, rojo, beige",
+  "accion": "hace el moño de la bolsa",
+  "locacion": "bodega RE:SET",
+  "encuadre": "plano detalle frontal",
+  "iluminacion": "natural",
+  "calidad": "4",
+  "campana": "Navidad",
+  "usos": [
+   "reel orgánico (empaque de regalo)",
+   "anuncio 15–30 s (plano de regalo listo)",
+   "b-roll"
+  ],
+  "mejores_momentos": "0–8 s (moño); 11–12 s bolsa terminada",
+  "notas": "Encuadre limpio y estable; buen plano de 'listo para regalar'.",
+  "lote": "lote-08"
  },
  "1Zts90oyGw1hnaE7biobsZlUAXB2tk5Gc": {
   "drive_id": "1Zts90oyGw1hnaE7biobsZlUAXB2tk5Gc",
@@ -2120,7 +2183,24 @@
   "audio": true,
   "hoja_contacto": "library/sheets/IMG_1221.jpg",
   "voz_detectada": "",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Macro de la bolsa de tela gris de espiga con el logo 'RE:SET' impreso y texto 'WOMAN XS'; la cámara se aleja y muestra la bolsa sobre terrazo rosa.",
+  "producto": "Bolsa de tela RE:SET gris de espiga (talla WOMAN XS)",
+  "colores": "gris, rosa (fondo)",
+  "accion": "zoom out desde el logo",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "macro a plano detalle",
+  "iluminacion": "natural suave",
+  "calidad": "4",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "video de producto",
+   "anuncio 15–30 s (plano de marca)",
+   "reel orgánico"
+  ],
+  "mejores_momentos": "0–2 s (logo RE:SET macro); 5–8 s bolsa completa",
+  "notas": "El logo es de bajo contraste (gris sobre gris).",
+  "lote": "lote-08"
  },
  "11-8jmfnEQuGYSmp1HC5d4RiTvwThmW2L": {
   "drive_id": "11-8jmfnEQuGYSmp1HC5d4RiTvwThmW2L",
@@ -2140,7 +2220,23 @@
   "audio": true,
   "hoja_contacto": "library/sheets/IMG_1218.jpg",
   "voz_detectada": "",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Bolsa de tela gris de espiga con logo RE:SET sobre terrazo rosa; la cámara se acerca desde arriba; al inicio aparecen piernas en jeans de quien graba.",
+  "producto": "Bolsa de tela RE:SET gris de espiga",
+  "colores": "gris, rosa (fondo)",
+  "accion": "acercamiento a la bolsa",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "cenital, zoom in",
+  "iluminacion": "natural suave",
+  "calidad": "3",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "video de producto",
+   "b-roll"
+  ],
+  "mejores_momentos": "5–10 s (bolsa llena el cuadro)",
+  "notas": "Evitar 0–3 s (piernas en cuadro).",
+  "lote": "lote-08"
  },
  "1aln-wBA7t-ay7UtYSzwZZMXixS-ThUH2": {
   "drive_id": "1aln-wBA7t-ay7UtYSzwZZMXixS-ThUH2",
@@ -2160,7 +2256,24 @@
   "audio": true,
   "hoja_contacto": "library/sheets/IMG_1222.jpg",
   "voz_detectada": "",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Mano con uñas rojas y suéter café acaricia la tela gris de espiga de una pijama extendida sobre terrazo rosa (torso y pantalón).",
+  "producto": "Pijama gris de espiga",
+  "colores": "gris, café, rojo (uñas), rosa (fondo)",
+  "accion": "mano recorre la tela (textura/suavidad)",
+  "locacion": "mesa de terrazo rosa",
+  "encuadre": "detalle",
+  "iluminacion": "natural suave",
+  "calidad": "4",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "anuncio 15–30 s (plano de suavidad)",
+   "video de producto",
+   "reel orgánico"
+  ],
+  "mejores_momentos": "1–5 s (mano sobre el torso)",
+  "notas": "Buen plano táctil para comunicar comodidad.",
+  "lote": "lote-08"
  },
  "1SHkjPx0vUBaZS6UnaEnTLJOZh7YKku_T": {
   "drive_id": "1SHkjPx0vUBaZS6UnaEnTLJOZh7YKku_T",
@@ -2180,7 +2293,24 @@
   "audio": true,
   "hoja_contacto": "library/sheets/IMG_1327.jpg",
   "voz_detectada": "[SIL",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Pila de pijamas dobladas sobre un mueble de madera: roja nórdica de renos, verde con duendes/gingerbread, rayas azul con ositos y blanca con personaje verde; detrás, bolsas kraft con etiqueta RE:SET. Cámara sube y baja por la pila; persona al fondo.",
+  "producto": "Colección navideña: pijamas roja nórdica, verde, rayas con ositos, blanca; bolsas kraft RE:SET",
+  "colores": "rojo, verde, azul marino, blanco, kraft",
+  "accion": "recorrido vertical por la pila",
+  "locacion": "bazar o punto de venta (mueble de madera, bolsas kraft)",
+  "encuadre": "plano medio a detalle",
+  "iluminacion": "natural",
+  "calidad": "4",
+  "campana": "Navidad",
+  "usos": [
+   "anuncio 15–30 s (variedad de la colección)",
+   "reel orgánico",
+   "campaña de venta"
+  ],
+  "mejores_momentos": "0–2 s y 8–10 s (pila completa con bolsas RE:SET)",
+  "notas": "Estampado blanco parece del Grinch: riesgo de propiedad intelectual. Persona al fondo en 0–3 s.",
+  "lote": "lote-08"
  },
  "1l57apui12Jlodv_OMsu8nTtJ1g4XcUUd": {
   "drive_id": "1l57apui12Jlodv_OMsu8nTtJ1g4XcUUd",
@@ -2200,7 +2330,22 @@
   "audio": true,
   "hoja_contacto": "library/sheets/IMG_1361.jpg",
   "voz_detectada": "[",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Impresora de etiquetas DYMO LabelWriter saca etiquetas sobre formatos amarillos 'MERCANCÍA A VISTAS'.",
+  "producto": "Ninguno (etiquetas/operación)",
+  "colores": "blanco, amarillo, negro",
+  "accion": "impresión de etiquetas",
+  "locacion": "bodega RE:SET",
+  "encuadre": "detalle",
+  "iluminacion": "natural",
+  "calidad": "2",
+  "campana": "General",
+  "usos": [
+   "b-roll detrás de cámaras (solo de relleno)"
+  ],
+  "mejores_momentos": "0–3 s",
+  "notas": "Muestra marca DYMO y datos operativos; revisar antes de publicar.",
+  "lote": "lote-08"
  },
  "124HVp4GWu4MaoLDEI3AqX7Dj5QiaqZlq": {
   "drive_id": "124HVp4GWu4MaoLDEI3AqX7Dj5QiaqZlq",
@@ -2220,7 +2365,23 @@
   "audio": true,
   "hoja_contacto": "library/sheets/IMG_1264.jpg",
   "voz_detectada": "",
-  "estado": "descargado — pendiente de revisión visual"
+  "estado": "revisado visualmente",
+  "descripcion": "Conjunto verde salvia (sudadera y pants) extendido sobre terrazo rosa, junto a otro pants gris verdoso; al fondo, pies de personas.",
+  "producto": "Conjunto verde salvia (sudadera + pants)",
+  "colores": "verde salvia, rosa (fondo)",
+  "accion": "plano fijo de prenda extendida",
+  "locacion": "mesa de terrazo rosa (tienda)",
+  "encuadre": "cenital",
+  "iluminacion": "interior, luz uniforme",
+  "calidad": "3",
+  "campana": "Pijamas y productos",
+  "usos": [
+   "video de producto",
+   "b-roll"
+  ],
+  "mejores_momentos": "1–5 s",
+  "notas": "Pies de personas en el borde superior: recortar.",
+  "lote": "lote-08"
  },
  "17mkCisU4ELzcM_wPnaA8FHkA_2Fb_PbK": {
   "drive_id": "17mkCisU4ELzcM_wPnaA8FHkA_2Fb_PbK",
