@@ -9,3 +9,6 @@ library/cache/
 __pycache__/
 editor/referencia/*.wav
 editor/referencia/frames/
+editor/mi-video/src/
+editor/mi-video/*.jpg
+editor/video/public/IMG_*.mp4

@@ -1,0 +1,416 @@
+{
+ "fps": 30,
+ "total": 446,
+ "segs": [
+  {
+   "clip": "8480",
+   "shot": "general",
+   "from": 0,
+   "in": 3,
+   "frames": 184,
+   "part": 0
+  },
+  {
+   "clip": "8488",
+   "shot": "medio",
+   "from": 184,
+   "in": 169,
+   "frames": 84,
+   "part": 0
+  },
+  {
+   "clip": "8488",
+   "shot": "medio",
+   "from": 268,
+   "in": 266,
+   "frames": 49,
+   "part": 1
+  },
+  {
+   "clip": "8495",
+   "shot": "corto",
+   "from": 317,
+   "in": 25,
+   "frames": 129,
+   "part": 0
+  }
+ ],
+ "words": [
+  {
+   "w": "Si",
+   "s": 0.2,
+   "e": 0.38,
+   "key": false,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "estás",
+   "s": 0.38,
+   "e": 0.62,
+   "key": false,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "buscando",
+   "s": 0.62,
+   "e": 0.84,
+   "key": false,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "una",
+   "s": 0.84,
+   "e": 1.02,
+   "key": false,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "pijama",
+   "s": 1.02,
+   "e": 1.46,
+   "key": true,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "cómoda",
+   "s": 1.46,
+   "e": 1.94,
+   "key": true,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "y",
+   "s": 1.94,
+   "e": 2.08,
+   "key": false,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "linda",
+   "s": 2.08,
+   "e": 2.58,
+   "key": true,
+   "br": true,
+   "phrase": 0
+  },
+  {
+   "w": "tienes",
+   "s": 2.58,
+   "e": 2.74,
+   "key": false,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "que",
+   "s": 2.74,
+   "e": 2.9,
+   "key": false,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "venir",
+   "s": 2.9,
+   "e": 3.14,
+   "key": false,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "a",
+   "s": 3.14,
+   "e": 3.42,
+   "key": false,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "RE:SET",
+   "s": 3.42,
+   "e": 3.66,
+   "key": true,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "a",
+   "s": 3.66,
+   "e": 3.94,
+   "key": false,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "conocer",
+   "s": 3.94,
+   "e": 4.42,
+   "key": false,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "el",
+   "s": 4.42,
+   "e": 4.56,
+   "key": false,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "nuevo",
+   "s": 4.56,
+   "e": 4.86,
+   "key": false,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "modelo",
+   "s": 4.86,
+   "e": 5.32,
+   "key": false,
+   "br": false,
+   "phrase": 0
+  },
+  {
+   "w": "Soft Winter",
+   "s": 5.32,
+   "e": 6.15,
+   "key": true,
+   "br": true,
+   "phrase": 0
+  },
+  {
+   "w": "y",
+   "s": 6.3,
+   "e": 6.38,
+   "key": false,
+   "br": false,
+   "phrase": 1
+  },
+  {
+   "w": "de",
+   "s": 6.38,
+   "e": 6.52,
+   "key": false,
+   "br": false,
+   "phrase": 1
+  },
+  {
+   "w": "verdad",
+   "s": 6.52,
+   "e": 6.58,
+   "key": false,
+   "br": false,
+   "phrase": 1
+  },
+  {
+   "w": "no",
+   "s": 6.7,
+   "e": 6.86,
+   "key": false,
+   "br": false,
+   "phrase": 1
+  },
+  {
+   "w": "están",
+   "s": 6.86,
+   "e": 7.48,
+   "key": false,
+   "br": false,
+   "phrase": 1
+  },
+  {
+   "w": "dimensionando",
+   "s": 7.48,
+   "e": 8.34,
+   "key": false,
+   "br": false,
+   "phrase": 1
+  },
+  {
+   "w": "la",
+   "s": 8.34,
+   "e": 8.68,
+   "key": false,
+   "br": false,
+   "phrase": 1
+  },
+  {
+   "w": "calidad",
+   "s": 8.68,
+   "e": 8.94,
+   "key": true,
+   "br": false,
+   "phrase": 1
+  },
+  {
+   "w": "de",
+   "s": 9.147,
+   "e": 9.347,
+   "key": false,
+   "br": false,
+   "phrase": 1
+  },
+  {
+   "w": "esta",
+   "s": 9.347,
+   "e": 9.787,
+   "key": false,
+   "br": false,
+   "phrase": 1
+  },
+  {
+   "w": "nueva",
+   "s": 9.787,
+   "e": 10.027,
+   "key": false,
+   "br": false,
+   "phrase": 1
+  },
+  {
+   "w": "colección",
+   "s": 10.027,
+   "e": 10.567,
+   "key": true,
+   "br": false,
+   "phrase": 1
+  },
+  {
+   "w": "Y",
+   "s": 10.673,
+   "e": 10.913,
+   "key": false,
+   "br": false,
+   "phrase": 2
+  },
+  {
+   "w": "aparte",
+   "s": 10.913,
+   "e": 11.193,
+   "key": false,
+   "br": false,
+   "phrase": 2
+  },
+  {
+   "w": "de",
+   "s": 11.193,
+   "e": 11.433,
+   "key": false,
+   "br": false,
+   "phrase": 2
+  },
+  {
+   "w": "todo",
+   "s": 11.433,
+   "e": 11.753,
+   "key": false,
+   "br": true,
+   "phrase": 2
+  },
+  {
+   "w": "cada",
+   "s": 11.893,
+   "e": 12.133,
+   "key": false,
+   "br": false,
+   "phrase": 2
+  },
+  {
+   "w": "una",
+   "s": 12.133,
+   "e": 12.373,
+   "key": false,
+   "br": false,
+   "phrase": 2
+  },
+  {
+   "w": "trae",
+   "s": 12.373,
+   "e": 12.773,
+   "key": false,
+   "br": false,
+   "phrase": 2
+  },
+  {
+   "w": "su",
+   "s": 12.773,
+   "e": 12.913,
+   "key": false,
+   "br": false,
+   "phrase": 2
+  },
+  {
+   "w": "bolsita",
+   "s": 12.913,
+   "e": 13.313,
+   "key": true,
+   "br": false,
+   "phrase": 2
+  },
+  {
+   "w": "por",
+   "s": 13.313,
+   "e": 13.433,
+   "key": false,
+   "br": false,
+   "phrase": 2
+  },
+  {
+   "w": "si",
+   "s": 13.433,
+   "e": 13.573,
+   "key": false,
+   "br": false,
+   "phrase": 2
+  },
+  {
+   "w": "estás",
+   "s": 13.573,
+   "e": 13.753,
+   "key": false,
+   "br": false,
+   "phrase": 2
+  },
+  {
+   "w": "planeando",
+   "s": 13.753,
+   "e": 14.073,
+   "key": false,
+   "br": false,
+   "phrase": 2
+  },
+  {
+   "w": "salir",
+   "s": 14.233,
+   "e": 14.433,
+   "key": false,
+   "br": false,
+   "phrase": 2
+  },
+  {
+   "w": "de",
+   "s": 14.433,
+   "e": 14.693,
+   "key": false,
+   "br": false,
+   "phrase": 2
+  },
+  {
+   "w": "viaje",
+   "s": 14.693,
+   "e": 14.893,
+   "key": true,
+   "br": false,
+   "phrase": 2
+  }
+ ]
+}
