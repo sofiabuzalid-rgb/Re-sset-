@@ -83,9 +83,11 @@ export const TITLE = {
   x: 520, // centre x of the block on 1080 (measured on the reference)
   tops: [505, 775, 1045], // top of each line (reference: line centres at 31 / 45 / 59 % of the height)
   size: 228,
-  holdUntil: 9, // starts drifting at 0.3 s
-  exitEnd: 36, // gone by 1.2 s
-  exitDx: 1150, // the camera pans with her (she walks in from the right toward centre), so the wall — and the title — slide out right, as in the reference
+  // Exit measured frame by frame on the reference (template match of the title, px converted to 1080 wide):
+  // it starts 0.05 s after the model enters and accelerates out of frame in ~0.95 s.
+  // Frame 11 = 1 frame after Michelle enters (frame 10). [frame, px travelled]
+  motion: [[0, 0], [11, 0], [12, 14], [14, 36], [15, 53], [17, 89], [18, 111], [20, 161], [21, 186], [23, 244], [24, 277], [26, 307], [27, 377], [29, 415], [30, 490], [32, 529], [33, 612], [35, 656], [36, 742], [38, 900], [40, 1100]] as [number, number][],
+  direction: -1, // the reference title leaves away from the side the model enters; Michelle enters from the right, so it leaves left. Set 1 to copy the original's rightward exit.
 };
 
 /** Editorial labels: only visible, verifiable facts about the garment. pos = [fromFrame, x, y][]: re-pinned after the cut. */
@@ -98,5 +100,6 @@ export const LABELS = [
   { text: "conjunto de 2 piezas", from: 341, to: 372, pos: [[341, 540, 1270]] },
 ];
 
-export const MUSIC: string | null = null; // e.g. "recreacion/music.mp3" once a licensed ~117 BPM track is supplied
+// Audio of the reference reel (requested by the client). Its commercial licence is NOT verified.
+export const MUSIC: string | null = "recreacion/music.wav";
 export const LOGO: string | null = null; // the real RE:SET wall sign is in shot; set "brand/reset-logo-black.png" to add a discreet bug

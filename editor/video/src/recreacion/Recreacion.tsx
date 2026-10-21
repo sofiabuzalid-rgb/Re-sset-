@@ -77,12 +77,14 @@ const Shot: React.FC<{ s: Shot }> = ({ s }) => {
 
 const Title: React.FC = () => {
   const f = useCurrentFrame();
-  const dx = interpolate(
-    f,
-    [TITLE.holdUntil, TITLE.exitEnd],
-    [0, TITLE.exitDx],
-    { ...clamp, easing: Easing.in(Easing.quad) },
-  );
+  const dx =
+    TITLE.direction *
+    interpolate(
+      f,
+      TITLE.motion.map((m) => m[0]),
+      TITLE.motion.map((m) => m[1]),
+      clamp,
+    );
   return (
     <AbsoluteFill style={{ transform: `translateX(${dx}px)` }}>
       {TITLE.lines.map((l, i) => (
@@ -149,7 +151,7 @@ export const Recreacion: React.FC = () => (
         <Shot s={s} />
       </Sequence>
     ))}
-    <Sequence durationInFrames={TITLE.exitEnd + 1}>
+    <Sequence durationInFrames={TITLE.motion[TITLE.motion.length - 1][0] + 1}>
       <Title />
     </Sequence>
     {LABELS.map((l) => (
