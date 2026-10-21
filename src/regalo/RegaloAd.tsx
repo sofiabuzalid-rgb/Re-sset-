@@ -47,7 +47,7 @@ const Sub: React.FC<{ s: any }> = ({ s }) => {
   const o = interpolate(f, [dur - 3, dur], [1, 0], clamp);
   const words: string[] = s.text.split(" ");
   return (
-    <div style={{ position: "absolute", left: 70, right: 70, top: 300, display: "flex", justifyContent: "center", opacity: p * o }}>
+    <div style={{ position: "absolute", left: 70, right: 70, top: s.y ?? 300, display: "flex", justifyContent: "center", opacity: p * o }}>
       <div
         style={{
           fontFamily: SANS,
@@ -131,12 +131,10 @@ const Price: React.FC<{ t: any; f: number }> = ({ t, f }) => (
   </div>
 );
 
+/** Close: the real RE:SET wall is already in frame, so only the model name she says ("Soft Winter") is added. */
 const End: React.FC<{ t: any; f: number }> = ({ t, f }) => (
-  <div style={{ position: "absolute", top: 150, left: 30, right: 30, display: "flex", flexDirection: "column", alignItems: "center" }}>
-    <div style={{ opacity: ramp(f, 0, 10), transform: `translateY(${(1 - ramp(f, 0, 10)) * 14}px)` }}>
-      <Img src={staticFile("brand/reset-logo-black.png")} style={{ width: 280 }} />
-    </div>
-    <div style={{ marginTop: 16, fontFamily: SANS, fontWeight: 700, fontSize: 28, letterSpacing: "0.3em", color: INK, paddingLeft: "0.3em", opacity: ramp(f, 8, 10) }}>{t.cta} →</div>
+  <div style={{ position: "absolute", top: 1560, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: ramp(f, 0, 12) }}>
+    <div style={{ fontFamily: SANS, fontWeight: 700, fontSize: 34, letterSpacing: "0.42em", color: CREAM, paddingLeft: "0.42em", background: "rgba(20,20,20,0.42)", borderRadius: 999, padding: "12px 34px 12px 48px" }}>{t.cta}</div>
   </div>
 );
 

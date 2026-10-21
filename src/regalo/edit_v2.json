@@ -1,0 +1,98 @@
+{
+ "fps": 30,
+ "total": 343,
+ "track_offset": 100.805,
+ "voice": [
+  {
+   "src": "d:IMG_8495.MP4",
+   "in": 1.96,
+   "frames": 208,
+   "from": 0
+  }
+ ],
+ "layers": [
+  {
+   "id": "v00",
+   "src": "d:IMG_8495.MP4",
+   "in": 1.96,
+   "from": 0,
+   "frames": 100,
+   "push": [
+    1.0,
+    1.04
+   ]
+  },
+  {
+   "id": "v01",
+   "src": "d:IMG_8496.MP4",
+   "in": 0.3,
+   "from": 100,
+   "frames": 58,
+   "push": [
+    1.0,
+    1.03
+   ]
+  },
+  {
+   "id": "v02",
+   "src": "d:IMG_8495.MP4",
+   "in": 7.227,
+   "from": 158,
+   "frames": 50
+  },
+  {
+   "id": "v03",
+   "src": "d:IMG_8470.MP4",
+   "in": 2.0,
+   "from": 208,
+   "frames": 60,
+   "push": [
+    1.0,
+    1.03
+   ]
+  },
+  {
+   "id": "v04",
+   "src": "u:IMG_8493",
+   "in": 3.7,
+   "from": 268,
+   "frames": 75,
+   "push": [
+    1.0,
+    1.03
+   ]
+  }
+ ],
+ "subs": [
+  {
+   "from": 2,
+   "to": 46,
+   "text": "Cada una trae su bolsita",
+   "hl": [
+    "bolsita"
+   ]
+  },
+  {
+   "from": 46,
+   "to": 95,
+   "text": "por si estás planeando salir de viaje.",
+   "hl": [
+    "viaje."
+   ]
+  },
+  {
+   "from": 105,
+   "to": 158,
+   "text": "La puedes llevar para todos lados, súper cómodo,",
+   "hl": []
+  },
+  {
+   "from": 163,
+   "to": 186,
+   "text": "sin dañarla.",
+   "hl": []
+  }
+ ],
+ "texts": [],
+ "note": "v2 (corrección): abre con su frase real sobre la bolsita y el viaje (IMG_8495 1.96–8.89, audio continuo, sin cortes dentro de la frase). Recorte de imagen a IMG_8496 (bolsita con logo) mientras ella sigue hablando, regreso a ella en 'sin dañarla' y su acercamiento sonriendo; cierre con la pijama (IMG_8470) y ella frente al muro RE:SET (IMG_8493). Sin Grinch, sin precios ni promociones (no están en el material)."
+}

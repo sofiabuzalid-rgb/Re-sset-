@@ -1,98 +1,184 @@
 {
  "fps": 30,
- "total": 343,
- "track_offset": 100.805,
+ "total": 615,
+ "track_offset": 92.138,
  "voice": [
   {
-   "src": "d:IMG_8495.MP4",
-   "in": 1.96,
-   "frames": 208,
+   "src": "d:IMG_8480.MP4",
+   "in": 0.0,
+   "frames": 233,
    "from": 0
+  },
+  {
+   "src": "u:IMG_8488",
+   "in": 5.7,
+   "frames": 139,
+   "from": 239
+  },
+  {
+   "src": "d:IMG_8495.MP4",
+   "in": 2.0,
+   "frames": 94,
+   "from": 446
   }
  ],
  "layers": [
   {
-   "id": "v00",
-   "src": "d:IMG_8495.MP4",
-   "in": 1.96,
+   "src": "u:IMG_8493",
+   "in": 2.4,
    "from": 0,
-   "frames": 100,
+   "frames": 57,
+   "push": [
+    1.04,
+    1.0
+   ],
+   "id": "v00"
+  },
+  {
+   "src": "d:IMG_8480.MP4",
+   "in": 1.9,
+   "from": 57,
+   "frames": 126,
+   "push": [
+    1.0,
+    1.06
+   ],
+   "id": "v01"
+  },
+  {
+   "src": "d:IMG_8470.MP4",
+   "in": 4.0,
+   "from": 183,
+   "frames": 56,
    "push": [
     1.0,
     1.04
-   ]
+   ],
+   "id": "v02"
   },
   {
-   "id": "v01",
+   "src": "u:IMG_8488",
+   "in": 5.7,
+   "from": 239,
+   "frames": 137,
+   "push": [
+    1.0,
+    1.04
+   ],
+   "id": "v03"
+  },
+  {
+   "src": "u:IMG_1554",
+   "in": 0.4,
+   "from": 376,
+   "frames": 70,
+   "push": [
+    1.0,
+    1.04
+   ],
+   "id": "v04"
+  },
+  {
+   "src": "d:IMG_8495.MP4",
+   "in": 2.0,
+   "from": 446,
+   "frames": 48,
+   "push": [
+    1.0,
+    1.03
+   ],
+   "id": "v05"
+  },
+  {
    "src": "d:IMG_8496.MP4",
    "in": 0.3,
-   "from": 100,
-   "frames": 58,
+   "from": 494,
+   "frames": 46,
    "push": [
     1.0,
     1.03
-   ]
+   ],
+   "id": "v06"
   },
   {
-   "id": "v02",
-   "src": "d:IMG_8495.MP4",
-   "in": 7.227,
-   "from": 158,
-   "frames": 50
-  },
-  {
-   "id": "v03",
-   "src": "d:IMG_8470.MP4",
-   "in": 2.0,
-   "from": 208,
-   "frames": 60,
-   "push": [
-    1.0,
-    1.03
-   ]
-  },
-  {
-   "id": "v04",
-   "src": "u:IMG_8493",
-   "in": 3.7,
-   "from": 268,
+   "src": "u:IMG_8490",
+   "in": 3.6,
+   "from": 540,
    "frames": 75,
    "push": [
     1.0,
     1.03
-   ]
+   ],
+   "id": "v07"
   }
  ],
  "subs": [
   {
-   "from": 2,
-   "to": 46,
-   "text": "Cada una trae su bolsita",
+   "from": 0,
+   "to": 56,
+   "text": "Si estás buscando una pijama cómoda",
    "hl": [
-    "bolsita"
+    "cómoda"
+   ],
+   "y": 560
+  },
+  {
+   "from": 56,
+   "to": 109,
+   "text": "y linda, tienes que venir a RE:SET",
+   "hl": [
+    "linda,"
    ]
   },
   {
-   "from": 46,
-   "to": 95,
-   "text": "por si estás planeando salir de viaje.",
+   "from": 109,
+   "to": 183,
+   "text": "a conocer el nuevo modelo Soft Winter,",
    "hl": [
-    "viaje."
+    "Soft",
+    "Winter,"
    ]
   },
   {
-   "from": 105,
-   "to": 158,
-   "text": "La puedes llevar para todos lados, súper cómodo,",
+   "from": 183,
+   "to": 233,
+   "text": "porque de verdad lo tienes que probar.",
    "hl": []
   },
   {
-   "from": 163,
-   "to": 186,
-   "text": "sin dañarla.",
+   "from": 240,
+   "to": 320,
+   "text": "Y de verdad no están dimensionando la calidad",
+   "hl": [
+    "calidad"
+   ]
+  },
+  {
+   "from": 320,
+   "to": 378,
+   "text": "de esta nueva colección.",
+   "hl": []
+  },
+  {
+   "from": 447,
+   "to": 490,
+   "text": "Cada una trae su bolsita",
+   "hl": []
+  },
+  {
+   "from": 491,
+   "to": 540,
+   "text": "por si estás planeando salir de viaje.",
    "hl": []
   }
  ],
- "texts": [],
- "note": "v2 (corrección): abre con su frase real sobre la bolsita y el viaje (IMG_8495 1.96–8.89, audio continuo, sin cortes dentro de la frase). Recorte de imagen a IMG_8496 (bolsita con logo) mientras ella sigue hablando, regreso a ella en 'sin dañarla' y su acercamiento sonriendo; cierre con la pijama (IMG_8470) y ella frente al muro RE:SET (IMG_8493). Sin Grinch, sin precios ni promociones (no están en el material)."
+ "texts": [
+  {
+   "type": "end",
+   "from": 548,
+   "to": 614,
+   "cta": "SOFT WINTER"
+  }
+ ],
+ "note": "v3: la pijama Soft Winter (punto acanalado) es el centro. Su voz real: IMG_8480 0.00–7.78, IMG_8488 5.70–10.32, IMG_8495 2.00–5.12. Sin Grinch, sin precios/promos (no están en el material)."
 }
