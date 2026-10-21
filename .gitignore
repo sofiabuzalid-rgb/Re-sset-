@@ -12,3 +12,6 @@ editor/referencia/frames/
 editor/mi-video/src/
 editor/mi-video/*.jpg
 editor/video/public/IMG_*.mp4
+editor/recreacion/src/
+editor/recreacion/*.jpg
+editor/video/public/recreacion/
