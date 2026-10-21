@@ -110,7 +110,7 @@ const Title: React.FC = () => {
   );
 };
 
-const Label: React.FC<{ text: string; from: number; pos: number[][] }> = ({
+const Label: React.FC<{ text: string; from: number; to: number; pos: number[][] }> = ({
   text,
   from,
   pos,
@@ -153,7 +153,7 @@ export const Recreacion: React.FC = () => (
       <Title />
     </Sequence>
     {LABELS.map((l) => (
-      <Sequence key={l.text} from={l.from}>
+      <Sequence key={l.text} from={l.from} durationInFrames={l.to - l.from}>
         <Label {...l} />
       </Sequence>
     ))}
