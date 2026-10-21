@@ -1,0 +1,120 @@
+{
+  "text": "Por favor quiero que vean estas pijamas de AirBizit y lo mejor de todo es que lo puedes combinar con toda tu familia.",
+  "words": [
+    {
+      "word": "Por",
+      "start": 0.5,
+      "end": 0.68
+    },
+    {
+      "word": "favor",
+      "start": 0.68,
+      "end": 0.86
+    },
+    {
+      "word": "quiero",
+      "start": 0.86,
+      "end": 1.02
+    },
+    {
+      "word": "que",
+      "start": 1.02,
+      "end": 1.2
+    },
+    {
+      "word": "vean",
+      "start": 1.2,
+      "end": 1.7
+    },
+    {
+      "word": "estas",
+      "start": 1.7,
+      "end": 1.94
+    },
+    {
+      "word": "pijamas",
+      "start": 1.94,
+      "end": 2.54
+    },
+    {
+      "word": "de",
+      "start": 2.54,
+      "end": 2.64
+    },
+    {
+      "word": "AirBizit",
+      "start": 2.64,
+      "end": 3.2
+    },
+    {
+      "word": "y",
+      "start": 3.2,
+      "end": 3.32
+    },
+    {
+      "word": "lo",
+      "start": 3.32,
+      "end": 3.52
+    },
+    {
+      "word": "mejor",
+      "start": 3.52,
+      "end": 3.7
+    },
+    {
+      "word": "de",
+      "start": 3.7,
+      "end": 3.86
+    },
+    {
+      "word": "todo",
+      "start": 3.86,
+      "end": 4
+    },
+    {
+      "word": "es",
+      "start": 4,
+      "end": 4.08
+    },
+    {
+      "word": "que",
+      "start": 4.08,
+      "end": 4.18
+    },
+    {
+      "word": "lo",
+      "start": 4.18,
+      "end": 4.36
+    },
+    {
+      "word": "puedes",
+      "start": 4.36,
+      "end": 4.62
+    },
+    {
+      "word": "combinar",
+      "start": 4.62,
+      "end": 5.12
+    },
+    {
+      "word": "con",
+      "start": 5.12,
+      "end": 5.3
+    },
+    {
+      "word": "toda",
+      "start": 5.3,
+      "end": 5.42
+    },
+    {
+      "word": "tu",
+      "start": 5.42,
+      "end": 5.66
+    },
+    {
+      "word": "familia.",
+      "start": 5.66,
+      "end": 5.76
+    }
+  ]
+}

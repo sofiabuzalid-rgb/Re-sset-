@@ -1,0 +1,120 @@
+{
+  "text": "Así que en serio, si todavía no saben qué regalar esta navidad, venza una vuelta por Reiset porque yo ya tengo las mías.",
+  "words": [
+    {
+      "word": "Así",
+      "start": 0.24,
+      "end": 0.36
+    },
+    {
+      "word": "que",
+      "start": 0.36,
+      "end": 0.52
+    },
+    {
+      "word": "en",
+      "start": 0.52,
+      "end": 0.8
+    },
+    {
+      "word": "serio,",
+      "start": 0.8,
+      "end": 0.94
+    },
+    {
+      "word": "si",
+      "start": 1.02,
+      "end": 1.2
+    },
+    {
+      "word": "todavía",
+      "start": 1.2,
+      "end": 1.32
+    },
+    {
+      "word": "no",
+      "start": 1.32,
+      "end": 1.54
+    },
+    {
+      "word": "saben",
+      "start": 1.54,
+      "end": 1.8
+    },
+    {
+      "word": "qué",
+      "start": 1.8,
+      "end": 2
+    },
+    {
+      "word": "regalar",
+      "start": 2,
+      "end": 2.32
+    },
+    {
+      "word": "esta",
+      "start": 2.32,
+      "end": 2.5
+    },
+    {
+      "word": "navidad,",
+      "start": 2.5,
+      "end": 2.76
+    },
+    {
+      "word": "venza",
+      "start": 3.16,
+      "end": 3.42
+    },
+    {
+      "word": "una",
+      "start": 3.42,
+      "end": 3.6
+    },
+    {
+      "word": "vuelta",
+      "start": 3.6,
+      "end": 3.88
+    },
+    {
+      "word": "por",
+      "start": 3.88,
+      "end": 4.04
+    },
+    {
+      "word": "Reiset",
+      "start": 4.04,
+      "end": 4.46
+    },
+    {
+      "word": "porque",
+      "start": 4.46,
+      "end": 4.92
+    },
+    {
+      "word": "yo",
+      "start": 4.92,
+      "end": 5.02
+    },
+    {
+      "word": "ya",
+      "start": 5.02,
+      "end": 5.2
+    },
+    {
+      "word": "tengo",
+      "start": 5.2,
+      "end": 5.38
+    },
+    {
+      "word": "las",
+      "start": 5.38,
+      "end": 5.46
+    },
+    {
+      "word": "mías.",
+      "start": 5.46,
+      "end": 5.76
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "text": "por favor vean este modelo de pijama está súper padre el color está increíble y a partir de no saben la calidad y lo cómodo que está",
+  "words": [
+    {
+      "word": "por",
+      "start": 0.28,
+      "end": 0.56
+    },
+    {
+      "word": "favor",
+      "start": 0.56,
+      "end": 0.92
+    },
+    {
+      "word": "vean",
+      "start": 0.92,
+      "end": 1.5
+    },
+    {
+      "word": "este",
+      "start": 1.5,
+      "end": 2.08
+    },
+    {
+      "word": "modelo",
+      "start": 2.08,
+      "end": 2.5
+    },
+    {
+      "word": "de",
+      "start": 2.5,
+      "end": 2.68
+    },
+    {
+      "word": "pijama",
+      "start": 2.68,
+      "end": 3.64
+    },
+    {
+      "word": "está",
+      "start": 3.64,
+      "end": 4.08
+    },
+    {
+      "word": "súper",
+      "start": 4.08,
+      "end": 4.34
+    },
+    {
+      "word": "padre",
+      "start": 4.34,
+      "end": 4.64
+    },
+    {
+      "word": "el",
+      "start": 4.64,
+      "end": 4.84
+    },
+    {
+      "word": "color",
+      "start": 4.84,
+      "end": 5.26
+    },
+    {
+      "word": "está",
+      "start": 5.26,
+      "end": 5.28
+    },
+    {
+      "word": "increíble",
+      "start": 6,
+      "end": 6.42
+    },
+    {
+      "word": "y",
+      "start": 6.42,
+      "end": 6.44
+    },
+    {
+      "word": "a",
+      "start": 6.44,
+      "end": 6.6
+    },
+    {
+      "word": "partir",
+      "start": 6.6,
+      "end": 6.74
+    },
+    {
+      "word": "de",
+      "start": 6.74,
+      "end": 6.84
+    },
+    {
+      "word": "no",
+      "start": 6.84,
+      "end": 6.98
+    },
+    {
+      "word": "saben",
+      "start": 6.98,
+      "end": 7.18
+    },
+    {
+      "word": "la",
+      "start": 7.18,
+      "end": 7.42
+    },
+    {
+      "word": "calidad",
+      "start": 7.42,
+      "end": 8.12
+    },
+    {
+      "word": "y",
+      "start": 8.12,
+      "end": 8.2
+    },
+    {
+      "word": "lo",
+      "start": 8.2,
+      "end": 8.4
+    },
+    {
+      "word": "cómodo",
+      "start": 8.4,
+      "end": 8.64
+    },
+    {
+      "word": "que",
+      "start": 8.64,
+      "end": 8.78
+    },
+    {
+      "word": "está",
+      "start": 8.78,
+      "end": 10.8
+    }
+  ]
+}

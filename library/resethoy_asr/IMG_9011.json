@@ -1,0 +1,20 @@
+{
+  "text": "¡Ah! ¡Ay, yo!",
+  "words": [
+    {
+      "word": "¡Ah!",
+      "start": 1.08,
+      "end": 2
+    },
+    {
+      "word": "¡Ay,",
+      "start": 2.86,
+      "end": 3.24
+    },
+    {
+      "word": "yo!",
+      "start": 3.36,
+      "end": 3.64
+    }
+  ]
+}

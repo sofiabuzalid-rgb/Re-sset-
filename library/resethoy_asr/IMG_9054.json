@@ -1,0 +1,90 @@
+{
+  "text": "Tiene que correr el reset por este set en nuestras dos sucursales, en Avenida Steam y Perisur.",
+  "words": [
+    {
+      "word": "Tiene",
+      "start": 0.54,
+      "end": 0.7
+    },
+    {
+      "word": "que",
+      "start": 0.7,
+      "end": 0.9
+    },
+    {
+      "word": "correr",
+      "start": 0.9,
+      "end": 1.04
+    },
+    {
+      "word": "el",
+      "start": 1.04,
+      "end": 1.34
+    },
+    {
+      "word": "reset",
+      "start": 1.34,
+      "end": 1.68
+    },
+    {
+      "word": "por",
+      "start": 1.68,
+      "end": 1.84
+    },
+    {
+      "word": "este",
+      "start": 1.84,
+      "end": 2.2
+    },
+    {
+      "word": "set",
+      "start": 2.2,
+      "end": 2.72
+    },
+    {
+      "word": "en",
+      "start": 2.72,
+      "end": 2.9
+    },
+    {
+      "word": "nuestras",
+      "start": 2.9,
+      "end": 3.08
+    },
+    {
+      "word": "dos",
+      "start": 3.08,
+      "end": 3.26
+    },
+    {
+      "word": "sucursales,",
+      "start": 3.26,
+      "end": 3.68
+    },
+    {
+      "word": "en",
+      "start": 3.74,
+      "end": 3.9
+    },
+    {
+      "word": "Avenida",
+      "start": 3.9,
+      "end": 4.3
+    },
+    {
+      "word": "Steam",
+      "start": 4.3,
+      "end": 4.54
+    },
+    {
+      "word": "y",
+      "start": 4.54,
+      "end": 4.7
+    },
+    {
+      "word": "Perisur.",
+      "start": 4.7,
+      "end": 5
+    }
+  ]
+}

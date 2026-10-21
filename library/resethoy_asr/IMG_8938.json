@@ -1,0 +1,40 @@
+{
+  "text": "y así dime si la estiro dobló",
+  "words": [
+    {
+      "word": "y",
+      "start": 0.3,
+      "end": 0.48
+    },
+    {
+      "word": "así",
+      "start": 0.48,
+      "end": 0.8
+    },
+    {
+      "word": "dime",
+      "start": 0.8,
+      "end": 1.18
+    },
+    {
+      "word": "si",
+      "start": 1.18,
+      "end": 2.24
+    },
+    {
+      "word": "la",
+      "start": 2.24,
+      "end": 2.72
+    },
+    {
+      "word": "estiro",
+      "start": 2.72,
+      "end": 5.22
+    },
+    {
+      "word": "dobló",
+      "start": 5.22,
+      "end": 5.4
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "text": "Y ya, es de la vez. Primero le voy a hacer de aquí.",
+  "words": [
+    {
+      "word": "Y",
+      "start": 2.06,
+      "end": 2.16
+    },
+    {
+      "word": "ya,",
+      "start": 2.16,
+      "end": 2.7
+    },
+    {
+      "word": "es",
+      "start": 2.76,
+      "end": 2.86
+    },
+    {
+      "word": "de",
+      "start": 2.86,
+      "end": 2.94
+    },
+    {
+      "word": "la",
+      "start": 2.94,
+      "end": 3.1
+    },
+    {
+      "word": "vez.",
+      "start": 3.1,
+      "end": 3.38
+    },
+    {
+      "word": "Primero",
+      "start": 3.6,
+      "end": 3.74
+    },
+    {
+      "word": "le",
+      "start": 3.74,
+      "end": 3.82
+    },
+    {
+      "word": "voy",
+      "start": 3.82,
+      "end": 3.9
+    },
+    {
+      "word": "a",
+      "start": 3.9,
+      "end": 4
+    },
+    {
+      "word": "hacer",
+      "start": 4,
+      "end": 4.16
+    },
+    {
+      "word": "de",
+      "start": 4.16,
+      "end": 4.24
+    },
+    {
+      "word": "aquí.",
+      "start": 4.24,
+      "end": 5
+    }
+  ]
+}

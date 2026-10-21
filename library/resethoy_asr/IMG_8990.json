@@ -1,0 +1,30 @@
+{
+  "text": "Ay, y yo. ¿Cómo que?",
+  "words": [
+    {
+      "word": "Ay,",
+      "start": 0.88,
+      "end": 1.32
+    },
+    {
+      "word": "y",
+      "start": 1.52,
+      "end": 1.62
+    },
+    {
+      "word": "yo.",
+      "start": 1.62,
+      "end": 2
+    },
+    {
+      "word": "¿Cómo",
+      "start": 4.16,
+      "end": 4.44
+    },
+    {
+      "word": "que?",
+      "start": 4.44,
+      "end": 4.76
+    }
+  ]
+}

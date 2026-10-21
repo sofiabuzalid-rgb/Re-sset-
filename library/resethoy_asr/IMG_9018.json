@@ -1,0 +1,70 @@
+{
+  "text": "Varte por favor, vean, estamos aquí contra luz y no se transparenta nada.",
+  "words": [
+    {
+      "word": "Varte",
+      "start": 0.32,
+      "end": 0.64
+    },
+    {
+      "word": "por",
+      "start": 0.64,
+      "end": 0.9
+    },
+    {
+      "word": "favor,",
+      "start": 0.9,
+      "end": 1.38
+    },
+    {
+      "word": "vean,",
+      "start": 1.52,
+      "end": 1.74
+    },
+    {
+      "word": "estamos",
+      "start": 1.96,
+      "end": 2.3
+    },
+    {
+      "word": "aquí",
+      "start": 2.3,
+      "end": 2.78
+    },
+    {
+      "word": "contra",
+      "start": 2.78,
+      "end": 3.24
+    },
+    {
+      "word": "luz",
+      "start": 3.24,
+      "end": 3.88
+    },
+    {
+      "word": "y",
+      "start": 3.88,
+      "end": 4.1
+    },
+    {
+      "word": "no",
+      "start": 4.1,
+      "end": 4.2
+    },
+    {
+      "word": "se",
+      "start": 4.2,
+      "end": 4.56
+    },
+    {
+      "word": "transparenta",
+      "start": 4.56,
+      "end": 5.64
+    },
+    {
+      "word": "nada.",
+      "start": 5.64,
+      "end": 5.76
+    }
+  ]
+}

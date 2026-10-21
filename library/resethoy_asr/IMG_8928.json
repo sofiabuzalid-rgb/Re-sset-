@@ -1,0 +1,20 @@
+{
+  "text": "Ok, hasta luego.",
+  "words": [
+    {
+      "word": "Ok,",
+      "start": 0.12,
+      "end": 0.4
+    },
+    {
+      "word": "hasta",
+      "start": 0.48,
+      "end": 0.66
+    },
+    {
+      "word": "luego.",
+      "start": 0.66,
+      "end": 1
+    }
+  ]
+}

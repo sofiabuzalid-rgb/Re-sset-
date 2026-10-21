@@ -1,0 +1,85 @@
+{
+  "text": "Aparte es el color de la temporada verde militar. Por favor, lo tienen que atrir ya.",
+  "words": [
+    {
+      "word": "Aparte",
+      "start": 0.24,
+      "end": 0.4
+    },
+    {
+      "word": "es",
+      "start": 0.4,
+      "end": 0.46
+    },
+    {
+      "word": "el",
+      "start": 0.46,
+      "end": 0.64
+    },
+    {
+      "word": "color",
+      "start": 0.64,
+      "end": 1.04
+    },
+    {
+      "word": "de",
+      "start": 1.04,
+      "end": 1.16
+    },
+    {
+      "word": "la",
+      "start": 1.16,
+      "end": 2.06
+    },
+    {
+      "word": "temporada",
+      "start": 2.06,
+      "end": 2.56
+    },
+    {
+      "word": "verde",
+      "start": 2.56,
+      "end": 3.1
+    },
+    {
+      "word": "militar.",
+      "start": 3.1,
+      "end": 3.44
+    },
+    {
+      "word": "Por",
+      "start": 3.88,
+      "end": 4.04
+    },
+    {
+      "word": "favor,",
+      "start": 4.04,
+      "end": 4.12
+    },
+    {
+      "word": "lo",
+      "start": 4.18,
+      "end": 4.32
+    },
+    {
+      "word": "tienen",
+      "start": 4.32,
+      "end": 4.46
+    },
+    {
+      "word": "que",
+      "start": 4.46,
+      "end": 4.62
+    },
+    {
+      "word": "atrir",
+      "start": 4.62,
+      "end": 4.94
+    },
+    {
+      "word": "ya.",
+      "start": 4.94,
+      "end": 5.44
+    }
+  ]
+}

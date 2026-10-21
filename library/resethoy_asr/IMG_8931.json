@@ -1,0 +1,70 @@
+{
+  "text": "Les tengo una idea buenísima, por si no saben que regalar esta navidad.",
+  "words": [
+    {
+      "word": "Les",
+      "start": 0.58,
+      "end": 0.84
+    },
+    {
+      "word": "tengo",
+      "start": 0.84,
+      "end": 1.2
+    },
+    {
+      "word": "una",
+      "start": 1.2,
+      "end": 1.46
+    },
+    {
+      "word": "idea",
+      "start": 1.46,
+      "end": 1.68
+    },
+    {
+      "word": "buenísima,",
+      "start": 1.68,
+      "end": 2.48
+    },
+    {
+      "word": "por",
+      "start": 2.5,
+      "end": 2.54
+    },
+    {
+      "word": "si",
+      "start": 2.54,
+      "end": 2.64
+    },
+    {
+      "word": "no",
+      "start": 2.64,
+      "end": 2.86
+    },
+    {
+      "word": "saben",
+      "start": 2.86,
+      "end": 3
+    },
+    {
+      "word": "que",
+      "start": 3,
+      "end": 3.24
+    },
+    {
+      "word": "regalar",
+      "start": 3.24,
+      "end": 3.86
+    },
+    {
+      "word": "esta",
+      "start": 3.86,
+      "end": 4.44
+    },
+    {
+      "word": "navidad.",
+      "start": 4.44,
+      "end": 5.5
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "text": "es broma no me fui pero nos quería decirle que esta piama es de reset y les voy a tener una si o si ya",
+  "words": [
+    {
+      "word": "es",
+      "start": 1.78,
+      "end": 2.02
+    },
+    {
+      "word": "broma",
+      "start": 2.02,
+      "end": 2.62
+    },
+    {
+      "word": "no",
+      "start": 2.62,
+      "end": 2.74
+    },
+    {
+      "word": "me",
+      "start": 2.74,
+      "end": 2.88
+    },
+    {
+      "word": "fui",
+      "start": 2.88,
+      "end": 3.48
+    },
+    {
+      "word": "pero",
+      "start": 3.48,
+      "end": 3.74
+    },
+    {
+      "word": "nos",
+      "start": 3.74,
+      "end": 3.92
+    },
+    {
+      "word": "quería",
+      "start": 3.92,
+      "end": 4.14
+    },
+    {
+      "word": "decirle",
+      "start": 4.14,
+      "end": 4.38
+    },
+    {
+      "word": "que",
+      "start": 4.38,
+      "end": 4.8
+    },
+    {
+      "word": "esta",
+      "start": 4.8,
+      "end": 4.96
+    },
+    {
+      "word": "piama",
+      "start": 4.96,
+      "end": 5.44
+    },
+    {
+      "word": "es",
+      "start": 5.44,
+      "end": 5.56
+    },
+    {
+      "word": "de",
+      "start": 5.56,
+      "end": 5.96
+    },
+    {
+      "word": "reset",
+      "start": 5.96,
+      "end": 6.38
+    },
+    {
+      "word": "y",
+      "start": 6.38,
+      "end": 6.72
+    },
+    {
+      "word": "les",
+      "start": 6.74,
+      "end": 6.76
+    },
+    {
+      "word": "voy",
+      "start": 6.84,
+      "end": 6.94
+    },
+    {
+      "word": "a",
+      "start": 6.94,
+      "end": 7.14
+    },
+    {
+      "word": "tener",
+      "start": 7.14,
+      "end": 7.6
+    },
+    {
+      "word": "una",
+      "start": 7.6,
+      "end": 7.96
+    },
+    {
+      "word": "si",
+      "start": 7.96,
+      "end": 8.06
+    },
+    {
+      "word": "o",
+      "start": 8.06,
+      "end": 8.16
+    },
+    {
+      "word": "si",
+      "start": 8.16,
+      "end": 8.52
+    },
+    {
+      "word": "ya",
+      "start": 8.52,
+      "end": 10.46
+    }
+  ]
+}

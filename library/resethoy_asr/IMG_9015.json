@@ -1,0 +1,205 @@
+{
+  "text": "Si no sabes en dónde conseguir estas preciosas y cómodas piamas para Navidad, hay dos sucursales para que las puedas adquirir ya mismo. Hay una en Peri Sur y otra en Avenida Steam, así que ve por ellas ya mismo.",
+  "words": [
+    {
+      "word": "Si",
+      "start": 0.48,
+      "end": 0.56
+    },
+    {
+      "word": "no",
+      "start": 0.56,
+      "end": 0.74
+    },
+    {
+      "word": "sabes",
+      "start": 0.74,
+      "end": 0.92
+    },
+    {
+      "word": "en",
+      "start": 0.92,
+      "end": 1
+    },
+    {
+      "word": "dónde",
+      "start": 1,
+      "end": 1.36
+    },
+    {
+      "word": "conseguir",
+      "start": 1.36,
+      "end": 1.62
+    },
+    {
+      "word": "estas",
+      "start": 1.62,
+      "end": 1.98
+    },
+    {
+      "word": "preciosas",
+      "start": 1.98,
+      "end": 2.76
+    },
+    {
+      "word": "y",
+      "start": 2.76,
+      "end": 2.96
+    },
+    {
+      "word": "cómodas",
+      "start": 2.96,
+      "end": 3.52
+    },
+    {
+      "word": "piamas",
+      "start": 3.52,
+      "end": 3.9
+    },
+    {
+      "word": "para",
+      "start": 3.9,
+      "end": 4.06
+    },
+    {
+      "word": "Navidad,",
+      "start": 4.06,
+      "end": 4.74
+    },
+    {
+      "word": "hay",
+      "start": 4.86,
+      "end": 5.2
+    },
+    {
+      "word": "dos",
+      "start": 5.2,
+      "end": 5.4
+    },
+    {
+      "word": "sucursales",
+      "start": 5.4,
+      "end": 5.94
+    },
+    {
+      "word": "para",
+      "start": 5.94,
+      "end": 6.04
+    },
+    {
+      "word": "que",
+      "start": 6.04,
+      "end": 6.16
+    },
+    {
+      "word": "las",
+      "start": 6.16,
+      "end": 6.28
+    },
+    {
+      "word": "puedas",
+      "start": 6.28,
+      "end": 6.5
+    },
+    {
+      "word": "adquirir",
+      "start": 6.5,
+      "end": 7.18
+    },
+    {
+      "word": "ya",
+      "start": 7.18,
+      "end": 7.46
+    },
+    {
+      "word": "mismo.",
+      "start": 7.46,
+      "end": 8.06
+    },
+    {
+      "word": "Hay",
+      "start": 8.32,
+      "end": 8.46
+    },
+    {
+      "word": "una",
+      "start": 8.46,
+      "end": 8.56
+    },
+    {
+      "word": "en",
+      "start": 8.56,
+      "end": 8.7
+    },
+    {
+      "word": "Peri",
+      "start": 8.7,
+      "end": 8.92
+    },
+    {
+      "word": "Sur",
+      "start": 8.92,
+      "end": 9.28
+    },
+    {
+      "word": "y",
+      "start": 9.28,
+      "end": 9.44
+    },
+    {
+      "word": "otra",
+      "start": 9.44,
+      "end": 9.56
+    },
+    {
+      "word": "en",
+      "start": 9.56,
+      "end": 9.7
+    },
+    {
+      "word": "Avenida",
+      "start": 9.7,
+      "end": 10.08
+    },
+    {
+      "word": "Steam,",
+      "start": 10.08,
+      "end": 10.34
+    },
+    {
+      "word": "así",
+      "start": 10.4,
+      "end": 10.64
+    },
+    {
+      "word": "que",
+      "start": 10.64,
+      "end": 11.08
+    },
+    {
+      "word": "ve",
+      "start": 11.08,
+      "end": 11.24
+    },
+    {
+      "word": "por",
+      "start": 11.24,
+      "end": 11.38
+    },
+    {
+      "word": "ellas",
+      "start": 11.38,
+      "end": 11.94
+    },
+    {
+      "word": "ya",
+      "start": 11.94,
+      "end": 12.24
+    },
+    {
+      "word": "mismo.",
+      "start": 12.24,
+      "end": 12.4
+    }
+  ]
+}

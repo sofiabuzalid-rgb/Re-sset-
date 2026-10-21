@@ -1,0 +1,150 @@
+{
+  "text": "Está demasiado práctica y cómoda para que cuando te vayas de viaje, esto va a caber en todos los lugares de tu maleta o en donde le quieras guardar.",
+  "words": [
+    {
+      "word": "Está",
+      "start": 0.4,
+      "end": 0.8
+    },
+    {
+      "word": "demasiado",
+      "start": 0.8,
+      "end": 1.22
+    },
+    {
+      "word": "práctica",
+      "start": 1.22,
+      "end": 1.52
+    },
+    {
+      "word": "y",
+      "start": 1.52,
+      "end": 1.7
+    },
+    {
+      "word": "cómoda",
+      "start": 1.7,
+      "end": 2.1
+    },
+    {
+      "word": "para",
+      "start": 2.1,
+      "end": 2.2
+    },
+    {
+      "word": "que",
+      "start": 2.2,
+      "end": 2.36
+    },
+    {
+      "word": "cuando",
+      "start": 2.36,
+      "end": 2.52
+    },
+    {
+      "word": "te",
+      "start": 2.52,
+      "end": 2.58
+    },
+    {
+      "word": "vayas",
+      "start": 2.58,
+      "end": 2.78
+    },
+    {
+      "word": "de",
+      "start": 2.78,
+      "end": 3
+    },
+    {
+      "word": "viaje,",
+      "start": 3,
+      "end": 3.44
+    },
+    {
+      "word": "esto",
+      "start": 3.9,
+      "end": 4.06
+    },
+    {
+      "word": "va",
+      "start": 4.06,
+      "end": 4.12
+    },
+    {
+      "word": "a",
+      "start": 4.12,
+      "end": 4.24
+    },
+    {
+      "word": "caber",
+      "start": 4.24,
+      "end": 4.7
+    },
+    {
+      "word": "en",
+      "start": 4.7,
+      "end": 4.9
+    },
+    {
+      "word": "todos",
+      "start": 4.9,
+      "end": 5.08
+    },
+    {
+      "word": "los",
+      "start": 5.08,
+      "end": 5.32
+    },
+    {
+      "word": "lugares",
+      "start": 5.32,
+      "end": 5.58
+    },
+    {
+      "word": "de",
+      "start": 5.58,
+      "end": 5.7
+    },
+    {
+      "word": "tu",
+      "start": 5.7,
+      "end": 5.84
+    },
+    {
+      "word": "maleta",
+      "start": 5.84,
+      "end": 6.32
+    },
+    {
+      "word": "o",
+      "start": 6.32,
+      "end": 6.42
+    },
+    {
+      "word": "en",
+      "start": 6.42,
+      "end": 6.5
+    },
+    {
+      "word": "donde",
+      "start": 6.5,
+      "end": 6.6
+    },
+    {
+      "word": "le",
+      "start": 6.6,
+      "end": 6.76
+    },
+    {
+      "word": "quieras",
+      "start": 6.76,
+      "end": 7
+    },
+    {
+      "word": "guardar.",
+      "start": 7,
+      "end": 8
+    }
+  ]
+}

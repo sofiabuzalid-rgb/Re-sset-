@@ -1,0 +1,40 @@
+{
+  "text": "Ah, es que aunque los deves...",
+  "words": [
+    {
+      "word": "Ah,",
+      "start": 4.56,
+      "end": 4.64
+    },
+    {
+      "word": "es",
+      "start": 4.76,
+      "end": 4.9
+    },
+    {
+      "word": "que",
+      "start": 4.9,
+      "end": 5.08
+    },
+    {
+      "word": "aunque",
+      "start": 5.08,
+      "end": 5.34
+    },
+    {
+      "word": "los",
+      "start": 5.34,
+      "end": 5.74
+    },
+    {
+      "word": "deves",
+      "start": 5.74,
+      "end": 6
+    },
+    {
+      "word": "...",
+      "start": 28.18,
+      "end": 28.2
+    }
+  ]
+}

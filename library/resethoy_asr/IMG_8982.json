@@ -1,0 +1,80 @@
+{
+  "text": "literales de esas cosas que te llevas para todos lados porque ya tienes todo junto.",
+  "words": [
+    {
+      "word": "literales",
+      "start": 0.56,
+      "end": 0.84
+    },
+    {
+      "word": "de",
+      "start": 0.84,
+      "end": 0.9
+    },
+    {
+      "word": "esas",
+      "start": 0.9,
+      "end": 1.08
+    },
+    {
+      "word": "cosas",
+      "start": 1.08,
+      "end": 1.28
+    },
+    {
+      "word": "que",
+      "start": 1.28,
+      "end": 1.38
+    },
+    {
+      "word": "te",
+      "start": 1.38,
+      "end": 1.5
+    },
+    {
+      "word": "llevas",
+      "start": 1.5,
+      "end": 1.74
+    },
+    {
+      "word": "para",
+      "start": 1.74,
+      "end": 2.02
+    },
+    {
+      "word": "todos",
+      "start": 2.02,
+      "end": 2.3
+    },
+    {
+      "word": "lados",
+      "start": 2.3,
+      "end": 2.6
+    },
+    {
+      "word": "porque",
+      "start": 2.6,
+      "end": 2.76
+    },
+    {
+      "word": "ya",
+      "start": 2.76,
+      "end": 2.94
+    },
+    {
+      "word": "tienes",
+      "start": 2.94,
+      "end": 3.16
+    },
+    {
+      "word": "todo",
+      "start": 3.16,
+      "end": 3.42
+    },
+    {
+      "word": "junto.",
+      "start": 3.42,
+      "end": 3.52
+    }
+  ]
+}

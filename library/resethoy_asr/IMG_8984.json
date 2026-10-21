@@ -1,0 +1,85 @@
+{
+  "text": "literales y esas cosas que te llevas para todos lados porque está súper práctico y cómoda.",
+  "words": [
+    {
+      "word": "literales",
+      "start": 0.38,
+      "end": 0.7
+    },
+    {
+      "word": "y",
+      "start": 0.7,
+      "end": 0.76
+    },
+    {
+      "word": "esas",
+      "start": 0.76,
+      "end": 0.94
+    },
+    {
+      "word": "cosas",
+      "start": 0.94,
+      "end": 1.12
+    },
+    {
+      "word": "que",
+      "start": 1.12,
+      "end": 1.22
+    },
+    {
+      "word": "te",
+      "start": 1.22,
+      "end": 1.32
+    },
+    {
+      "word": "llevas",
+      "start": 1.32,
+      "end": 1.58
+    },
+    {
+      "word": "para",
+      "start": 1.58,
+      "end": 2.02
+    },
+    {
+      "word": "todos",
+      "start": 2.02,
+      "end": 2.32
+    },
+    {
+      "word": "lados",
+      "start": 2.32,
+      "end": 2.64
+    },
+    {
+      "word": "porque",
+      "start": 2.64,
+      "end": 2.8
+    },
+    {
+      "word": "está",
+      "start": 2.8,
+      "end": 2.98
+    },
+    {
+      "word": "súper",
+      "start": 2.98,
+      "end": 3.2
+    },
+    {
+      "word": "práctico",
+      "start": 3.2,
+      "end": 3.58
+    },
+    {
+      "word": "y",
+      "start": 3.58,
+      "end": 3.74
+    },
+    {
+      "word": "cómoda.",
+      "start": 3.74,
+      "end": 3.88
+    }
+  ]
+}

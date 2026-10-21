@@ -1,0 +1,25 @@
+{
+  "text": "¡Pareca! ¡Tú me hiciste!",
+  "words": [
+    {
+      "word": "¡Pareca!",
+      "start": 4.02,
+      "end": 4.98
+    },
+    {
+      "word": "¡Tú",
+      "start": 5.26,
+      "end": 5.46
+    },
+    {
+      "word": "me",
+      "start": 5.46,
+      "end": 5.62
+    },
+    {
+      "word": "hiciste!",
+      "start": 5.62,
+      "end": 6
+    }
+  ]
+}
