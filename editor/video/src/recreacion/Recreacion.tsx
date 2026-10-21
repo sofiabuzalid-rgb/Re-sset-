@@ -176,11 +176,11 @@ const Label: React.FC<{
   );
 };
 
-/** Outfit scanner: viewfinder brackets on "can I please", a glowing line sweeping down on "scan your outfit", out on "I guess so". */
+/** Outfit scanner: viewfinder + glowing line appear on "scan", the line sweeps down through "your outfit", out on "I guess so". */
 const Scanner: React.FC = () => {
   const f = useCurrentFrame();
   const { x, y, w, h } = SCAN.box;
-  const inP = interpolate(f, [SCAN.bracketsIn, SCAN.bracketsIn + 7], [0, 1], {
+  const inP = interpolate(f, [SCAN.bracketsIn, SCAN.bracketsIn + 3], [0, 1], {
     ...clamp,
     easing: easeOut,
   });
@@ -212,7 +212,8 @@ const Scanner: React.FC = () => {
         [sy > 0 ? "borderTopWidth" : "borderBottomWidth"]: T,
         [sx > 0 ? "borderLeftWidth" : "borderRightWidth"]: T,
         borderRadius: 4,
-        filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.35)) drop-shadow(0 0 10px rgba(236,150,196,0.9))",
+        filter:
+          "drop-shadow(0 1px 2px rgba(0,0,0,0.35)) drop-shadow(0 0 10px rgba(236,150,196,0.9))",
       }}
     />
   );
@@ -289,31 +290,15 @@ export const Recreacion: React.FC = () => (
       <Title />
     </Sequence>
     <Scanner />
-    {LABELS.map((l) => {
-      // scan tags appear the frame the line reaches their y
-      const from =
-        "scan" in l && l.scan
-          ? Math.round(
-              SCAN.sweep[0] +
-                ((l.pos[0][2] - SCAN.box.y) / SCAN.box.h) *
-                  (SCAN.sweep[1] - SCAN.sweep[0]),
-            )
-          : l.from;
-      return (
-        <Sequence
-          key={`${l.text}-${l.from}-${l.pos[0][2]}`}
-          from={from}
-          durationInFrames={l.to - from}
-        >
-          <Label
-            text={l.text}
-            from={from}
-            pos={l.pos}
-            pop={"scan" in l && !!l.scan}
-          />
-        </Sequence>
-      );
-    })}
+    {LABELS.map((l) => (
+      <Sequence
+        key={`${l.text}-${l.from}`}
+        from={l.from}
+        durationInFrames={l.to - l.from}
+      >
+        <Label text={l.text} from={l.from} pos={l.pos} pop />
+      </Sequence>
+    ))}
     {LOGO && (
       <Img
         src={staticFile(LOGO)}

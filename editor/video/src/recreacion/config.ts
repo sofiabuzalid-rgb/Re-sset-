@@ -60,13 +60,17 @@ export const SHOTS = [
 ];
 
 /** Outfit scanner, synced to the dialogue in the reference audio (Whisper word times):
- *  "can" 2.50 s -> viewfinder in · "scan" 3.18 s -> line sweeps down to the end of "outfit" 3.96 s · "I guess so" 4.18-4.76 s -> out. */
+ *  appears exactly on "scan" (3.18 s), the line sweeps down to the end of "outfit" (3.96 s), out on "I guess so" (4.18-4.76 s). */
 export const SCAN = {
   box: { x: 330, y: 560, w: 520, h: 1320 }, // around her full body in shot 2
-  bracketsIn: 75,
+  bracketsIn: 95,
   sweep: [95, 119] as [number, number],
   out: [128, 142] as [number, number],
 };
+
+/** The five percussive double hits ("pum") in the reference audio after the dialogue (HPSS percussive onsets), in frames:
+ *  6.26 · 6.76 · 7.45 · 8.11 · 8.85 s. Each product tag pops on one. */
+export const PUMPS = [188, 203, 223, 243, 265];
 
 export const TITLE = {
   lines: ["outfit", "of the", "day"],
@@ -81,16 +85,13 @@ export const TITLE = {
 };
 
 /** Instagram-style product tags: only visible, verifiable facts, lowercase like the reference (brand keeps its spelling).
- *  During the scan each tag pops when the scan line reaches it (from = scan frame at its y). pos = [fromFrame, x, y][] re-pins after a cut. */
+ *  Each pops on a "pum" (PUMPS). The medium-shot tags clear at the cut; the close shot gets its own two. */
 export const LABELS = [
-  { text: "cuello redondo", from: 0, to: 144, pos: [[0, 590, 905]], scan: true },
-  { text: "RE:SET", from: 0, to: 144, pos: [[0, 590, 1080]], scan: true },
-  { text: "manga larga", from: 0, to: 144, pos: [[0, 760, 1250]], scan: true },
-  { text: "cordón ajustable", from: 0, to: 144, pos: [[0, 560, 1430]], scan: true },
-  { text: "bolsillos laterales", from: 146, to: 159, pos: [[146, 400, 1180]] }, // hands in pockets, before the push
-  { text: "RE:SET", from: 180, to: 278, pos: [[180, 540, 960], [233, 540, 1300]] }, // 6.0 s, as the reference's brand tag
-  { text: "manga larga", from: 219, to: 278, pos: [[219, 790, 860], [233, 830, 1520]] }, // 7.3 s
-  { text: "cuello redondo", from: 233, to: 278, pos: [[233, 560, 1080]] }, // 7.78 s, with the cut
+  { text: "RE:SET", from: 188, to: 233, pos: [[188, 540, 960]] }, // pum 1 — chest
+  { text: "manga larga", from: 203, to: 233, pos: [[203, 790, 860]] }, // pum 2 — sleeve
+  { text: "cordón ajustable", from: 223, to: 233, pos: [[223, 660, 1470]] }, // pum 3 — drawstring
+  { text: "cuello redondo", from: 243, to: 278, pos: [[243, 560, 1080]] }, // pum 4 — neckline (close shot)
+  { text: "bolsillos laterales", from: 265, to: 278, pos: [[265, 400, 1700]] }, // pum 5 — pocket (close shot)
 ];
 
 // Audio of the reference reel (requested by the client). Its commercial licence is NOT verified.
