@@ -18,6 +18,7 @@ export const FONTS = {
 
 /** Shots (colour-matched SDR intermediates in public/cajon). zoom: [frame, scale][]; origin: [frame, x%, y%][] — linear. */
 export const SHOTS = [
+  // Only the front/above takes (IMG_2122, 2124, 2125): the drawer always reads horizontal, the sets side by side.
   {
     // 1-2 · 0.00-3.27 s: closed drawer -> the pull (IMG_2122 1.6-2.75 s) ends on the accent (frame 70) showing the three sets
     name: "apertura",
@@ -31,75 +32,65 @@ export const SHOTS = [
     dodge: { from: 58, rx: 250, ry: 280, gain: 1.6, path: [[58, 720, 1240], [80, 700, 1195], [98, 690, 1260]] as [number, number, number][] },
   },
   {
-    // 3a · 3.27-4.17 s: green gingerbread print, top-down, clean light (IMG_2124 0.0-0.9 s)
+    // 3a · 3.27-4.17 s: green gingerbread print (IMG_2124 0.0-0.9 s)
     name: "verde",
     src: "cajon/IMG_2124.mp4",
     from: 98,
     frames: 27,
     startFrom: 0,
-    zoom: [[0, 1.5], [27, 1.56]] as [number, number][],
-    origin: [[0, 82, 42], [27, 82, 42]] as [number, number, number][],
+    zoom: [[0, 1.95], [27, 2.0]] as [number, number][], // tight on the fabric: no drawer edge in frame
+    origin: [[0, 96, 45], [27, 96, 45]] as [number, number, number][],
   },
   {
-    // 3b · 4.17-5.03 s: white print with the RE:SET lettering, from the clean overhead take (IMG_2123), slow drift down
+    // 3b · 4.17-5.03 s: white print with the printed RE:SET, upper half above the phone shadow (IMG_2125 5.0 s)
     name: "blanco",
-    src: "cajon/IMG_2123.mp4",
+    src: "cajon/IMG_2125.mp4",
     from: 125,
     frames: 26,
-    startFrom: 102, // source 3.40 s
-    zoom: [[0, 1.85], [26, 1.85]] as [number, number][],
-    origin: [[0, 58, 40], [26, 58, 50]] as [number, number, number][],
+    startFrom: 150,
+    zoom: [[0, 2.1], [26, 2.16]] as [number, number][], // >= 2.1 keeps the shadow below the frame
+    origin: [[0, 60, 0], [26, 60, 0]] as [number, number, number][],
   },
   {
-    // 3c · 5.03-5.87 s: red Nordic print, framed on its upper half (above the phone shadow) as the camera glides (IMG_2125 6.3 s)
+    // 3c · 5.03-5.87 s: red Nordic print, framed on its upper half above the phone shadow (IMG_2125 5.83 s)
     name: "rojo",
     src: "cajon/IMG_2125.mp4",
     from: 151,
     frames: 25,
-    startFrom: 189,
-    zoom: [[0, 1.7], [25, 1.75]] as [number, number][],
+    startFrom: 175, // source 5.83 s: continues the white shot's glide onto the red
+    zoom: [[0, 2.05], [25, 2.1]] as [number, number][], // keeps the shadow below the frame
     origin: [[0, 82, 0], [25, 82, 0]] as [number, number, number][],
   },
   {
-    // 3d · 5.87-6.70 s: fabric + brand — the printed RE:SET where the green meets the white, from the clean overhead take
-    name: "marca",
-    src: "cajon/IMG_2123.mp4",
-    from: 176,
-    frames: 25,
-    startFrom: 240, // source 8.00 s
-    zoom: [[0, 2.0], [25, 2.0]] as [number, number][],
-    origin: [[0, 74, 30], [25, 82, 30]] as [number, number, number][],
-  },
-  {
-    // 3e · 6.70-7.57 s: the camera glides in over the gingerbread print (IMG_2125 2.45 s), upper part, above the shadow
+    // 3d · 5.87-6.70 s: the camera glides in over the gingerbread print (IMG_2125 2.45 s), upper part, above the shadow
     name: "verde-mov",
     src: "cajon/IMG_2125.mp4",
-    from: 201,
-    frames: 26,
+    from: 176,
+    frames: 25,
     startFrom: 74,
-    zoom: [[0, 1.4], [26, 1.46]] as [number, number][],
-    origin: [[0, 35, 30], [26, 35, 30]] as [number, number, number][],
+    zoom: [[0, 1.4], [25, 1.46]] as [number, number][],
+    origin: [[0, 35, 30], [25, 35, 30]] as [number, number, number][],
   },
   {
-    // 4 · 7.57-10.03 s: hero — the three sets in the drawer from above (IMG_2123), centred on the drawer, slow push
+    // 4 · 6.70-9.17 s: hero — the three sets side by side from the front (IMG_2122 3.67 s), gentle pan; hand cropped out
     name: "hero",
-    src: "cajon/IMG_2123.mp4",
-    from: 227,
+    src: "cajon/IMG_2122.mp4",
+    from: 201,
     frames: 74,
-    startFrom: 135, // source 4.50 s
-    zoom: [[0, 1.14], [74, 1.2]] as [number, number][],
-    origin: [[0, 40, 47], [74, 40, 47]] as [number, number, number][],
+    startFrom: 110,
+    zoom: [[0, 1.36], [74, 1.4]] as [number, number][],
+    origin: [[0, 50, 20], [74, 50, 20]] as [number, number, number][],
+    dodge: { from: 0, rx: 280, ry: 300, gain: 1.25, path: [[0, 640, 1380], [74, 640, 1380]] as [number, number, number][] },
   },
   {
-    // 5 · 10.03-12.1 s: back to the front view of the open drawer (bookends the reveal), clean white wall above for the sign-off
+    // 5 · 9.17-12.1 s: the drawer closes (IMG_2125 6.65-9.58 s): it slides shut and is closed at 11.29 s, on a beat
     name: "cierre",
-    src: "cajon/IMG_2122.mp4",
-    from: 301,
-    frames: 62,
-    startFrom: 110, // source 3.67 s, right where the reveal shot left off
-    zoom: [[0, 1.36], [62, 1.4]] as [number, number][], // tight enough that the hand on the handle stays out of frame
-    origin: [[0, 50, 20], [62, 50, 20]] as [number, number, number][],
-    dodge: { from: 0, rx: 280, ry: 300, gain: 1.25, path: [[0, 640, 1380], [62, 640, 1380]] as [number, number, number][] },
+    src: "cajon/IMG_2125.mp4",
+    from: 275,
+    frames: 88,
+    startFrom: 200, // source 6.65 s
+    zoom: [[0, 1.12], [88, 1.16]] as [number, number][],
+    origin: [[0, 50, 40], [88, 50, 40]] as [number, number, number][],
   },
 ];
 
@@ -107,7 +98,7 @@ export const TEXT = {
   line1: { text: "La Navidad empieza cuando…", from: 6, top: 300 },
   line2: { text: "…mis cajones se ven así.", emoji: "🎄", from: 70 }, // on the accent, as the drawer finishes opening
   textOut: 96, // both lines leave just before the first detail cut (frame 98)
-  brand: { from: 304, top: 300, logo: "brand/reset-logo-black.png" }, // 10.13 s, on "Santa Claus…", over the white wall
+  brand: { from: 304, top: 260, logo: "brand/reset-logo-black.png" }, // 10.13 s, on "Santa Claus…", over the white wall as the drawer shuts
   cta: { text: "Descubre nuestras pijamas de Navidad", from: 314 }, // 10.47 s, next beat
 };
 
