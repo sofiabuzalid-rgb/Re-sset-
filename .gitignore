@@ -15,3 +15,6 @@ editor/video/public/IMG_*.mp4
 editor/recreacion/src/
 editor/recreacion/*.jpg
 editor/video/public/recreacion/
+editor/cajon/src/
+editor/cajon/an/
+editor/video/public/cajon/

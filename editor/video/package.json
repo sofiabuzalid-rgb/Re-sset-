@@ -10,7 +10,9 @@
   "private": true,
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource/cormorant-garamond": "^5.3.0",
     "@fontsource/montserrat": "^5.3.0",
+    "@fontsource/noto-color-emoji": "^5.3.2",
     "@fontsource/open-sans": "^5.3.0",
     "@remotion/cli": "4.0.537",
     "@remotion/fonts": "^4.0.537",
