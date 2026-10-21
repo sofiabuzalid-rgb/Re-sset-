@@ -13,6 +13,7 @@ import {BlueDetail, BLUE_TOTAL} from './blue/BlueDetail';
 import {BrownDetail, BROWN_TOTAL} from './brown/BrownDetail';
 import {GreyDetail, GREY_TOTAL} from './grey/GreyDetail';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
+import {PetalEditorial, EDITORIAL_TOTAL, EDITORIAL_FPS} from './editorial/PetalEditorial';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
 
@@ -50,5 +51,7 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="BlueDetail" component={BlueDetail} durationInFrames={BLUE_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="BrownDetail" component={BrownDetail} durationInFrames={BROWN_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="GreyDetail" component={GreyDetail} durationInFrames={GREY_TOTAL} fps={FPS} width={1080} height={1920} />
+		{/* Editorial sleepwear sheet + moodboard (carousel recreation) — Petal Essential Button Set */}
+		<Composition id="PetalEditorial" component={PetalEditorial} durationInFrames={EDITORIAL_TOTAL} fps={EDITORIAL_FPS} width={1080} height={1920} />
 	</>
 );
