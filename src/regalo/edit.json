@@ -1,7 +1,8 @@
 {
  "fps": 30,
- "total": 615,
- "track_offset": 92.138,
+ "total": 415,
+ "no_music": true,
+ "track_offset": 0,
  "voice": [
   {
    "src": "d:IMG_8480.MP4",
@@ -13,13 +14,7 @@
    "src": "u:IMG_8488",
    "in": 5.7,
    "frames": 139,
-   "from": 239
-  },
-  {
-   "src": "d:IMG_8495.MP4",
-   "in": 2.0,
-   "frames": 94,
-   "from": 446
+   "from": 236
   }
  ],
  "layers": [
@@ -41,7 +36,7 @@
    "frames": 126,
    "push": [
     1.0,
-    1.06
+    1.05
    ],
    "id": "v01"
   },
@@ -49,7 +44,7 @@
    "src": "d:IMG_8470.MP4",
    "in": 4.0,
    "from": 183,
-   "frames": 56,
+   "frames": 53,
    "push": [
     1.0,
     1.04
@@ -59,8 +54,8 @@
   {
    "src": "u:IMG_8488",
    "in": 5.7,
-   "from": 239,
-   "frames": 137,
+   "from": 236,
+   "frames": 81,
    "push": [
     1.0,
     1.04
@@ -69,9 +64,9 @@
   },
   {
    "src": "u:IMG_1554",
-   "in": 0.4,
-   "from": 376,
-   "frames": 70,
+   "in": 3.4,
+   "from": 317,
+   "frames": 58,
    "push": [
     1.0,
     1.04
@@ -79,37 +74,15 @@
    "id": "v04"
   },
   {
-   "src": "d:IMG_8495.MP4",
-   "in": 2.0,
-   "from": 446,
-   "frames": 48,
+   "src": "u:IMG_8490",
+   "in": 3.9,
+   "from": 375,
+   "frames": 40,
    "push": [
     1.0,
-    1.03
+    1.02
    ],
    "id": "v05"
-  },
-  {
-   "src": "d:IMG_8496.MP4",
-   "in": 0.3,
-   "from": 494,
-   "frames": 46,
-   "push": [
-    1.0,
-    1.03
-   ],
-   "id": "v06"
-  },
-  {
-   "src": "u:IMG_8490",
-   "in": 3.6,
-   "from": 540,
-   "frames": 75,
-   "push": [
-    1.0,
-    1.03
-   ],
-   "id": "v07"
   }
  ],
  "subs": [
@@ -146,39 +119,27 @@
    "hl": []
   },
   {
-   "from": 240,
-   "to": 320,
+   "from": 237,
+   "to": 317,
    "text": "Y de verdad no están dimensionando la calidad",
    "hl": [
     "calidad"
    ]
   },
   {
-   "from": 320,
-   "to": 378,
+   "from": 317,
+   "to": 375,
    "text": "de esta nueva colección.",
-   "hl": []
-  },
-  {
-   "from": 447,
-   "to": 490,
-   "text": "Cada una trae su bolsita",
-   "hl": []
-  },
-  {
-   "from": 491,
-   "to": 540,
-   "text": "por si estás planeando salir de viaje.",
    "hl": []
   }
  ],
  "texts": [
   {
    "type": "end",
-   "from": 548,
-   "to": 614,
+   "from": 375,
+   "to": 414,
    "cta": "SOFT WINTER"
   }
  ],
- "note": "v3: la pijama Soft Winter (punto acanalado) es el centro. Su voz real: IMG_8480 0.00–7.78, IMG_8488 5.70–10.32, IMG_8495 2.00–5.12. Sin Grinch, sin precios/promos (no están en el material)."
+ "note": "v4: sin música; solo su voz real (IMG_8480 0.00–7.78 completa, IMG_8488 5.70–10.32 completa). Sin planos de relleno."
 }

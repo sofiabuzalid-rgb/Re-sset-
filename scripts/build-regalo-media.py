@@ -80,13 +80,15 @@ for v in e["voice"]:
 voice /= np.max(np.abs(voice)) / 0.7
 
 # ---------------- music (licensed track)
-off = float(e["track_offset"])
+off = float(e.get("track_offset", 0))
 pre_m = os.path.join(OUT, "_m.wav")
 subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", str(off), "-i", os.path.join(OUT, "track.mp3"), "-t", str(L / SR), "-ac", "1", "-ar", str(SR), pre_m], check=True)
 music, _ = sf.read(pre_m, dtype="float64")
 os.remove(pre_m)
 music = np.pad(music, (0, max(0, L - len(music))))[:L]
 music /= np.max(np.abs(music))
+if e.get("no_music"):  # voice-only cut (client asked to remove the music)
+    music[:] = 0
 # sidechain duck from the voice envelope: music ~ -15 dB under speech, back up in gaps / end card
 hop = int(0.01 * SR)
 env = np.array([np.sqrt(np.mean(voice[i:i + hop] ** 2)) for i in range(0, L, hop)])
