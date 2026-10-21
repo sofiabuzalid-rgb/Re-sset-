@@ -23,6 +23,7 @@ import {ADS, adTotal, MetaAd} from './meta4/MetaAd';
 import {XMatch, XMATCH_TOTAL} from './xmatch/XMatch';
 import {FanAd, FAN_TOTAL} from './fan/FanAd';
 import {FamilyAd, FAMILY_TOTAL} from './family/FamilyAd';
+import {RegaloAd, REGALO_TOTAL} from './regalo/RegaloAd';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
@@ -71,6 +72,7 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="Meta1Navidad" component={MetaAd} defaultProps={{ad: 'a1'}} durationInFrames={adTotal(ADS.a1)} fps={30} width={1080} height={1920} />
 		<Composition id="Meta2Producto" component={MetaAd} defaultProps={{ad: 'a2'}} durationInFrames={adTotal(ADS.a2)} fps={30} width={1080} height={1920} />
 		<Composition id="Meta3MamaYYo" component={MetaAd} defaultProps={{ad: 'a3'}} durationInFrames={adTotal(ADS.a3)} fps={30} width={1080} height={1920} />
+		<Composition id="RegaloPerfecto" component={RegaloAd} durationInFrames={REGALO_TOTAL} fps={30} width={1080} height={1920} />
 		<Composition id="FamilyMatch" component={FamilyAd} durationInFrames={FAMILY_TOTAL} fps={30} width={1080} height={1920} />
 		<Composition id="LikeFatherLikeFan" component={FanAd} durationInFrames={FAN_TOTAL} fps={30} width={1080} height={1920} />
 		<Composition id="ChristmasMatch" component={XMatch} durationInFrames={XMATCH_TOTAL} fps={30} width={1080} height={1920} />
