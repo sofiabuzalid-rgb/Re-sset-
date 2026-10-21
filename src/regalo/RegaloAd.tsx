@@ -28,8 +28,27 @@ const ramp = (f: number, a: number, d: number) => easeOut(Math.min(1, Math.max(0
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export const REGALO_TOTAL = edit.total;
 
+/** 2x2 grid: the four Christmas designs at once, each a real clip, with thin cream gutters. */
+const Grid: React.FC<{ l: any }> = ({ l }) => {
+  const f = useCurrentFrame();
+  const G = 8;
+  return (
+    <AbsoluteFill style={{ backgroundColor: CREAM }}>
+      {["a", "b", "c", "d"].map((k, i) => {
+        const p = ramp(f, i * 3, 10);
+        return (
+          <div key={k} style={{ position: "absolute", left: (i % 2) * (540 + G / 2), top: Math.floor(i / 2) * (960 + G / 2), width: 540 - G / 2, height: 960 - G / 2, overflow: "hidden", opacity: p }}>
+            <OffthreadVideo muted src={staticFile(`regalo/${l.id}${k}.mp4`)} style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${1.06 - 0.06 * p})` }} />
+          </div>
+        );
+      })}
+    </AbsoluteFill>
+  );
+};
+
 const Layer: React.FC<{ l: any }> = ({ l }) => {
   const f = useCurrentFrame();
+  if (l.grid) return <Grid l={l} />;
   const push = l.push ?? [1, 1];
   const z = push[0] + (push[1] - push[0]) * Easing.inOut(Easing.quad)(Math.min(1, f / l.frames));
   return (
@@ -87,7 +106,7 @@ const Word: React.FC<{ f: number; at: number; children: React.ReactNode; style: 
 const big: React.CSSProperties = { fontFamily: SANS, fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.015em", color: INK, textAlign: "center" };
 
 const Hero: React.FC<{ t: any; f: number }> = ({ t, f }) => (
-  <div style={{ position: "absolute", top: 160, left: 40, right: 40 }}>
+  <div style={t.on === "grid" ? { position: "absolute", top: 830, left: 170, right: 170, background: CREAM, borderRadius: 10, padding: "26px 0 22px", boxShadow: "0 18px 50px rgba(0,0,0,0.25)" } : { position: "absolute", top: 160, left: 40, right: 40 }}>
     {t.lines.map((l: string, i: number) => (
       <Word key={i} f={f} at={i * 5} style={{ ...big, fontSize: t.size }}>
         {l.split(" ").map((w, k, arr) => (
@@ -132,11 +151,18 @@ const Price: React.FC<{ t: any; f: number }> = ({ t, f }) => (
 );
 
 /** Close: the real RE:SET wall is already in frame, so only the model name she says ("Soft Winter") is added. */
-const End: React.FC<{ t: any; f: number }> = ({ t, f }) => (
-  <div style={{ position: "absolute", top: 1560, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: ramp(f, 0, 12) }}>
-    <div style={{ fontFamily: SANS, fontWeight: 700, fontSize: 34, letterSpacing: "0.42em", color: CREAM, paddingLeft: "0.42em", background: "rgba(20,20,20,0.42)", borderRadius: 999, padding: "12px 34px 12px 48px" }}>{t.cta}</div>
-  </div>
-);
+/** Close over the 2x2 of all designs: official logo + one CTA on a cream card at the grid's centre. */
+const End: React.FC<{ t: any; f: number }> = ({ t, f }) => {
+  const p = ramp(f, 4, 12);
+  return (
+    <div style={{ position: "absolute", top: 810, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: p }}>
+      <div style={{ background: CREAM, borderRadius: 10, padding: "34px 64px 30px", textAlign: "center", boxShadow: "0 18px 50px rgba(0,0,0,0.25)", transform: `scale(${0.94 + 0.06 * p})` }}>
+        <Img src={staticFile("brand/reset-logo-black.png")} style={{ width: 300 }} />
+        <div style={{ marginTop: 18, fontFamily: SANS, fontWeight: 700, fontSize: 28, letterSpacing: "0.32em", color: INK, paddingLeft: "0.32em" }}>{t.cta}</div>
+      </div>
+    </div>
+  );
+};
 
 const TextView: React.FC<{ t: any }> = ({ t }) => {
   const f = useCurrentFrame();
