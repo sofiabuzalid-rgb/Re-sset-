@@ -1,0 +1,312 @@
+{
+ "fps": 30,
+ "total": 653,
+ "track_offset": 90.538,
+ "voice": [
+  {
+   "src": "u:IMG_8502",
+   "in": 0.26,
+   "frames": 83,
+   "from": 0
+  },
+  {
+   "src": "d:IMG_8503.MP4",
+   "in": 2.18,
+   "frames": 64,
+   "from": 83
+  },
+  {
+   "src": "d:IMG_8495.MP4",
+   "in": 0.89,
+   "frames": 127,
+   "from": 284
+  },
+  {
+   "src": "u:IMG_8504",
+   "in": 16.86,
+   "frames": 39,
+   "from": 569
+  }
+ ],
+ "layers": [
+  {
+   "src": "u:IMG_8502",
+   "in": 0.26,
+   "from": 0,
+   "frames": 83,
+   "zoom": 1.22,
+   "cx": 0.5,
+   "cy": 0.55,
+   "push": [
+    1.0,
+    1.05
+   ],
+   "id": "v00"
+  },
+  {
+   "src": "d:IMG_8503.MP4",
+   "in": 2.18,
+   "from": 83,
+   "frames": 64,
+   "zoom": 1.22,
+   "cx": 0.5,
+   "cy": 0.55,
+   "push": [
+    1.03,
+    1.08
+   ],
+   "id": "v01"
+  },
+  {
+   "src": "u:IMG_2052",
+   "in": 0.3,
+   "from": 147,
+   "frames": 32,
+   "push": [
+    1.06,
+    1.0
+   ],
+   "id": "v02"
+  },
+  {
+   "src": "u:IMG_2044",
+   "in": 0.5,
+   "from": 179,
+   "frames": 34,
+   "zoom": 1.3,
+   "cx": 0.28,
+   "cy": 0.94,
+   "push": [
+    1.0,
+    1.03
+   ],
+   "id": "v03"
+  },
+  {
+   "src": "u:IMG_2041",
+   "in": 0.5,
+   "from": 213,
+   "frames": 35,
+   "push": [
+    1.0,
+    1.05
+   ],
+   "id": "v04"
+  },
+  {
+   "src": "u:IMG_1914",
+   "in": 2.0,
+   "from": 248,
+   "frames": 36,
+   "push": [
+    1.0,
+    1.05
+   ],
+   "id": "v05"
+  },
+  {
+   "src": "d:IMG_8495.MP4",
+   "in": 0.89,
+   "from": 284,
+   "frames": 48,
+   "zoom": 1.25,
+   "cx": 0.4,
+   "cy": 0.35,
+   "push": [
+    1.0,
+    1.04
+   ],
+   "id": "v06"
+  },
+  {
+   "src": "d:IMG_1404.MOV",
+   "in": 0.5,
+   "from": 332,
+   "frames": 42,
+   "push": [
+    1.0,
+    1.04
+   ],
+   "id": "v07"
+  },
+  {
+   "src": "u:IMG_2043",
+   "in": 1.0,
+   "from": 374,
+   "frames": 37,
+   "zoom": 1.3,
+   "cx": 0.0,
+   "cy": 0.71,
+   "id": "v08"
+  },
+  {
+   "src": "u:IMG_2052",
+   "in": 2.6,
+   "from": 411,
+   "frames": 77,
+   "push": [
+    1.0,
+    1.05
+   ],
+   "id": "v09"
+  },
+  {
+   "src": "u:IMG_2051",
+   "in": 1.0,
+   "from": 488,
+   "frames": 81,
+   "push": [
+    1.04,
+    1.0
+   ],
+   "id": "v10"
+  },
+  {
+   "src": "u:IMG_8504",
+   "in": 16.86,
+   "from": 569,
+   "frames": 39,
+   "zoom": 1.22,
+   "cx": 0.5,
+   "cy": 0.55,
+   "id": "v11"
+  },
+  {
+   "src": "u:IMG_2041",
+   "in": 4.5,
+   "from": 608,
+   "frames": 45,
+   "push": [
+    1.0,
+    1.04
+   ],
+   "id": "v12"
+  }
+ ],
+ "subs": [
+  {
+   "from": 1,
+   "to": 33,
+   "text": "Si estás en busca del",
+   "hl": []
+  },
+  {
+   "from": 33,
+   "to": 83,
+   "text": "regalo perfecto para esta Navidad,",
+   "hl": [
+    "regalo",
+    "Navidad,"
+   ]
+  },
+  {
+   "from": 83,
+   "to": 148,
+   "text": "aquí en RE:SET te lo tenemos.",
+   "hl": [
+    "RE:SET"
+   ]
+  },
+  {
+   "from": 284,
+   "to": 317,
+   "text": "Y aparte de todo,",
+   "hl": []
+  },
+  {
+   "from": 318,
+   "to": 360,
+   "text": "cada una trae su bolsita",
+   "hl": [
+    "bolsita"
+   ]
+  },
+  {
+   "from": 360,
+   "to": 411,
+   "text": "por si estás planeando salir de viaje.",
+   "hl": []
+  },
+  {
+   "from": 569,
+   "to": 608,
+   "text": "Encuéntrala aquí en RE:SET.",
+   "hl": [
+    "RE:SET."
+   ]
+  }
+ ],
+ "texts": [
+  {
+   "type": "hero",
+   "from": 147,
+   "to": 212,
+   "lines": [
+    "MISMO DISEÑO"
+   ],
+   "size": 92,
+   "tags": []
+  },
+  {
+   "type": "tags",
+   "from": 179,
+   "to": 212,
+   "tags": [
+    {
+     "text": "NIÑOS",
+     "x": 360,
+     "y": 925
+    },
+    {
+     "text": "ADULTOS",
+     "x": 760,
+     "y": 1160
+    }
+   ]
+  },
+  {
+   "type": "hero",
+   "from": 213,
+   "to": 283,
+   "lines": [
+    "PARA TODA",
+    "LA FAMILIA."
+   ],
+   "size": 100,
+   "hl": "FAMILIA."
+  },
+  {
+   "type": "price",
+   "from": 411,
+   "to": 487,
+   "items": [
+    [
+     "ADULTOS",
+     "$999"
+    ],
+    [
+     "NIÑOS",
+     "$699"
+    ]
+   ]
+  },
+  {
+   "type": "hero",
+   "from": 488,
+   "to": 568,
+   "lines": [
+    "COMPRA 2 Y OBTÉN",
+    "ENVÍO GRATIS."
+   ],
+   "size": 84,
+   "hl": "GRATIS."
+  },
+  {
+   "type": "end",
+   "from": 608,
+   "to": 652,
+   "cta": "COMPRA EN LÍNEA"
+  }
+ ],
+ "note": "EL REGALO PERFECTO — su voz real (IMG_8502/8503/8495/8504); B-roll de conjuntos con talla adulto+niño confirmada. Música: Christmas Wonderland (Artlist), termina en el golpe final. Grinch visible en sus tomas (riesgo PI)."
+}

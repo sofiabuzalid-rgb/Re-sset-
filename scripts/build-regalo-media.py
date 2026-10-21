@@ -93,7 +93,7 @@ env = np.array([np.sqrt(np.mean(voice[i:i + hop] ** 2)) for i in range(0, L, hop
 on = (env > 0.02).astype(float)
 k = int(0.25 / 0.01)
 on = np.convolve(on, np.ones(k) / k, "same") > 0.05
-g = np.where(on, 10 ** (-21 / 20), 10 ** (-1 / 20))
+g = np.where(on, 10 ** (-24 / 20), 10 ** (-8 / 20))
 sm = np.zeros_like(g)
 for i in range(len(g)):  # attack 30 ms / release 250 ms
     prev = sm[i - 1] if i else g[0]

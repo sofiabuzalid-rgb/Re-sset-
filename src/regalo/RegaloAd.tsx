@@ -47,18 +47,21 @@ const Sub: React.FC<{ s: any }> = ({ s }) => {
   const o = interpolate(f, [dur - 3, dur], [1, 0], clamp);
   const words: string[] = s.text.split(" ");
   return (
-    <div style={{ position: "absolute", left: 80, right: 80, top: 1330, display: "flex", justifyContent: "center", opacity: p * o }}>
+    <div style={{ position: "absolute", left: 70, right: 70, top: 300, display: "flex", justifyContent: "center", opacity: p * o }}>
       <div
         style={{
           fontFamily: SANS,
           fontWeight: 800,
-          fontSize: 60,
-          lineHeight: 1.16,
+          fontSize: 54,
+          lineHeight: 1.18,
           textAlign: "center",
           color: "#fff",
           maxWidth: 900,
           transform: `translateY(${(1 - p) * 14}px)`,
-          textShadow: "0 2px 3px rgba(0,0,0,0.55), 0 0 22px rgba(0,0,0,0.35)",
+          textShadow: "0 1px 2px rgba(0,0,0,0.4)",
+          background: "rgba(20,20,20,0.42)",
+          borderRadius: 18,
+          padding: "10px 26px 12px",
         }}
       >
         {words.map((w, i) => (
