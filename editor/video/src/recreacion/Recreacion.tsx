@@ -134,7 +134,7 @@ const Label: React.FC<{
   const [, x, y] = [...pos].reverse().find((p) => f >= p[0]) ?? pos[0];
   const p = pop
     ? interpolate(local, [0, 4], [0, 1], { ...clamp, easing: easeOut })
-    : 1; // tags pop on their click+pum
+    : 1; // tags pop on their click: fully visible on the click frame, scale settles over 4 frames
   const bounce = interpolate(
     f,
     [FINALE, FINALE + 3, FINALE + 8],
@@ -147,8 +147,8 @@ const Label: React.FC<{
         position: "absolute",
         left: x,
         top: y,
-        transform: `translate(-50%,-50%) scale(${0.85 + 0.15 * p + bounce})`,
-        opacity: p,
+        transform: `translate(-50%,-50%) scale(${1.18 - 0.18 * p + bounce})`,
+        opacity: 1,
       }}
     >
       <div
@@ -187,7 +187,7 @@ const Label: React.FC<{
 const Scanner: React.FC = () => {
   const f = useCurrentFrame();
   const { x, y, w, h } = SCAN.box;
-  const inP = interpolate(f, [SCAN.bracketsIn, SCAN.bracketsIn + 3], [0, 1], {
+  const inP = interpolate(f, [SCAN.bracketsIn - 1, SCAN.bracketsIn + 1], [0, 1], {
     ...clamp,
     easing: easeOut,
   });

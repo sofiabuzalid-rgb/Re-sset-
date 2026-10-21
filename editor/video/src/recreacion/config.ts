@@ -39,26 +39,27 @@ export const SHOTS = [
   },
   {
     // 3 · 4.80-9.27 s: one steady take so the tags stay readable. Full body for the scan (4.80-6.0 s),
-    //     fast push ending exactly on the first click-pum (6.26 s), then medium while the tags pile up.
+    //     fast push ending exactly on the first click (6.26 s), then medium while the tags pile up.
     src: "recreacion/IMG_8492.mp4",
     from: 144,
     frames: 134,
     startFrom: 85, // source 2.83 s: the hits land while she stands still (4.3-6.6 s) and lifts a hand to her hair, before she turns away
-    zoom: [[0, 1.46], [36, 1.46], [44, 1.85], [134, 1.9]] as [number, number][], // 1.46 keeps the wall sign out
-    fastPush: [36, 44],
-    origin: [[0, 25, 100], [36, 25, 100], [44, 22, 90], [134, 22, 90]] as [number, number, number][],
+    zoom: [[0, 1.46], [39, 1.46], [44, 1.85], [134, 1.9]] as [number, number][], // 1.46 keeps the wall sign out
+    fastPush: [39, 44], // lands on frame 188 = the first click (6.26 s)
+    origin: [[0, 25, 100], [39, 25, 100], [44, 22, 90], [134, 22, 90]] as [number, number, number][],
   },
 ];
 
-/** Audio cues (reference audio): dialogue by Whisper word times, hits by percussive-onset analysis.
- *  "I guess so" ends 4.76 s -> the scan runs 4.80-5.93 s; two soft clicks at 5.54 / 5.75 s blink the viewfinder.
+/** Audio cues (reference audio): dialogue by Whisper word times, hits by percussive-onset / spectrogram analysis.
+ *  "I guess so" ends 4.70 s, then 0.3 s of silence; the scan sound starts at exactly 5.00 s (music re-enters with two
+ *  high tones ~1.8 / 3.1 kHz) and runs until the first click at 6.26 s. Soft clicks at 5.54 / 5.75 s blink the viewfinder.
  *  Five click+pum doubles (a ~5.5 kHz click, then the low pum 0.11 s later) at 6.26 · 6.76 · 7.45 · 8.11 · 8.85 s. */
 export const SCAN = {
   box: { x: 320, y: 440, w: 440, h: 1400 }, // around her full body in shot 3 before the push
-  bracketsIn: 144,
-  sweep: [146, 178] as [number, number],
+  bracketsIn: 150, // 5.00 s, the frame the scan sound starts
+  sweep: [150, 180] as [number, number], // 5.00-6.00 s, while the sound plays
   clicks: [166, 172], // soft clicks: the viewfinder blinks
-  out: [178, 186] as [number, number],
+  out: [180, 183] as [number, number], // gone before the push
 };
 
 export const PUMPS = [188, 203, 223, 243, 265]; // frames of the five click+pum hits
