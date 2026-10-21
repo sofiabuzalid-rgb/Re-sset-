@@ -2,7 +2,7 @@
 // Timings are frames at 30 fps and copy the reference reel (editor/estilo.md, editor/recreacion/ESCALETA.md).
 
 export const FPS = 30;
-export const TOTAL = 422; // 14.07 s: the 9.27 s reference structure + 3 detail shots + an exit ending
+export const TOTAL = 278; // 9.27 s = exactly one pass of the reference audio (never looped)
 
 export const COLORS = {
   title: "#F6D7E3", // pink/lilac sampled from the reference title
@@ -19,62 +19,42 @@ export const FONTS = {
 /** Shots. zoom: [frame, scale][] keyframes (linear between, ease-out on the fast push); origin = transform origin in % of frame. */
 export const SHOTS = [
   {
-    // A+B: one continuous take like the reference — wide entrance, fast push at 5.30 s, slow creep to 7.78 s
+    // 1 · 0.00-2.47 s: wide entrance under the title (head-to-thigh like the reference); camera follows her in from the right
     src: "recreacion/IMG_8492.mp4",
     from: 0,
-    frames: 233,
-    startFrom: 3, // source 0.10 s: empty wall, she walks in at ~0.4 s
-    zoom: [[0, 1.52], [159, 1.52], [167, 1.85], [233, 1.92]] as [number, number][],
-    fastPush: [159, 167],
-    // framed head-to-thigh like the reference (1.52 with origin y 100% keeps the wall sign wholly out of frame, never half-cut). Origin x 88% -> 15% is the camera following her in from the right
-    // (88% keeps the pink curtain edge on the right of the source out of frame); then the push re-centres on her.
-    origin: [[0, 88, 100], [8, 88, 100], [45, 15, 100], [159, 15, 100], [167, 22, 90], [233, 22, 90]] as [number, number, number][], // [frame, x%, y%]
+    frames: 74,
+    startFrom: 3, // source 0.10 s
+    zoom: [[0, 1.52], [74, 1.52]] as [number, number][],
+    origin: [[0, 88, 100], [8, 88, 100], [45, 15, 100], [74, 15, 100]] as [number, number, number][], // [frame, x%, y%]
   },
   {
-    // C: hard cut on the beat (7.78 s) to the closer shot: her hands on the drawstring (touching the garment)
+    // 2 · 2.47-3.57 s (beat to beat): detail — she pulls the drawstring
+    src: "recreacion/IMG_8491.mp4",
+    from: 74,
+    frames: 33,
+    startFrom: 102, // source 3.40 s
+    zoom: [[0, 2.0], [33, 2.06]] as [number, number][],
+    origin: [[0, 31, 65], [33, 31, 65]] as [number, number, number][],
+  },
+  {
+    // 3 · 3.57-7.77 s: back on the main take (hair, hands in pockets), fast push at 5.30-5.55 s like the reference, then medium: hand to hair
+    src: "recreacion/IMG_8492.mp4",
+    from: 107,
+    frames: 126,
+    startFrom: 110, // source 3.67 s (same clock as shot 1: source = output + 0.1 s)
+    zoom: [[0, 1.52], [52, 1.52], [60, 1.85], [126, 1.92]] as [number, number][],
+    fastPush: [52, 60],
+    origin: [[0, 15, 100], [52, 15, 100], [60, 22, 90], [126, 22, 90]] as [number, number, number][],
+  },
+  {
+    // 4 · 7.77-9.27 s: hard cut on the beat to the close shot — 3/4 profile turning to camera, smiling (as the reference ends);
+    //     the frame follows her as she drifts left, like the reference's handheld camera, so the labels stay on the garment
     src: "recreacion/IMG_8491.mp4",
     from: 233,
     frames: 45,
-    startFrom: 102, // source 3.40 s
+    startFrom: 54, // source 1.80 s
     zoom: [[0, 2.0], [45, 2.06]] as [number, number][],
-    origin: [[0, 31, 65], [45, 31, 65]] as [number, number, number][],
-  },
-  // Detail shots (extension), 2 beats each at the reference tempo. origin = (0.5 - focus * zoom) / (1 - zoom).
-  {
-    // D1: crew neck and chest, she smiles to camera
-    src: "recreacion/IMG_8491.mp4",
-    from: 278,
-    frames: 33,
-    startFrom: 66, // source 2.20 s
-    zoom: [[0, 2.0], [33, 2.08]] as [number, number][],
-    origin: [[0, 40, 66], [33, 40, 66]] as [number, number, number][],
-  },
-  {
-    // D2: hands in the side pockets
-    src: "recreacion/IMG_8492.mp4",
-    from: 311,
-    frames: 30,
-    startFrom: 147, // source 4.90 s
-    zoom: [[0, 2.4], [30, 2.48]] as [number, number][],
-    origin: [[0, 43, 100], [30, 43, 100]] as [number, number, number][],
-  },
-  {
-    // D3: she holds the hem of the top: the two pieces together
-    src: "recreacion/IMG_8492.mp4",
-    from: 341,
-    frames: 31,
-    startFrom: 60, // source 2.00 s
-    zoom: [[0, 2.0], [31, 2.08]] as [number, number][],
-    origin: [[0, 42, 74], [31, 42, 74]] as [number, number, number][],
-  },
-  {
-    // D4: ending — hair flip and she walks out, leaving the real RE:SET wall sign in frame
-    src: "recreacion/IMG_8491.mp4",
-    from: 372,
-    frames: 50,
-    startFrom: 204, // source 6.80 s: ends at 8.47 s on the empty wall (she re-enters at ~8.7 s)
-    zoom: [[0, 1.0], [50, 1.04]] as [number, number][],
-    origin: [[0, 50, 30], [50, 50, 30]] as [number, number, number][],
+    origin: [[0, 72, 78], [3, 72, 78], [17, 45, 78], [32, 26, 78], [45, 26, 78]] as [number, number, number][],
   },
 ];
 
@@ -90,14 +70,14 @@ export const TITLE = {
   direction: -1, // the reference title leaves away from the side the model enters; Michelle enters from the right, so it leaves left. Set 1 to copy the original's rightward exit.
 };
 
-/** Editorial labels: only visible, verifiable facts about the garment. pos = [fromFrame, x, y][]: re-pinned after the cut. */
+/** Editorial labels: only visible, verifiable facts about the garment, lowercase like the reference (brand keeps its spelling).
+ *  pos = [fromFrame, x, y][]: re-pinned to the garment after a cut. */
 export const LABELS = [
-  { text: "RE:SET", from: 180, to: 278, pos: [[180, 540, 960], [233, 500, 1200]] }, // 6.0 s, centre of the top (the reference shows the brand handle here)
-  { text: "manga larga", from: 219, to: 278, pos: [[219, 790, 860], [233, 860, 1250]] }, // 7.3 s, on the sleeve
-  { text: "cordón ajustable", from: 233, to: 278, pos: [[233, 560, 1560]] }, // 7.78 s, with the cut, at the drawstring
-  { text: "cuello redondo", from: 278, to: 311, pos: [[278, 520, 1000]] },
-  { text: "bolsillos laterales", from: 311, to: 341, pos: [[311, 760, 980]] },
-  { text: "conjunto de 2 piezas", from: 341, to: 372, pos: [[341, 540, 1270]] },
+  { text: "cordón ajustable", from: 76, to: 107, pos: [[76, 560, 1560]] }, // on the drawstring detail
+  { text: "bolsillos laterales", from: 140, to: 159, pos: [[140, 400, 1180]] }, // hands in pockets, before the push
+  { text: "RE:SET", from: 180, to: 278, pos: [[180, 540, 960], [233, 540, 1300]] }, // 6.0 s, as the reference's brand tag
+  { text: "manga larga", from: 219, to: 278, pos: [[219, 790, 860], [233, 830, 1520]] }, // 7.3 s
+  { text: "cuello redondo", from: 233, to: 278, pos: [[233, 560, 1080]] }, // 7.78 s, with the cut
 ];
 
 // Audio of the reference reel (requested by the client). Its commercial licence is NOT verified.
