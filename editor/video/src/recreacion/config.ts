@@ -29,7 +29,7 @@ export const SHOTS = [
     origin: [[0, 88, 100], [8, 88, 100], [45, 15, 100], [74, 15, 100]] as [number, number, number][], // [frame, x%, y%]
   },
   {
-    // 2 · 2.47-4.80 s (cut on the beat): full-body, centred, for the scan — "can I please scan your outfit?"
+    // 2 · 2.47-4.80 s (cut on the beat): full body during the dialogue "can I please scan your outfit? … I guess so"
     src: "recreacion/IMG_8491.mp4",
     from: 74,
     frames: 70,
@@ -38,39 +38,31 @@ export const SHOTS = [
     origin: [[0, 0, 100], [70, 0, 100]] as [number, number, number][],
   },
   {
-    // 3 · 4.80-7.77 s: main take again (hand in pocket), fast push at 5.30-5.55 s like the reference, then medium: hand to hair
+    // 3 · 4.80-9.27 s: one steady take so the tags stay readable. Full body for the scan (4.80-6.0 s),
+    //     fast push ending exactly on the first click-pum (6.26 s), then medium while the tags pile up.
     src: "recreacion/IMG_8492.mp4",
     from: 144,
-    frames: 89,
-    startFrom: 147, // source 4.90 s (same clock as shot 1: source = output + 0.1 s)
-    zoom: [[0, 1.52], [15, 1.52], [23, 1.85], [89, 1.92]] as [number, number][],
-    fastPush: [15, 23],
-    origin: [[0, 15, 100], [15, 15, 100], [23, 22, 90], [89, 22, 90]] as [number, number, number][],
-  },
-  {
-    // 4 · 7.77-9.27 s: hard cut on the beat to the close shot — 3/4 profile turning to camera, smiling (as the reference ends);
-    //     the frame follows her as she drifts left, like the reference's handheld camera, so the labels stay on the garment
-    src: "recreacion/IMG_8491.mp4",
-    from: 233,
-    frames: 45,
-    startFrom: 54, // source 1.80 s
-    zoom: [[0, 2.0], [45, 2.06]] as [number, number][],
-    origin: [[0, 72, 78], [3, 72, 78], [17, 45, 78], [32, 26, 78], [45, 26, 78]] as [number, number, number][],
+    frames: 134,
+    startFrom: 85, // source 2.83 s: the hits land while she stands still (4.3-6.6 s) and lifts a hand to her hair, before she turns away
+    zoom: [[0, 1.46], [36, 1.46], [44, 1.85], [134, 1.9]] as [number, number][], // 1.46 keeps the wall sign out
+    fastPush: [36, 44],
+    origin: [[0, 25, 100], [36, 25, 100], [44, 22, 90], [134, 22, 90]] as [number, number, number][],
   },
 ];
 
-/** Outfit scanner, synced to the dialogue in the reference audio (Whisper word times):
- *  appears exactly on "scan" (3.18 s), the line sweeps down to the end of "outfit" (3.96 s), out on "I guess so" (4.18-4.76 s). */
+/** Audio cues (reference audio): dialogue by Whisper word times, hits by percussive-onset analysis.
+ *  "I guess so" ends 4.76 s -> the scan runs 4.80-5.93 s; two soft clicks at 5.54 / 5.75 s blink the viewfinder.
+ *  Five click+pum doubles (a ~5.5 kHz click, then the low pum 0.11 s later) at 6.26 · 6.76 · 7.45 · 8.11 · 8.85 s. */
 export const SCAN = {
-  box: { x: 330, y: 560, w: 520, h: 1320 }, // around her full body in shot 2
-  bracketsIn: 95,
-  sweep: [95, 119] as [number, number],
-  out: [128, 142] as [number, number],
+  box: { x: 320, y: 440, w: 440, h: 1400 }, // around her full body in shot 3 before the push
+  bracketsIn: 144,
+  sweep: [146, 178] as [number, number],
+  clicks: [166, 172], // soft clicks: the viewfinder blinks
+  out: [178, 186] as [number, number],
 };
 
-/** The five percussive double hits ("pum") in the reference audio after the dialogue (HPSS percussive onsets), in frames:
- *  6.26 · 6.76 · 7.45 · 8.11 · 8.85 s. Each product tag pops on one. */
-export const PUMPS = [188, 203, 223, 243, 265];
+export const PUMPS = [188, 203, 223, 243, 265]; // frames of the five click+pum hits
+export const FINALE = 265; // last click+pum: every tag bounces together
 
 export const TITLE = {
   lines: ["outfit", "of the", "day"],
@@ -85,13 +77,12 @@ export const TITLE = {
 };
 
 /** Instagram-style product tags: only visible, verifiable facts, lowercase like the reference (brand keeps its spelling).
- *  Each pops on a "pum" (PUMPS). The medium-shot tags clear at the cut; the close shot gets its own two. */
+ *  One pops on each click+pum and they all stay to the end so they can be read. */
 export const LABELS = [
-  { text: "RE:SET", from: 188, to: 233, pos: [[188, 540, 960]] }, // pum 1 — chest
-  { text: "manga larga", from: 203, to: 233, pos: [[203, 790, 860]] }, // pum 2 — sleeve
-  { text: "cordón ajustable", from: 223, to: 233, pos: [[223, 660, 1470]] }, // pum 3 — drawstring
-  { text: "cuello redondo", from: 243, to: 278, pos: [[243, 560, 1080]] }, // pum 4 — neckline (close shot)
-  { text: "bolsillos laterales", from: 265, to: 278, pos: [[265, 400, 1700]] }, // pum 5 — pocket (close shot)
+  { text: "RE:SET", from: 188, to: 278, pos: [[188, 540, 960]] }, // click-pum 1 — chest
+  { text: "cuello redondo", from: 203, to: 278, pos: [[203, 560, 760]] }, // click-pum 2 — neckline
+  { text: "manga larga", from: 223, to: 278, pos: [[223, 800, 1080]] }, // click-pum 3 — sleeve
+  { text: "cordón ajustable", from: 243, to: 278, pos: [[243, 600, 1460]] }, // click-pum 4 — drawstring
 ];
 
 // Audio of the reference reel (requested by the client). Its commercial licence is NOT verified.

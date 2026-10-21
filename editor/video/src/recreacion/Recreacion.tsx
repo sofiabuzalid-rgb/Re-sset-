@@ -16,6 +16,7 @@ import {
   FONTS,
   LABELS,
   LOGO,
+  FINALE,
   MUSIC,
   SCAN,
   SHOTS,
@@ -133,14 +134,20 @@ const Label: React.FC<{
   const [, x, y] = [...pos].reverse().find((p) => f >= p[0]) ?? pos[0];
   const p = pop
     ? interpolate(local, [0, 4], [0, 1], { ...clamp, easing: easeOut })
-    : 1; // tags pop as the scan line hits them
+    : 1; // tags pop on their click+pum
+  const bounce = interpolate(
+    f,
+    [FINALE, FINALE + 3, FINALE + 8],
+    [0, 0.12, 0],
+    clamp,
+  ); // all tags bounce on the last hit
   return (
     <div
       style={{
         position: "absolute",
         left: x,
         top: y,
-        transform: `translate(-50%,-50%) scale(${0.85 + 0.15 * p})`,
+        transform: `translate(-50%,-50%) scale(${0.85 + 0.15 * p + bounce})`,
         opacity: p,
       }}
     >
@@ -165,7 +172,7 @@ const Label: React.FC<{
           fontFamily: FONTS.label.family,
           fontStyle: "italic",
           fontWeight: FONTS.label.weight,
-          fontSize: 36,
+          fontSize: 44,
           color: COLORS.labelText,
           whiteSpace: "nowrap",
         }}
@@ -176,7 +183,7 @@ const Label: React.FC<{
   );
 };
 
-/** Outfit scanner: viewfinder + glowing line appear on "scan", the line sweeps down through "your outfit", out on "I guess so". */
+/** Outfit scanner, after "I guess so": viewfinder + glowing line sweep down the outfit, blinking on the soft clicks. */
 const Scanner: React.FC = () => {
   const f = useCurrentFrame();
   const { x, y, w, h } = SCAN.box;
@@ -188,7 +195,7 @@ const Scanner: React.FC = () => {
     ...clamp,
     easing: Easing.in(Easing.quad),
   });
-  const blink = f >= SCAN.out[0] - 6 && f < SCAN.out[0] - 3 ? 0.35 : 1; // brackets blink once: "done"
+  const blink = SCAN.clicks.some((c) => f >= c && f < c + 2) ? 0.3 : 1; // the viewfinder blinks on the soft clicks
   const sweep = interpolate(f, SCAN.sweep, [0, 1], {
     ...clamp,
     easing: Easing.inOut(Easing.sin),
