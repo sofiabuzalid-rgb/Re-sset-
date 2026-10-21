@@ -6,14 +6,15 @@ export const TOTAL = 278; // 9.27 s = exactly one pass of the reference audio (n
 
 export const COLORS = {
   title: "#F6D7E3", // pink/lilac sampled from the reference title
-  labelBg: "rgba(236,236,236,0.92)",
-  labelBorder: "rgba(0,0,0,0.06)",
-  labelText: "#1A1A1A",
+  labelBg: "#CFCCCC", // sampled from the reference's Instagram-style product tags
+  labelText: "#141414",
+  scan: "#F6D7E3", // scanner brackets/trail share the title's pink
+  scanGlow: "rgba(236,150,196,0.95)",
 };
 
 export const FONTS = {
   title: { family: "Fraunces", file: "fonts/Fraunces-full.woff2", weight: 900, variation: '"SOFT" 100, "WONK" 0, "opsz" 144' },
-  label: { family: "Montserrat", file: "fonts/Montserrat-500-italic.woff2", weight: 500 },
+  label: { family: "Open Sans", file: "fonts/OpenSans-400-italic.woff2", weight: 400 }, // humanist italic like the reference tags
 };
 
 /** Shots. zoom: [frame, scale][] keyframes (linear between, ease-out on the fast push); origin = transform origin in % of frame. */
@@ -28,23 +29,23 @@ export const SHOTS = [
     origin: [[0, 88, 100], [8, 88, 100], [45, 15, 100], [74, 15, 100]] as [number, number, number][], // [frame, x%, y%]
   },
   {
-    // 2 · 2.47-3.57 s (beat to beat): detail — she pulls the drawstring
+    // 2 · 2.47-4.80 s (cut on the beat): full-body, centred, for the scan — "can I please scan your outfit?"
     src: "recreacion/IMG_8491.mp4",
     from: 74,
-    frames: 33,
-    startFrom: 102, // source 3.40 s
-    zoom: [[0, 2.0], [33, 2.06]] as [number, number][],
-    origin: [[0, 31, 65], [33, 31, 65]] as [number, number, number][],
+    frames: 70,
+    startFrom: 59, // source 1.97 s
+    zoom: [[0, 1.36], [70, 1.4]] as [number, number][], // >= 1.33 keeps the wall sign wholly out of frame
+    origin: [[0, 0, 100], [70, 0, 100]] as [number, number, number][],
   },
   {
-    // 3 · 3.57-7.77 s: back on the main take (hair, hands in pockets), fast push at 5.30-5.55 s like the reference, then medium: hand to hair
+    // 3 · 4.80-7.77 s: main take again (hand in pocket), fast push at 5.30-5.55 s like the reference, then medium: hand to hair
     src: "recreacion/IMG_8492.mp4",
-    from: 107,
-    frames: 126,
-    startFrom: 110, // source 3.67 s (same clock as shot 1: source = output + 0.1 s)
-    zoom: [[0, 1.52], [52, 1.52], [60, 1.85], [126, 1.92]] as [number, number][],
-    fastPush: [52, 60],
-    origin: [[0, 15, 100], [52, 15, 100], [60, 22, 90], [126, 22, 90]] as [number, number, number][],
+    from: 144,
+    frames: 89,
+    startFrom: 147, // source 4.90 s (same clock as shot 1: source = output + 0.1 s)
+    zoom: [[0, 1.52], [15, 1.52], [23, 1.85], [89, 1.92]] as [number, number][],
+    fastPush: [15, 23],
+    origin: [[0, 15, 100], [15, 15, 100], [23, 22, 90], [89, 22, 90]] as [number, number, number][],
   },
   {
     // 4 · 7.77-9.27 s: hard cut on the beat to the close shot — 3/4 profile turning to camera, smiling (as the reference ends);
@@ -58,6 +59,15 @@ export const SHOTS = [
   },
 ];
 
+/** Outfit scanner, synced to the dialogue in the reference audio (Whisper word times):
+ *  "can" 2.50 s -> viewfinder in · "scan" 3.18 s -> line sweeps down to the end of "outfit" 3.96 s · "I guess so" 4.18-4.76 s -> out. */
+export const SCAN = {
+  box: { x: 330, y: 560, w: 520, h: 1320 }, // around her full body in shot 2
+  bracketsIn: 75,
+  sweep: [95, 119] as [number, number],
+  out: [128, 142] as [number, number],
+};
+
 export const TITLE = {
   lines: ["outfit", "of the", "day"],
   x: 520, // centre x of the block on 1080 (measured on the reference)
@@ -70,11 +80,14 @@ export const TITLE = {
   direction: -1, // the reference title leaves away from the side the model enters; Michelle enters from the right, so it leaves left. Set 1 to copy the original's rightward exit.
 };
 
-/** Editorial labels: only visible, verifiable facts about the garment, lowercase like the reference (brand keeps its spelling).
- *  pos = [fromFrame, x, y][]: re-pinned to the garment after a cut. */
+/** Instagram-style product tags: only visible, verifiable facts, lowercase like the reference (brand keeps its spelling).
+ *  During the scan each tag pops when the scan line reaches it (from = scan frame at its y). pos = [fromFrame, x, y][] re-pins after a cut. */
 export const LABELS = [
-  { text: "cordón ajustable", from: 76, to: 107, pos: [[76, 560, 1560]] }, // on the drawstring detail
-  { text: "bolsillos laterales", from: 140, to: 159, pos: [[140, 400, 1180]] }, // hands in pockets, before the push
+  { text: "cuello redondo", from: 0, to: 144, pos: [[0, 590, 905]], scan: true },
+  { text: "RE:SET", from: 0, to: 144, pos: [[0, 590, 1080]], scan: true },
+  { text: "manga larga", from: 0, to: 144, pos: [[0, 760, 1250]], scan: true },
+  { text: "cordón ajustable", from: 0, to: 144, pos: [[0, 560, 1430]], scan: true },
+  { text: "bolsillos laterales", from: 146, to: 159, pos: [[146, 400, 1180]] }, // hands in pockets, before the push
   { text: "RE:SET", from: 180, to: 278, pos: [[180, 540, 960], [233, 540, 1300]] }, // 6.0 s, as the reference's brand tag
   { text: "manga larga", from: 219, to: 278, pos: [[219, 790, 860], [233, 830, 1520]] }, // 7.3 s
   { text: "cuello redondo", from: 233, to: 278, pos: [[233, 560, 1080]] }, // 7.78 s, with the cut
