@@ -18,6 +18,25 @@
 - **Cortes de voz:** caen en pausas naturales, nunca a media palabra, y no se modifica el tono ni el ritmo de ella.
 - **Música:** no lleva. En el Drive no hay ninguna pista con licencia, salvo "Christmas Wonderland", que está descartada. Falta agregar una pista autorizada con ducking bajo la voz.
 
+## v2: tallas de la familia y precios
+
+- **Nuevos clips de tienda (HDR convertido a SDR):**
+  - 2052: roja de adulto
+  - 2053: roja de niño
+  - 2041: verde de adulto
+  - 2044: verde de niño
+  - 2050: blanca y verde de niño
+  - 2049: blanca de niño (preparado, no aparece en el corte)
+- **Cuándo se usan:**
+  - "lo puedes combinar con toda tu familia": roja Adulto / Niños, en pantalla dividida.
+  - "la verde": verde Adulto / Niños.
+  - "todos van a estar matching": cuadrícula de 4.
+- **Precios confirmados:** **Niños $699 · Adulto $999**. Aparecen:
+  - desde el primer cuadro, junto al titular "Pijamas de Navidad para toda la familia";
+  - sobre cada gancho, en las dos pantallas divididas;
+  - en el cierre, sobre el botón de compra.
+- **Clips sin audio:** el audio de los clips de tienda no se usa; 2044 tiene plática ajena.
+
 ## Transcripción literal de los clips
 
 Se escucharon completos los 10 clips entregados (además de 8935, 8937, 8942 y 8964). Se usaron dos reconocedores, Whisper y Sherpa.
