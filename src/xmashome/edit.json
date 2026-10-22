@@ -1,0 +1,38 @@
+{
+  "fps": 30,
+  "bpm": 120,
+  "note": "CHRISTMAS AT HOME — Meta Ads. Voice = IMG_8945 only (the friend presenting the green print), used uncut 0.00–10.00 s and lip-synced: every IMG_8945 shot has sync: true and its in-point equals its voice time, punch-ins are crops of the same moment. Snow is a VFX composite baked into the window shots (scripts/xmashome_vfx.py): 'window' = glass polygon in 720x1280 source coordinates on the shot's first frame, tracked with the camera. IMG_9031 was uploaded twice; both copies are byte-identical in picture and sound, one is used.",
+  "voice": {"src": "IMG_8945", "a": 0.0, "b": 10.0, "at": 294},
+  "shots": [
+    {"id": "h1", "src": "IMG_9028", "in": 0.0, "frames": 66, "zoom": [1.0, 1.06], "focus": [0.5, 0.35], "window": [[0, 0], [720, 0], [720, 572], [0, 572]], "seed": 1, "what": "lying on the sofa under the big window, snow outside (hook)"},
+    {"id": "h2", "src": "IMG_9033", "in": 0.2, "frames": 54, "zoom": [1.04, 1.0], "focus": [0.5, 0.45], "window": [[90, 0], [348, 0], [348, 590], [90, 590]], "seed": 2, "what": "resting by the window"},
+    {"id": "c1", "src": "IMG_9026", "in": 0.3, "frames": 60, "zoom": [1.0, 1.05], "focus": [0.5, 0.5], "window": [[0, 40], [196, 40], [196, 610], [0, 610]], "seed": 3, "xf": 6, "what": "wide: the room, bookshelves, snowy window"},
+    {"id": "c2", "src": "IMG_9030", "in": 0.0, "frames": 45, "zoom": [1.0, 1.05], "focus": [0.6, 0.35], "what": "close-up, eyes closed, smiling"},
+    {"id": "c3", "src": "IMG_9031", "in": 1.6, "frames": 69, "zoom": [1.08, 1.0], "focus": [0.5, 0.55], "what": "arms behind her head, full set visible"},
+    {"id": "d1", "src": "IMG_8945", "in": 0.0, "frames": 75, "zoom": [1.0, 1.04], "focus": [0.5, 0.5], "sync": true, "what": "the green set laid out on the bed"},
+    {"id": "d2", "src": "IMG_8945", "in": 2.5, "frames": 45, "zoom": [1.7, 1.78], "focus": [0.62, 0.55], "sync": true, "what": "punch-in: gingerbread and candy-cane print"},
+    {"id": "d3", "src": "IMG_8945", "in": 4.0, "frames": 60, "zoom": [1.12, 1.16], "focus": [0.55, 0.5], "sync": true, "what": "she lifts the top"},
+    {"id": "d4", "src": "IMG_8945", "in": 6.0, "frames": 45, "zoom": [1.55, 1.6], "focus": [0.5, 0.62], "sync": true, "what": "punch-in: the folded set"},
+    {"id": "d5", "src": "IMG_8945", "in": 7.5, "frames": 75, "zoom": [1.05, 1.1], "focus": [0.5, 0.6], "sync": true, "what": "folded set over the RE:SET bag"},
+    {"id": "l1", "src": "IMG_9039", "in": 0.5, "frames": 75, "zoom": [1.0, 1.05], "focus": [0.5, 0.45], "window": [[0, 0], [236, 0], [236, 340], [0, 425]], "seed": 4, "xf": 6, "what": "reading, cross-legged, snow in the window"},
+    {"id": "l2", "src": "IMG_9046", "in": 0.0, "frames": 60, "zoom": [1.06, 1.0], "focus": [0.5, 0.5], "what": "standing at the bookshelves"},
+    {"id": "l3", "src": "IMG_9031", "in": 3.9, "frames": 39, "zoom": [1.0, 1.04], "focus": [0.5, 0.6], "what": "the full set, head to toe"},
+    {"id": "l4", "src": "IMG_9033", "in": 1.9, "frames": 36, "zoom": [1.08, 1.12], "focus": [0.35, 0.3], "window": [[90, 0], [348, 0], [348, 590], [90, 590]], "seed": 5, "what": "back to the snowy window"},
+    {"id": "e1", "src": "IMG_9026", "in": 2.6, "frames": 87, "zoom": [1.04, 1.1], "focus": [0.55, 0.55], "window": [[0, 40], [196, 40], [196, 610], [0, 610]], "seed": 6, "xf": 8, "what": "CTA 1 over the wide room shot"},
+    {"id": "end", "card": true, "frames": 105, "xf": 10, "what": "CTA 2: logo, locations, site"}
+  ],
+  "texts": [
+    {"from": 3, "to": 116, "kind": "hook", "lines": ["Mi único plan esta Navidad:", "no quitarme esta pijama."]},
+    {"from": 128, "to": 196, "kind": "script", "lines": ["Home for the holidays."]},
+    {"from": 612, "to": 720, "kind": "script", "lines": ["La Navidad también", "se disfruta en casa."]}
+  ],
+  "subtitles": [],
+  "cta": {
+    "from": 812,
+    "brand": "RE:SET",
+    "title": "Tu Navidad empieza en casa.",
+    "sub": "Descubre nuestra colección navideña.",
+    "places": "Perisur · Av. Stim 39 · Tienda online",
+    "url": "resetwear.com.mx"
+  }
+}
