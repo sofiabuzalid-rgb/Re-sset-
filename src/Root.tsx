@@ -13,6 +13,7 @@ import {BlueDetail, BLUE_TOTAL} from './blue/BlueDetail';
 import {BrownDetail, BROWN_TOTAL} from './brown/BrownDetail';
 import {GreyDetail, GREY_TOTAL} from './grey/GreyDetail';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
+import {GiftIdeaAd, GIFT_TOTAL} from './gift/GiftIdeaAd';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
 
@@ -49,6 +50,8 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="PinkDetail" component={PinkDetail} durationInFrames={PINK_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="BlueDetail" component={BlueDetail} durationInFrames={BLUE_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="BrownDetail" component={BrownDetail} durationInFrames={BROWN_TOTAL} fps={FPS} width={1080} height={1920} />
+		{/* Meta Ads: "¿Qué vas a regalar esta Navidad?" — real voice of a friend, sets showcase, CTA */}
+		<Composition id="QueVasARegalar" component={GiftIdeaAd} durationInFrames={GIFT_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="GreyDetail" component={GreyDetail} durationInFrames={GREY_TOTAL} fps={FPS} width={1080} height={1920} />
 	</>
 );

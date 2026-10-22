@@ -1,0 +1,43 @@
+{
+  "fps": 30,
+  "note": "Anuncio 01 — ¿Qué vas a regalar esta Navidad? Real voice only (RESET HOY: IMG_8931 hook, IMG_8944, IMG_8946 family/sets, IMG_8949 close). Talking shots share source time with their voice (lip-sync, sync: true); the rest are cutaways under the voice. Music: Spacetrain Unlimited — Christmas Wonderland (Artlist licence), placed so its natural ending lands on the end card.",
+  "music": {"file": "SPACETRAIN UNLIMITED - Christmas Wonderland.mp3", "start": 84.55},
+  "voice": [
+    {"src": "IMG_8931", "a": 0.40, "b": 5.20, "at": 0.0},
+    {"src": "IMG_8944", "a": 0.38, "b": 5.75, "at": 4.8},
+    {"src": "IMG_8946", "a": 4.70, "b": 12.50, "at": 10.1667},
+    {"src": "IMG_8949", "a": 0.05, "b": 5.55, "at": 17.9667}
+  ],
+  "shots": [
+    {"id": "a1", "src": "IMG_8931", "in": 0.40, "frames": 56, "zoom": [1.12, 1.16], "focus": [0.5, 0.36], "sync": true},
+    {"id": "a2", "src": "IMG_8931", "in": 2.2667, "frames": 88, "zoom": [1.36, 1.42], "focus": [0.5, 0.32], "sync": true},
+    {"id": "b1", "src": "IMG_8944", "in": 0.38, "frames": 45, "zoom": [1.5, 1.58], "focus": [0.5, 0.36], "sync": true},
+    {"id": "b2", "src": "IMG_8941", "in": 1.6, "frames": 30, "zoom": [1.05, 1.15], "focus": [0.5, 0.5]},
+    {"id": "b3", "src": "IMG_8934", "in": 3.0, "frames": 26, "zoom": [1.12, 1.02], "focus": [0.5, 0.5]},
+    {"id": "b4", "src": "IMG_8944", "in": 3.7467, "frames": 60, "zoom": [1.12, 1.18], "focus": [0.5, 0.5], "sync": true},
+    {"id": "c1", "src": "IMG_8946", "in": 4.70, "frames": 60, "zoom": [1.2, 1.26], "focus": [0.5, 0.5], "sync": true},
+    {"id": "c2", "src": "IMG_9029", "in": 0.3, "frames": 24, "zoom": [1.04, 1.12], "focus": [0.5, 0.5]},
+    {"id": "c3", "src": "IMG_8946", "in": 7.50, "frames": 72, "zoom": [1.15, 1.2], "focus": [0.5, 0.5], "sync": true},
+    {"id": "c4", "src": "IMG_9035", "in": 0.6, "frames": 18, "zoom": [1.04, 1.08], "focus": [0.5, 0.45]},
+    {"id": "c5", "src": "IMG_9016", "in": 2.9, "frames": 18, "zoom": [1.04, 1.08], "focus": [0.5, 0.45]},
+    {"id": "c6", "src": "IMG_8946", "in": 11.10, "frames": 42, "zoom": [1.42, 1.5], "focus": [0.5, 0.3], "sync": true},
+    {"id": "d1", "src": "IMG_8949", "in": 0.05, "frames": 100, "zoom": [1.12, 1.18], "focus": [0.5, 0.4], "sync": true},
+    {"id": "d2", "src": "IMG_8949", "in": 3.3833, "frames": 65, "zoom": [1.38, 1.45], "focus": [0.5, 0.32], "sync": true},
+    {"id": "e1", "src": "IMG_8943", "in": 5.0, "frames": 48, "zoom": [1.05, 1.1], "focus": [0.5, 0.45]},
+    {"id": "close", "src": "IMG_9017", "in": 0.0, "frames": 90, "zoom": [1.04, 1.1], "focus": [0.5, 0.45], "slow": 2}
+  ],
+  "subtitles": [
+    {"a": 0.08, "b": 1.85, "text": "Les tengo una idea *buenísima*,"},
+    {"a": 2.02, "b": 4.75, "text": "por si no saben *qué regalar* esta Navidad."},
+    {"a": 4.84, "b": 7.38, "text": "Por favor, quiero que vean estas pijamas de RE:SET"},
+    {"a": 7.59, "b": 10.12, "text": "y lo mejor de todo es que lo puedes combinar con *toda tu familia*."},
+    {"a": 10.21, "b": 12.70, "text": "Tu hijo, tu hermano se pone a lo mejor *la verde*,"},
+    {"a": 12.85, "b": 14.20, "text": "*la blanca* se la puede poner"},
+    {"a": 14.47, "b": 16.95, "text": "tu esposo, y todos van a estar *matching*"},
+    {"a": 17.12, "b": 17.96, "text": "y *súper cómodos* esta Navidad."},
+    {"a": 18.01, "b": 20.70, "text": "Así que en serio, si todavía no saben *qué regalar* esta Navidad,"},
+    {"a": 20.85, "b": 22.30, "text": "dense una vuelta por *RE:SET*,"},
+    {"a": 22.32, "b": 23.42, "text": "porque yo ya tengo las mías."}
+  ],
+  "close": {"kicker": "PIJAMAS NAVIDEÑAS", "title": "El regalo para toda la familia", "cta": "COMPRA AHORA", "url": "resetwear.com.mx"}
+}
