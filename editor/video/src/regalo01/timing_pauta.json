@@ -1,0 +1,550 @@
+{
+ "fps": 30,
+ "total": 688,
+ "pieceStarts": [
+  0.0,
+  5.5,
+  8.333,
+  15.233,
+  17.867
+ ],
+ "voiceEnd": 21.133,
+ "words": [
+  {
+   "w": "Les",
+   "s": 0.213,
+   "e": 0.473,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "tengo",
+   "s": 0.473,
+   "e": 0.833,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "una",
+   "s": 0.833,
+   "e": 1.093,
+   "key": true,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "idea",
+   "s": 1.093,
+   "e": 1.313,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "buenísima,",
+   "s": 1.313,
+   "e": 2.113,
+   "key": false,
+   "piece": 0,
+   "br": true
+  },
+  {
+   "w": "por",
+   "s": 2.133,
+   "e": 2.173,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "si",
+   "s": 2.173,
+   "e": 2.273,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "no",
+   "s": 2.273,
+   "e": 2.493,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "saben",
+   "s": 2.493,
+   "e": 2.633,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "qué",
+   "s": 2.633,
+   "e": 2.873,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "regalar",
+   "s": 2.873,
+   "e": 3.493,
+   "key": true,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "esta",
+   "s": 3.493,
+   "e": 4.073,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "Navidad.",
+   "s": 4.073,
+   "e": 5.133,
+   "key": true,
+   "piece": 0,
+   "br": true
+  },
+  {
+   "w": "Por",
+   "s": 5.7,
+   "e": 5.88,
+   "key": false,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "favor",
+   "s": 5.88,
+   "e": 6.06,
+   "key": false,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "quiero",
+   "s": 6.06,
+   "e": 6.22,
+   "key": false,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 6.22,
+   "e": 6.4,
+   "key": false,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "vean",
+   "s": 6.4,
+   "e": 6.9,
+   "key": false,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "estas",
+   "s": 6.9,
+   "e": 7.14,
+   "key": false,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "pijamas",
+   "s": 7.14,
+   "e": 7.74,
+   "key": false,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 7.74,
+   "e": 7.84,
+   "key": false,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "RE:SET",
+   "s": 7.84,
+   "e": 8.333,
+   "key": true,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "No",
+   "s": 8.553,
+   "e": 8.653,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "es",
+   "s": 8.653,
+   "e": 8.713,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 8.713,
+   "e": 8.913,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "típica",
+   "s": 8.913,
+   "e": 9.253,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "pijama",
+   "s": 9.253,
+   "e": 9.553,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 9.553,
+   "e": 9.713,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "nada",
+   "s": 9.713,
+   "e": 9.833,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "más",
+   "s": 9.833,
+   "e": 10.053,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "ocupas",
+   "s": 10.053,
+   "e": 10.333,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "una",
+   "s": 10.333,
+   "e": 10.573,
+   "key": true,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "vez",
+   "s": 10.573,
+   "e": 10.853,
+   "key": true,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "en",
+   "s": 10.853,
+   "e": 10.953,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "tu",
+   "s": 10.953,
+   "e": 11.153,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "vida,",
+   "s": 11.153,
+   "e": 11.293,
+   "key": false,
+   "piece": 2,
+   "br": true
+  },
+  {
+   "w": "sino",
+   "s": 11.673,
+   "e": 12.133,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "lo",
+   "s": 12.133,
+   "e": 12.313,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "puedes",
+   "s": 12.313,
+   "e": 12.533,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "ocupar",
+   "s": 12.533,
+   "e": 13.133,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "todo",
+   "s": 13.133,
+   "e": 13.473,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "el",
+   "s": 13.473,
+   "e": 13.753,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "tiempo",
+   "s": 13.753,
+   "e": 14.093,
+   "key": true,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "porque",
+   "s": 14.093,
+   "e": 14.253,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "está",
+   "s": 14.253,
+   "e": 14.413,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "súper",
+   "s": 14.413,
+   "e": 14.613,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "cómoda.",
+   "s": 14.613,
+   "e": 15.053,
+   "key": true,
+   "piece": 2,
+   "br": true
+  },
+  {
+   "w": "Imagínate",
+   "s": 15.567,
+   "e": 15.907,
+   "key": false,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 15.907,
+   "e": 16.007,
+   "key": false,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "lo",
+   "s": 16.007,
+   "e": 16.187,
+   "key": false,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "puedes",
+   "s": 16.187,
+   "e": 16.407,
+   "key": false,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "combinar",
+   "s": 16.407,
+   "e": 16.767,
+   "key": false,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "con",
+   "s": 16.767,
+   "e": 17.007,
+   "key": false,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "toda",
+   "s": 17.007,
+   "e": 17.187,
+   "key": false,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "tu",
+   "s": 17.187,
+   "e": 17.507,
+   "key": false,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "familia.",
+   "s": 17.507,
+   "e": 17.627,
+   "key": true,
+   "piece": 3,
+   "br": true
+  },
+  {
+   "w": "Dense",
+   "s": 18.227,
+   "e": 18.487,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "una",
+   "s": 18.487,
+   "e": 18.667,
+   "key": true,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "vuelta",
+   "s": 18.667,
+   "e": 18.947,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "por",
+   "s": 18.947,
+   "e": 19.107,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "RE:SET",
+   "s": 19.107,
+   "e": 19.527,
+   "key": true,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "porque",
+   "s": 19.527,
+   "e": 19.987,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "yo",
+   "s": 19.987,
+   "e": 20.087,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "ya",
+   "s": 20.087,
+   "e": 20.267,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "tengo",
+   "s": 20.267,
+   "e": 20.447,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "las",
+   "s": 20.447,
+   "e": 20.527,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "mías.",
+   "s": 20.527,
+   "e": 20.827,
+   "key": false,
+   "piece": 4,
+   "br": true
+  }
+ ]
+}

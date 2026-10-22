@@ -4,7 +4,7 @@ Only the protagonist's real phrases (RESET HOY clips, Whisper word times). Every
 her pace is never changed. B-roll is anchored to her words. Subtitles are her exact words (Whisper spelling fixed
 only where a second recogniser / the brand confirms it: "AirBizit"/"Reiset" -> RE:SET, "venza" -> dense, "piama" -> pijama).
 """
-import json, subprocess
+import json, subprocess, sys
 from pathlib import Path
 import numpy as np
 
@@ -27,6 +27,19 @@ PIECES = [
     ("8949", "si todavía", "las mías."),              # si todavía no saben qué regalar esta Navidad, dense una vuelta por RE:SET porque yo ya tengo las mías.
 ]
 END_CARD = 1.1  # s of sign-off after her last word
+
+# "pauta": the ~20 s paid-media cut — same real phrases, minus the slow lead-ins ("Aparte lo padre…", "y todos…", "Así que en serio, si todavía…")
+PAUTA = "pauta" in sys.argv[1:]
+if PAUTA:
+    PIECES = [
+        ("8931", "Les tengo", "esta navidad."),
+        ("8944", "Por favor", "de AirBizit"),
+        ("8947", "no es la", "súper cómoda."),
+        ("8946", "Imagínate que", "tu familia."),
+        ("8949", "venza una", "las mías."),
+    ]
+    END_CARD = 1.8
+SUF = "_pauta" if PAUTA else ""
 
 
 def load(n):
@@ -113,6 +126,8 @@ for k, (n, pa, pb) in enumerate(PIECES):
         txt = FIX.get(w["word"], w["word"])
         if txt == "que" and wi + 1 < len(sel) and sel[wi + 1]["word"].startswith("regalar"):
             txt = "qué"  # interrogative: "por si no saben qué regalar"
+        if wi == 0:
+            txt = txt[0].upper() + txt[1:]  # each piece reads as its own sentence
         st, en = warp(max(w["start"], s0)) + t, warp(min(w["end"], e0)) + t
         words_out.append({"w": txt, "s": round(st, 3), "e": round(en, 3), "key": txt.strip(".,") in {q.strip(".,") for q in KEY}, "piece": k, "br": txt[-1] in ".,?"})
     dur = len(seg) / SR
@@ -123,7 +138,7 @@ voice = np.concatenate(pieces + [np.zeros(int(END_CARD * SR), np.float32)]).asty
 PUB.mkdir(parents=True, exist_ok=True)
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-",
                 "-af", "highpass=f=90,afftdn=nf=-28,equalizer=f=220:t=q:w=1:g=-2,equalizer=f=3200:t=q:w=1.2:g=2.5,deesser,acompressor=threshold=-21dB:ratio=3:attack=6:release=90,loudnorm=I=-14:TP=-1.5:LRA=7",
-                "-ar", "48000", "-ac", "2", PUB / "voice.wav"], input=voice.tobytes(), check=True)
+                "-ar", "48000", "-ac", "2", PUB / f"voice{SUF}.wav"], input=voice.tobytes(), check=True)
 
 # piece start times on the output timeline, for anchoring shots to words
 starts, acc = [], 0.0
@@ -131,5 +146,5 @@ for p in pieces:
     starts.append(acc)
     acc += len(p) / SR
 json.dump({"fps": FPS, "total": int(round((acc + END_CARD) * FPS)), "pieceStarts": [round(s, 3) for s in starts], "voiceEnd": round(acc, 3), "words": words_out},
-          open(HERE.parent / "video/src/regalo01/timing.json", "w"), indent=1, ensure_ascii=False)
+          open(HERE.parent / f"video/src/regalo01/timing{SUF}.json", "w"), indent=1, ensure_ascii=False)
 print("total", round(acc + END_CARD, 2), "s")
