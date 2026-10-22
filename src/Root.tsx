@@ -14,6 +14,7 @@ import {BrownDetail, BROWN_TOTAL} from './brown/BrownDetail';
 import {GreyDetail, GREY_TOTAL} from './grey/GreyDetail';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {BasicaAd, BASICA_TOTAL} from './basica/BasicaAd';
+import {PlanesAd, PLANES_TOTAL} from './planes/PlanesAd';
 import {PetalEditorial, EDITORIAL_TOTAL, EDITORIAL_FPS} from './editorial/PetalEditorial';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
@@ -54,6 +55,8 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="GreyDetail" component={GreyDetail} durationInFrames={GREY_TOTAL} fps={FPS} width={1080} height={1920} />
 		{/* Editorial sleepwear sheet + moodboard (carousel recreation) — Petal Essential Button Set */}
 		{/* Anuncio 04 — "La pijama que no te quieres quitar": colección básica, real testimonial + subtitles */}
+		{/* Meta Ads — "Planes cancelados, pijama puesta": red/white Christmas set, hook copy, her voice, store card */}
+		<Composition id="PlanesCancelados" component={PlanesAd} durationInFrames={PLANES_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="ColeccionBasica" component={BasicaAd} durationInFrames={BASICA_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="PetalEditorial" component={PetalEditorial} durationInFrames={EDITORIAL_TOTAL} fps={EDITORIAL_FPS} width={1080} height={1920} />
 	</>

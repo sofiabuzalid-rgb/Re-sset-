@@ -1,0 +1,56 @@
+{
+  "fps": 30,
+  "bpm": 112,
+  "note": "META ADS — PLANES CANCELADOS, PIJAMA PUESTA. Red/white Christmas set, RESET HOY clips. Dialogue is hers, verbatim (IMG_9018, IMG_9015); every other line is on-screen ad copy, never presented as her voice. Store data as supplied by RE:SET.",
+  "shots": [
+    {"id": "h1", "src": "IMG_9003", "in": 0.0, "frames": 54, "zoom": [1.12, 1.04], "focus": [0.5, 0.55]},
+    {"id": "h2", "src": "IMG_9001", "in": 0.3, "frames": 54, "zoom": [1.0, 1.06], "focus": [0.62, 0.55]},
+    {"id": "r1", "src": "IMG_8993", "in": 0.6, "frames": 108, "zoom": [1.0, 1.06], "focus": [0.5, 0.6]},
+    {"id": "r2", "src": "IMG_9022", "in": 2.9, "frames": 42, "zoom": [1.0, 1.04], "focus": [0.5, 0.5]},
+    {"id": "r3", "src": "IMG_8998", "in": 4.2, "frames": 23, "zoom": [1.04, 1.0], "focus": [0.55, 0.55]},
+    {"id": "t1", "src": "IMG_9009", "in": 0.3, "frames": 66, "zoom": [1.0, 1.05], "focus": [0.5, 0.4]},
+    {"id": "t2", "src": "IMG_9012", "in": 0.6, "frames": 54, "zoom": [1.05, 1.0], "focus": [0.4, 0.45]},
+    {"id": "t3", "src": "IMG_9006", "in": 6.0, "frames": 90, "zoom": [1.1, 1.18], "focus": [0.45, 0.55]},
+    {"id": "p1", "src": "IMG_9018", "in": 0.5, "frames": 105, "zoom": [1.0, 1.04], "focus": [0.5, 0.4]},
+    {"id": "p2", "src": "IMG_9022", "in": 0.3, "frames": 42, "zoom": [1.0, 1.05], "focus": [0.5, 0.5]},
+    {"id": "p3", "src": "IMG_9018", "in": 12.2, "frames": 32, "zoom": [1.02, 1.0], "focus": [0.5, 0.5]},
+    {"id": "w1", "src": "IMG_9015", "in": 4.25, "frames": 100, "zoom": [1.08, 1.12], "focus": [0.5, 0.45]},
+    {"id": "w2", "src": "IMG_9023", "in": 0.3, "frames": 95, "zoom": [1.0, 1.05], "focus": [0.5, 0.5]},
+    {"id": "w3", "src": "IMG_9018", "in": 6.8, "frames": 95, "zoom": [1.04, 1.0], "focus": [0.5, 0.5]},
+    {"id": "close", "src": "IMG_9015", "in": 10.0, "frames": 84, "zoom": [1.12, 1.18], "focus": [0.5, 0.4]}
+  ],
+  "voice": [
+    {"src": "IMG_9018", "in": 0.5, "out": 6.45, "at": 491},
+    {"src": "IMG_9015", "in": 4.25, "out": 12.5, "at": 670}
+  ],
+  "sfx": [{"type": "flop", "at": 54}],
+  "copy": [
+    {"from": 0, "to": 50, "lines": ["Yo cancelando", "todos mis planes…"]},
+    {"from": 52, "to": 108, "lines": ["…por quedarme en casa", "con esta pijama."]},
+    {"from": 118, "to": 278, "lines": ["Mi nueva obsesión", "de Navidad 🎄"]},
+    {"from": 290, "to": 384, "lines": ["Perfecta para Navidad."]},
+    {"from": 388, "to": 488, "lines": ["Y para todos esos días", "de no salir de casa."]},
+    {"from": 500, "to": 668, "lines": ["Una pijama que vas a querer", "usar una y otra vez."]}
+  ],
+  "subs": [
+    {"from": 491, "to": 528, "text": "Por favor, vean,"},
+    {"from": 528, "to": 589, "text": "estamos aquí contra luz"},
+    {"from": 594, "to": 668, "text": "y no se transparenta nada."},
+    {"from": 671, "to": 717, "text": "Hay dos sucursales"},
+    {"from": 717, "to": 778, "text": "para que las puedas adquirir ya mismo."},
+    {"from": 785, "to": 821, "text": "Hay una en Perisur"},
+    {"from": 821, "to": 856, "text": "y otra en Avenida Stim."},
+    {"from": 857, "to": 916, "text": "Así que ve por ellas ya mismo."}
+  ],
+  "stores": {
+    "from": 726,
+    "to": 960,
+    "title": "¿Dónde conseguir tu RE:SET?",
+    "items": [
+      {"at": 785, "name": "PERISUR", "detail": "Kiosco en planta baja"},
+      {"at": 821, "name": "AV. STIM 39", "detail": "Planta baja, local 4"},
+      {"at": 857, "name": "TIENDA ONLINE", "detail": "resetwear.com.mx"}
+    ]
+  },
+  "close": {"line": "Tu próxima pijama favorita te está esperando.", "cta": "Compra en tienda o en línea", "url": "resetwear.com.mx"}
+}
