@@ -22,7 +22,8 @@ PIECES = [
     ("9047", "por favor", "que está"),                 # Por favor vean este modelo de pijama, está súper padre, el color está increíble y aparte no saben la calidad y lo cómodo que está.
     ("9048", "Aparte es", "verde militar."),          # Aparte es el color de la temporada, verde militar.  ("Por favor, lo tienen que …" left out: the last word is unclear to both recognisers)
     # Whisper's word times are broken on 9049; times from the energy envelope + Sherpa ("¿Qué opina? ¿Le gusta o no le gusta?")
-    ("9049", 0.70, 2.74, "words", [("¿Qué", 0.78, 0.92), ("opina?", 0.92, 1.15), ("¿Le", 1.80, 1.92), ("gusta", 1.92, 2.12), ("o", 2.12, 2.2), ("no", 2.2, 2.3), ("le", 2.3, 2.38), ("gusta?", 2.38, 2.65)]),
+    # "¿Le gusta o no le gusta?" removed on request: only "¿Qué opina?" stays
+    ("9049", 0.70, 1.36, "words", [("¿Qué", 0.78, 0.92), ("opina?", 0.92, 1.15)]),
     ("gap", 0.0, 1.0, "pausa"),                        # a beat after her question: she poses, the viewer answers
     ("9054", "Tiene que", "y Perisur."),             # Tienen que correr a RE:SET por este set en nuestras dos sucursales, en Avenida Stim y Perisur.
 ]
@@ -30,8 +31,13 @@ END_CARD = 4.6
 SUF = ""
 
 
+RNN = HERE / "rnnoise_speech.rnnn"  # RNNoise speech model (richardpl/arnndn-models, sh.rnnn)
+
+
 def load(n):
-    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", SRC / f"IMG_{n}.MP4", "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"], capture_output=True, check=True).stdout
+    # whole-clip speech denoise first (the model needs context): rumble cut, RNNoise mostly wet, then a light FFT pass for the residual hiss
+    af = f"highpass=f=80,arnndn=m={RNN}:mix=0.88,afftdn=nr=8:nf=-40:tn=1"
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", SRC / f"IMG_{n}.MP4", "-ac", "1", "-af", af, "-ar", str(SR), "-f", "f32le", "-"], capture_output=True, check=True).stdout
     return np.frombuffer(raw, np.float32)
 
 
@@ -178,7 +184,17 @@ if False:
 voice = np.concatenate(pieces + [np.zeros(int(END_CARD * SR), np.float32)]).astype(np.float32)
 PUB.mkdir(parents=True, exist_ok=True)
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-",
-                "-af", "highpass=f=90,afftdn=nf=-28,equalizer=f=220:t=q:w=1:g=-2,equalizer=f=3200:t=q:w=1.2:g=2.5,deesser,acompressor=threshold=-21dB:ratio=3:attack=6:release=90,loudnorm=I=-14:TP=-1.5:LRA=7",
+                "-af", ",".join([
+                    "highpass=f=95",
+                    "equalizer=f=250:t=q:w=1.1:g=-3",      # room boxiness
+                    "equalizer=f=3500:t=q:w=1.3:g=2.5",    # presence
+                    "highshelf=f=9000:g=1.5",              # air
+                    "lowpass=f=15000",
+                    "deesser=i=0.35",
+                    "acompressor=threshold=-24dB:ratio=2.5:attack=8:release=120:makeup=2",  # gentle, even level
+                    "acompressor=threshold=-12dB:ratio=6:attack=2:release=60",              # catch peaks
+                    "loudnorm=I=-14:TP=-1.5:LRA=6",
+                ]),
                 "-ar", "48000", "-ac", "2", PUB / f"voice{SUF}.wav"], input=voice.tobytes(), check=True)
 
 # piece start times on the output timeline, for anchoring shots to words
