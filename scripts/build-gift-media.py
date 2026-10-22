@@ -55,25 +55,28 @@ for v in e["voice"]:
 voice = voice[:int(DUR * SR)]
 voice *= 10 ** (-16 / 20) / (np.sqrt(np.mean(voice[np.abs(voice) > 1e-4] ** 2)) + 1e-9)  # ~-16 dBFS RMS while speaking
 
-# ---------------- music, ducked
-p = os.path.join(OUT, "_m.wav")
-run(["ffmpeg", "-y", "-v", "error", "-ss", str(e["music"]["start"]), "-t", str(DUR), "-i", src(os.path.splitext(e["music"]["file"])[0]),
-     "-ac", "2", "-ar", str(SR), p])
-m = sf.read(p, dtype="float64")[0]
-os.remove(p)
-m = np.pad(m, ((0, max(0, len(voice) - len(m))), (0, 0)))[:len(voice)]
-env = np.abs(voice)
-k = int(0.12 * SR)
-env = np.convolve(env, np.ones(k) / k, mode="same")
-speaking = np.clip(env / 0.02, 0, 1)
-t = np.arange(len(voice)) / SR
-last_line = e["voice"][-1]["at"] + e["voice"][-1]["b"] - e["voice"][-1]["a"]
-base = np.where(t < last_line, 10 ** (-13 / 20), 10 ** (-4 / 20))
-base = np.convolve(base, np.ones(int(0.4 * SR)) / int(0.4 * SR), mode="same")  # smooth swell after the last line
-duck = 1 - 0.55 * speaking
-gain = base * np.convolve(duck, np.ones(int(0.08 * SR)) / int(0.08 * SR), mode="same")
-gain[: int(0.3 * SR)] *= np.linspace(0, 1, int(0.3 * SR))
-mix = m * gain[:, None] + voice[:, None]
+# ---------------- music (optional: omit "music" in edit.json for a voice-only mix)
+if e.get("music"):
+    p = os.path.join(OUT, "_m.wav")
+    run(["ffmpeg", "-y", "-v", "error", "-ss", str(e["music"]["start"]), "-t", str(DUR), "-i", src(os.path.splitext(e["music"]["file"])[0]),
+         "-ac", "2", "-ar", str(SR), p])
+    m = sf.read(p, dtype="float64")[0]
+    os.remove(p)
+    m = np.pad(m, ((0, max(0, len(voice) - len(m))), (0, 0)))[:len(voice)]
+    env = np.abs(voice)
+    k = int(0.12 * SR)
+    env = np.convolve(env, np.ones(k) / k, mode="same")
+    speaking = np.clip(env / 0.02, 0, 1)
+    t = np.arange(len(voice)) / SR
+    last_line = e["voice"][-1]["at"] + e["voice"][-1]["b"] - e["voice"][-1]["a"]
+    base = np.where(t < last_line, 10 ** (-13 / 20), 10 ** (-4 / 20))
+    base = np.convolve(base, np.ones(int(0.4 * SR)) / int(0.4 * SR), mode="same")  # smooth swell after the last line
+    duck = 1 - 0.55 * speaking
+    gain = base * np.convolve(duck, np.ones(int(0.08 * SR)) / int(0.08 * SR), mode="same")
+    gain[: int(0.3 * SR)] *= np.linspace(0, 1, int(0.3 * SR))
+    mix = m * gain[:, None] + voice[:, None]
+else:
+    mix = np.repeat(voice[:, None], 2, axis=1)
 mix /= max(1.0, np.abs(mix).max() / 0.89)
 pre = os.path.join(OUT, "_pre.wav")
 sf.write(pre, mix, SR)
