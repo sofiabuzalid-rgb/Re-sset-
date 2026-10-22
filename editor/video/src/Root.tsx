@@ -4,6 +4,8 @@ import { FPS, TOTAL } from "./recreacion/config";
 import { Recreacion } from "./recreacion/Recreacion";
 import { Cajon } from "./cajon/Cajon";
 import { Regalo01 } from "./regalo01/Regalo01";
+import { Navidad } from "./navidad03/Navidad";
+import { FPS as N_FPS, TOTAL as N_TOTAL } from "./navidad03/config";
 import { Pauta } from "./regalo01/Pauta";
 import { FPS as P_FPS, TOTAL as P_TOTAL } from "./regalo01/pauta.config";
 import { FPS as R1_FPS, TOTAL as R1_TOTAL } from "./regalo01/config";
@@ -18,6 +20,14 @@ export const RemotionRoot: React.FC = () => {
         component={Pauta}
         durationInFrames={P_TOTAL}
         fps={P_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="NavidadMeta"
+        component={Navidad}
+        durationInFrames={N_TOTAL}
+        fps={N_FPS}
         width={1080}
         height={1920}
       />
