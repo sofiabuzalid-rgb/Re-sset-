@@ -4,6 +4,8 @@ import { FPS, TOTAL } from "./recreacion/config";
 import { Recreacion } from "./recreacion/Recreacion";
 import { Cajon } from "./cajon/Cajon";
 import { Regalo01 } from "./regalo01/Regalo01";
+import { Olivo } from "./olivo04/Olivo";
+import { FPS as O_FPS, TOTAL as O_TOTAL } from "./olivo04/config";
 import { Navidad } from "./navidad03/Navidad";
 import { FPS as N_FPS, TOTAL as N_TOTAL } from "./navidad03/config";
 import { Pauta } from "./regalo01/Pauta";
@@ -28,6 +30,14 @@ export const RemotionRoot: React.FC = () => {
         component={Navidad}
         durationInFrames={N_TOTAL}
         fps={N_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="OlivoMeta"
+        component={Olivo}
+        durationInFrames={O_TOTAL}
+        fps={O_FPS}
         width={1080}
         height={1920}
       />

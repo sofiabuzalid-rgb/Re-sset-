@@ -1,0 +1,501 @@
+{
+ "fps": 30,
+ "total": 755,
+ "pieceStarts": [
+  0.0,
+  8.967,
+  12.733,
+  14.773,
+  15.773
+ ],
+ "pieceSrc": [
+  0.1,
+  0.033,
+  0.7,
+  null,
+  0.4
+ ],
+ "voiceEnd": 20.573,
+ "words": [
+  {
+   "w": "Por",
+   "s": 0.18,
+   "e": 0.46,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "favor",
+   "s": 0.46,
+   "e": 0.82,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "vean",
+   "s": 0.82,
+   "e": 1.4,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "este",
+   "s": 1.4,
+   "e": 1.98,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "modelo",
+   "s": 1.98,
+   "e": 2.4,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 2.4,
+   "e": 2.58,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "pijama,",
+   "s": 2.58,
+   "e": 3.54,
+   "key": false,
+   "piece": 0,
+   "br": true
+  },
+  {
+   "w": "está",
+   "s": 3.54,
+   "e": 3.98,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "súper",
+   "s": 3.98,
+   "e": 4.24,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "padre,",
+   "s": 4.24,
+   "e": 4.54,
+   "key": false,
+   "piece": 0,
+   "br": true
+  },
+  {
+   "w": "el",
+   "s": 4.54,
+   "e": 4.74,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "color",
+   "s": 4.74,
+   "e": 5.16,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "está",
+   "s": 5.16,
+   "e": 5.18,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "increíble,",
+   "s": 5.9,
+   "e": 6.32,
+   "key": false,
+   "piece": 0,
+   "br": true
+  },
+  {
+   "w": "y",
+   "s": 6.32,
+   "e": 6.34,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "aparte",
+   "s": 6.34,
+   "e": 6.74,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "no",
+   "s": 6.74,
+   "e": 6.88,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "saben",
+   "s": 6.88,
+   "e": 7.08,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 7.08,
+   "e": 7.32,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "calidad",
+   "s": 7.32,
+   "e": 8.02,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "y",
+   "s": 8.02,
+   "e": 8.1,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "lo",
+   "s": 8.1,
+   "e": 8.3,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "cómodo",
+   "s": 8.3,
+   "e": 8.54,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 8.54,
+   "e": 8.68,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "está",
+   "s": 8.68,
+   "e": 8.967,
+   "key": false,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "Aparte",
+   "s": 9.173,
+   "e": 9.333,
+   "key": false,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "es",
+   "s": 9.333,
+   "e": 9.393,
+   "key": false,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "el",
+   "s": 9.393,
+   "e": 9.573,
+   "key": false,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "color",
+   "s": 9.573,
+   "e": 9.973,
+   "key": false,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 9.973,
+   "e": 10.093,
+   "key": false,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 10.093,
+   "e": 10.993,
+   "key": false,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "temporada,",
+   "s": 10.993,
+   "e": 11.493,
+   "key": false,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "verde",
+   "s": 11.493,
+   "e": 12.033,
+   "key": false,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "militar.",
+   "s": 12.033,
+   "e": 12.373,
+   "key": false,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "¿Qué",
+   "s": 12.813,
+   "e": 12.953,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "opina?",
+   "s": 12.953,
+   "e": 13.183,
+   "key": false,
+   "piece": 2,
+   "br": true
+  },
+  {
+   "w": "¿Le",
+   "s": 13.833,
+   "e": 13.953,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "gusta",
+   "s": 13.953,
+   "e": 14.153,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "o",
+   "s": 14.153,
+   "e": 14.233,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "no",
+   "s": 14.233,
+   "e": 14.333,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "le",
+   "s": 14.333,
+   "e": 14.413,
+   "key": false,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "gusta?",
+   "s": 14.413,
+   "e": 14.683,
+   "key": false,
+   "piece": 2,
+   "br": true
+  },
+  {
+   "w": "Tiene",
+   "s": 15.913,
+   "e": 16.073,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 16.073,
+   "e": 16.273,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "correr",
+   "s": 16.273,
+   "e": 16.413,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "al",
+   "s": 16.413,
+   "e": 16.713,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "RE:SET",
+   "s": 16.713,
+   "e": 17.053,
+   "key": true,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "por",
+   "s": 17.053,
+   "e": 17.213,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "este",
+   "s": 17.213,
+   "e": 17.573,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "set",
+   "s": 17.573,
+   "e": 18.093,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "en",
+   "s": 18.093,
+   "e": 18.273,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "nuestras",
+   "s": 18.273,
+   "e": 18.453,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "dos",
+   "s": 18.453,
+   "e": 18.633,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "sucursales,",
+   "s": 18.633,
+   "e": 19.053,
+   "key": false,
+   "piece": 4,
+   "br": true
+  },
+  {
+   "w": "en",
+   "s": 19.113,
+   "e": 19.273,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 19.193,
+   "e": 19.273,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "Avenida",
+   "s": 19.273,
+   "e": 19.673,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "Stim",
+   "s": 19.673,
+   "e": 19.913,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "y",
+   "s": 19.913,
+   "e": 20.073,
+   "key": false,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "Perisur.",
+   "s": 20.073,
+   "e": 20.373,
+   "key": false,
+   "piece": 4,
+   "br": true
+  }
+ ]
+}
