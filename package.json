@@ -8,6 +8,7 @@
     "build": "remotion render ChristmasReel out/reset-christmas-reel.mp4",
     "build:magic": "remotion render MagicChristmas out/reset-magia-navidad.mp4",
     "build:editorial": "remotion render PetalEditorial out/reset-petal-editorial.mp4",
+    "build:basica": "remotion render ColeccionBasica out/reset-coleccion-basica.mp4",
     "still": "remotion still ChristmasReel out/poster.png --frame=60",
     "audio": "python3 scripts/generate-audio.py",
     "typecheck": "tsc --noEmit"

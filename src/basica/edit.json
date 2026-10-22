@@ -1,0 +1,47 @@
+{
+  "fps": 30,
+  "bpm": 104,
+  "note": "ANUNCIO 04 — LA PIJAMA QUE NO TE QUIERES QUITAR. Colección básica (set verde militar + set azul marino), footage from the Drive folder 'RESET HOY' only. Every subtitle is her own words (Whisper transcript, phrase-timed); RE:SET written as the brand. Christmas-print clips are excluded.",
+  "shots": [
+    {"id": "h1", "src": "IMG_9047", "in": 3.55, "frames": 77, "zoom": [1.06, 1.0], "focus": [0.5, 0.3]},
+    {"id": "s1", "src": "IMG_9049", "in": 1.2, "frames": 48, "zoom": [1.0, 1.04], "focus": [0.5, 0.45]},
+    {"id": "s2", "src": "IMG_9048", "in": 0.05, "frames": 44, "zoom": [1.04, 1.0], "focus": [0.5, 0.35]},
+    {"id": "s3", "src": "IMG_9050", "in": 0.05, "frames": 35, "zoom": [1.0, 1.05], "focus": [0.5, 0.5]},
+    {"id": "s4", "src": "IMG_9051", "in": 0.4, "frames": 23, "zoom": [1.0, 1.03], "focus": [0.5, 0.5]},
+    {"id": "a1", "src": "IMG_8974", "in": 0.25, "frames": 61, "zoom": [1.0, 1.05], "focus": [0.5, 0.35]},
+    {"id": "d1", "src": "IMG_9049", "in": 0.1, "frames": 27, "zoom": [1.0, 1.06], "focus": [0.5, 0.4]},
+    {"id": "d2", "src": "IMG_9051", "in": 2.6, "frames": 30, "zoom": [1.04, 1.0], "focus": [0.5, 0.5]},
+    {"id": "d3", "src": "IMG_8976", "in": 0.5, "frames": 36, "zoom": [1.0, 1.05], "focus": [0.5, 0.5]},
+    {"id": "d4", "src": "IMG_8972", "in": 0.4, "frames": 40, "zoom": [1.0, 1.04], "focus": [0.5, 0.5]},
+    {"id": "d5", "src": "IMG_9052", "in": 0.1, "frames": 27, "zoom": [1.05, 1.0], "focus": [0.5, 0.5]},
+    {"id": "l1", "src": "IMG_8981", "in": 0.2, "frames": 51, "zoom": [1.0, 1.04], "focus": [0.5, 0.5]},
+    {"id": "l2", "src": "IMG_8980", "in": 0.0, "frames": 36, "zoom": [1.04, 1.0], "focus": [0.45, 0.4]},
+    {"id": "l3", "src": "IMG_8986", "in": 2.8, "frames": 48, "zoom": [1.08, 1.12], "focus": [0.5, 0.55]},
+    {"id": "c1", "src": "IMG_8988", "in": 2.75, "frames": 132, "zoom": [1.1, 1.16], "focus": [0.5, 0.42]},
+    {"id": "close", "src": "IMG_9055", "in": 0.2, "frames": 54, "zoom": [1.0, 1.04], "focus": [0.5, 0.4]}
+  ],
+  "voice": [
+    {"src": "IMG_9047", "in": 3.55, "out": 6.12, "at": 0},
+    {"src": "IMG_9047", "in": 6.12, "out": 7.72, "at": 77},
+    {"src": "IMG_9048", "in": 0.05, "out": 3.45, "at": 125},
+    {"src": "IMG_8974", "in": 0.25, "out": 7.62, "at": 227},
+    {"src": "IMG_8988", "in": 2.75, "out": 7.2, "at": 583}
+  ],
+  "subs": [
+    {"from": 1, "to": 26, "text": "Está súper padre."},
+    {"from": 27, "to": 76, "text": "El color está increíble."},
+    {"from": 77, "to": 124, "text": "Y aparte no saben la calidad."},
+    {"from": 126, "to": 196, "text": "Aparte es el color de la temporada:"},
+    {"from": 196, "to": 226, "text": "verde militar."},
+    {"from": 228, "to": 272, "text": "Está súper cómoda y súper práctica"},
+    {"from": 272, "to": 325, "text": "para que la puedas llevar en cualquier parte"},
+    {"from": 325, "to": 353, "text": "cuando te vayas de viaje,"},
+    {"from": 353, "to": 373, "text": "en tu maleta,"},
+    {"from": 373, "to": 412, "text": "en tu bolsa de mano,"},
+    {"from": 412, "to": 447, "text": "donde tú quieras."},
+    {"from": 584, "to": 616, "text": "Pero nada más quería decirles"},
+    {"from": 616, "to": 667, "text": "que esta pijama es de RE:SET"},
+    {"from": 670, "to": 714, "text": "y les urge ir por la suya."}
+  ],
+  "close": {"kicker": "COLECCIÓN BÁSICA", "cta": "Encuéntrala en RE:SET", "handle": "@re.setmx"}
+}
