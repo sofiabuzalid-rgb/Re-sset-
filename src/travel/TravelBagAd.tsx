@@ -69,16 +69,16 @@ const Subtitle: React.FC<{text: string; dur: number}> = ({text, dur}) => {
 	);
 };
 
-const Hook: React.FC<{text: string; dur: number}> = ({text, dur}) => {
+const Hook: React.FC<{text: string; kicker?: string; dur: number}> = ({text, kicker, dur}) => {
 	const f = useCurrentFrame();
-	const k = easeOut(Math.min(1, f / 9));
+	const k = easeOut(Math.min(1, (f + 4) / 9));
 	const out = interpolate(f, [dur - 6, dur], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
 	return (
-		<div style={{position: 'absolute', top: 300, left: 70, right: 70, display: 'flex', justifyContent: 'center', opacity: Math.min(k, out)}}>
+		<div style={{position: 'absolute', top: 150, left: 80, right: 80, display: 'flex', justifyContent: 'center', opacity: Math.min(k, out)}}>
 			<div
 				style={{
 					background: 'rgba(244,239,231,0.94)',
-					padding: '26px 40px 30px',
+					padding: '18px 34px 22px',
 					borderRadius: 8,
 					boxShadow: '0 16px 40px rgba(0,0,0,0.25)',
 					transform: `translateY(${(1 - k) * 18}px) scale(${0.97 + 0.03 * k})`,
@@ -86,7 +86,8 @@ const Hook: React.FC<{text: string; dur: number}> = ({text, dur}) => {
 					maxWidth: 900,
 				}}
 			>
-				<div style={{fontFamily: SERIF, fontStyle: 'italic', fontWeight: 600, fontSize: 64, lineHeight: 1.1, color: C.navy}}>{text}</div>
+				{kicker && <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 26, letterSpacing: '0.32em', color: C.navy, marginBottom: 8}}>{kicker}</div>}
+				<div style={{fontFamily: SERIF, fontStyle: 'italic', fontWeight: 600, fontSize: 54, lineHeight: 1.1, color: C.navy}}>{text}</div>
 			</div>
 		</div>
 	);
@@ -159,7 +160,7 @@ export const TravelBagAd: React.FC = () => (
 		))}
 		{edit.graphics.map((g) => (
 			<Sequence key={g.text} from={fr(g.a)} durationInFrames={fr(g.b) - fr(g.a)}>
-				{g.style === 'hook' ? <Hook text={g.text} dur={fr(g.b) - fr(g.a)} /> : <Tag text={g.text} dur={fr(g.b) - fr(g.a)} />}
+				{g.style === 'hook' ? <Hook text={g.text} kicker={(g as {kicker?: string}).kicker} dur={fr(g.b) - fr(g.a)} /> : <Tag text={g.text} dur={fr(g.b) - fr(g.a)} />}
 			</Sequence>
 		))}
 		{edit.subtitles.map((s) => (
