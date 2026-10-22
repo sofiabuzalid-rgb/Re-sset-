@@ -1,0 +1,539 @@
+{
+ "fps": 30,
+ "total": 702,
+ "pieceStarts": [
+  0.0,
+  7.067,
+  10.633,
+  11.533
+ ],
+ "pieceSrc": [
+  0.233,
+  0.167,
+  null,
+  1.133
+ ],
+ "voiceEnd": 19.6,
+ "lastWord": 19.77,
+ "ambient": false,
+ "words": [
+  {
+   "w": "Está",
+   "s": 0.107,
+   "e": 0.547,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "súper",
+   "s": 0.547,
+   "e": 0.747,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "cómoda",
+   "s": 0.747,
+   "e": 0.987,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "y",
+   "s": 0.987,
+   "e": 1.227,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "súper",
+   "s": 1.227,
+   "e": 1.447,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "práctica",
+   "s": 1.447,
+   "e": 1.847,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "para",
+   "s": 1.847,
+   "e": 1.947,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 1.947,
+   "e": 2.067,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 2.067,
+   "e": 2.207,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "puedas",
+   "s": 2.207,
+   "e": 2.427,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "llevar",
+   "s": 2.427,
+   "e": 2.587,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "en",
+   "s": 2.587,
+   "e": 2.827,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "cualquier",
+   "s": 2.827,
+   "e": 3.287,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "parte",
+   "s": 3.287,
+   "e": 3.487,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "cuando",
+   "s": 3.487,
+   "e": 3.667,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "te",
+   "s": 3.667,
+   "e": 3.747,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "vayas",
+   "s": 3.747,
+   "e": 3.947,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 3.947,
+   "e": 4.147,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "viaje,",
+   "s": 4.147,
+   "e": 4.347,
+   "piece": 0,
+   "br": true
+  },
+  {
+   "w": "en",
+   "s": 4.367,
+   "e": 4.447,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "tu",
+   "s": 4.447,
+   "e": 4.627,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "maleta,",
+   "s": 4.627,
+   "e": 5.087,
+   "piece": 0,
+   "br": true
+  },
+  {
+   "w": "en",
+   "s": 5.147,
+   "e": 5.307,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "tu",
+   "s": 5.307,
+   "e": 5.507,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "bolsa",
+   "s": 5.507,
+   "e": 5.747,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 5.747,
+   "e": 6.007,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "mano,",
+   "s": 6.007,
+   "e": 6.267,
+   "piece": 0,
+   "br": true
+  },
+  {
+   "w": "donde",
+   "s": 6.367,
+   "e": 6.567,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "tú",
+   "s": 6.567,
+   "e": 6.727,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "quieras.",
+   "s": 6.727,
+   "e": 6.767,
+   "piece": 0,
+   "br": true
+  },
+  {
+   "w": "Literal,",
+   "s": 7.46,
+   "e": 7.6,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "es",
+   "s": 7.6,
+   "e": 7.74,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 7.74,
+   "e": 7.8,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "esas",
+   "s": 7.8,
+   "e": 7.98,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "cosas",
+   "s": 7.98,
+   "e": 8.18,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 8.18,
+   "e": 8.28,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "te",
+   "s": 8.28,
+   "e": 8.4,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "llevas",
+   "s": 8.4,
+   "e": 8.64,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "para",
+   "s": 8.64,
+   "e": 8.92,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "todos",
+   "s": 8.92,
+   "e": 9.2,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "lados",
+   "s": 9.2,
+   "e": 9.5,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "porque",
+   "s": 9.5,
+   "e": 9.66,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "ya",
+   "s": 9.66,
+   "e": 9.84,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "tienes",
+   "s": 9.84,
+   "e": 10.06,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "todo",
+   "s": 10.06,
+   "e": 10.32,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "junto.",
+   "s": 10.32,
+   "e": 10.42,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "Es",
+   "s": 11.84,
+   "e": 12.06,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "broma,",
+   "s": 12.06,
+   "e": 12.62,
+   "piece": 3,
+   "br": true
+  },
+  {
+   "w": "no",
+   "s": 12.62,
+   "e": 12.74,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "me",
+   "s": 12.74,
+   "e": 13.02,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "fui,",
+   "s": 13.02,
+   "e": 13.62,
+   "piece": 3,
+   "br": true
+  },
+  {
+   "w": "pero",
+   "s": 13.62,
+   "e": 13.86,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "nada,",
+   "s": 13.86,
+   "e": 14.0,
+   "piece": 3,
+   "br": true
+  },
+  {
+   "w": "nos",
+   "s": 14.0,
+   "e": 14.08,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "quería",
+   "s": 14.08,
+   "e": 14.44,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "decirles",
+   "s": 14.44,
+   "e": 14.88,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 14.88,
+   "e": 15.22,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "esta",
+   "s": 15.22,
+   "e": 15.42,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "pijama",
+   "s": 15.42,
+   "e": 15.92,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "es",
+   "s": 15.92,
+   "e": 16.28,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 16.28,
+   "e": 16.7,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "RE:SET",
+   "s": 16.7,
+   "e": 17.2,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "y",
+   "s": 17.2,
+   "e": 17.56,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "tienen",
+   "s": 17.56,
+   "e": 17.66,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 17.66,
+   "e": 17.8,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "correr",
+   "s": 17.8,
+   "e": 17.92,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "por",
+   "s": 17.92,
+   "e": 18.02,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 18.04,
+   "e": 18.1,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "suya",
+   "s": 18.16,
+   "e": 18.58,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "porque",
+   "s": 18.58,
+   "e": 19.04,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "yo",
+   "s": 19.04,
+   "e": 19.1,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "lo",
+   "s": 19.1,
+   "e": 19.24,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "estoy",
+   "s": 19.24,
+   "e": 19.36,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "amando.",
+   "s": 19.36,
+   "e": 19.52,
+   "piece": 3,
+   "br": true
+  }
+ ]
+}

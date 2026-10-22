@@ -4,6 +4,14 @@ import { FPS, TOTAL } from "./recreacion/config";
 import { Recreacion } from "./recreacion/Recreacion";
 import { Cajon } from "./cajon/Cajon";
 import { Regalo01 } from "./regalo01/Regalo01";
+import { Familia } from "./campana/familia/Ad";
+import { Casa } from "./campana/casa/Ad";
+import { Favorita } from "./campana/favorita/Ad";
+import { Viaje } from "./campana/viaje/Ad";
+import { T as T_VIA } from "./campana/viaje/config";
+import { T as T_FAV } from "./campana/favorita/config";
+import { T as T_CASA } from "./campana/casa/config";
+import { T as T_FAM } from "./campana/familia/config";
 import { Olivo } from "./olivo04/Olivo";
 import { FPS as O_FPS, TOTAL as O_TOTAL } from "./olivo04/config";
 import { Navidad } from "./navidad03/Navidad";
@@ -41,6 +49,10 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
       />
+      <Composition id="C04-TuPijamaDeViaje" component={Viaje} durationInFrames={T_VIA.total} fps={30} width={1080} height={1920} />
+      <Composition id="C03-TuNuevaPijamaFavorita" component={Favorita} durationInFrames={T_FAV.total} fps={30} width={1080} height={1920} />
+      <Composition id="C02-ChristmasAtHome" component={Casa} durationInFrames={T_CASA.total} fps={30} width={1080} height={1920} />
+      <Composition id="C01-NavidadEnFamilia" component={Familia} durationInFrames={T_FAM.total} fps={30} width={1080} height={1920} />
       <Composition
         id="Regalo01"
         component={Regalo01}

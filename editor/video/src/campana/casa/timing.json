@@ -1,0 +1,476 @@
+{
+ "fps": 30,
+ "total": 788,
+ "pieceStarts": [
+  0.0,
+  4.2,
+  14.367,
+  17.867
+ ],
+ "pieceSrc": [
+  0.0,
+  0.3,
+  4.767,
+  8.167
+ ],
+ "voiceEnd": 22.267,
+ "lastWord": 22.35,
+ "ambient": true,
+ "words": [
+  {
+   "w": "Aparte",
+   "s": 4.44,
+   "e": 4.7,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "lo",
+   "s": 4.7,
+   "e": 5.06,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "padre",
+   "s": 5.06,
+   "e": 5.44,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "es",
+   "s": 5.44,
+   "e": 5.56,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 5.56,
+   "e": 5.78,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "a",
+   "s": 5.78,
+   "e": 5.94,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "pesar",
+   "s": 5.94,
+   "e": 6.1,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 6.1,
+   "e": 6.16,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 6.16,
+   "e": 6.38,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "tenga",
+   "s": 6.38,
+   "e": 6.56,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "el",
+   "s": 6.56,
+   "e": 6.7,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "estampado",
+   "s": 6.7,
+   "e": 7.02,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 7.02,
+   "e": 7.16,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "Navidad,",
+   "s": 7.16,
+   "e": 7.48,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "no",
+   "s": 7.82,
+   "e": 7.92,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "es",
+   "s": 7.92,
+   "e": 7.98,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 7.98,
+   "e": 8.18,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "típica",
+   "s": 8.18,
+   "e": 8.52,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "pijama",
+   "s": 8.52,
+   "e": 8.82,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 8.82,
+   "e": 8.98,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "nada",
+   "s": 8.98,
+   "e": 9.1,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "más",
+   "s": 9.1,
+   "e": 9.32,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "ocupas",
+   "s": 9.32,
+   "e": 9.6,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "una",
+   "s": 9.6,
+   "e": 9.84,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "vez",
+   "s": 9.84,
+   "e": 10.12,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "en",
+   "s": 10.12,
+   "e": 10.22,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "tu",
+   "s": 10.22,
+   "e": 10.42,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "vida,",
+   "s": 10.42,
+   "e": 10.56,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "sino",
+   "s": 10.94,
+   "e": 11.4,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "lo",
+   "s": 11.4,
+   "e": 11.58,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "puedes",
+   "s": 11.58,
+   "e": 11.8,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "ocupar",
+   "s": 11.8,
+   "e": 12.4,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "todo",
+   "s": 12.4,
+   "e": 12.74,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "el",
+   "s": 12.74,
+   "e": 13.02,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "tiempo",
+   "s": 13.02,
+   "e": 13.36,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "porque",
+   "s": 13.36,
+   "e": 13.52,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "está",
+   "s": 13.52,
+   "e": 13.68,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "súper",
+   "s": 13.68,
+   "e": 13.88,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "cómoda.",
+   "s": 13.88,
+   "e": 14.32,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "Hay",
+   "s": 14.46,
+   "e": 14.8,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "dos",
+   "s": 14.8,
+   "e": 15.0,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "sucursales",
+   "s": 15.0,
+   "e": 15.54,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "para",
+   "s": 15.54,
+   "e": 15.64,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 15.64,
+   "e": 15.76,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "las",
+   "s": 15.76,
+   "e": 15.88,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "puedas",
+   "s": 15.88,
+   "e": 16.1,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "adquirir",
+   "s": 16.1,
+   "e": 16.78,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "ya",
+   "s": 16.78,
+   "e": 17.06,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "mismo.",
+   "s": 17.06,
+   "e": 17.66,
+   "piece": 2,
+   "br": true
+  },
+  {
+   "w": "Hay",
+   "s": 18.02,
+   "e": 18.16,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "una",
+   "s": 18.16,
+   "e": 18.26,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "en",
+   "s": 18.26,
+   "e": 18.4,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "Perisur",
+   "s": 18.4,
+   "e": 18.98,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "y",
+   "s": 18.98,
+   "e": 19.14,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "otra",
+   "s": 19.14,
+   "e": 19.26,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "en",
+   "s": 19.26,
+   "e": 19.4,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "Avenida",
+   "s": 19.4,
+   "e": 19.78,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "Stim,",
+   "s": 19.78,
+   "e": 20.04,
+   "piece": 3,
+   "br": true
+  },
+  {
+   "w": "así",
+   "s": 20.1,
+   "e": 20.34,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 20.34,
+   "e": 20.78,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "ve",
+   "s": 20.78,
+   "e": 20.94,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "por",
+   "s": 20.94,
+   "e": 21.08,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "ellas",
+   "s": 21.08,
+   "e": 21.64,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "ya",
+   "s": 21.64,
+   "e": 21.94,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "mismo.",
+   "s": 21.94,
+   "e": 22.1,
+   "piece": 3,
+   "br": true
+  }
+ ]
+}

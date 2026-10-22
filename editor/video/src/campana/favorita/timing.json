@@ -1,0 +1,401 @@
+{
+ "fps": 30,
+ "total": 670,
+ "pieceStarts": [
+  0.0,
+  8.52,
+  11.987,
+  12.647,
+  13.447
+ ],
+ "pieceSrc": [
+  0.167,
+  0.067,
+  0.7,
+  null,
+  0.433
+ ],
+ "voiceEnd": 18.147,
+ "lastWord": 18.263,
+ "ambient": false,
+ "words": [
+  {
+   "w": "Por",
+   "s": 0.113,
+   "e": 0.393,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "favor",
+   "s": 0.393,
+   "e": 0.753,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "vean",
+   "s": 0.753,
+   "e": 1.333,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "este",
+   "s": 1.333,
+   "e": 1.913,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "modelo",
+   "s": 1.913,
+   "e": 2.333,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 2.333,
+   "e": 2.513,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "pijama,",
+   "s": 2.513,
+   "e": 3.473,
+   "piece": 0,
+   "br": true
+  },
+  {
+   "w": "está",
+   "s": 3.473,
+   "e": 3.913,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "súper",
+   "s": 3.913,
+   "e": 4.173,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "padre,",
+   "s": 4.173,
+   "e": 4.473,
+   "piece": 0,
+   "br": true
+  },
+  {
+   "w": "el",
+   "s": 4.473,
+   "e": 4.673,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "color",
+   "s": 4.673,
+   "e": 5.093,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "está",
+   "s": 5.093,
+   "e": 5.113,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "increíble,",
+   "s": 5.833,
+   "e": 6.253,
+   "piece": 0,
+   "br": true
+  },
+  {
+   "w": "y",
+   "s": 6.253,
+   "e": 6.273,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "aparte",
+   "s": 6.273,
+   "e": 6.673,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "no",
+   "s": 6.673,
+   "e": 6.813,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "saben",
+   "s": 6.813,
+   "e": 7.013,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 7.013,
+   "e": 7.253,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "calidad",
+   "s": 7.253,
+   "e": 7.673,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "y",
+   "s": 7.673,
+   "e": 7.753,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "lo",
+   "s": 7.753,
+   "e": 7.953,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "cómodo",
+   "s": 7.953,
+   "e": 8.193,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 8.193,
+   "e": 8.333,
+   "piece": 0,
+   "br": false
+  },
+  {
+   "w": "está.",
+   "s": 8.333,
+   "e": 8.52,
+   "piece": 0,
+   "br": true
+  },
+  {
+   "w": "Aparte",
+   "s": 8.693,
+   "e": 8.853,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "es",
+   "s": 8.853,
+   "e": 8.913,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "el",
+   "s": 8.913,
+   "e": 9.093,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "color",
+   "s": 9.093,
+   "e": 9.493,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 9.493,
+   "e": 9.613,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 9.613,
+   "e": 10.513,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "temporada,",
+   "s": 10.513,
+   "e": 11.013,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "verde",
+   "s": 11.013,
+   "e": 11.553,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "militar.",
+   "s": 11.553,
+   "e": 11.893,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "¿Qué",
+   "s": 12.067,
+   "e": 12.207,
+   "piece": 2,
+   "br": false
+  },
+  {
+   "w": "opina?",
+   "s": 12.207,
+   "e": 12.437,
+   "piece": 2,
+   "br": true
+  },
+  {
+   "w": "Tiene",
+   "s": 13.553,
+   "e": 13.713,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 13.713,
+   "e": 13.913,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "correr",
+   "s": 13.913,
+   "e": 14.053,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "al",
+   "s": 14.053,
+   "e": 14.353,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "RE:SET",
+   "s": 14.353,
+   "e": 14.693,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "por",
+   "s": 14.693,
+   "e": 14.853,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "este",
+   "s": 14.853,
+   "e": 15.213,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "set",
+   "s": 15.213,
+   "e": 15.733,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "en",
+   "s": 15.733,
+   "e": 15.913,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "nuestras",
+   "s": 15.913,
+   "e": 16.093,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "dos",
+   "s": 16.093,
+   "e": 16.273,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "sucursales,",
+   "s": 16.273,
+   "e": 16.693,
+   "piece": 4,
+   "br": true
+  },
+  {
+   "w": "en",
+   "s": 16.753,
+   "e": 16.913,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 16.833,
+   "e": 16.913,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "Avenida",
+   "s": 16.913,
+   "e": 17.313,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "Stim",
+   "s": 17.313,
+   "e": 17.553,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "y",
+   "s": 17.553,
+   "e": 17.713,
+   "piece": 4,
+   "br": false
+  },
+  {
+   "w": "Perisur.",
+   "s": 17.713,
+   "e": 18.013,
+   "piece": 4,
+   "br": true
+  }
+ ]
+}

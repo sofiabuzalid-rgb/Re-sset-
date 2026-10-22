@@ -18,3 +18,6 @@ editor/video/public/recreacion/
 editor/cajon/src/
 editor/cajon/an/
 editor/video/public/cajon/
+
+# campaña: medios regenerables con editor/campana/prep.py (1.4 GB)
+editor/video/public/campana/media/
