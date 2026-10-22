@@ -1,0 +1,1564 @@
+{
+ "IMG_8928": {
+  "file": "IMG_8928.MP4",
+  "dur": 1.77,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.75,
+  "speech": [
+   [
+    0.0,
+    0.75
+   ]
+  ]
+ },
+ "IMG_8931": {
+  "file": "IMG_8931.MP4",
+  "dur": 6.14,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 4.7,
+  "speech": [
+   [
+    0.45,
+    5.15
+   ]
+  ]
+ },
+ "IMG_8932": {
+  "file": "IMG_8932.MP4",
+  "dur": 4.47,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.55,
+  "speech": [
+   [
+    0.05,
+    0.6
+   ]
+  ]
+ },
+ "IMG_8933": {
+  "file": "IMG_8933.MP4",
+  "dur": 4.5,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8934": {
+  "file": "IMG_8934.MP4",
+  "dur": 4.81,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8935": {
+  "file": "IMG_8935.MP4",
+  "dur": 4.2,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8936": {
+  "file": "IMG_8936.MP4",
+  "dur": 7.81,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8937": {
+  "file": "IMG_8937.MP4",
+  "dur": 4.67,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8938": {
+  "file": "IMG_8938.MP4",
+  "dur": 5.43,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 2.25,
+  "speech": [
+   [
+    0.05,
+    1.15
+   ],
+   [
+    2.7,
+    3.45
+   ],
+   [
+    5.0,
+    5.4
+   ]
+  ]
+ },
+ "IMG_8939": {
+  "file": "IMG_8939.MP4",
+  "dur": 5.87,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 1.65,
+  "speech": [
+   [
+    0.3,
+    1.95
+   ]
+  ]
+ },
+ "IMG_8940": {
+  "file": "IMG_8940.MP4",
+  "dur": 3.83,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8941": {
+  "file": "IMG_8941.MP4",
+  "dur": 5.3,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8942": {
+  "file": "IMG_8942.MP4",
+  "dur": 2.4,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8943": {
+  "file": "IMG_8943.MP4",
+  "dur": 7.5,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 1.85,
+  "speech": [
+   [
+    2.85,
+    4.7
+   ]
+  ]
+ },
+ "IMG_8944": {
+  "file": "IMG_8944.MP4",
+  "dur": 6.43,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 5.3,
+  "speech": [
+   [
+    0.4,
+    5.7
+   ]
+  ]
+ },
+ "IMG_8945": {
+  "file": "IMG_8945.mov",
+  "dur": 12.35,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 8.35,
+  "speech": [
+   [
+    0.0,
+    3.45
+   ],
+   [
+    4.05,
+    6.95
+   ],
+   [
+    7.7,
+    9.7
+   ]
+  ]
+ },
+ "IMG_8946": {
+  "file": "IMG_8946.MP4",
+  "dur": 13.54,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 11.05,
+  "speech": [
+   [
+    0.5,
+    4.1
+   ],
+   [
+    4.7,
+    8.5
+   ],
+   [
+    9.0,
+    12.65
+   ]
+  ]
+ },
+ "IMG_8947": {
+  "file": "IMG_8947.MP4",
+  "dur": 10.64,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 9.0,
+  "speech": [
+   [
+    0.35,
+    3.5
+   ],
+   [
+    3.85,
+    6.55
+   ],
+   [
+    6.9,
+    10.05
+   ]
+  ]
+ },
+ "IMG_8948": {
+  "file": "IMG_8948.MP4",
+  "dur": 7.57,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 5.75,
+  "speech": [
+   [
+    0.1,
+    4.3
+   ],
+   [
+    4.9,
+    5.25
+   ],
+   [
+    5.7,
+    6.9
+   ]
+  ]
+ },
+ "IMG_8949": {
+  "file": "IMG_8949.MP4",
+  "dur": 6.17,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 5.05,
+  "speech": [
+   [
+    0.1,
+    4.55
+   ],
+   [
+    4.9,
+    5.5
+   ]
+  ]
+ },
+ "IMG_8950": {
+  "file": "IMG_8950.MP4",
+  "dur": 6.6,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.75,
+  "speech": [
+   [
+    3.65,
+    4.4
+   ]
+  ]
+ },
+ "IMG_8951": {
+  "file": "IMG_8951.MP4",
+  "dur": 11.77,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8952": {
+  "file": "IMG_8952.MP4",
+  "dur": 6.77,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8953": {
+  "file": "IMG_8953.MP4",
+  "dur": 4.3,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8955": {
+  "file": "IMG_8955.MP4",
+  "dur": 3.53,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8956": {
+  "file": "IMG_8956.MP4",
+  "dur": 12.73,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.3,
+  "speech": [
+   [
+    10.75,
+    11.05
+   ]
+  ]
+ },
+ "IMG_8957": {
+  "file": "IMG_8957.MP4",
+  "dur": 15.24,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8958": {
+  "file": "IMG_8958.MP4",
+  "dur": 4.07,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 1.25,
+  "speech": [
+   [
+    1.45,
+    1.85
+   ],
+   [
+    2.3,
+    3.15
+   ]
+  ]
+ },
+ "IMG_8959": {
+  "file": "IMG_8959.MP4",
+  "dur": 9.83,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8960": {
+  "file": "IMG_8960.MP4",
+  "dur": 6.67,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.7,
+  "speech": [
+   [
+    5.05,
+    5.75
+   ]
+  ]
+ },
+ "IMG_8961": {
+  "file": "IMG_8961.MP4",
+  "dur": 5.43,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8962": {
+  "file": "IMG_8962.MP4",
+  "dur": 12.8,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 5.2,
+  "speech": [
+   [
+    0.6,
+    2.35
+   ],
+   [
+    3.85,
+    4.95
+   ],
+   [
+    5.85,
+    6.4
+   ],
+   [
+    7.1,
+    7.6
+   ],
+   [
+    8.05,
+    8.45
+   ],
+   [
+    11.15,
+    12.05
+   ]
+  ]
+ },
+ "IMG_8963": {
+  "file": "IMG_8963.MP4",
+  "dur": 1.15,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.55,
+  "speech": [
+   [
+    0.2,
+    0.75
+   ]
+  ]
+ },
+ "IMG_8964": {
+  "file": "IMG_8964.MP4",
+  "dur": 10.83,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 2.09,
+  "speech": [
+   [
+    2.0,
+    2.9
+   ],
+   [
+    3.45,
+    4.0
+   ],
+   [
+    10.15,
+    10.79
+   ]
+  ]
+ },
+ "IMG_8970": {
+  "file": "IMG_8970.MP4",
+  "dur": 1.03,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8971": {
+  "file": "IMG_8971.MP4",
+  "dur": 11.27,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8972": {
+  "file": "IMG_8972.MP4",
+  "dur": 10.27,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.55,
+  "speech": [
+   [
+    1.2,
+    1.75
+   ]
+  ]
+ },
+ "IMG_8973": {
+  "file": "IMG_8973.MP4",
+  "dur": 8.07,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 29.97,
+  "hdr": false,
+  "speech_s": 4.6,
+  "speech": [
+   [
+    0.35,
+    3.15
+   ],
+   [
+    3.6,
+    5.4
+   ]
+  ]
+ },
+ "IMG_8974": {
+  "file": "IMG_8974.MP4",
+  "dur": 7.7,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 6.05,
+  "speech": [
+   [
+    0.3,
+    6.35
+   ]
+  ]
+ },
+ "IMG_8975": {
+  "file": "IMG_8975.MP4",
+  "dur": 1.43,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8976": {
+  "file": "IMG_8976.MP4",
+  "dur": 6.87,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.55,
+  "speech": [
+   [
+    2.05,
+    2.6
+   ]
+  ]
+ },
+ "IMG_8977": {
+  "file": "IMG_8977.MP4",
+  "dur": 6.53,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8978": {
+  "file": "IMG_8978.MP4",
+  "dur": 5.67,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8979": {
+  "file": "IMG_8979.MP4",
+  "dur": 3.5,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8980": {
+  "file": "IMG_8980.MP4",
+  "dur": 2.47,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8981": {
+  "file": "IMG_8981.MP4",
+  "dur": 3.93,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8982": {
+  "file": "IMG_8982.MP4",
+  "dur": 7.57,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 3.35,
+  "speech": [
+   [
+    0.2,
+    3.55
+   ]
+  ]
+ },
+ "IMG_8983": {
+  "file": "IMG_8983.MP4",
+  "dur": 0.8,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.4,
+  "speech": [
+   [
+    0.05,
+    0.45
+   ]
+  ]
+ },
+ "IMG_8984": {
+  "file": "IMG_8984.MP4",
+  "dur": 5.93,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 3.7,
+  "speech": [
+   [
+    0.2,
+    3.9
+   ]
+  ]
+ },
+ "IMG_8985": {
+  "file": "IMG_8985.MP4",
+  "dur": 8.17,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 5.8,
+  "speech": [
+   [
+    0.95,
+    2.7
+   ],
+   [
+    3.1,
+    7.15
+   ]
+  ]
+ },
+ "IMG_8986": {
+  "file": "IMG_8986.MP4",
+  "dur": 9.11,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 6.2,
+  "speech": [
+   [
+    1.55,
+    6.4
+   ],
+   [
+    6.9,
+    8.25
+   ]
+  ]
+ },
+ "IMG_8987": {
+  "file": "IMG_8987.MP4",
+  "dur": 9.94,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 7.0,
+  "speech": [
+   [
+    1.2,
+    8.2
+   ]
+  ]
+ },
+ "IMG_8988": {
+  "file": "IMG_8988.MP4",
+  "dur": 8.5,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 6.15,
+  "speech": [
+   [
+    0.65,
+    6.8
+   ]
+  ]
+ },
+ "IMG_8989": {
+  "file": "IMG_8989.MP4",
+  "dur": 2.6,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.7,
+  "speech": [
+   [
+    1.8,
+    2.5
+   ]
+  ]
+ },
+ "IMG_8990": {
+  "file": "IMG_8990.MP4",
+  "dur": 8.47,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8991": {
+  "file": "IMG_8991.MP4",
+  "dur": 6.8,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8992": {
+  "file": "IMG_8992.MP4",
+  "dur": 4.4,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.66,
+  "speech": [
+   [
+    3.75,
+    4.41
+   ]
+  ]
+ },
+ "IMG_8993": {
+  "file": "IMG_8993.MP4",
+  "dur": 12.44,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8994": {
+  "file": "IMG_8994.MP4",
+  "dur": 4.23,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8995": {
+  "file": "IMG_8995.MP4",
+  "dur": 1.97,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8996": {
+  "file": "IMG_8996.MP4",
+  "dur": 7.37,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.7,
+  "speech": [
+   [
+    3.5,
+    4.2
+   ]
+  ]
+ },
+ "IMG_8997": {
+  "file": "IMG_8997.MP4",
+  "dur": 4.47,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8998": {
+  "file": "IMG_8998.MP4",
+  "dur": 5.03,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_8999": {
+  "file": "IMG_8999.MP4",
+  "dur": 3.07,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9001": {
+  "file": "IMG_9001.MP4",
+  "dur": 2.63,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9002": {
+  "file": "IMG_9002.MP4",
+  "dur": 5.17,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.4,
+  "speech": [
+   [
+    3.35,
+    3.75
+   ]
+  ]
+ },
+ "IMG_9003": {
+  "file": "IMG_9003.MP4",
+  "dur": 3.63,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9004": {
+  "file": "IMG_9004.MP4",
+  "dur": 1.05,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9005": {
+  "file": "IMG_9005.MP4",
+  "dur": 3.3,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9006": {
+  "file": "IMG_9006.MP4",
+  "dur": 11.04,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9007": {
+  "file": "IMG_9007.MP4",
+  "dur": 1.5,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9008": {
+  "file": "IMG_9008.MP4",
+  "dur": 7.43,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9009": {
+  "file": "IMG_9009.MP4",
+  "dur": 4.6,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9010": {
+  "file": "IMG_9010.MP4",
+  "dur": 7.9,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 1.45,
+  "speech": [
+   [
+    4.4,
+    5.85
+   ]
+  ]
+ },
+ "IMG_9011": {
+  "file": "IMG_9011.MP4",
+  "dur": 4.07,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 1.1,
+  "speech": [
+   [
+    0.95,
+    1.6
+   ],
+   [
+    2.95,
+    3.4
+   ]
+  ]
+ },
+ "IMG_9012": {
+  "file": "IMG_9012.MP4",
+  "dur": 4.47,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9013": {
+  "file": "IMG_9013.MP4",
+  "dur": 7.5,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9014": {
+  "file": "IMG_9014.MP4",
+  "dur": 9.8,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 7.5,
+  "speech": [
+   [
+    0.4,
+    1.85
+   ],
+   [
+    2.2,
+    6.6
+   ],
+   [
+    7.1,
+    8.75
+   ]
+  ]
+ },
+ "IMG_9015": {
+  "file": "IMG_9015.MP4",
+  "dur": 12.84,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 11.35,
+  "speech": [
+   [
+    0.4,
+    7.6
+   ],
+   [
+    8.2,
+    12.35
+   ]
+  ]
+ },
+ "IMG_9016": {
+  "file": "IMG_9016.MP4",
+  "dur": 5.17,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9017": {
+  "file": "IMG_9017.MP4",
+  "dur": 2.23,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9018": {
+  "file": "IMG_9018.MP4",
+  "dur": 14.07,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 4.25,
+  "speech": [
+   [
+    0.2,
+    3.25
+   ],
+   [
+    3.75,
+    4.95
+   ]
+  ]
+ },
+ "IMG_9019": {
+  "file": "IMG_9019.MP4",
+  "dur": 5.23,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9020": {
+  "file": "IMG_9020.MP4",
+  "dur": 8.2,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9021": {
+  "file": "IMG_9021.MP4",
+  "dur": 4.8,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9022": {
+  "file": "IMG_9022.MP4",
+  "dur": 8.2,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9023": {
+  "file": "IMG_9023.MP4",
+  "dur": 6.47,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9025": {
+  "file": "IMG_9025.MP4",
+  "dur": 4.93,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9026": {
+  "file": "IMG_9026.MP4",
+  "dur": 5.54,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9027": {
+  "file": "IMG_9027.MP4",
+  "dur": 4.8,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9028": {
+  "file": "IMG_9028.MP4",
+  "dur": 2.73,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9029": {
+  "file": "IMG_9029.MP4",
+  "dur": 9.58,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.45,
+  "speech": [
+   [
+    9.15,
+    9.6
+   ]
+  ]
+ },
+ "IMG_9030": {
+  "file": "IMG_9030.MP4",
+  "dur": 1.58,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9031": {
+  "file": "IMG_9031.MP4",
+  "dur": 5.17,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9032": {
+  "file": "IMG_9032.MP4",
+  "dur": 1.25,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9033": {
+  "file": "IMG_9033.mp4",
+  "dur": 3.1,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9034": {
+  "file": "IMG_9034.MP4",
+  "dur": 3.63,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9035": {
+  "file": "IMG_9035.MP4",
+  "dur": 3.63,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9036": {
+  "file": "IMG_9036.MP4",
+  "dur": 8.2,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9037": {
+  "file": "IMG_9037.MP4",
+  "dur": 1.25,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9038": {
+  "file": "IMG_9038.MP4",
+  "dur": 2.4,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9039": {
+  "file": "IMG_9039.mp4",
+  "dur": 7.77,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9040": {
+  "file": "IMG_9040.MP4",
+  "dur": 6.77,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9041": {
+  "file": "IMG_9041.MP4",
+  "dur": 2.17,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9042": {
+  "file": "IMG_9042.MP4",
+  "dur": 2.8,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.65,
+  "speech": [
+   [
+    1.05,
+    1.7
+   ]
+  ]
+ },
+ "IMG_9043": {
+  "file": "IMG_9043.MP4",
+  "dur": 3.93,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9044": {
+  "file": "IMG_9044.MP4",
+  "dur": 3.37,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9045": {
+  "file": "IMG_9045.MP4",
+  "dur": 6.07,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.35,
+  "speech": [
+   [
+    1.15,
+    1.5
+   ]
+  ]
+ },
+ "IMG_9046": {
+  "file": "IMG_9046.mp4",
+  "dur": 4.17,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.55,
+  "speech": [
+   [
+    2.8,
+    3.35
+   ]
+  ]
+ },
+ "IMG_9047": {
+  "file": "IMG_9047.MP4",
+  "dur": 9.17,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 7.55,
+  "speech": [
+   [
+    0.2,
+    3.0
+   ],
+   [
+    3.45,
+    7.5
+   ],
+   [
+    8.05,
+    8.75
+   ]
+  ]
+ },
+ "IMG_9048": {
+  "file": "IMG_9048.MP4",
+  "dur": 5.57,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 3.85,
+  "speech": [
+   [
+    0.1,
+    1.15
+   ],
+   [
+    1.5,
+    3.25
+   ],
+   [
+    3.9,
+    4.95
+   ]
+  ]
+ },
+ "IMG_9049": {
+  "file": "IMG_9049.MP4",
+  "dur": 3.97,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.7,
+  "speech": [
+   [
+    3.2,
+    3.9
+   ]
+  ]
+ },
+ "IMG_9050": {
+  "file": "IMG_9050.MP4",
+  "dur": 1.13,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9051": {
+  "file": "IMG_9051.MP4",
+  "dur": 6.33,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0,
+  "speech": []
+ },
+ "IMG_9052": {
+  "file": "IMG_9052.MP4",
+  "dur": 1.12,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 0.75,
+  "speech": [
+   [
+    0.2,
+    0.95
+   ]
+  ]
+ },
+ "IMG_9053": {
+  "file": "IMG_9053.MP4",
+  "dur": 4.7,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 3.75,
+  "speech": [
+   [
+    0.3,
+    4.05
+   ]
+  ]
+ },
+ "IMG_9054": {
+  "file": "IMG_9054.MP4",
+  "dur": 5.5,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 3.85,
+  "speech": [
+   [
+    0.5,
+    2.1
+   ],
+   [
+    2.65,
+    4.9
+   ]
+  ]
+ },
+ "IMG_9055": {
+  "file": "IMG_9055.MP4",
+  "dur": 2.57,
+  "res": "720x1280",
+  "orient": "vertical",
+  "fps": 30.0,
+  "hdr": false,
+  "speech_s": 1.35,
+  "speech": [
+   [
+    0.1,
+    1.45
+   ]
+  ]
+ },
+ "IMG_8954": {
+  "file": "IMG_8954.MP4",
+  "note": "13 MB, over the Drive connector's 10 MB download limit; not analysed"
+ }
+}
