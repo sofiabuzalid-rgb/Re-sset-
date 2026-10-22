@@ -87,7 +87,7 @@ const Hook: React.FC<{text: string; kicker?: string; dur: number}> = ({text, kic
 				}}
 			>
 				{kicker && <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 26, letterSpacing: '0.32em', color: C.navy, marginBottom: 8}}>{kicker}</div>}
-				<div style={{fontFamily: SERIF, fontStyle: 'italic', fontWeight: 600, fontSize: 54, lineHeight: 1.1, color: C.navy}}>{text}</div>
+				<div style={{fontFamily: SERIF, fontStyle: 'italic', fontWeight: 600, fontSize: 58, lineHeight: 1.1, color: C.navy, whiteSpace: 'pre-line'}}>{text}</div>
 			</div>
 		</div>
 	);
