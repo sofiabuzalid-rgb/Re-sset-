@@ -15,10 +15,12 @@ const Text: React.FC<{ kind: string; lines: string[]; from: number; to: number }
   const style: React.CSSProperties =
     kind === "big"
       ? { fontFamily: "Montserrat", fontWeight: 700, fontSize: 84, letterSpacing: "0.06em", lineHeight: 1.05 }
-      : kind === "num"
+      : kind === "caps"
+        ? { fontFamily: "Montserrat", fontWeight: 600, fontSize: 46, letterSpacing: "0.34em", textTransform: "uppercase", lineHeight: 1 }
+        : kind === "num"
         ? { fontFamily: "Cormorant", fontStyle: "italic", fontWeight: 500, fontSize: 200, lineHeight: 1 }
         : { fontFamily: "Cormorant", fontStyle: "italic", fontWeight: 500, fontSize: 82, lineHeight: 1.04 };
-  const top = kind === "num" ? 300 : kind === "big" ? 760 : 820;
+  const top = kind === "num" ? 300 : kind === "big" ? 760 : kind === "caps" ? 880 : 820;
   return (
     <div style={{ position: "absolute", top: top - 40, left: 30, right: 30, padding: "40px 0", textAlign: "center", opacity: out, background: "radial-gradient(ellipse 60% 55% at 50% 50%, rgba(45,30,24,0.46) 0%, rgba(45,30,24,0.22) 55%, rgba(45,30,24,0) 80%)" }}>
       {lines.map((l, k) => {

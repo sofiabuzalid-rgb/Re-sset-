@@ -37,16 +37,14 @@ export const SHOTS: Shot[] = [
 /** on-screen copy: [text, from, to, style] — big = statement, serif = editorial line, num = tone index */
 export const TEXTS = [
   { kind: "big", lines: ["NO ES UNA", "PIJAMA MÁS ✨"], from: 0, to: at(4) },
-  { kind: "serif", lines: ["Es el nuevo", "modelo de RE:SET"], from: at(4), to: at(8) },
-  { kind: "serif", lines: ["Ya está disponible"], from: at(8), to: at(13) },
-  { kind: "big", lines: ["DISPONIBLE", "EN 3 TONOS"], from: at(13), to: at(15) },
+  { kind: "caps", lines: ["Nuevo modelo"], from: at(4), to: at(8) },
+  { kind: "big", lines: ["3 TONOS"], from: at(13), to: at(15) },
   { kind: "num", lines: ["01"], from: at(15), to: at(17) },
   { kind: "num", lines: ["02"], from: at(17), to: at(19) },
   { kind: "num", lines: ["03"], from: at(19), to: at(21) },
-  { kind: "serif", lines: ["Para quedarte en casa,", "verte increíble", "y no querer quitártela"], from: at(21), to: at(28) },
-];
+]
 /** close: the three hangers on the rail get their numbers (x in px at the slowed frame) */
 export const RAIL = [{ n: "01", x: 215 }, { n: "02", x: 625 }, { n: "03", x: 940 }];
 export const END = { q: "¿Cuál es tu favorito?", line: "Nuevo modelo · RE:SET", logo: "brand/reset-logo-white.png" };
 /** licensed track (soft, rhythmic, chic/cozy ~100 BPM) goes here; null = silent */
-export const MUSIC: Music = { src: null, bed: 0.9, duck: 0.9 };
+export const MUSIC: Music = { src: null, bed: 0.9, duck: 0.9 }; // e.g. "tonos/musica.mp3" (licensed); fades in/out automatically

@@ -200,14 +200,14 @@ export const Captions: React.FC<{ words: Word[]; style: CaptionStyle; until: num
 
 /* ---------- music bed with ducking (licensed track goes in config; none = silent) ---------- */
 export type Music = { src: string | null; bed: number; duck: number };
-export const MusicBed: React.FC<{ music: Music; words: Word[]; total: number }> = ({ music, words }) => {
+export const MusicBed: React.FC<{ music: Music; words: Word[]; total: number }> = ({ music, words, total }) => {
   if (!music.src) return null;
   const spans = words.map((w) => [w.s - 0.25, w.e + 0.3]);
   const duckAt = (t: number) => {
     const d = Math.min(...spans.map(([a, b]) => (t < a ? a - t : t > b ? t - b : 0)));
     return interpolate(d, [0, 0.25], [music.duck, music.bed], clamp); // ~0.25 s ramps around her words
   };
-  return <Audio src={staticFile(music.src)} volume={(f) => duckAt(f / FPS) * interpolate(f, [0, 12], [0, 1], clamp)} />;
+  return <Audio src={staticFile(music.src)} volume={(f) => duckAt(f / FPS) * interpolate(f, [0, 12], [0, 1], clamp) * interpolate(f, [total - 30, total], [1, 0], clamp)} />;
 };
 
 /** fade a graphic in/out over a window */
