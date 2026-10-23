@@ -22,6 +22,8 @@
 | C03-TuNuevaPijamaFavorita | RESET_03_TuNuevaPijamaFavorita_1080x1920.mp4 |
 | C04-TuPijamaDeViaje | RESET_04_TuPijamaDeViaje_1080x1920.mp4 |
 
+| Reel-NuevoModelo3Tonos | RESET_Reel_NuevoModelo3Tonos_1080x1920.mp4 (19.8 s, sin voz; clips IMG_25xx de uploads → public/tonos; tonos 01 salvia · 02 malva · 03 gris) |
+
 Anuncios anteriores: Regalo01 y su Pauta, NavidadMeta (precios), OlivoMeta y CajonNavidad.
 
 ## Pendiente (depende de la marca)

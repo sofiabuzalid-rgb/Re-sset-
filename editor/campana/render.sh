@@ -5,9 +5,14 @@ cd "$(dirname "$0")/../video"
 ID=$1; OUT=out/$2; TMP=out/_$ID.mp4
 npx remotion render src/index.ts "$ID" "$TMP" --codec=h264 --crf=15 --audio-codec=aac --audio-bitrate=256k \
   --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell --concurrency=4 --log=error
+if ffprobe -v error -select_streams a -show_entries stream=index -of csv=p=0 "$TMP" | grep -q .; then AUD=(-af "alimiter=limit=0.84,loudnorm=I=-14:TP=-1.5" -c:a aac -b:a 256k -ar 48000); else AUD=(-an); fi
 ffmpeg -v error -y -i "$TMP" -c:v libx264 -preset slow -crf 17 -pix_fmt yuv420p -r 30 -colorspace bt709 -color_primaries bt709 -color_trc bt709 \
-  -af "alimiter=limit=0.84,loudnorm=I=-14:TP=-1.5" -c:a aac -b:a 256k -ar 48000 -movflags +faststart "$OUT"
+  "${AUD[@]}" -movflags +faststart "$OUT"
 rm "$TMP"
+# silent compositions (no voice/music yet): add a silent AAC track so every platform accepts the file
+if ! ffprobe -v error -select_streams a -show_entries stream=index -of csv=p=0 "$OUT" | grep -q .; then
+  ffmpeg -v error -y -i "$OUT" -f lavfi -i anullsrc=r=48000:cl=stereo -map 0:v -map 1:a -c:v copy -c:a aac -b:a 128k -shortest -movflags +faststart "$OUT.tmp.mp4" && mv "$OUT.tmp.mp4" "$OUT"
+fi
 echo "== QC $OUT"
 ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate:format=duration -of compact=p=0 "$OUT"
 ffmpeg -hide_banner -i "$OUT" -af ebur128=peak=true -f null - 2>&1 | grep -E "^\s+(I:|Peak:)" | tr -s ' '
