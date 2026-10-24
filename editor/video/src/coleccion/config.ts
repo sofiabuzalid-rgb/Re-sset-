@@ -7,23 +7,24 @@ export const BASE = "coleccion";
 export const TOTAL_S = 7.3;
 
 export const SHOTS: Shot[] = [
+  // NO FACE (client requirement): every shot is cropped from the bottom so the frame's top edge sits below her chin
   // burst of full looks with the title (sage · pink · grey · sage back · pink)
-  { name: "a-salvia", src: "a-salvia", from: 0, to: 0.19, at: 0, zoom: [1.0, 1.0] },
-  { name: "b-rosa", src: "b-rosa", from: 0.19, to: 0.63, at: 0, zoom: [1.0, 1.01] },
-  { name: "c-gris", src: "c-gris", from: 0.63, to: 1.04, at: 0, zoom: [1.0, 1.01] },
-  { name: "d-salvia-espalda", src: "d-salvia-espalda", from: 1.04, to: 1.46, at: 0, zoom: [1.0, 1.01] },
-  { name: "e-rosa", src: "e-rosa", from: 1.46, to: 2.3, at: 0, zoom: [1.0, 1.02] }, // dips to dark 1.86–2.30
+  { name: "a-salvia", src: "a-salvia", from: 0, to: 0.19, at: 0, zoom: [1.05, 1.05], origin: [50, 100] },
+  { name: "b-rosa", src: "b-rosa", from: 0.19, to: 0.63, at: 0, zoom: [1.2, 1.21], origin: [50, 100] },
+  { name: "c-gris", src: "c-gris", from: 0.63, to: 1.04, at: 0, zoom: [1.03, 1.04], origin: [50, 100] },
+  { name: "d-salvia-espalda", src: "d-salvia-espalda", from: 1.04, to: 1.46, at: 0, zoom: [1.0, 1.01], origin: [50, 100] },
+  { name: "e-rosa", src: "e-rosa", from: 1.46, to: 2.3, at: 0, zoom: [1.0, 1.02], origin: [50, 100] }, // dips to dark 1.86–2.30
   // the drop: held medium shot, hands at the waist
-  { name: "f-rosa-medio", src: "f-rosa-medio", from: 2.3, to: 3.62, at: 0, zoom: [1.04, 1.08], origin: [50, 40] },
+  { name: "f-rosa-medio", src: "f-rosa-medio", from: 2.3, to: 3.62, at: 0, zoom: [1.06, 1.09], origin: [50, 100] },
   // full figure, still
-  { name: "g-salvia-full", src: "g-salvia-full", from: 3.62, to: 4.52, at: 0, zoom: [1.0, 1.02] },
+  { name: "g-salvia-full", src: "g-salvia-full", from: 3.62, to: 4.52, at: 0, zoom: [1.06, 1.08], origin: [50, 100] },
   // close: neckline and stripes
-  { name: "h-gris-cerca", src: "h-gris-cerca", from: 4.52, to: 5.72, at: 0, zoom: [1.02, 1.05] },
+  { name: "h-gris-cerca", src: "h-gris-cerca", from: 4.52, to: 5.72, at: 0, zoom: [1.02, 1.05], origin: [50, 100] },
   // a turn through frame, into dark
-  { name: "i-paso", src: "i-paso", from: 5.72, to: 6.23, at: 0, zoom: [1.0, 1.0] },
+  { name: "i-paso", src: "i-paso", from: 5.72, to: 6.23, at: 0, zoom: [1.0, 1.0], origin: [50, 100] },
   // full looks again, title returns
-  { name: "j-rosa", src: "j-rosa", from: 6.23, to: 6.8, at: 0, zoom: [1.0, 1.01] },
-  { name: "k-salvia", src: "k-salvia", from: 6.8, to: TOTAL_S, at: 0, zoom: [1.0, 1.02] },
+  { name: "j-rosa", src: "j-rosa", from: 6.23, to: 6.8, at: 0, zoom: [1.2, 1.21], origin: [50, 100] },
+  { name: "k-salvia", src: "k-salvia", from: 6.8, to: TOTAL_S, at: 0, zoom: [1.05, 1.07], origin: [50, 100] },
 ];
 
 /** dips to dark exactly where the reference has them: [start, end], peak in the middle */
