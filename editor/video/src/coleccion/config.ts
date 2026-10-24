@@ -1,40 +1,35 @@
-// RE:SET — "New Collection" fashion reel (recreación de la referencia de estudio). Todo lo editable vive aquí.
-// Clips: uploads IMG_25xx (HLG → SDR, 1080×1920 nativo) en public/tonos. Rejilla de 120 BPM (0.5 s) para la pista con licencia.
-// Estructura de la referencia: ráfaga de looks completos con "New / Collection" → caída a oscuro → planos medios largos →
-// paso con barrido a oscuro → looks completos y vuelve el texto → los tres tonos.
+// RE:SET — "New Collection" fashion reel: recreación cuadro a cuadro de la referencia (mismos cortes, misma pista).
+// Tomas: la modelo recortada con BiRefNet sobre blanco de estudio (editor/coleccion/shots.sh → public/coleccion/*.mp4).
+// Cortes sobre los golpes medidos de la pista de referencia (~143 BPM): 0.19 · 0.63 · 1.04 · 1.46 · 1.86 · 2.30 · 3.62 · 4.52 · 5.72 · 6.23 · 6.80
 import { Music, Shot } from "../campana/shared";
 
-export const BASE = "tonos";
-export const B = 0.5;
-const t = (beats: number) => +(beats * B).toFixed(2);
-export const TOTAL_S = t(19); // 9.5 s
+export const BASE = "coleccion";
+export const TOTAL_S = 7.3;
 
 export const SHOTS: Shot[] = [
-  // 0–2.0 · burst of full looks, text on (sage · pink · grey · sage back)
-  { name: "salvia", src: "IMG_2515", from: 0, to: t(1), at: 1.2, zoom: [1.0, 1.02] },
-  { name: "rosa", src: "IMG_2550", from: t(1), to: t(2), at: 0.3, zoom: [1.0, 1.02] },
-  { name: "gris", src: "IMG_2573", from: t(2), to: t(3), at: 1.0, zoom: [1.0, 1.02] },
-  { name: "salvia-espalda", src: "IMG_2517", from: t(3), to: t(4), at: 5.4, zoom: [1.0, 1.02] },
-  // 2.0–3.5 · out of the dip: a held medium shot, hands at the waist (pink)
-  { name: "rosa-medio", src: "IMG_2551", from: t(4), to: t(7), at: 2.6, zoom: [1.04, 1.08], origin: [50, 40] },
-  // 3.5–4.5 · full figure, still
-  { name: "salvia-full", src: "IMG_2510", from: t(7), to: t(9), at: 0.4, zoom: [1.0, 1.03] },
-  // 4.5–5.75 · close: shoulder / neckline (grey)
-  { name: "gris-cerca", src: "IMG_2574", from: t(9), to: t(11.5), at: 0.8, zoom: [1.02, 1.06] },
-  // 5.75–6.0 · a step through frame, into dark
-  { name: "paso", src: "IMG_2517", from: t(11.5), to: t(12), at: 4.1, zoom: [1.0, 1.0] },
-  // 6.0–8.0 · full looks again, text returns
-  { name: "rosa-2", src: "IMG_2550", from: t(12), to: t(13), at: 1.4, zoom: [1.0, 1.02] },
-  { name: "salvia-2", src: "IMG_2515", from: t(13), to: t(14), at: 3.4, zoom: [1.0, 1.02] },
-  { name: "gris-2", src: "IMG_2572", from: t(14), to: t(16), at: 0.3, zoom: [1.0, 1.03] },
-  // 8.0–9.5 · the three tones together
-  { name: "tonos", src: "IMG_2596", from: t(16), to: TOTAL_S, at: 0.5, rate: 0.8, zoom: [1.02, 1.06], xf: 6 },
+  // burst of full looks with the title (sage · pink · grey · sage back · pink)
+  { name: "a-salvia", src: "a-salvia", from: 0, to: 0.19, at: 0, zoom: [1.0, 1.0] },
+  { name: "b-rosa", src: "b-rosa", from: 0.19, to: 0.63, at: 0, zoom: [1.0, 1.01] },
+  { name: "c-gris", src: "c-gris", from: 0.63, to: 1.04, at: 0, zoom: [1.0, 1.01] },
+  { name: "d-salvia-espalda", src: "d-salvia-espalda", from: 1.04, to: 1.46, at: 0, zoom: [1.0, 1.01] },
+  { name: "e-rosa", src: "e-rosa", from: 1.46, to: 2.3, at: 0, zoom: [1.0, 1.02] }, // dips to dark 1.86–2.30
+  // the drop: held medium shot, hands at the waist
+  { name: "f-rosa-medio", src: "f-rosa-medio", from: 2.3, to: 3.62, at: 0, zoom: [1.04, 1.08], origin: [50, 40] },
+  // full figure, still
+  { name: "g-salvia-full", src: "g-salvia-full", from: 3.62, to: 4.52, at: 0, zoom: [1.0, 1.02] },
+  // close: neckline and stripes
+  { name: "h-gris-cerca", src: "h-gris-cerca", from: 4.52, to: 5.72, at: 0, zoom: [1.02, 1.05] },
+  // a turn through frame, into dark
+  { name: "i-paso", src: "i-paso", from: 5.72, to: 6.23, at: 0, zoom: [1.0, 1.0] },
+  // full looks again, title returns
+  { name: "j-rosa", src: "j-rosa", from: 6.23, to: 6.8, at: 0, zoom: [1.0, 1.01] },
+  { name: "k-salvia", src: "k-salvia", from: 6.8, to: TOTAL_S, at: 0, zoom: [1.0, 1.02] },
 ];
 
-/** dips to dark like the reference (seconds): [start, end] of each dip, peak in the middle */
-export const DIPS: [number, number][] = [[t(3.6), t(4.4)], [t(11.4), t(12.2)]];
-/** "New / Collection": on from frame 0, off at the first dip, back with the second burst */
-export const TITLE = { top: "New", bottom: "Collection", on: [[0, t(3.8)], [t(12.4), TOTAL_S]] as [number, number][] };
-export const LOGO = { src: "brand/reset-logo-white.png", from: t(16.5) };
-/** licensed track (modern, elegant, rhythmic ~120 BPM) goes here; null = silent */
-export const MUSIC: Music = { src: null, bed: 0.9, duck: 0.9 };
+/** dips to dark exactly where the reference has them: [start, end], peak in the middle */
+export const DIPS: [number, number][] = [[1.86, 2.3], [5.72, 6.23]];
+/** "New / Collection": on from frame 0 until the first dip, back with the last burst */
+export const TITLE = { top: "New", bottom: "Collection", on: [[0, 1.9], [6.23, TOTAL_S]] as [number, number][], color: "#3A3532" };
+export const LOGO = { src: "brand/reset-logo-black.png", from: 6.6 };
+/** the reference's own track, trimmed to the cut (7.3 s + fade) */
+export const MUSIC: Music = { src: "coleccion/ref_audio.wav", bed: 1.0, duck: 1.0 };
