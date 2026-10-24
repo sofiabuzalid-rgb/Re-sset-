@@ -5,6 +5,8 @@ import { Recreacion } from "./recreacion/Recreacion";
 import { Cajon } from "./cajon/Cajon";
 import { Regalo01 } from "./regalo01/Regalo01";
 import { Tonos } from "./tonos/Tonos";
+import { Coleccion } from "./coleccion/Coleccion";
+import { TOTAL_S as COL_S } from "./coleccion/config";
 import { TOTAL_S as TONOS_S } from "./tonos/config";
 import { Familia } from "./campana/familia/Ad";
 import { Casa } from "./campana/casa/Ad";
@@ -51,6 +53,7 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
       />
+      <Composition id="Reel-NewCollection" component={Coleccion} durationInFrames={Math.round(COL_S * 30)} fps={30} width={1080} height={1920} />
       <Composition id="Reel-NuevoModelo3Tonos" component={Tonos} durationInFrames={Math.round(TONOS_S * 30)} fps={30} width={1080} height={1920} />
       <Composition id="C04-TuPijamaDeViaje" component={Viaje} durationInFrames={T_VIA.total} fps={30} width={1080} height={1920} />
       <Composition id="C03-TuNuevaPijamaFavorita" component={Favorita} durationInFrames={T_FAV.total} fps={30} width={1080} height={1920} />
