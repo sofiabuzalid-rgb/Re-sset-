@@ -1,36 +1,36 @@
-// RE:SET — "New Collection" fashion reel: recreación cuadro a cuadro de la referencia (mismos cortes, misma pista).
-// Tomas: la modelo recortada con BiRefNet sobre blanco de estudio (editor/coleccion/shots.sh → public/coleccion/*.mp4).
-// Cortes sobre los golpes medidos de la pista de referencia (~143 BPM): 0.19 · 0.63 · 1.04 · 1.46 · 1.86 · 2.30 · 3.62 · 4.52 · 5.72 · 6.23 · 6.80
+// RE:SET — "New Collection" fashion reel sobre la pista de la referencia. Todo lo editable vive aquí.
+// Tomas: la modelo recortada con BiRefNet (editor/coleccion/shots.sh) y compuesta en estudio gris claro (compose.py) → public/coleccion.
+// SIN ROSTRO (requisito del cliente): cada toma se encuadra desde abajo para que el borde superior quede bajo el mentón.
+// Cada corte cae en un golpe medido de la pista (librosa, onsets percusivos y bombos):
+//   golpes de intro 0.186 · 0.604 · 1.022 · 1.451 · 1.834 | bombos 2.287 · 3.181 · 4.029 · 4.888 · 5.747 | golpes finales 6.351 · 6.780 · 7.221
 import { Music, Shot } from "../campana/shared";
 
 export const BASE = "coleccion";
-export const TOTAL_S = 7.3;
+export const TOTAL_S = 7.4;
+const FACE: [number, number] = [50, 100]; // crop from the bottom
 
 export const SHOTS: Shot[] = [
-  // NO FACE (client requirement): every shot is cropped from the bottom so the frame's top edge sits below her chin
-  // burst of full looks with the title (sage · pink · grey · sage back · pink)
-  { name: "a-salvia", src: "a-salvia", from: 0, to: 0.19, at: 0, zoom: [1.05, 1.05], origin: [50, 100] },
-  { name: "b-rosa", src: "b-rosa", from: 0.19, to: 0.63, at: 0, zoom: [1.2, 1.21], origin: [50, 100] },
-  { name: "c-gris", src: "c-gris", from: 0.63, to: 1.04, at: 0, zoom: [1.03, 1.04], origin: [50, 100] },
-  { name: "d-salvia-espalda", src: "d-salvia-espalda", from: 1.04, to: 1.46, at: 0, zoom: [1.0, 1.01], origin: [50, 100] },
-  { name: "e-rosa", src: "e-rosa", from: 1.46, to: 2.3, at: 0, zoom: [1.0, 1.02], origin: [50, 100] }, // dips to dark 1.86–2.30
-  // the drop: held medium shot, hands at the waist
-  { name: "f-rosa-medio", src: "f-rosa-medio", from: 2.3, to: 3.62, at: 0, zoom: [1.06, 1.09], origin: [50, 100] },
-  // full figure, still
-  { name: "g-salvia-full", src: "g-salvia-full", from: 3.62, to: 4.52, at: 0, zoom: [1.06, 1.08], origin: [50, 100] },
-  // close: neckline and stripes
-  { name: "h-gris-cerca", src: "h-gris-cerca", from: 4.52, to: 5.72, at: 0, zoom: [1.02, 1.05], origin: [50, 100] },
-  // a turn through frame, into dark
-  { name: "i-paso", src: "i-paso", from: 5.72, to: 6.23, at: 0, zoom: [1.0, 1.0], origin: [50, 100] },
-  // full looks again, title returns
-  { name: "j-rosa", src: "j-rosa", from: 6.23, to: 6.8, at: 0, zoom: [1.2, 1.21], origin: [50, 100] },
-  { name: "k-salvia", src: "k-salvia", from: 6.8, to: TOTAL_S, at: 0, zoom: [1.05, 1.07], origin: [50, 100] },
+  // intro hits — one look per hit, the three tones alternating, title on
+  { name: "a", src: "a", from: 0, to: 0.186, at: 0, zoom: [1.06, 1.06], origin: FACE },
+  { name: "b", src: "b", from: 0.186, to: 0.604, at: 0, zoom: [1.2, 1.21], origin: FACE },
+  { name: "c", src: "c", from: 0.604, to: 1.022, at: 0, zoom: [1.04, 1.05], origin: FACE },
+  { name: "d", src: "d", from: 1.022, to: 1.451, at: 0, zoom: [1.0, 1.01], origin: FACE },
+  { name: "e", src: "e", from: 1.451, to: 2.287, at: 0, zoom: [1.0, 1.03], origin: FACE }, // dips to dark before the drop
+  // the build — one shot per kick, slower and closer
+  { name: "f", src: "f", from: 2.287, to: 3.181, at: 0, zoom: [1.07, 1.11], origin: FACE },
+  { name: "g", src: "g", from: 3.181, to: 4.029, at: 0, zoom: [1.06, 1.1], origin: FACE },
+  { name: "h", src: "h", from: 4.029, to: 4.888, at: 0, zoom: [1.06, 1.09], origin: FACE },
+  { name: "i", src: "i", from: 4.888, to: 5.747, at: 0, zoom: [1.0, 1.04], origin: FACE },
+  { name: "j", src: "j", from: 5.747, to: 6.351, at: 0, zoom: [1.04, 1.08], origin: FACE }, // dips to dark into the final hits
+  // final hits — title returns
+  { name: "k", src: "k", from: 6.351, to: 6.78, at: 0, zoom: [1.06, 1.07], origin: FACE },
+  { name: "l", src: "l", from: 6.78, to: 7.221, at: 0, zoom: [1.2, 1.21], origin: FACE },
+  { name: "m", src: "m", from: 7.221, to: TOTAL_S, at: 0, zoom: [1.05, 1.06], origin: FACE },
 ];
 
-/** dips to dark exactly where the reference has them: [start, end], peak in the middle */
-export const DIPS: [number, number][] = [[1.86, 2.3], [5.72, 6.23]];
-/** "New / Collection": on from frame 0 until the first dip, back with the last burst */
-export const TITLE = { top: "New", bottom: "Collection", on: [[0, 1.9], [6.23, TOTAL_S]] as [number, number][], color: "#3A3532" };
-export const LOGO = { src: "brand/reset-logo-black.png", from: 6.6 };
-/** the reference's own track, trimmed to the cut (7.3 s + fade) */
+/** dips to dark like the reference: [start, end], darkest just before the next hit */
+export const DIPS: [number, number][] = [[1.834, 2.287], [6.05, 6.351]];
+export const TITLE = { top: "New", bottom: "Collection", on: [[0, 1.86], [6.351, TOTAL_S]] as [number, number][], color: "#3A3532" };
+export const LOGO = { src: "brand/reset-logo-black.png", from: 6.78 };
+/** the reference's own track */
 export const MUSIC: Music = { src: "coleccion/ref_audio.wav", bed: 1.0, duck: 1.0 };

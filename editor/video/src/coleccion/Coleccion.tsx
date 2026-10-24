@@ -9,7 +9,7 @@ const SOFT = "0 1px 14px rgba(255,255,255,0.55)";
 
 const Dips: React.FC = () => {
   const f = useCurrentFrame();
-  const o = Math.max(0, ...DIPS.map(([a, b]) => interpolate(f, [F(a), F((a + b) / 2), F(b)], [0, 0.92, 0], clamp)));
+  const o = Math.max(0, ...DIPS.map(([a, b]) => interpolate(f, [F(a), F(b) - 2, F(b)], [0, 0.94, 0], clamp))); // fade down, cut back in on the hit
   return <AbsoluteFill style={{ backgroundColor: "#0d0b0a", opacity: o }} />;
 };
 
