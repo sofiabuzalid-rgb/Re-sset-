@@ -30,7 +30,7 @@ export const SHOTS: Shot[] = [
 
 /** dips to dark like the reference: [start, end], darkest just before the next hit */
 export const DIPS: [number, number][] = [[1.834, 2.287], [6.05, 6.351]];
-export const TITLE = { top: "New", bottom: "Collection", on: [[0, 1.86], [6.351, TOTAL_S]] as [number, number][], color: "#3A3532" };
+export const TITLE = { top: "New", bottom: "Collection", on: [[0, 1.86], [6.351, TOTAL_S + 1]] as [number, number][], color: "#3A3532" };
 export const LOGO = { src: "brand/reset-logo-black.png", from: 6.78 };
 /** the reference's own track */
 export const MUSIC: Music = { src: "coleccion/ref_audio.wav", bed: 1.0, duck: 1.0 };
