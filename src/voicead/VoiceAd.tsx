@@ -13,6 +13,8 @@ import {
 } from "remotion";
 import familia from "./familia.json";
 import familiaSubs from "./familia.subs.json";
+import favorita from "./favorita.json";
+import favoritaSubs from "./favorita.subs.json";
 
 loadFont({
   family: "Montserrat",
@@ -51,6 +53,7 @@ type Shot = {
 type Edit = {
   texts: { from: number; to: number; kind: string; lines: string[] }[];
   subtitleTop: number;
+  kickerTop?: number;
   end: { title: string; places: string[][] };
   shots: Shot[];
 };
@@ -58,6 +61,7 @@ type Sub = { from: number; to: number; text: string };
 
 export const VOICE_ADS = {
   familia: { edit: familia as unknown as Edit, subs: familiaSubs as Sub[] },
+  favorita: { edit: favorita as unknown as Edit, subs: favoritaSubs as Sub[] },
 };
 export type VoiceAdId = keyof typeof VOICE_ADS;
 
@@ -104,7 +108,11 @@ const ShotView: React.FC<{ ad: string; s: Shot & { from: number } }> = ({
 };
 
 /** Graphic kicker: a light serif line over a heavier sans line, never a logo. */
-const Kicker: React.FC<{ lines: string[]; dur: number }> = ({ lines, dur }) => {
+const Kicker: React.FC<{ lines: string[]; dur: number; top: number }> = ({
+  lines,
+  dur,
+  top,
+}) => {
   const f = useCurrentFrame();
   const out = interpolate(f, [dur - 8, dur], [1, 0], clamp);
   return (
@@ -113,7 +121,9 @@ const Kicker: React.FC<{ lines: string[]; dur: number }> = ({ lines, dur }) => {
       style={{
         opacity: out * ramp(f, 0, 4),
         background:
-          "linear-gradient(180deg, rgba(8,5,2,0.55) 0%, rgba(8,5,2,0.35) 22%, rgba(8,5,2,0) 36%)",
+          top < 600
+            ? "linear-gradient(180deg, rgba(8,5,2,0.55) 0%, rgba(8,5,2,0.35) 22%, rgba(8,5,2,0) 36%)"
+            : `radial-gradient(ellipse 70% 12% at 50% ${((top + 90) / 1920) * 100}%, rgba(8,5,2,0.5) 0%, rgba(8,5,2,0) 100%)`,
       }}
     />
     <div
@@ -121,7 +131,7 @@ const Kicker: React.FC<{ lines: string[]; dur: number }> = ({ lines, dur }) => {
         position: "absolute",
         left: 60,
         right: 60,
-        top: 226,
+        top,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -305,7 +315,7 @@ export const VoiceAd: React.FC<{ ad: VoiceAdId }> = ({ ad }) => {
       ))}
       {edit.texts.map((t) => (
         <Sequence key={t.from} from={t.from} durationInFrames={t.to - t.from}>
-          <Kicker lines={t.lines} dur={t.to - t.from} />
+          <Kicker lines={t.lines} dur={t.to - t.from} top={edit.kickerTop ?? 226} />
         </Sequence>
       ))}
       {subs.map((s) => (

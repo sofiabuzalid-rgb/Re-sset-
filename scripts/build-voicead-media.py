@@ -26,8 +26,7 @@ OUT = os.path.join(ROOT, "public", AD)
 FPS, SR = e["fps"], 48000
 os.makedirs(OUT, exist_ok=True)
 run = lambda c: subprocess.run(c, check=True)  # noqa: E731
-FIX = {"reset": "RE:SET", "Reset": "RE:SET", "piama": "pijama", "navidad": "Navidad", "navidad.": "Navidad.",
-       "navidad,": "Navidad,", "jingibre": "jengibre"}
+FIX = {"reset": "RE:SET", "Reset": "RE:SET", "piama": "pijama", "navidad": "Navidad", "jingibre": "jengibre"}
 
 
 def src(n):
@@ -61,6 +60,7 @@ if only and "audio" not in only:
     sys.exit()
 
 # ---------------- subtitles (literal words of the placed segments)
+FIX.update(e.get("fix", {}))  # per-ad proper names, e.g. the store's street as the brand writes it
 subs = []
 WEAK = {"de", "del", "la", "el", "los", "las", "tu", "su", "que", "y", "a", "lo", "se", "con", "en", "por", "para", "una", "un", "es"}
 for v in voice:
@@ -71,11 +71,12 @@ for v in voice:
     first, block = True, []
     for i, w in enumerate(words):
         block.append(w)
-        txt = " ".join(FIX.get(x[2], x[2]) for x in block)
+        txt = " ".join(FIX.get(x[2].rstrip(",."), x[2].rstrip(",.")) + x[2][len(x[2].rstrip(",.")):] for x in block)
         nxt = words[i + 1] if i + 1 < len(words) else None
         nlen = len(txt) + 1 + len(nxt[2]) if nxt else 0
         brk = (nxt is None or (len(txt) > 18 and re.search(r"[,.?!]$", w[2])) or (nxt[0] - w[1] > 0.45)
-               or (nlen > 40 and w[2].lower() not in WEAK))
+               or (nlen > 40 and w[2].lower() not in WEAK
+                   and len(" ".join(x[2] for x in words[i + 1:])) > 14))  # no orphaned last words
         if brk:
             if first:
                 txt = txt[0].upper() + txt[1:]
@@ -135,7 +136,8 @@ mix = np.stack([vtrack, vtrack], 1)
 m = e.get("music")
 if m:
     p = os.path.join(OUT, "_m.wav")
-    run(["ffmpeg", "-y", "-v", "error", "-ss", str(m["offset"]), "-i", os.path.join(SRC, m["file"]), "-ac", "2", "-ar", str(SR), p])
+    mf = os.path.join(OUT, m["file"]) if m.get("local") else os.path.join(SRC, m["file"])
+    run(["ffmpeg", "-y", "-v", "error", "-ss", str(m["offset"]), "-i", mf, "-ac", "2", "-ar", str(SR), p])
     mus = sf.read(p, dtype="float64")[0]
     os.remove(p)
     mus = np.pad(mus, ((0, max(0, L - len(mus))), (0, 0)))[:L]

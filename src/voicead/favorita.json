@@ -1,0 +1,32 @@
+{
+  "fps": 30,
+  "title": "RE:SET — Tu nueva pijama favorita",
+  "note": "Olive basic set only (IMG_9047–9055), never mixed with other models. Voice = IMG_9047 (hook), IMG_9048, IMG_9054 (CTA). Detail cutaways land on the words they illustrate: waist/neckline on 'el color', drawstring on 'la calidad', sleeve/waist on 'lo cómodo'.",
+  "music": {"file": "music.wav", "local": true, "offset": 0, "gain": 0},
+  "voice": [
+    {"src": "IMG_9047", "a": 0.12, "b": 8.85, "at": 0},
+    {"src": "IMG_9048", "a": 0.05, "b": 3.4, "at": 268},
+    {"src": "IMG_9054", "a": 0.35, "b": 4.95, "at": 404}
+  ],
+  "shots": [
+    {"id": "s01", "src": "IMG_9047", "sync": 0, "frames": 96, "zoom": [1.04, 1.1], "focus": [0.5, 0.35], "what": "hook: 'por favor vean este modelo de pijama'"},
+    {"id": "s02", "src": "IMG_9049", "in": 0.0, "frames": 40, "zoom": [1.0, 1.05], "focus": [0.5, 0.4], "what": "neckline and waist detail"},
+    {"id": "s03", "src": "IMG_9047", "sync": 0, "frames": 60, "zoom": [1.1, 1.14], "focus": [0.5, 0.35], "what": "'el color está increíble'"},
+    {"id": "s04", "src": "IMG_9052", "in": 0.2, "frames": 36, "zoom": [1.0, 1.05], "focus": [0.5, 0.55], "what": "'la calidad': drawstring waist"},
+    {"id": "s05", "src": "IMG_9051", "in": 2.0, "frames": 36, "zoom": [1.0, 1.04], "focus": [0.5, 0.5], "what": "'lo cómodo que está': sleeve and waist close"},
+    {"id": "s06", "src": "IMG_9048", "sync": 1, "frames": 106, "zoom": [1.04, 1.08], "focus": [0.5, 0.35], "what": "'el color de la temporada, verde militar'"},
+    {"id": "s07", "src": "IMG_9050", "in": 0.0, "frames": 30, "zoom": [1.06, 1.1], "focus": [0.5, 0.4], "what": "posing, full set"},
+    {"id": "s08", "src": "IMG_9054", "sync": 2, "frames": 144, "zoom": [1.04, 1.08], "focus": [0.5, 0.35], "what": "CTA in her words: the two stores"},
+    {"id": "end", "card": true, "frames": 96, "xf": 8}
+  ],
+  "texts": [
+    {"from": 0, "to": 90, "kind": "kicker", "lines": ["La pijama que", "no te quieres quitar."]}
+  ],
+  "kickerTop": 1150,
+  "subtitleTop": 1390,
+  "fix": {"Steam": "Stim"},
+  "end": {
+    "title": "Encuentra tu próxima pijama favorita",
+    "places": [["Perisur", "Kiosco, planta baja"], ["Av. Stim 39", "Planta baja, local 4"], ["Tienda online", "resetwear.com.mx"]]
+  }
+}
