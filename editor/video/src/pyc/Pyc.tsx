@@ -50,7 +50,7 @@ const Rise: React.FC<{ at: number; children: React.ReactNode; style?: React.CSSP
   const p = interpolate(f, [at, at + dur], [0, 1], { ...clamp, easing: EASE });
   const o = out === undefined ? 1 : interpolate(f, [out - 5, out], [1, 0], clamp);
   return (
-    <div style={{ overflow: "hidden", ...style }}>
+    <div style={{ overflow: "hidden", paddingBottom: "0.12em", marginBottom: "-0.12em", ...style }}>
       <div style={{ transform: `translateY(${(1 - p) * 105}%)`, opacity: o }}>{children}</div>
     </div>
   );
@@ -114,7 +114,7 @@ export const Meet: React.FC = () => {
               <Cutout c={it.c} at={it.at} />
             </AbsoluteFill>
             {/* label: index + name in high-contrast serif + a swatch of the real tone */}
-            <div style={{ position: "absolute", left: 72, top: 1010 }}>
+            <div style={{ position: "absolute", left: 0, top: 1000, padding: "22px 60px 18px 72px", background: "linear-gradient(90deg, rgba(246,243,238,0.94) 0%, rgba(246,243,238,0.88) 70%, rgba(246,243,238,0) 100%)" }}>
               <Rise at={start + 3}>
                 <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
                   <Swatch tone={it.tone} size={26} />

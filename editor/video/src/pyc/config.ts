@@ -22,12 +22,13 @@ export const NAMES: Record<Tone, string> = { blush: "Blush", sage: "Sage", grey:
 /** a cut-out model clip (transparent webm) and how it sits in frame: scale and offsets in px, anchored at the top */
 export type Cut = { src: string; at: number; tone: Tone; scale?: number; x?: number; y?: number };
 export const CUTS: Record<string, Cut> = {
-  blushFront: { src: "blush-front", at: 0.0, tone: "blush" },
-  sageFront: { src: "sage-front", at: 0.0, tone: "sage" },
-  greyFront: { src: "grey-front", at: 0.0, tone: "grey" },
-  blushArms: { src: "blush-arms", at: 0.0, tone: "blush" },
-  sageFront2: { src: "sage-front2", at: 0.0, tone: "sage" },
-  greyCord: { src: "grey-cord", at: 0.0, tone: "grey" },
+  // y < 0 lifts the frame so the top edge sits below her chin; scale keeps the bottom covered (1920·scale + y ≥ 1920)
+  blushFront: { src: "blush-front", at: 0.0, tone: "blush", scale: 1.14, y: -250 },
+  sageFront: { src: "sage-front", at: 0.0, tone: "sage", scale: 1.1, y: -170 },
+  greyFront: { src: "grey-front", at: 0.0, tone: "grey", scale: 1.1, y: -150 },
+  blushArms: { src: "blush-arms", at: 0.0, tone: "blush", scale: 1.12, y: -210 },
+  sageFront2: { src: "sage-front2", at: 0.0, tone: "sage", scale: 1.12, y: -210 },
+  greyCord: { src: "grey-cord", at: 0.0, tone: "grey", scale: 1.0, y: 0 },
 };
 /** detail shots (original takes, garment fills the frame): file in public/tonos, in-point s */
 export const DETAILS = {
