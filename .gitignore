@@ -24,3 +24,5 @@ editor/video/public/campana/media/
 editor/video/public/tonos/
 editor/video/public/coleccion/*.mp4
 editor/coleccion/matte/
+editor/pyc/matte/
+editor/video/public/pyc/*.webm
