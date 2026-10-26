@@ -1,0 +1,254 @@
+{
+  "fps": 30,
+  "title": "RE:SET — Navidad en familia",
+  "note": "Voice = the friend's real takes (docs/reset-hoy/transcripts.json), placed uncut between word boundaries. Shots with sync: k are lip-synced to voice k; the rest are cutaways chosen to show what she names (the green set when she says 'la verde', the white set on 'la blanca', the three sets together on 'combinar con toda tu familia').",
+  "music": {
+    "file": "SPACETRAIN UNLIMITED - Christmas Wonderland.mp3",
+    "offset": 77.0,
+    "gain": 0
+  },
+  "voice": [
+    {
+      "src": "IMG_8944",
+      "a": 0.0,
+      "b": 5.85,
+      "at": 0
+    },
+    {
+      "src": "IMG_8946",
+      "a": 0.45,
+      "b": 13.0,
+      "at": 182,
+      "wfrom": 0
+    },
+    {
+      "src": "IMG_8947",
+      "a": 3.62,
+      "b": 10.3,
+      "at": 563
+    },
+    {
+      "src": "IMG_8949",
+      "a": 0.0,
+      "b": 5.7,
+      "at": 769
+    }
+  ],
+  "shots": [
+    {
+      "id": "s01",
+      "src": "IMG_8944",
+      "sync": 0,
+      "frames": 96,
+      "zoom": [
+        1.18,
+        1.26
+      ],
+      "focus": [
+        0.5,
+        0.42
+      ],
+      "what": "hook: she shows the sets on the bed"
+    },
+    {
+      "id": "s02",
+      "src": "IMG_8960",
+      "in": 1.0,
+      "frames": 80,
+      "zoom": [
+        1.05,
+        1.12
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "the three prints laid side by side ('combinar con toda tu familia')"
+    },
+    {
+      "id": "s03",
+      "src": "IMG_8946",
+      "sync": 1,
+      "frames": 180,
+      "zoom": [
+        1.12,
+        1.18
+      ],
+      "focus": [
+        0.5,
+        0.45
+      ],
+      "what": "'imagínate… tú te pones ésta, tu hijo, tu hermano'"
+    },
+    {
+      "id": "s04",
+      "src": "IMG_8957",
+      "in": 2.5,
+      "frames": 30,
+      "zoom": [
+        1.0,
+        1.06
+      ],
+      "focus": [
+        0.5,
+        0.6
+      ],
+      "what": "'la verde': green gingerbread set"
+    },
+    {
+      "id": "s05",
+      "src": "IMG_8958",
+      "in": 1.1,
+      "frames": 66,
+      "zoom": [
+        1.0,
+        1.05
+      ],
+      "focus": [
+        0.4,
+        0.35
+      ],
+      "what": "'la blanca': white set held up"
+    },
+    {
+      "id": "s06",
+      "src": "IMG_8946",
+      "sync": 1,
+      "frames": 42,
+      "zoom": [
+        1.2,
+        1.24
+      ],
+      "focus": [
+        0.5,
+        0.4
+      ],
+      "what": "'y todos van a estar'"
+    },
+    {
+      "id": "s07",
+      "src": "IMG_8943",
+      "in": 1.0,
+      "frames": 63,
+      "zoom": [
+        1.0,
+        1.04
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "'matching y súper cómodos': jumping on the bed"
+    },
+    {
+      "id": "s08",
+      "src": "IMG_8947",
+      "sync": 2,
+      "frames": 94,
+      "zoom": [
+        1.16,
+        1.2
+      ],
+      "focus": [
+        0.5,
+        0.42
+      ],
+      "what": "'no es la típica pijama que nada más ocupas una vez'"
+    },
+    {
+      "id": "s09",
+      "src": "IMG_9009",
+      "in": 0.3,
+      "frames": 49,
+      "zoom": [
+        1.0,
+        1.05
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "'todo el tiempo': coffee on the terrace"
+    },
+    {
+      "id": "s10",
+      "src": "IMG_8993",
+      "in": 0.6,
+      "frames": 35,
+      "zoom": [
+        1.0,
+        1.04
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "reading on the sofa"
+    },
+    {
+      "id": "s11",
+      "src": "IMG_8932",
+      "in": 2.6,
+      "frames": 34,
+      "zoom": [
+        1.04,
+        1.0
+      ],
+      "focus": [
+        0.5,
+        0.45
+      ],
+      "what": "'súper cómoda': stretching"
+    },
+    {
+      "id": "s12",
+      "src": "IMG_8949",
+      "sync": 3,
+      "frames": 177,
+      "zoom": [
+        1.14,
+        1.2
+      ],
+      "focus": [
+        0.5,
+        0.4
+      ],
+      "what": "CTA in her words"
+    },
+    {
+      "id": "end",
+      "card": true,
+      "frames": 96,
+      "xf": 8
+    }
+  ],
+  "texts": [
+    {
+      "from": 0,
+      "to": 92,
+      "kind": "kicker",
+      "lines": [
+        "Esta Navidad,",
+        "todos combinando."
+      ]
+    }
+  ],
+  "subtitleTop": 470,
+  "end": {
+    "title": "Encuentra sus pijamas de Navidad",
+    "places": [
+      [
+        "Perisur",
+        "Kiosco, planta baja"
+      ],
+      [
+        "Av. Stim 39",
+        "Planta baja, local 4"
+      ],
+      [
+        "Tienda online",
+        "resetwear.com.mx"
+      ]
+    ]
+  }
+}

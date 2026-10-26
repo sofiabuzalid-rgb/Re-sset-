@@ -14,6 +14,7 @@ import {BrownDetail, BROWN_TOTAL} from './brown/BrownDetail';
 import {GreyDetail, GREY_TOTAL} from './grey/GreyDetail';
 import {HotbookRecap, HOTBOOK_TOTAL} from './hotbook/HotbookRecap';
 import {XmasHomeAd, XMASHOME_TOTAL} from './xmashome/XmasHomeAd';
+import {VoiceAd, voiceAdTotal} from './voicead/VoiceAd';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
@@ -56,5 +57,7 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="HotbookBazar" component={HotbookRecap} durationInFrames={HOTBOOK_TOTAL} fps={FPS} width={1080} height={1920} />
 		{/* Meta Ads: "Christmas at Home" — snow VFX behind the windows, the friend's real voice on the print, two-step CTA */}
 		<Composition id="ChristmasAtHome" component={XmasHomeAd} durationInFrames={XMASHOME_TOTAL} fps={FPS} width={1080} height={1920} />
+		{/* Meta Ads 01: "Navidad en familia" — her real words on coordinated prints, literal subtitles, store card */}
+		<Composition id="NavidadEnFamilia" component={VoiceAd} durationInFrames={voiceAdTotal('familia')} fps={FPS} width={1080} height={1920} defaultProps={{ad: 'familia' as const}} />
 	</>
 );
