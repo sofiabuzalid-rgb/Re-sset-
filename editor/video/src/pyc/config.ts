@@ -54,4 +54,5 @@ export const COPY = {
 export const SCENES = { hook: 6, meet: 6, details: 8, swap: 8, decision: 5, cta: 7 };
 /** licensed track (fashion editorial / minimal upbeat, ~160 BPM or 80 half-time) — null = SFX only */
 export const MUSIC: { src: string | null; volume: number } = { src: null, volume: 0.9 };
-export const SFX = { whoosh: "pyc/whoosh.wav", tick: "pyc/tick.wav", volume: 0.55 };
+// sound design off by client request ("odié el sonido"); set enabled: true to bring the whooshes/ticks back
+export const SFX = { enabled: false, whoosh: "pyc/whoosh.wav", tick: "pyc/tick.wav", volume: 0.55 };

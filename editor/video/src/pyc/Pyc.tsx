@@ -285,7 +285,7 @@ export const Cta: React.FC<{ beats?: number }> = ({ beats = SCENES.cta }) => {
 };
 
 /* ---------- sound: SFX on every switch, licensed music slot ---------- */
-const Sfx: React.FC<{ whoosh: number[]; tick: number[] }> = ({ whoosh, tick }) => (
+const Sfx: React.FC<{ whoosh: number[]; tick: number[] }> = ({ whoosh, tick }) => !SFX.enabled ? null : (
   <>
     {whoosh.map((t, i) => (
       <Sequence key={`w${i}`} from={Math.max(0, t - 3)} durationInFrames={12}>
