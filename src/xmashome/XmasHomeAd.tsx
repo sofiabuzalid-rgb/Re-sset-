@@ -205,6 +205,9 @@ const Subtitle: React.FC<{ text: string; dur: number }> = ({ text, dur }) => {
       <div
         style={{
           maxWidth: 880,
+          padding: "10px 22px 12px",
+          borderRadius: 14,
+          background: "rgba(10,6,3,0.34)",
           textAlign: "center",
           fontFamily: SANS,
           fontWeight: 600,
