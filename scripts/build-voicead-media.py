@@ -62,7 +62,7 @@ if only and "audio" not in only:
 # ---------------- subtitles (literal words of the placed segments)
 FIX.update(e.get("fix", {}))  # per-ad proper names, e.g. the store's street as the brand writes it
 subs = []
-WEAK = {"de", "del", "la", "el", "los", "las", "tu", "su", "que", "y", "a", "lo", "se", "con", "en", "por", "para", "una", "un", "es"}
+WEAK = {"de", "del", "te", "le", "les", "mi", "me", "cuando", "la", "el", "los", "las", "tu", "su", "que", "y", "a", "lo", "se", "con", "en", "por", "para", "una", "un", "es"}
 for v in voice:
     # a word belongs to the segment when it ends inside it; "wfrom" overrides when Whisper's first timestamps drift
     words = [w for seg in TR[v["src"]] for w in seg["words"]]

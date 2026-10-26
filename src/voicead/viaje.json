@@ -1,0 +1,34 @@
+{
+  "fps": 30,
+  "title": "RE:SET — Tu pijama de viaje",
+  "note": "Navy basic set + its matching drawstring bag (IMG_8970–8988). Demonstration order: set → bag → suitcase → on the move. Voice = IMG_8974 (benefit) and IMG_8982 (while walking with the suitcase). IMG_8973 is not used: it claims the set 'va a caber en todos los lugares', a space claim the footage cannot prove.",
+  "music": {"file": "music.wav", "local": true, "offset": 0, "gain": 0},
+  "voice": [
+    {"src": "IMG_8974", "a": 0.25, "b": 7.05, "at": 75},
+    {"src": "IMG_8982", "a": 0.15, "b": 3.62, "at": 287}
+  ],
+  "shots": [
+    {"id": "s01", "src": "IMG_8972", "in": 0.6, "frames": 45, "zoom": [1.0, 1.06], "focus": [0.5, 0.55], "what": "hook: the set and its bag"},
+    {"id": "s02", "src": "IMG_8972", "in": 2.4, "frames": 30, "zoom": [1.04, 1.08], "focus": [0.5, 0.55], "what": "folding it into the bag"},
+    {"id": "s03", "src": "IMG_8974", "sync": 0, "frames": 75, "zoom": [1.1, 1.14], "focus": [0.5, 0.4], "what": "'está súper cómoda y súper práctica'"},
+    {"id": "s04", "src": "IMG_8975", "in": 0.0, "frames": 30, "zoom": [1.0, 1.04], "focus": [0.5, 0.5], "what": "'cuando te vayas de viaje': opening the suitcase"},
+    {"id": "s05", "src": "IMG_8976", "in": 0.0, "frames": 46, "zoom": [1.0, 1.05], "focus": [0.5, 0.5], "what": "'en tu maleta': the bag goes in"},
+    {"id": "s06", "src": "IMG_8974", "sync": 0, "frames": 32, "zoom": [1.16, 1.2], "focus": [0.5, 0.5], "what": "'en tu bolsa de mano': she holds the bag"},
+    {"id": "s07", "src": "IMG_8979", "in": 0.0, "frames": 27, "zoom": [1.0, 1.04], "focus": [0.5, 0.5], "what": "'donde tú quieras': closing the suitcase"},
+    {"id": "s08", "src": "IMG_8982", "sync": 1, "frames": 109, "zoom": [1.04, 1.08], "focus": [0.5, 0.45], "what": "walking with the suitcase, talking"},
+    {"id": "s09", "src": "IMG_8986", "in": 4.6, "frames": 45, "zoom": [1.04, 1.08], "focus": [0.5, 0.45], "what": "the navy set, full look"},
+    {"id": "s10", "src": "IMG_8980", "in": 0.3, "frames": 60, "zoom": [1.0, 1.05], "focus": [0.5, 0.45], "what": "sitting by the suitcase, smiling"},
+    {"id": "end", "card": true, "frames": 96, "xf": 8}
+  ],
+  "texts": [
+    {"from": 0, "to": 74, "kind": "kicker", "lines": ["¿Ya viste la bolsita", "que trae esta pijama?"]},
+    {"from": 398, "to": 494, "kind": "kicker", "lines": ["Doblas, guardas,", "te vas."]}
+  ],
+  "kickerTop": 240,
+  "subtitleTop": 1430,
+  "fix": {"literales": "Literal es"},
+  "end": {
+    "title": "Tu pijama favorita, también de viaje",
+    "places": [["Perisur", "Kiosco, planta baja"], ["Av. Stim 39", "Planta baja, local 4"], ["Tienda online", "resetwear.com.mx"]]
+  }
+}

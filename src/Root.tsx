@@ -61,5 +61,7 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="NavidadEnFamilia" component={VoiceAd} durationInFrames={voiceAdTotal('familia')} fps={FPS} width={1080} height={1920} defaultProps={{ad: 'familia' as const}} />
 		{/* Meta Ads 03: "Tu nueva pijama favorita" — olive basic set, her review, detail cutaways on each word */}
 		<Composition id="PijamaFavorita" component={VoiceAd} durationInFrames={voiceAdTotal('favorita')} fps={FPS} width={1080} height={1920} defaultProps={{ad: 'favorita' as const}} />
+		{/* Meta Ads 04: "Tu pijama de viaje" — navy set → its bag → suitcase → on the move */}
+		<Composition id="PijamaDeViaje" component={VoiceAd} durationInFrames={voiceAdTotal('viaje')} fps={FPS} width={1080} height={1920} defaultProps={{ad: 'viaje' as const}} />
 	</>
 );

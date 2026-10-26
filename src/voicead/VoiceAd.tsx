@@ -15,6 +15,8 @@ import familia from "./familia.json";
 import familiaSubs from "./familia.subs.json";
 import favorita from "./favorita.json";
 import favoritaSubs from "./favorita.subs.json";
+import viaje from "./viaje.json";
+import viajeSubs from "./viaje.subs.json";
 
 loadFont({
   family: "Montserrat",
@@ -62,6 +64,7 @@ type Sub = { from: number; to: number; text: string };
 export const VOICE_ADS = {
   familia: { edit: familia as unknown as Edit, subs: familiaSubs as Sub[] },
   favorita: { edit: favorita as unknown as Edit, subs: favoritaSubs as Sub[] },
+  viaje: { edit: viaje as unknown as Edit, subs: viajeSubs as Sub[] },
 };
 export type VoiceAdId = keyof typeof VOICE_ADS;
 
