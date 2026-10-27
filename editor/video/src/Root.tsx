@@ -7,6 +7,7 @@ import { Regalo01 } from "./regalo01/Regalo01";
 import { Tonos } from "./tonos/Tonos";
 import { Outlet } from "./outlet25/Outlet";
 import { Promo } from "./promo/Promo";
+import { Ad01, Ad02, Ad03, Ad04, DUR as ADS_DUR } from "./ads4/Ads";
 import { TOTAL_S as PROMO_S } from "./promo/config";
 import { Outlet2 } from "./outlet25b/Outlet2";
 import { TOTAL_S as OUT2_S } from "./outlet25b/config";
@@ -60,6 +61,10 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
       />
+      <Composition id="AD-01-SENAL" component={Ad01} durationInFrames={ADS_DUR.ad1} fps={30} width={1080} height={1920} />
+      <Composition id="AD-02-POV" component={Ad02} durationInFrames={ADS_DUR.ad2} fps={30} width={1080} height={1920} />
+      <Composition id="AD-03-PRECIO" component={Ad03} durationInFrames={ADS_DUR.ad3} fps={30} width={1080} height={1920} />
+      <Composition id="AD-04-DROP" component={Ad04} durationInFrames={ADS_DUR.ad4} fps={30} width={1080} height={1920} />
       <Composition id="RE-RESET-DESCUENTO" component={Promo} durationInFrames={Math.round(PROMO_S * 30)} fps={30} width={1080} height={1920} />
       <Composition id="RE-RESET-OUTLET-25-v2" component={Outlet2} durationInFrames={Math.round(OUT2_S * 30)} fps={30} width={1080} height={1920} />
       <Composition id="RE-RESET-OUTLET-25" component={Outlet} durationInFrames={Math.round(OUT_S * 30)} fps={30} width={1080} height={1920} />
