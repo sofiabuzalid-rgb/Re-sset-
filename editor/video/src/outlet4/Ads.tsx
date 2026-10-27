@@ -83,7 +83,7 @@ export const OutletAd01: React.FC = () => (
 
     {/* 26–29 s · CTA */}
     <At b0={52} b1={60}>
-      <Grid4 stagger={2} cells={[{ src: "IMG_2842", at: 2.0 }, { src: "IMG_2989", at: 2.0 }, { src: "IMG_2852", at: 1.2 }, { src: "IMG_2995", at: 1.6 }]} />
+      <Grid4 instant cells={[{ src: "IMG_2842", at: 2.0 }, { src: "IMG_2989", at: 2.0 }, { src: "IMG_2852", at: 1.2 }, { src: "IMG_2995", at: 1.6 }]} />
       <EndCard logoTop={790} storeTop={990}>
         <Block top={300}><Words text={"25%\nOFF"} style={{ ...T.mega, fontSize: 200, color: C.lime }} step={2} /></Block>
         <Block top={640}><Words text={"Compra antes\nde que se vayan."} style={{ ...T.serif, fontSize: 76 }} delay={6} step={2} /></Block>
@@ -442,7 +442,7 @@ export const OutletAd04: React.FC = () => (
 
     {/* 30–33.75 s · CTA */}
     <At b0={64} b1={72}>
-      <Grid4 stagger={2} cells={[{ src: "IMG_2842", at: 2.0 }, { src: "IMG_2989", at: 3.0 }, { src: "IMG_2852", at: 1.2 }, { src: "IMG_2995", at: 1.6 }]} />
+      <Grid4 instant cells={[{ src: "IMG_2842", at: 2.0 }, { src: "IMG_2989", at: 3.0 }, { src: "IMG_2852", at: 1.2 }, { src: "IMG_2995", at: 1.6 }]} />
       <EndCard logoTop={800} storeTop={1000}>
         <Block top={330}><Words text={"Compra la tuya\nantes de que se vaya."} style={{ ...T.serif, fontSize: 84 }} step={2} /></Block>
         <Block top={600}><Words text="25% OFF" style={{ ...T.mega, fontSize: 120, color: C.lime }} delay={8} /></Block>

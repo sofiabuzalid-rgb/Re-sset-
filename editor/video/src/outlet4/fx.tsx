@@ -124,7 +124,7 @@ export const Shot: React.FC<
     .join(" ");
   const flash = fin === "flash" ? interpolate(f, [0, 5], [0.85, 0], cl) : 0;
   return (
-    <AbsoluteFill style={{ overflow: "hidden", backgroundColor: C.ink }}>
+    <AbsoluteFill style={{ overflow: "hidden" }}>
       <AbsoluteFill style={{ transform: `translate(${tx}px, ${ty}px) scale(${zoom * s}) rotate(${rot + (flip ? 180 : 0)}deg)`, transformOrigin: `${o[0]}% ${o[1]}%`, filter: filter || undefined }}>
         <Vid src={src} at={at} rate={rate} ramp={ramp} hold={hold} />
       </AbsoluteFill>
@@ -149,9 +149,9 @@ export const FreezeShot: React.FC<Cell & { holdF: number; fin?: Fx }> = ({ holdF
 };
 
 /* ---------- multi-frame layouts ---------- */
-const CellView: React.FC<{ c: Cell; delay: number; d: number; flipIn?: boolean }> = ({ c, delay, d, flipIn }) => {
+const CellView: React.FC<{ c: Cell; delay: number; d: number; flipIn?: boolean; instant?: boolean }> = ({ c, delay, d, flipIn, instant }) => {
   const f = useCurrentFrame();
-  const p = interpolate(f, [delay, delay + 8], [0, 1], { ...cl, easing: overE });
+  const p = instant ? 1 : interpolate(f, [delay, delay + 8], [0, 1], { ...cl, easing: overE });
   const z = interpolate(f, [0, d], c.z ?? [1.0, 1.09], cl);
   return (
     <div style={{ position: "relative", overflow: "hidden", width: "100%", height: "100%", opacity: Math.min(1, p * 1.6), transform: `scale(${0.82 + 0.18 * p}) translateY(${(flipIn ? -1 : 1) * (1 - p) * 60}px)` }}>
@@ -162,8 +162,8 @@ const CellView: React.FC<{ c: Cell; delay: number; d: number; flipIn?: boolean }
   );
 };
 
-/** 2×2 product grid; cells pop in on a stagger and drift; `hi` outlines one cell (frame → index, -1 = none) */
-export const Grid4: React.FC<{ cells: Cell[]; stagger?: number; gap?: number; hi?: (f: number) => number }> = ({ cells, stagger = 4, gap = 8, hi }) => {
+/** 2×2 product grid; cells pop in on a stagger (or are there from the first frame with `instant`) and drift; `hi` outlines one cell (frame → index, -1 = none) */
+export const Grid4: React.FC<{ cells: Cell[]; stagger?: number; gap?: number; hi?: (f: number) => number; instant?: boolean }> = ({ cells, stagger = 4, gap = 8, hi, instant }) => {
   const f = useCurrentFrame();
   const d = useSeg();
   const h = hi ? hi(f) : -1;
@@ -171,7 +171,7 @@ export const Grid4: React.FC<{ cells: Cell[]; stagger?: number; gap?: number; hi
     <AbsoluteFill style={{ backgroundColor: C.ink, display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap, padding: gap, transform: `scale(${interpolate(f, [0, d], [1, 1.04], cl)})` }}>
       {cells.slice(0, 4).map((c, k) => (
         <div key={k} style={{ position: "relative", outline: h === k ? `8px solid ${C.lime}` : "none", outlineOffset: -8, zIndex: h === k ? 2 : 1 }}>
-          <CellView c={c} delay={k * stagger} d={d} />
+          <CellView c={c} delay={k * stagger} d={d} instant={instant} />
         </div>
       ))}
     </AbsoluteFill>
