@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, Img, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
 import { clamp, easeOut, F, StoreBlock, Timeline, Vignette } from "../campana/shared";
-import { BASE, COPY, MODELS, MUSIC, PRICE, SHOTS, TOTAL_S } from "./config";
+import { BASE, COPY, CUT, MODELS, MUSIC, PRICE, SHOTS, TOTAL_S } from "./config";
 
 const GRADE = "contrast(1.07) saturate(1.05) brightness(1.02)";
 const INK = "#151515";
@@ -28,8 +28,8 @@ const Price: React.FC<{ start: number; big?: boolean }> = ({ start, big }) => {
 
 const Hook: React.FC = () => {
   const f = useCurrentFrame();
-  const out = interpolate(f, [F(4.5) - 6, F(4.5)], [1, 0], clamp);
-  const line = interpolate(f, [F(2.5), F(2.5) + 9], [0, 1], { ...clamp, easing: easeOut });
+  const out = interpolate(f, [F(CUT.hookEnd) - 6, F(CUT.hookEnd)], [1, 0], clamp);
+  const line = interpolate(f, [F(CUT.line), F(CUT.line) + 9], [0, 1], { ...clamp, easing: easeOut });
   return (
     <div style={{ position: "absolute", top: 290, left: 60, right: 60, opacity: out }}>
       <div style={{ display: "flex", alignItems: "stretch", gap: 0 }}>
@@ -70,7 +70,7 @@ const Card: React.FC<{ n: string; name: string; from: number; to: number }> = ({
 /** -25% stays in the corner the whole time after the hook */
 const Corner: React.FC = () => {
   const f = useCurrentFrame();
-  const o = Math.min(interpolate(f, [F(4.5), F(4.5) + 6], [0, 1], clamp), interpolate(f, [F(17) - 5, F(17)], [1, 0], clamp));
+  const o = Math.min(interpolate(f, [F(CUT.hookEnd), F(CUT.hookEnd) + 6], [0, 1], clamp), interpolate(f, [F(CUT.cta) - 5, F(CUT.cta)], [1, 0], clamp));
   return <div style={{ position: "absolute", top: 290, right: 50, opacity: o, background: LIME, color: INK, fontFamily: "Montserrat", fontWeight: 900, fontSize: 40, padding: "8px 18px" }}>OUTLET -25%</div>;
 };
 
@@ -115,12 +115,12 @@ export const Outlet2: React.FC = () => (
     <Hook />
     <Corner />
     {MODELS.map((m) => <Card key={m.n} {...m} />)}
-    <Sequence from={F(14)} durationInFrames={F(3)}>
+    <Sequence from={F(CUT.scarcity)} durationInFrames={F(CUT.cta) - F(CUT.scarcity)}>
       <Scarcity />
     </Sequence>
-    <Sequence from={F(17)}>
+    <Sequence from={F(CUT.cta)}>
       <Cta />
     </Sequence>
-    {MUSIC.src && <Audio src={staticFile(MUSIC.src)} volume={(f) => MUSIC.volume * interpolate(f, [F(TOTAL_S) - 20, F(TOTAL_S)], [1, 0], clamp)} />}
+    {MUSIC.src && <Audio src={staticFile(MUSIC.src)} startFrom={F(MUSIC.startAt)} volume={(f) => MUSIC.volume * interpolate(f, [F(TOTAL_S) - 30, F(TOTAL_S)], [1, 0], clamp)} />}
   </AbsoluteFill>
 );
