@@ -29,3 +29,6 @@ editor/video/public/pyc/*.webm
 editor/video/public/outlet/*.mp4
 editor/video/public/promo/*.mp4
 editor/video/public/ads4/
+editor/outlet4/stems/
+editor/video/public/outlet4/
+editor/video/public-lean/

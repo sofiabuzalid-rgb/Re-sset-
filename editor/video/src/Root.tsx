@@ -8,6 +8,8 @@ import { Tonos } from "./tonos/Tonos";
 import { Outlet } from "./outlet25/Outlet";
 import { Promo } from "./promo/Promo";
 import { Ad01, Ad02, Ad03, Ad04, DUR as ADS_DUR } from "./ads4/Ads";
+import { OutletAd01, OutletAd02, OutletAd03, OutletAd04 } from "./outlet4/Ads";
+import { frames as outletFrames } from "./outlet4/config";
 import { TOTAL_S as PROMO_S } from "./promo/config";
 import { Outlet2 } from "./outlet25b/Outlet2";
 import { TOTAL_S as OUT2_S } from "./outlet25b/config";
@@ -61,6 +63,10 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
       />
+      <Composition id="OUTLET-AD01-YA-LLEGO" component={OutletAd01} durationInFrames={outletFrames("ad1")} fps={30} width={1080} height={1920} />
+      <Composition id="OUTLET-AD02-CHAT" component={OutletAd02} durationInFrames={outletFrames("ad2")} fps={30} width={1080} height={1920} />
+      <Composition id="OUTLET-AD03-25-DROP" component={OutletAd03} durationInFrames={outletFrames("ad3")} fps={30} width={1080} height={1920} />
+      <Composition id="OUTLET-AD04-NO-TE-DUERMAS" component={OutletAd04} durationInFrames={outletFrames("ad4")} fps={30} width={1080} height={1920} />
       <Composition id="AD-01-SENAL" component={Ad01} durationInFrames={ADS_DUR.ad1} fps={30} width={1080} height={1920} />
       <Composition id="AD-02-POV" component={Ad02} durationInFrames={ADS_DUR.ad2} fps={30} width={1080} height={1920} />
       <Composition id="AD-03-PRECIO" component={Ad03} durationInFrames={ADS_DUR.ad3} fps={30} width={1080} height={1920} />
