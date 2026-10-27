@@ -168,7 +168,7 @@ export const Grid4: React.FC<{ cells: Cell[]; stagger?: number; gap?: number; hi
   const d = useSeg();
   const h = hi ? hi(f) : -1;
   return (
-    <AbsoluteFill style={{ backgroundColor: C.ink, display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap, padding: gap, transform: `scale(${interpolate(f, [0, d], [1, 1.04], cl)})` }}>
+    <AbsoluteFill style={{ backgroundColor: C.ivory, display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap, padding: gap, transform: `scale(${interpolate(f, [0, d], [1, 1.04], cl)})` }}>
       {cells.slice(0, 4).map((c, k) => (
         <div key={k} style={{ position: "relative", outline: h === k ? `8px solid ${C.lime}` : "none", outlineOffset: -8, zIndex: h === k ? 2 : 1 }}>
           <CellView c={c} delay={k * stagger} d={d} instant={instant} />

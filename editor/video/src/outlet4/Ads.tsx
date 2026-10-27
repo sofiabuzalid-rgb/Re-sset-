@@ -65,11 +65,11 @@ export const OutletAd01: React.FC = () => (
     <At b0={40} b1={41}><Shot src="IMG_2979" at={1.0} fin="zoom" z={[1.2, 1.1]} /></At>
     <At b0={41} b1={42}><Shot src="IMG_2987" at={1.6} fin="snap" /></At>
     <At b0={42} b1={43} pre={5}><Shot src="IMG_2848" at={1.0} fin="whip" /></At>
-    <At b0={43} b1={44}><Shot src="IMG_2984" at={8.0} fin="snap" /></At>
-    <At b0={44} b1={46}><Split3 cells={[{ src: "IMG_2861", at: 0.4 }, { src: "IMG_2985", at: 0.6 }, { src: "IMG_2846", at: 0.8 }]} /></At>
+    <At b0={43} b1={44.5}><Shot src="IMG_2984" at={8.0} fin="snap" /></At>
+    <At b0={44} b1={46} pre={9}><Split3 cells={[{ src: "IMG_2861", at: 0.4 }, { src: "IMG_2985", at: 0.6 }, { src: "IMG_2846", at: 0.8 }]} /></At>
     <At b0={46} b1={47}><Shot src="IMG_2991" at={0.3} fin="zoom" /></At>
-    <At b0={47} b1={48}><Shot src="IMG_2840" at={0.8} fin="snap" /></At>
-    <At b0={48} b1={50}><Split3 cells={[{ src: "IMG_2988", at: 1.0 }, { src: "IMG_2857", at: 1.0 }, { src: "IMG_2989", at: 1.0 }]} /></At>
+    <At b0={47} b1={48.5}><Shot src="IMG_2840" at={0.8} fin="snap" /></At>
+    <At b0={48} b1={50} pre={9}><Split3 cells={[{ src: "IMG_2988", at: 1.0 }, { src: "IMG_2857", at: 1.0 }, { src: "IMG_2989", at: 1.0 }]} /></At>
     <At b0={50} b1={51} pre={5}><Shot src="IMG_2865" at={0.5} fin="whip" /></At>
     <At b0={51} b1={52}><Shot src="IMG_2995" at={3.0} fin="snap" fout="zoom" /></At>
     <At b0={44} b1={52}>
@@ -179,8 +179,8 @@ export const OutletAd02: React.FC = () => (
     {/* 16.8–22.8 s · …y ahora quiero todas. */}
     <At b0={28} b1={30}><Grid4 stagger={2} cells={[{ src: "IMG_2982", at: 0.4 }, { src: "IMG_2846", at: 1.2 }, { src: "IMG_2985", at: 0.7 }, { src: "IMG_2852", at: 1.0 }]} /></At>
     <At b0={30} b1={31}><Shot src="IMG_2989" at={2.0} fin="zoom" /></At>
-    <At b0={31} b1={32}><Shot src="IMG_2861" at={1.0} fin="snap" /></At>
-    <At b0={32} b1={34}><Split3 cells={[{ src: "IMG_2994", at: 2.5 }, { src: "IMG_2987", at: 2.0 }, { src: "IMG_2857", at: 1.5 }]} /></At>
+    <At b0={31} b1={32.5}><Shot src="IMG_2861" at={1.0} fin="snap" /></At>
+    <At b0={32} b1={34} pre={9}><Split3 cells={[{ src: "IMG_2994", at: 2.5 }, { src: "IMG_2987", at: 2.0 }, { src: "IMG_2857", at: 1.5 }]} /></At>
     <At b0={34} b1={35} pre={5}><Shot src="IMG_2984" at={8.2} fin="whip" /></At>
     <At b0={35} b1={36}><Shot src="IMG_2988" at={2.0} fin="snap" /></At>
     <At b0={36} b1={38}><Grid4 stagger={2} cells={[{ src: "IMG_2995", at: 2.5 }, { src: "IMG_2848", at: 1.5 }, { src: "IMG_2866", at: 0.5 }, { src: "IMG_2839", at: 1.2 }]} /></At>
@@ -297,10 +297,10 @@ export const OutletAd03: React.FC = () => (
     {/* 2.3–5.2 s · three pajamas on the beat */}
     <At b0={4} b1={5.5}><Shot src="IMG_2989" at={0.5} fin="zoom" /></At>
     <At b0={5.5} b1={7}><Shot src="IMG_2857" at={0.6} fin="snap" /></At>
-    <At b0={7} b1={9} pre={6}><Shot src="IMG_2852" at={0.4} fin="whip" /></At>
+    <At b0={7} b1={9.5} pre={6}><Shot src="IMG_2852" at={0.4} fin="whip" /></At>
 
     {/* 5.2–9.7 s · vertical split, three products moving */}
-    <At b0={9} b1={13}><Split3 cells={[{ src: "IMG_2982", at: 0.3 }, { src: "IMG_2861", at: 0.4 }, { src: "IMG_2984", at: 7.6 }]} /></At>
+    <At b0={9} b1={13.6} pre={9}><Split3 cells={[{ src: "IMG_2982", at: 0.3 }, { src: "IMG_2861", at: 0.4 }, { src: "IMG_2984", at: 7.6 }]} /></At>
     <At b0={13} b1={17} pre={8}><Split3 cells={[{ src: "IMG_2846", at: 1.0 }, { src: "IMG_2988", at: 1.0 }, { src: "IMG_2848", at: 0.8 }]} /></At>
 
     {/* 9.7–13.7 s · close-ups, small OUTLET */}
