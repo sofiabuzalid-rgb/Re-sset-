@@ -5,10 +5,10 @@
 
 | Archivo | Composición | Duración | Música |
 |---|---|---|---|
-| `OUTLET_AD01_YA_LLEGO.mp4` | `OUTLET-AD01-YA-LLEGO` | 29.0 s | Original, 124 BPM nu-disco / fast fashion (La menor) |
-| `OUTLET_AD02_CHAT.mp4` | `OUTLET-AD02-CHAT` | 31.2 s | Original, 100 BPM pop juguetón cool-girl (Fa mayor) |
+| `OUTLET_AD01_YA_LLEGO.mp4` | `OUTLET-AD01-YA-LLEGO` | 29.1 s | Original, 124 BPM nu-disco / fast fashion (La menor) |
+| `OUTLET_AD02_CHAT.mp4` | `OUTLET-AD02-CHAT` | 31.3 s | Original, 100 BPM pop juguetón cool-girl (Fa mayor) |
 | `OUTLET_AD03_25_DROP.mp4` | `OUTLET-AD03-25-DROP` | 29.8 s | Afro house de Pixabay (la que mandaste), desde su drop (18.9 s) |
-| `OUTLET_AD04_NO_TE_DUERMAS.mp4` | `OUTLET-AD04-NO-TE-DUERMAS` | 33.75 s | Original: caja de música (canción de cuna de Brahms, dominio público) → alarma → pop-EDM 128 BPM |
+| `OUTLET_AD04_NO_TE_DUERMAS.mp4` | `OUTLET-AD04-NO-TE-DUERMAS` | 33.8 s | Original: caja de música (canción de cuna de Brahms, dominio público) → alarma → pop-EDM 128 BPM |
 
 Render y QC: `editor/outlet4/render.sh <Composición> <archivo.mp4>`. Medios: `editor/outlet4/prepare.sh <carpeta con los .MOV> <afro_house.mp3>` (convierte HDR→SDR y genera la música con `music.py`).
 
@@ -64,6 +64,10 @@ Render y QC: `editor/outlet4/render.sh <Composición> <archivo.mp4>`. Medios: `e
 | 22.50–26.25 | Drop: una pijama distinta en cada golpe ("10", "19", rojo, duendes, esquí, SF, rayas, gorros) | |
 | 26.25–30.00 | Grupo empaquetado + cinta lima | **25% OFF** · **OUTLET RE:SET** |
 | 30.00–33.75 | Grilla atenuada + cierre | *Compra la tuya antes de que se vaya.* · 25% OFF · logo · tiendas · web |
+
+## QC final (los cuatro MP4)
+- Decodifican completos, 0 cuadros negros u oscuros (revisado cuadro por cuadro), sin congelados ni silencios no buscados, -13.1 a -14.8 LUFS, picos ≤ -1.8 dBFS.
+- Revisados completos en hojas de un cuadro cada 0.5 s; los cortes caen en la grilla de beat/medio beat (whips y pushes arrancan unos cuadros antes para aterrizar en el golpe).
 
 ## Test de retención (los cuatro)
 - **Segundo 1:** hook ya en pantalla en el primer cuadro (texto grande, notificación de chat o el "25").
