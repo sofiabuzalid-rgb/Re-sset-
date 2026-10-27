@@ -4,16 +4,18 @@
 
 export const FPS = 30;
 
-/** each ad: its own tempo and track. AD1, AD2, AD4 are original (editor/outlet4/music.py); AD3 is the client's Pixabay afro house from its drop. */
+/** each ad: its own tempo and track. AD1 and AD4 are original (editor/outlet4/music.py); AD2 uses the audio of the reference reel the client sent;
+ *  AD3 is the client's Pixabay afro house from its drop. `off` = seconds from the first frame to beat 0 (the reel's audio has a free-time intro). */
 export const ADS = {
-  ad1: { B: 60 / 124, beats: 60, music: "outlet4/audio/ad1_ya_llego.wav", startS: 0 },
-  ad2: { B: 0.6, beats: 52, music: "outlet4/audio/ad2_chat.wav", startS: 0 },
-  ad3: { B: 0.5725, beats: 52, music: "outlet4/audio/afrohouse.mp3", startS: 18.918 },
-  ad4: { B: 60 / 128, beats: 72, music: "outlet4/audio/ad4_no_te_duermas.wav", startS: 0 },
+  ad1: { B: 60 / 124, off: 0, beats: 60, music: "outlet4/audio/ad1_ya_llego.wav", startS: 0 },
+  // 106.01 BPM, fitted on the steady part of the track (max error 13 ms): beat 5 = the hit at 3.18 s, beat 13 = the drop at 7.71 s, beat 46 = the outro at 26.39 s
+  ad2: { B: 0.56599, off: 0.3521, beats: 50, music: "outlet4/audio/ad2_ref.wav", startS: 0 },
+  ad3: { B: 0.5725, off: 0, beats: 52, music: "outlet4/audio/afrohouse.mp3", startS: 18.918 },
+  ad4: { B: 60 / 128, off: 0, beats: 72, music: "outlet4/audio/ad4_no_te_duermas.wav", startS: 0 },
 } as const;
 
 export type AdKey = keyof typeof ADS;
-export const frames = (k: AdKey) => Math.round(ADS[k].beats * ADS[k].B * FPS);
+export const frames = (k: AdKey) => Math.round((ADS[k].off + ADS[k].beats * ADS[k].B) * FPS);
 
 /** seconds of usable footage per clip (seeks are clamped to this) */
 export const CLIP_DUR: Record<string, number> = {
@@ -36,6 +38,6 @@ Clasificación del material (pijama · plano · uso):
   Fútbol (playera+short)  2982/2991 Brasil · 2984 "10" azulgrana · 2985 celeste · 2983 blanca/verde · 2986/2987 rayas rojas · 2988 roja "19" · 2989 rayas "10"
                           2979 grupo empaquetado (paneo) · 2980 paneo rápido (transición) · 2981 cuatro conjuntos en grilla
   SF .................... 2995 conjunto rojo · NFL en gancho 2037/2038/2039/2040
-  Manos en cuadro (revisado cada 0.4 s): tramos limpios 2983 4.8–6.2 · 2984 2.0–3.4 y 7.6–9.4 · 2985 0–2.6 y 6.0–8.8 · 2987 1.6– · 2988 0–4.0 y 6.4– · 2995 1.6–
+  Manos en cuadro (revisado cada 0.4 s): tramos limpios 2983 4.8–6.2 · 2984 2.0–3.4 y 7.6–9.4 · 2985 0–2.6 y 6.4–8.8 · 2987 1.6– · 2988 0–4.0 y 6.4– · 2995 1.6–
   Duplicados: 2979≈2980, 2982≈2991, 2986≈2987, 2839≈2840, 2848≈2852, 2861/2862/2863, 2865≈2866; en Drive, copy_86ECF4FC es el video de referencia.
 */

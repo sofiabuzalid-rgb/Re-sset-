@@ -17,12 +17,13 @@ export const overE = Easing.bezier(0.34, 1.56, 0.64, 1);
 const SH = "0 4px 30px rgba(0,0,0,0.45)";
 
 /* ---------- beat clock + segment length ---------- */
-const BeatCtx = createContext(0.5);
+const BeatCtx = createContext({ B: 0.5, off: 0 });
 const SegCtx = createContext(30);
-export const BeatProvider: React.FC<{ B: number; children: React.ReactNode }> = ({ B, children }) => <BeatCtx.Provider value={B}>{children}</BeatCtx.Provider>;
+export const BeatProvider: React.FC<{ B: number; off?: number; children: React.ReactNode }> = ({ B, off = 0, children }) => <BeatCtx.Provider value={{ B, off }}>{children}</BeatCtx.Provider>;
+/** f(beat) → frame on the ad's timeline (`off` shifts beat 0 to where the track's pulse starts); d(beats) → a length in frames, for timing inside a block */
 export const useBeat = () => {
-  const B = useContext(BeatCtx);
-  return { B, f: (b: number) => Math.round(b * B * FPS) };
+  const { B, off } = useContext(BeatCtx);
+  return { B, f: (b: number) => Math.round((off + b * B) * FPS), d: (b: number) => Math.round(b * B * FPS) };
 };
 export const useSeg = () => useContext(SegCtx);
 
@@ -204,7 +205,7 @@ export type Card = Cell & { b: number; x: number; y: number; w: number; h: numbe
 /** fashion collage: framed product cards land on the beat over a blurred backdrop, with a little parallax */
 export const Collage: React.FC<{ bg?: Cell; bgColor?: string; cards: Card[]; frame?: string }> = ({ bg, bgColor = C.ivory, cards, frame = C.ivory }) => {
   const f = useCurrentFrame();
-  const { f: bf } = useBeat();
+  const { d: bf } = useBeat();
   return (
     <AbsoluteFill style={{ backgroundColor: bgColor, overflow: "hidden" }}>
       {bg && (

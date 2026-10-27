@@ -9,7 +9,7 @@ import {
 const Frame: React.FC<{ k: AdKey; children: React.ReactNode }> = ({ k, children }) => {
   const A = ADS[k];
   return (
-    <BeatProvider B={A.B}>
+    <BeatProvider B={A.B} off={A.off}>
       <AbsoluteFill style={{ backgroundColor: C.ink, overflow: "hidden" }}>
         <BlurDefs />
         {children}
@@ -110,13 +110,13 @@ export const OutletAd01: React.FC = () => (
 );
 
 /* =====================================================================================
-   AD 02 · CHAT DE AMIGAS — playful cool-girl, 100 BPM, 52 beats (31.2 s)
+   AD 02 · CHAT DE AMIGAS — on the reference reel's audio, 106 BPM; beat 0 = 0.35 s, the hit at beat 5 (3.18 s), the drop at beat 13 (7.71 s), 28.7 s
    ===================================================================================== */
 const PhoneDive: React.FC = () => {
-  // the chat, then the phone dives into the link preview (zoom-blur) and smash-cuts to the pajamas
+  // the chat, then the phone dives into the link preview (zoom-blur) and smash-cuts to the pajamas on the track's hit
   const f = useCurrentFrame();
   const { f: bf } = useBeat();
-  const p = interpolate(f, [bf(6.4), bf(8)], [0, 1], { ...cl, easing: Easing.in(Easing.cubic) });
+  const p = interpolate(f, [bf(3.9), bf(5)], [0, 1], { ...cl, easing: Easing.in(Easing.cubic) });
   return (
     <AbsoluteFill>
       <AbsoluteFill style={{ filter: "blur(24px) brightness(0.55)", transform: "scale(1.2)" }}>
@@ -126,42 +126,49 @@ const PhoneDive: React.FC = () => {
         <Phone x={110} y={270} w={860} h={1290}>
           <Chat
             name="Majo"
-            typing={[-1, 2.25]}
-            tap={6}
+            typing={[-2, 0.95]}
+            tap={3.7}
             msgs={[
-              { b: -0.5, side: "in", text: "¿Ya viste el outlet?" }, // already on screen in the first frame
-              { b: 1.75, side: "out", text: "¿Cuál outlet?" },
-              { b: 3.25, side: "in", text: "RE:SET. 25% OFF.", link: { src: "IMG_2981", at: 0.6, title: "Outlet de pijamas · RE:SET", domain: "resetwear.com.mx" } },
-              { b: 4.75, side: "out", text: "ABRIENDO LA PÁGINA YA." },
+              { b: -1, side: "in", text: "¿Ya viste el outlet?" }, // already on screen in the first frame
+              { b: 0.45, side: "out", text: "¿Cuál outlet?" },
+              { b: 1.7, side: "in", text: "RE:SET. 25% OFF.", link: { src: "IMG_2981", at: 0.6, title: "Outlet de pijamas · RE:SET", domain: "resetwear.com.mx" } },
+              { b: 2.9, side: "out", text: "ABRIENDO LA PÁGINA YA." },
             ]}
           />
         </Phone>
       </AbsoluteFill>
-      <AbsoluteFill style={{ background: "#fff", opacity: interpolate(f, [bf(7.6), bf(8)], [0, 0.8], cl) }} />
+      <AbsoluteFill style={{ background: "#fff", opacity: interpolate(f, [bf(4.6), bf(5)], [0, 0.8], cl) }} />
     </AbsoluteFill>
   );
 };
 
 export const OutletAd02: React.FC = () => (
   <Frame k="ad2">
-    {/* 0–4.8 s · the chat */}
-    <At b0={0} b1={8}><PhoneDive /></At>
+    {/* 0–3.2 s · the chat (the track's free intro); smash out on its first hit */}
+    <At b0={-0.63} b1={5}><PhoneDive /></At>
 
-    {/* 4.8–10 s · zoom blur → whip → cut, 25% OFF over the pajamas */}
-    <At b0={8} b1={9.5}><Shot src="IMG_2846" at={0.6} fin="zoom" /></At>
-    <At b0={9.5} b1={11} pre={6}><Shot src="IMG_2984" at={7.6} fin="whip" /></At>
-    <At b0={11} b1={12.5}><Shot src="IMG_2852" at={0.4} fin="snap" /></At>
-    <At b0={12.5} b1={14}><Shot src="IMG_2994" at={2.5} fin="zoom" z={[1.3, 1.15]} /></At>
-    <At b0={14} b1={15.5} pre={6}><Shot src="IMG_2988" at={0.7} fin="whip" /></At>
-    <At b0={15.5} b1={17}><Shot src="IMG_2861" at={0.3} fin="snap" fout="zoom" /></At>
-    <At b0={8.5} b1={16.5}><Block top={480}><Words text={"25%\nOFF"} style={{ ...T.mega, fontSize: 330, color: C.lime }} step={3} /></Block></At>
+    {/* 3.2–7.7 s · build-up: zoom blur → whip → cut, 25% OFF over the pajamas */}
+    <At b0={5} b1={6.5}><Shot src="IMG_2846" at={0.6} fin="zoom" /></At>
+    <At b0={6.5} b1={8} pre={6}><Shot src="IMG_2984" at={7.6} fin="whip" /></At>
+    <At b0={8} b1={9}><Shot src="IMG_2852" at={0.4} fin="snap" /></At>
+    <At b0={9} b1={10.5}><Shot src="IMG_2994" at={2.5} fin="zoom" z={[1.3, 1.15]} /></At>
+    <At b0={10.5} b1={12} pre={6}><Shot src="IMG_2988" at={0.7} fin="whip" /></At>
+    <At b0={12} b1={13}><Shot src="IMG_2861" at={0.3} fin="snap" fout="zoom" /></At>
+    <At b0={5.5} b1={13}><Block top={480}><Words text={"25%\nOFF"} style={{ ...T.mega, fontSize: 330, color: C.lime }} step={3} exit={3} /></Block></At>
+
+    {/* 7.7–10 s · the drop: a pajama on every beat, 25% OFF slams back in */}
+    <At b0={13} b1={14}><Shot src="IMG_2989" at={1.0} fin="zoom" /></At>
+    <At b0={14} b1={15}><Shot src="IMG_2857" at={1.5} fin="snap" /></At>
+    <At b0={15} b1={16}><Shot src="IMG_2985" at={0.6} fin="snap" /></At>
+    <At b0={16} b1={17}><Shot src="IMG_2991" at={0.4} fin="snap" fout="zoom" /></At>
+    <At b0={13} b1={17}><Block top={480}><Words text={"25%\nOFF"} style={{ ...T.mega, fontSize: 360, color: C.lime }} step={0} /></Block></At>
 
     {/* 10–16.8 s · collage + "Yo diciendo que solo iba a ver…" */}
-    <At b0={17} b1={28}>
+    <At b0={17} b1={29}>
       <Collage
         bg={{ src: "IMG_2979", at: 1.0 }}
         cards={[
-          { src: "IMG_2985", at: 6.0, b: 0, x: 70, y: 520, w: 440, h: 720, r: -4 },
+          { src: "IMG_2985", at: 6.4, b: 0, x: 70, y: 520, w: 440, h: 720, r: -4 },
           { src: "IMG_2857", at: 0.8, b: 1, x: 570, y: 480, w: 440, h: 730, r: 3 },
           { src: "IMG_2989", at: 1.0, b: 2, x: 310, y: 760, w: 460, h: 740, r: -2, depth: 1.4 },
           { src: "IMG_2840", at: 0.8, b: 3, x: 50, y: 880, w: 430, h: 640, r: 5 },
@@ -174,17 +181,17 @@ export const OutletAd02: React.FC = () => (
         ]}
       />
     </At>
-    <At b0={17.5} b1={28}><Shade top={250} h={330} o={0.5} /><Block top={290}><Words text={"Yo diciendo que\nsolo iba a ver…"} style={{ ...T.serif, fontSize: 92 }} step={2} /></Block></At>
+    <At b0={17.5} b1={29}><Shade top={250} h={330} o={0.5} /><Block top={290}><Words text={"Yo diciendo que\nsolo iba a ver…"} style={{ ...T.serif, fontSize: 92 }} step={2} /></Block></At>
 
-    {/* 16.8–22.8 s · …y ahora quiero todas. */}
-    <At b0={28} b1={30}><Grid4 stagger={2} cells={[{ src: "IMG_2982", at: 0.4 }, { src: "IMG_2846", at: 1.2 }, { src: "IMG_2985", at: 0.7 }, { src: "IMG_2852", at: 1.0 }]} /></At>
-    <At b0={30} b1={31}><Shot src="IMG_2989" at={2.0} fin="zoom" /></At>
-    <At b0={31} b1={32.5}><Shot src="IMG_2861" at={1.0} fin="snap" /></At>
-    <At b0={32} b1={34} pre={9}><Split3 cells={[{ src: "IMG_2994", at: 2.5 }, { src: "IMG_2987", at: 2.0 }, { src: "IMG_2857", at: 1.5 }]} /></At>
-    <At b0={34} b1={35} pre={5}><Shot src="IMG_2984" at={8.2} fin="whip" /></At>
-    <At b0={35} b1={36}><Shot src="IMG_2988" at={2.0} fin="snap" /></At>
-    <At b0={36} b1={38}><Grid4 stagger={2} cells={[{ src: "IMG_2995", at: 2.5 }, { src: "IMG_2848", at: 1.5 }, { src: "IMG_2866", at: 0.5 }, { src: "IMG_2839", at: 1.2 }]} /></At>
-    <At b0={28.5} b1={37.5}>
+    {/* 16.8–22.4 s · …y ahora quiero todas. */}
+    <At b0={29} b1={31}><Grid4 stagger={2} cells={[{ src: "IMG_2982", at: 0.4 }, { src: "IMG_2846", at: 1.2 }, { src: "IMG_2985", at: 0.7 }, { src: "IMG_2852", at: 1.0 }]} /></At>
+    <At b0={31} b1={32}><Shot src="IMG_2989" at={2.0} fin="zoom" /></At>
+    <At b0={32} b1={33.5}><Shot src="IMG_2861" at={1.0} fin="snap" /></At>
+    <At b0={33} b1={35} pre={9}><Split3 cells={[{ src: "IMG_2994", at: 2.5 }, { src: "IMG_2987", at: 2.0 }, { src: "IMG_2857", at: 1.5 }]} /></At>
+    <At b0={35} b1={36} pre={5}><Shot src="IMG_2984" at={8.2} fin="whip" /></At>
+    <At b0={36} b1={37}><Shot src="IMG_2988" at={2.0} fin="snap" /></At>
+    <At b0={37} b1={39}><Grid4 stagger={2} cells={[{ src: "IMG_2995", at: 2.5 }, { src: "IMG_2848", at: 1.5 }, { src: "IMG_2866", at: 0.5 }, { src: "IMG_2839", at: 1.2 }]} /></At>
+    <At b0={29.5} b1={38.5}>
       <Shade top={640} h={520} o={0.6} />
       <Block top={700}>
         <Words text="…y ahora" style={{ ...T.serif, fontSize: 96 }} step={2} />
@@ -192,21 +199,21 @@ export const OutletAd02: React.FC = () => (
       </Block>
     </At>
 
-    {/* 22.8–28.2 s · hero product: OUTLET RE:SET / 25% OFF */}
-    <At b0={38} b1={41}><FreezeShot src="IMG_2842" at={1.0} holdF={8} z={[1.0, 1.1]} /></At>
-    <At b0={41} b1={44} pre={6}><Shot src="IMG_2989" at={0.8} fin="whip" z={[1.08, 1.0]} /></At>
-    <At b0={44} b1={47}><Shot src="IMG_2861" at={0.4} fin="zoom" z={[1.0, 1.12]} /></At>
-    <At b0={38.5} b1={46.5}>
+    {/* 22.4–26.4 s · hero product: OUTLET RE:SET / 25% OFF */}
+    <At b0={39} b1={42}><FreezeShot src="IMG_2842" at={1.0} holdF={8} z={[1.0, 1.1]} /></At>
+    <At b0={42} b1={44} pre={6}><Shot src="IMG_2989" at={0.8} fin="whip" z={[1.08, 1.0]} /></At>
+    <At b0={44} b1={46}><Shot src="IMG_2861" at={0.4} fin="zoom" z={[1.0, 1.12]} /></At>
+    <At b0={39.5} b1={45.5}>
       <Shade top={250} h={640} o={0.5} />
       <Block top={300}>
         <Words text="OUTLET RE:SET" style={{ ...T.mega, fontSize: 104 }} step={2} />
         <Words text="25% OFF" style={{ ...T.mega, fontSize: 200, color: C.lime, marginTop: 8 }} delay={5} step={3} />
       </Block>
     </At>
-    <Corner b0={17} b1={38} />
+    <Corner b0={17} b1={39} />
 
-    {/* 28.2–31.2 s · CTA */}
-    <At b0={47} b1={52}>
+    {/* 26.4–28.7 s · CTA over the outro */}
+    <At b0={46} b1={50}>
       <Shot src="IMG_2852" at={1.0} z={[1.05, 1.15]} />
       <EndCard logoTop={800} storeTop={1000}>
         <Block top={330}><Words text={"Ve por\nla tuya."} style={{ ...T.serif, fontSize: 150 }} step={2} /></Block>
@@ -214,27 +221,27 @@ export const OutletAd02: React.FC = () => (
       </EndCard>
     </At>
 
-    {/* sound design */}
-    <Sfx b={0} name="notif" vol={0.5} />
-    <Sfx b={1.75} name="pop" vol={0.45} />
-    <Sfx b={3.25} name="notif" vol={0.5} />
-    <Sfx b={4.75} name="pop" vol={0.45} />
-    <Sfx b={6} name="click" vol={0.55} />
-    <Sfx b={6.6} name="whoosh" vol={0.5} />
-    <Sfx b={9.5} name="swipe" off={-6} vol={0.4} />
-    <Sfx b={11} name="click" vol={0.35} />
-    <Sfx b={12.5} name="whoosh" off={-4} vol={0.35} />
-    <Sfx b={14} name="swipe" off={-6} vol={0.4} />
-    <Sfx b={15.5} name="click" vol={0.35} />
-    {[17, 18, 19, 20, 21, 22.5, 23.5, 24.5, 25.5, 26.5].map((b) => <Sfx key={b} b={b} name="pop" vol={0.2} />)}
-    <Sfx b={28} name="whoosh" off={-4} vol={0.4} />
-    <Sfx b={30} name="whoosh" off={-4} vol={0.3} />
-    {[32, 34].map((b) => <Sfx key={b} b={b} name="swipe" off={-5} vol={0.3} />)}
-    <Sfx b={36} name="pop" vol={0.3} />
-    <Sfx b={38} name="snap" vol={0.6} />
-    <Sfx b={41} name="swipe" off={-6} vol={0.35} />
-    <Sfx b={44} name="whoosh" off={-4} vol={0.35} />
-    <Sfx b={47} name="pop" vol={0.35} />
+    {/* sound design (quieter: the track is a full mix) */}
+    <Sfx b={-0.62} name="notif" vol={0.4} />
+    <Sfx b={0.45} name="pop" vol={0.35} />
+    <Sfx b={1.7} name="notif" vol={0.4} />
+    <Sfx b={2.9} name="pop" vol={0.35} />
+    <Sfx b={3.7} name="click" vol={0.45} />
+    <Sfx b={4.0} name="whoosh" vol={0.4} />
+    <Sfx b={6.5} name="swipe" off={-6} vol={0.3} />
+    <Sfx b={8} name="click" vol={0.28} />
+    <Sfx b={9} name="whoosh" off={-4} vol={0.28} />
+    <Sfx b={10.5} name="swipe" off={-6} vol={0.3} />
+    <Sfx b={12} name="click" vol={0.28} />
+    {[17, 18, 19, 20, 21, 22.5, 23.5, 24.5, 25.5, 26.5].map((b) => <Sfx key={b} b={b} name="pop" vol={0.16} />)}
+    <Sfx b={29} name="whoosh" off={-4} vol={0.3} />
+    <Sfx b={31} name="whoosh" off={-4} vol={0.25} />
+    {[33, 35].map((b) => <Sfx key={b} b={b} name="swipe" off={-5} vol={0.25} />)}
+    <Sfx b={37} name="pop" vol={0.25} />
+    <Sfx b={39} name="snap" vol={0.5} />
+    <Sfx b={42} name="swipe" off={-6} vol={0.3} />
+    <Sfx b={44} name="whoosh" off={-4} vol={0.3} />
+    <Sfx b={46} name="pop" vol={0.3} />
   </Frame>
 );
 
@@ -269,7 +276,7 @@ const Opener25: React.FC = () => {
 
 const MaskIntoCollage: React.FC = () => {
   // the last close-up plays on while a "25" full of the new collage grows over it and swallows the frame
-  const { f: bf } = useBeat();
+  const { d: bf } = useBeat();
   return (
     <AbsoluteFill>
       <At b0={0} b1={1.4}><Shot src="IMG_2862" at={2.0} z={[1.1, 1.2]} /></At>
@@ -472,12 +479,12 @@ export const OutletAd04: React.FC = () => (
 
 /** the second grid: new pajamas, and in the last bar a lime frame jumps between them on every half beat ("elige rápido") */
 const GridChoose: React.FC = () => {
-  const { f: bf } = useBeat();
+  const { d: bf } = useBeat();
   const half = bf(0.5);
   return (
     <Grid4
       stagger={2}
-      cells={[{ src: "IMG_2985", at: 6.0 }, { src: "IMG_2846", at: 2.0 }, { src: "IMG_2989", at: 2.5 }, { src: "IMG_2857", at: 2.0 }]}
+      cells={[{ src: "IMG_2985", at: 6.4 }, { src: "IMG_2846", at: 2.0 }, { src: "IMG_2989", at: 2.5 }, { src: "IMG_2857", at: 2.0 }]}
       hi={(fr) => (fr >= bf(4) ? [0, 3, 1, 2][Math.floor((fr - bf(4)) / half) % 4] : -1)}
     />
   );

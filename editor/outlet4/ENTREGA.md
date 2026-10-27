@@ -6,14 +6,15 @@
 | Archivo | Composición | Duración | Música |
 |---|---|---|---|
 | `OUTLET_AD01_YA_LLEGO.mp4` | `OUTLET-AD01-YA-LLEGO` | 29.1 s | Original, 124 BPM nu-disco / fast fashion (La menor) |
-| `OUTLET_AD02_CHAT.mp4` | `OUTLET-AD02-CHAT` | 31.3 s | Original, 100 BPM pop juguetón cool-girl (Fa mayor) |
+| `OUTLET_AD02_CHAT.mp4` | `OUTLET-AD02-CHAT` | 28.7 s | Audio del reel de referencia que mandaste (`copy_86ECF4FC…`), 106 BPM |
 | `OUTLET_AD03_25_DROP.mp4` | `OUTLET-AD03-25-DROP` | 29.8 s | Afro house de Pixabay (la que mandaste), desde su drop (18.9 s) |
 | `OUTLET_AD04_NO_TE_DUERMAS.mp4` | `OUTLET-AD04-NO-TE-DUERMAS` | 33.8 s | Original: caja de música (canción de cuna de Brahms, dominio público) → alarma → pop-EDM 128 BPM |
 
 Render y QC: `editor/outlet4/render.sh <Composición> <archivo.mp4>`. Medios: `editor/outlet4/prepare.sh <carpeta con los .MOV> <afro_house.mp3>` (convierte HDR→SDR y genera la música con `music.py`).
 
 ## Música y sonido
-- **AD01, AD02 y AD04 son composiciones originales hechas en código** (`editor/outlet4/music.py`): son de RE:SET, sin licencias de terceros. La red de este entorno no permite descargar de bibliotecas de música (Pixabay, Artlist, FreePD, etc.), por eso se compusieron. Si prefieres pistas de una biblioteca con licencia, se reemplazan en `config.ts` (`music`) y los cortes se recalculan con su BPM.
+- **AD02 usa el audio del reel de referencia**, como pediste. ⚠️ No sabemos de quién es esa música ni con qué licencia: si es una canción comercial o un audio de la biblioteca de Instagram, **no está licenciada para anuncios pagados** y Meta puede silenciar o rechazar el anuncio. Confirma el origen antes de pautarlo; la pista original de 100 BPM (`ad2_chat.wav`) sigue en el proyecto como respaldo.
+- **AD01 y AD04 son composiciones originales hechas en código** (`editor/outlet4/music.py`): son de RE:SET, sin licencias de terceros. La red de este entorno no permite descargar de bibliotecas de música (Pixabay, Artlist, FreePD, etc.), por eso se compusieron. Si prefieres pistas de una biblioteca con licencia, se reemplazan en `config.ts` (`music`) y los cortes se recalculan con su BPM.
 - **AD03** usa la afro house de Pixabay que mandaste antes (licencia Pixabay: uso comercial permitido).
 - SFX también originales (whoosh, swipe, click, pop, obturador, notificación, alarma), discretos y solo en chat, apariciones del 25% y cambios de producto.
 - Cada corte, texto y drop cae en un golpe de la pista (todo el timeline está escrito en beats).
@@ -30,15 +31,17 @@ Render y QC: `editor/outlet4/render.sh <Composición> <archivo.mp4>`. Medios: `e
 | 19.35–25.16 | Ráfaga: un producto por golpe (grupo empaquetado, rayas rojas, esquí, "10", Brasil, duendes, olivo, SF) + dos split screens verticales | *Tus favoritas están en* **OUTLET.** |
 | 25.16–29.03 | Grilla atenuada + cierre | **25% OFF** · *Compra antes de que se vayan.* · logo RE:SET · Perisur / Av. Stim 39 · resetwear.com.mx |
 
-## AD02 · CHAT DE AMIGAS
+## AD02 · CHAT DE AMIGAS (audio del reel de referencia)
+La edición sigue la pista: intro libre para el chat, corte en su primer golpe con bajo (3.18 s), build-up, drop (7.71 s), groove y final.
 | Tiempo | Imagen | Texto |
 |---|---|---|
-| 0.00–4.80 | Teléfono (interfaz original, no WhatsApp) sobre la pijama de duendes desenfocada | "¿Ya viste el outlet?" (0.0) · "¿Cuál outlet?" (1.05) · "RE:SET. 25% OFF." + vista previa del link *Outlet de pijamas · RE:SET / resetwear.com.mx* con cuatro conjuntos (1.95) · "ABRIENDO LA PÁGINA YA." (2.85) · tap en el link (3.6) y zoom al interior del teléfono |
-| 4.80–10.20 | Smash: duendes (zoom blur) · "10" (whip) · esquí (cut) · smiley (zoom) · "19" (whip) · rojo (snap) | **25% OFF** gigante |
-| 10.20–16.80 | Collage: 10 tarjetas que caen al ritmo (celeste, gorros, rayas "10", duendes, SF, rayas rojas, Brasil, olivo, smiley empaquetada, rojo) | *Yo diciendo que solo iba a ver…* |
-| 16.80–22.80 | Grilla, cortes por golpe, split screen, segunda grilla | *…y ahora* **QUIERO TODAS.** |
-| 22.80–28.20 | Hero: duendes extendida (freeze), rayas "10" (whip), rojo (zoom) | **OUTLET RE:SET** · **25% OFF** |
-| 28.20–31.20 | Esquí atenuada + cierre | *Ve por la tuya.* · 25% OFF · logo · tiendas · web |
+| 0.00–3.18 | Teléfono (interfaz original, no WhatsApp) sobre la pijama de duendes desenfocada | "¿Ya viste el outlet?" (0.0) · "¿Cuál outlet?" (0.61) · "RE:SET. 25% OFF." + vista previa *Outlet de pijamas · RE:SET / resetwear.com.mx* (1.31) · "ABRIENDO LA PÁGINA YA." (1.99) · tap en el link (2.45) y zoom al interior del teléfono |
+| 3.18–7.71 | Smash en el golpe: duendes (zoom blur) · "10" (whip) · esquí (cut) · smiley (zoom) · "19" (whip) · rojo (snap) | **25% OFF** gigante (desde 3.46) |
+| 7.71–9.97 | Drop: una pijama por golpe (rayas "10", gorros, celeste, Brasil) | **25% OFF** vuelve a entrar con el drop |
+| 9.97–16.77 | Collage: 10 tarjetas que caen al ritmo | *Yo diciendo que solo iba a ver…* |
+| 16.77–22.43 | Grilla, cortes por golpe, split screen, segunda grilla | *…y ahora* **QUIERO TODAS.** |
+| 22.43–26.39 | Hero: duendes extendida (freeze), rayas "10" (whip), rojo (zoom) | **OUTLET RE:SET** · **25% OFF** |
+| 26.39–28.66 | Esquí atenuada + cierre, sobre el final de la pista | *Ve por la tuya.* · 25% OFF · logo · tiendas · web |
 
 ## AD03 · 25% OFF DROP (editorial)
 | Tiempo | Imagen | Texto |
