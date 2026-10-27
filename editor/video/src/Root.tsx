@@ -5,6 +5,8 @@ import { Recreacion } from "./recreacion/Recreacion";
 import { Cajon } from "./cajon/Cajon";
 import { Regalo01 } from "./regalo01/Regalo01";
 import { Tonos } from "./tonos/Tonos";
+import { Outlet } from "./outlet25/Outlet";
+import { TOTAL_S as OUT_S } from "./outlet25/config";
 import { Main as PycMain, MAIN_FRAMES as PYC_MAIN, Short as PycShort, SHORT_FRAMES as PYC_SHORT } from "./pyc/Pyc";
 import { Coleccion } from "./coleccion/Coleccion";
 import { TOTAL_S as COL_S } from "./coleccion/config";
@@ -54,6 +56,7 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
       />
+      <Composition id="RE-RESET-OUTLET-25" component={Outlet} durationInFrames={Math.round(OUT_S * 30)} fps={30} width={1080} height={1920} />
       <Composition id="PYC-Main" component={PycMain} durationInFrames={PYC_MAIN} fps={30} width={1080} height={1920} />
       <Composition id="PYC-Short" component={PycShort} durationInFrames={PYC_SHORT} fps={30} width={1080} height={1920} />
       <Composition id="Reel-NewCollection" component={Coleccion} durationInFrames={Math.round(COL_S * 30)} fps={30} width={1080} height={1920} />
