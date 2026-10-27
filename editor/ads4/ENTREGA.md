@@ -32,13 +32,14 @@ Código: `editor/video/src/ads4/` (`config.ts` = clips y tiempos, `Ads.tsx` = co
 - 22.9 s: "Compra ahora en RE:SET" + "25% OFF" + bloque de tienda
 - Clips: IMG_2857, 2865, 2852, 2866, 2863, 2846, 2851, 2862
 
-## 4 · 25% OFF en pijamas navideñas (AD_04)
-- 0.0 s: "25% OFF" gigante + "en pijamas navideñas"
-- 2.3 s: "Estampados navideños"
+## 4 · Todo junto: 25% OFF en pijamas navideñas (AD_04)
+- Grilla 2×2 que cambia cada 2 golpes (≈1.1 s) con todos los estampados: rojo de pinos, duendes, esquí, bears, verde de pinos y playeras NFL.
+- 0.0 s: banda "25% OFF / en pijamas navideñas" sobre la grilla
+- 2.3 s: "Todos tus estampados navideños"
+- 4.6 s a 22.9 s: banda "25% OFF · pijamas navideñas" fija abajo
 - 22.9 s: "Elige tu favorita."
-- 26.3 s: "25% OFF" + "RE:SET" + bloque de tienda
-- Un tramo a 4 paneles (split screen) de 34 a 40 golpes.
-- Clips: IMG_2862, 2840, 2038, 2863, 2039, 2861, 2846, 2865, 2851, 2848
+- 26.3 s: "25% OFF / RE:SET" sobre fondo atenuado + bloque de tienda
+- Clips: IMG_2839, 2840, 2842, 2846 (duendes); 2848, 2851, 2852 (esquí); 2857 (bears); 2861, 2862, 2863 (rojo de pinos); 2865, 2866 (verde de pinos); 2037–2040 (NFL)
 
 ## Advertencias antes de pautar
 1. **Música Artlist ("Make It Sound Cool", Where's LuLu?):** es la grabación de una vista previa de la app, no una licencia verificada. Para pauta de Meta hay que comprarla o descargarla con licencia (plan Pro/Max de Artlist) o cambiar por una pista licenciada. Los anuncios 1 y 2 dependen de ella.

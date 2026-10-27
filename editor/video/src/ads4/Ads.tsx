@@ -156,22 +156,45 @@ export const Ad03: React.FC = () => {
   );
 };
 
-/* 4 · DROP — 25% OFF gigante al abrir, estampados en el montaje, cierre de marca */
+/** solid dark plate behind a line of type, so it reads over the collage */
+const Band: React.FC<{ top: number; children: React.ReactNode }> = ({ top, children }) => (
+  <div style={{ position: "absolute", top, left: 0, right: 0, background: "rgba(21,21,21,0.86)", padding: "26px 0 30px", textAlign: "center", fontFamily: FONT, fontWeight: 900, textShadow: SH }}>{children}</div>
+);
+
+/* 4 · TODO JUNTO — grilla 2×2 con todos los estampados; el 25% OFF domina en bandas sólidas */
 export const Ad04: React.FC = () => {
   const c = AD.ad4;
   const B = c.B;
   return (
     <Frame c={c}>
       <Win B={B} b0={0} b1={4}>
-        <Price top={460} size={210} />
-        <Caption text="en pijamas navideñas" top={720} />
+        <Band top={720}>
+          <div style={{ fontSize: 210, lineHeight: 0.95, letterSpacing: "-0.03em", color: LIME, whiteSpace: "nowrap" }}>25% OFF</div>
+          <div style={{ fontWeight: 600, fontSize: 50, color: WHITE, marginTop: 8 }}>en pijamas navideñas</div>
+        </Band>
       </Win>
-      <Win B={B} b0={4} b1={8}><Headline lines={["Estampados navideños"]} size={80} /></Win>
-      <Win B={B} b0={40} b1={46}><Headline lines={["Elige tu favorita."]} top={380} size={84} /></Win>
+      <Win B={B} b0={4} b1={8}>
+        <Band top={720}>
+          <div style={{ fontSize: 72, lineHeight: 1.04, color: WHITE }}>Todos tus estampados<br />navideños</div>
+        </Band>
+      </Win>
+      <Win B={B} b0={8} b1={40}>
+        <Band top={1000}>
+          <div style={{ fontSize: 46, color: LIME }}>25% OFF · pijamas navideñas</div>
+        </Band>
+      </Win>
+      <Win B={B} b0={40} b1={46}>
+        <Band top={720}>
+          <div style={{ fontSize: 84, color: WHITE }}>Elige tu favorita.</div>
+        </Band>
+      </Win>
       <Win B={B} b0={46} b1={52}>
-        <Price top={460} size={190} />
-        <Headline lines={["RE:SET"]} top={700} size={72} />
-        <div style={{ position: "absolute", top: 880, left: 0, right: 0 }}><StoreBlock delay={Math.round(46 * B * 30) + 4} /></div>
+        <AbsoluteFill style={{ background: "rgba(16,16,16,0.6)" }} />
+        <Band top={520}>
+          <div style={{ fontSize: 200, lineHeight: 0.95, letterSpacing: "-0.03em", color: LIME, whiteSpace: "nowrap" }}>25% OFF</div>
+          <div style={{ fontSize: 60, color: WHITE, marginTop: 8 }}>RE:SET</div>
+        </Band>
+        <div style={{ position: "absolute", top: 960, left: 0, right: 0 }}><StoreBlock delay={Math.round(46 * B * 30) + 4} /></div>
       </Win>
     </Frame>
   );
