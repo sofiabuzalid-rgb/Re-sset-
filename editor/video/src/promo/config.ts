@@ -1,5 +1,5 @@
-// RE:SET — anuncio de DESCUENTO, sin diálogo (4 clips de producto: playeras adulto + niño colgadas). Todo lo editable vive aquí.
-// Sin porcentaje, precio ni fecha: no fueron confirmados. Solo "descuento".
+// RE:SET — OUTLET 25% OFF, sin diálogo (4 clips de producto: playeras adulto + niño colgadas). Todo lo editable vive aquí.
+// 25 % OFF confirmado por el cliente; sin precio (no confirmado para estas playeras) y sin fecha.
 // Música: afro house (Pixabay, subida por el cliente), ~104.8 BPM → un golpe = 0.5725 s; arranca en 14.338 s para que el drop (18.913 s) caiga en el golpe 8.
 import { Shot } from "../campana/shared";
 
@@ -30,17 +30,18 @@ export const SHOTS: Shot[] = [
 ];
 
 export const COPY = {
-  hookA: "¿YA VISTE EL",
-  hookB: "DESCUENTO",
-  hookC: "DE RE:SET?",
-  stamp: "DESCUENTO",
+  // Outlet: 25 % OFF confirmado por el cliente. Sin precio (no confirmado para estas playeras) y sin fecha.
+  off: "25% OFF",
+  outlet: "OUTLET",
+  hook: "¿Ya viste el descuento de RE:SET?",
+  stamp: "25% OFF",
   chips: [
-    { text: "Adulto y niño", from: t(8), to: t(16) },
-    { text: "Detalle del estampado", from: t(16), to: t(28) },
+    { text: "Adulto y niño", sub: "25% OFF", from: t(8), to: t(16) },
+    { text: "Edición limitada", sub: "25% OFF", from: t(16), to: t(28) },
   ],
-  reinforce: ["SÍ, ESTÁ", "CON DESCUENTO."],
-  cta1: "APROVECHA EL DESCUENTO.",
-  cta2: "Descubre la colección.",
+  reinforce: ["SE ESTÁN YENDO RÁPIDO", "25% OFF", "HASTA AGOTAR EXISTENCIAS"],
+  cta1: "CORRE POR LA TUYA",
+  cta2: "Outlet 25% OFF hasta agotar existencias.",
   logo: "brand/reset-logo-white.png",
 };
 export const CUT = { hookEnd: t(8), reinforce: t(28), cta: t(32) };

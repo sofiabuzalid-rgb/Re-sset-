@@ -5,56 +5,67 @@ import { BASE, COPY, CUT, MUSIC, SHOTS, TOTAL_S } from "./config";
 
 const GRADE = "contrast(1.04) saturate(1.04)";
 const INK = "#151515";
-const LIME = "#E2EC95";
+const LIME = "#E2EC95"; // brand
 const PAPER = "#FFFBF2";
-const SH = "0 2px 18px rgba(0,0,0,0.45)";
 const FONT = "Montserrat";
 
+/** OUTLET / 25% OFF block — the same mark as the outlet ads */
+const Badge: React.FC<{ scale?: number }> = ({ scale = 1 }) => (
+  <div style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", background: INK, padding: "18px 40px 22px", transform: `scale(${scale})` }}>
+    <div style={{ fontFamily: FONT, fontWeight: 700, fontSize: 38, letterSpacing: "0.42em", marginRight: "-0.42em", color: PAPER }}>{COPY.outlet}</div>
+    <div style={{ fontFamily: FONT, fontWeight: 900, fontSize: 168, lineHeight: 0.95, letterSpacing: "-0.03em", color: LIME }}>{COPY.off}</div>
+  </div>
+);
+
+/** 0–4.6 s: 25% OFF is on frame 0 (thumbnail), the question lands a beat later */
 const Hook: React.FC = () => {
   const f = useCurrentFrame();
   const out = interpolate(f, [F(CUT.hookEnd) - 6, F(CUT.hookEnd)], [1, 0], clamp);
-  const k = (i: number) => (i <= 1 ? 1 : interpolate(f, [4, 13], [0, 1], { ...clamp, easing: easeOut })); // line 1 + DESCUENTO are there on frame 0
-  const under = interpolate(f, [14, 28], [0, 1], { ...clamp, easing: easeOut });
+  const pop = interpolate(f, [0, 6], [1.08, 1], { ...clamp, easing: easeOut });
+  const q = interpolate(f, [8, 18], [0, 1], { ...clamp, easing: easeOut });
   return (
-    <div style={{ position: "absolute", top: 300, left: 50, right: 50, textAlign: "center", opacity: out }}>
-      <div style={{ fontFamily: FONT, fontWeight: 800, fontSize: 52, letterSpacing: "0.12em", color: PAPER, textShadow: SH, opacity: k(0) }}>{COPY.hookA}</div>
-      <div style={{ position: "relative", display: "inline-block", marginTop: 6, opacity: k(1), transform: `scale(${0.92 + 0.08 * k(1)})` }}>
-        <div style={{ fontFamily: FONT, fontWeight: 900, fontSize: 134, lineHeight: 1, letterSpacing: "-0.03em", color: LIME, textShadow: SH }}>{COPY.hookB}</div>
-        <div style={{ position: "absolute", left: 0, bottom: -10, height: 9, width: `${under * 100}%`, background: PAPER }} />
+    <div style={{ position: "absolute", top: 300, left: 40, right: 40, display: "flex", flexDirection: "column", alignItems: "center", opacity: out }}>
+      <div style={{ transform: `scale(${pop})` }}>
+        <Badge />
       </div>
-      <div style={{ marginTop: 26, fontFamily: FONT, fontWeight: 800, fontSize: 56, letterSpacing: "0.06em", color: PAPER, textShadow: SH, opacity: k(2), transform: `translateY(${(1 - k(2)) * 14}px)` }}>{COPY.hookC}</div>
+      <div style={{ marginTop: 30, background: PAPER, color: INK, fontFamily: FONT, fontWeight: 900, fontSize: 52, lineHeight: 1.1, textAlign: "center", padding: "14px 28px 18px", opacity: q, transform: `translateY(${(1 - q) * 16}px)` }}>{COPY.hook}</div>
     </div>
   );
 };
 
-/** small label that follows what is on screen */
-const Chip: React.FC<{ text: string; from: number; to: number }> = ({ text, from, to }) => {
+/** what's on screen + the discount, bottom-left */
+const Chip: React.FC<{ text: string; sub: string; from: number; to: number }> = ({ text, sub, from, to }) => {
   const f = useCurrentFrame();
   const a = F(from), b = F(to);
   if (f < a || f >= b) return null;
   const p = interpolate(f, [a, a + 7], [0, 1], { ...clamp, easing: easeOut });
   const out = interpolate(f, [b - 5, b], [1, 0], clamp);
   return (
-    <div style={{ position: "absolute", left: 56, top: 1000, opacity: out, clipPath: `inset(0 ${100 * (1 - p)}% 0 0)` }}>
-      <div style={{ display: "inline-block", background: PAPER, color: INK, fontFamily: FONT, fontWeight: 800, fontSize: 40, padding: "10px 24px 12px" }}>{text}</div>
+    <div style={{ position: "absolute", left: 56, top: 1010, opacity: out, clipPath: `inset(0 ${100 * (1 - p)}% 0 0)` }}>
+      <div style={{ background: INK, color: PAPER, fontFamily: FONT, fontWeight: 800, fontSize: 44, padding: "10px 24px 12px", width: "fit-content" }}>{text}</div>
+      <div style={{ background: LIME, color: INK, fontFamily: FONT, fontWeight: 900, fontSize: 64, padding: "6px 24px 10px", width: "fit-content" }}>{sub}</div>
     </div>
   );
 };
 
-/** discreet DESCUENTO seal, top right, from the end of the hook to the CTA */
+/** 25% OFF stays in the corner from the hook to the CTA */
 const Seal: React.FC = () => {
   const f = useCurrentFrame();
   const o = Math.min(interpolate(f, [F(CUT.hookEnd), F(CUT.hookEnd) + 8], [0, 1], clamp), interpolate(f, [F(CUT.cta) - 5, F(CUT.cta)], [1, 0], clamp));
-  return <div style={{ position: "absolute", top: 292, right: 48, opacity: o, border: `3px solid ${LIME}`, color: LIME, background: "rgba(21,21,21,0.55)", fontFamily: FONT, fontWeight: 900, fontSize: 32, letterSpacing: "0.14em", padding: "8px 18px" }}>{COPY.stamp}</div>;
+  return <div style={{ position: "absolute", top: 292, right: 48, opacity: o, background: LIME, color: INK, fontFamily: FONT, fontWeight: 900, fontSize: 44, padding: "8px 18px" }}>{COPY.stamp}</div>;
 };
 
 const Reinforce: React.FC = () => {
   const f = useCurrentFrame();
+  const style = (i: number): React.CSSProperties =>
+    i === 1
+      ? { background: LIME, color: INK, fontSize: 150, lineHeight: 1, letterSpacing: "-0.03em", padding: "6px 34px 14px" }
+      : { background: INK, color: PAPER, fontSize: i ? 40 : 58, letterSpacing: "0.04em", padding: "10px 28px 12px" };
   return (
-    <div style={{ position: "absolute", top: 760, left: 0, right: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+    <div style={{ position: "absolute", top: 700, left: 0, right: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
       {COPY.reinforce.map((l, i) => {
-        const p = interpolate(f, [i * 7, i * 7 + 9], [0, 1], { ...clamp, easing: easeOut });
-        return <div key={l} style={{ clipPath: `inset(0 ${100 * (1 - p)}% 0 0)`, background: i ? LIME : INK, color: i ? INK : PAPER, fontFamily: FONT, fontWeight: 900, fontSize: i ? 92 : 64, letterSpacing: i ? "-0.02em" : "0.2em", padding: "10px 32px 14px" }}>{l}</div>;
+        const p = interpolate(f, [i * 6, i * 6 + 9], [0, 1], { ...clamp, easing: easeOut });
+        return <div key={l} style={{ clipPath: `inset(0 ${100 * (1 - p)}% 0 0)`, fontFamily: FONT, fontWeight: 900, ...style(i) }}>{l}</div>;
       })}
     </div>
   );
@@ -63,16 +74,20 @@ const Reinforce: React.FC = () => {
 const Cta: React.FC = () => {
   const f = useCurrentFrame();
   const a = (s: number) => interpolate(f, [s, s + 9], [0, 1], { ...clamp, easing: easeOut });
+  const pulse = 1 + 0.03 * Math.max(0, Math.sin(((f - 16) / 30) * Math.PI * 2.4)) * (f > 16 ? 1 : 0);
   return (
     <AbsoluteFill>
-      <AbsoluteFill style={{ opacity: a(0), backdropFilter: "blur(10px)", background: "rgba(16,16,16,0.58)" }} />
-      <div style={{ position: "absolute", top: 380, left: 50, right: 50, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-        <Img src={staticFile(COPY.logo)} style={{ width: 340, opacity: a(2) }} />
-        <div style={{ marginTop: 40, background: LIME, color: INK, fontFamily: FONT, fontWeight: 900, fontSize: 64, lineHeight: 1.05, padding: "16px 30px 20px", opacity: a(8), transform: `translateY(${(1 - a(8)) * 14}px)` }}>{COPY.cta1}</div>
-        <div style={{ marginTop: 22, fontFamily: FONT, fontWeight: 700, fontSize: 46, color: PAPER, opacity: a(14) }}>{COPY.cta2}</div>
-        <div style={{ marginTop: 40 }}>
+      <AbsoluteFill style={{ opacity: a(0), backdropFilter: "blur(10px)", background: "rgba(16,16,16,0.6)" }} />
+      <div style={{ position: "absolute", top: 320, left: 40, right: 40, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+        <div style={{ opacity: a(2) }}>
+          <Badge scale={0.85} />
+        </div>
+        <div style={{ marginTop: 34, transform: `scale(${pulse})`, background: LIME, color: INK, fontFamily: FONT, fontWeight: 900, fontSize: 80, lineHeight: 1, padding: "18px 34px 22px", opacity: a(8) }}>{COPY.cta1}</div>
+        <div style={{ marginTop: 22, fontFamily: FONT, fontWeight: 700, fontSize: 38, color: PAPER, opacity: a(14) }}>{COPY.cta2}</div>
+        <div style={{ marginTop: 36 }}>
           <StoreBlock delay={20} />
         </div>
+        <Img src={staticFile(COPY.logo)} style={{ marginTop: 28, width: 280, opacity: a(30) }} />
       </div>
     </AbsoluteFill>
   );
