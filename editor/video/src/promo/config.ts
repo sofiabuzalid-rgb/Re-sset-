@@ -1,10 +1,10 @@
 // RE:SET — OUTLET 25% OFF, sin diálogo (4 clips de producto: playeras adulto + niño colgadas). Todo lo editable vive aquí.
 // 25 % OFF confirmado por el cliente; sin precio (no confirmado para estas playeras) y sin fecha.
-// Música: afro house (Pixabay, subida por el cliente), ~104.8 BPM → un golpe = 0.5725 s; arranca en 14.338 s para que el drop (18.913 s) caiga en el golpe 8.
+// Música: "NFL Main Theme" (Toners), grabada de Spotify por el cliente (sin licencia para pauta). ~114.8 BPM → un golpe = 0.5225 s.
 import { Shot } from "../campana/shared";
 
 export const BASE = "promo";
-export const B = 0.5725;
+export const B = 0.5225; // "NFL Main Theme" (Toners), ~114.8 BPM — client's screen recording from Spotify
 export const t = (beats: number) => +(beats * B).toFixed(3);
 export const TOTAL_S = t(38); // 21.8 s
 
@@ -34,6 +34,7 @@ export const COPY = {
   off: "25% OFF",
   outlet: "OUTLET",
   hook: "¿Ya viste el descuento de RE:SET?",
+  hookPunch: "APROVÉCHALO YA",
   stamp: "25% OFF",
   chips: [
     { text: "Adulto y niño", sub: "25% OFF", from: t(8), to: t(16) },
@@ -45,4 +46,6 @@ export const COPY = {
   logo: "brand/reset-logo-white.png",
 };
 export const CUT = { hookEnd: t(8), reinforce: t(28), cta: t(32) };
-export const MUSIC = { src: "promo/music.mp3" as string | null, startAt: 14.338, volume: 0.85 };
+export const MUSIC = { src: "promo/music_nfl_theme.wav" as string | null, startAt: 1.115, volume: 0.95 }; // first beat of the track at frame 0
+/** beats where the edit hits hardest: flash + shake (cuts into new sections) */
+export const HITS = [0, 8, 16, 28, 32];
