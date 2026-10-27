@@ -6,6 +6,8 @@ import { Cajon } from "./cajon/Cajon";
 import { Regalo01 } from "./regalo01/Regalo01";
 import { Tonos } from "./tonos/Tonos";
 import { Outlet } from "./outlet25/Outlet";
+import { Promo } from "./promo/Promo";
+import { TOTAL_S as PROMO_S } from "./promo/config";
 import { Outlet2 } from "./outlet25b/Outlet2";
 import { TOTAL_S as OUT2_S } from "./outlet25b/config";
 import { TOTAL_S as OUT_S } from "./outlet25/config";
@@ -58,6 +60,7 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
       />
+      <Composition id="RE-RESET-DESCUENTO" component={Promo} durationInFrames={Math.round(PROMO_S * 30)} fps={30} width={1080} height={1920} />
       <Composition id="RE-RESET-OUTLET-25-v2" component={Outlet2} durationInFrames={Math.round(OUT2_S * 30)} fps={30} width={1080} height={1920} />
       <Composition id="RE-RESET-OUTLET-25" component={Outlet} durationInFrames={Math.round(OUT_S * 30)} fps={30} width={1080} height={1920} />
       <Composition id="PYC-Main" component={PycMain} durationInFrames={PYC_MAIN} fps={30} width={1080} height={1920} />
