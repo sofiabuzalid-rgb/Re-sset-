@@ -9,6 +9,7 @@ import { Outlet } from "./outlet25/Outlet";
 import { Promo } from "./promo/Promo";
 import { Ad01, Ad02, Ad03, Ad04, DUR as ADS_DUR } from "./ads4/Ads";
 import { OutletAd01, OutletAd02, OutletAd03, OutletAd04 } from "./outlet4/Ads";
+import { Re12, RE_FRAMES } from "./re12/Re12";
 import { frames as outletFrames } from "./outlet4/config";
 import { TOTAL_S as PROMO_S } from "./promo/config";
 import { Outlet2 } from "./outlet25b/Outlet2";
@@ -63,6 +64,8 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
       />
+      <Composition id="RE-12-A-REF-AUDIO" component={() => <Re12 music="outlet4/audio/re12_ref.wav" />} durationInFrames={RE_FRAMES} fps={30} width={1080} height={1920} />
+      <Composition id="RE-12-B-LICENSED" component={() => <Re12 music="outlet4/audio/re12_b_original.wav" />} durationInFrames={RE_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="OUTLET-AD01-YA-LLEGO" component={OutletAd01} durationInFrames={outletFrames("ad1")} fps={30} width={1080} height={1920} />
       <Composition id="OUTLET-AD02-CHAT" component={OutletAd02} durationInFrames={outletFrames("ad2")} fps={30} width={1080} height={1920} />
       <Composition id="OUTLET-AD03-25-DROP" component={OutletAd03} durationInFrames={outletFrames("ad3")} fps={30} width={1080} height={1920} />

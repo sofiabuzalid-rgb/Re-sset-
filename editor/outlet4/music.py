@@ -283,6 +283,7 @@ GAINS = {
     "ad1": {"kick": 0.8, "drums": 2.6, "music": 3.0, "fx": 0.9},
     "ad2": {"kick": 1.8, "drums": 2.6, "music": 2.1, "fx": 0.9},
     "ad4": {"kick": 0.75, "drums": 3.2, "music": 2.8, "fx": 0.9},
+    "re12b": {"kick": 0.8, "drums": 2.4, "music": 2.6, "fx": 0.9},
 }
 FILES = {"ad1": "ad1_ya_llego.wav", "ad2": "ad2_chat.wav", "ad4": "ad4_no_te_duermas.wav"}
 
@@ -493,8 +494,44 @@ def sfx():
     write("sfx_impact.wav", mono(impact(), 0.9))
 
 
+# ---------- RE · recreation of the reference reel — 113.6 BPM (beat 0.528 s), 23 beats ≈ 12.2 s, A minor ----------
+# Version B for paid media: an original track with the reference's tempo and steady, bright energy.
+# Version A uses the reference's own audio (outlet4/audio/re12_ref.wav), which is NOT licensed for paid media.
+def re12_b():
+    B = 0.528
+    total_beats = 23
+    m = Mix(total_beats * B + 0.6, 60 / B)
+    prog = [[57, 60, 64, 67], [53, 57, 60, 64], [48, 52, 55, 59], [55, 59, 62, 64]]
+    roots = [45, 41, 48, 43]
+    kicks = []
+    m.add("fx", impact(), 0, gain=0.8)
+    for b in range(total_beats):
+        k = (b // 4) % 4
+        if b < 2:  # intro: just pad and a closed hat
+            m.add("drums", hat(0.05, 7000), b, gain=0.2)
+            continue
+        m.add("kick", kick(), b, gain=0.9)
+        kicks.append(b)
+        if b % 2 == 1:
+            m.add("drums", clap(0.14, 1500), b, gain=0.5)
+        for s in (0.5,):
+            m.add("drums", hat(0.04, 7000), b + s, gain=0.25, pan=0.25)
+        m.add("music", bass(roots[k] + (12 if b % 2 else 0), m.B * 0.42, lp=700), b + 0.5, gain=0.45)
+        if b % 4 == 0:
+            m.add("music", supersaw(prog[k], m.B * 3.7, tau=0.5, lp_lo=800, lp_hi=4500, env_tau=0.25), b, gain=0.42)
+            m.add("music", pad(prog[k], m.B * 4, lp=2200), b, gain=0.18)
+        for q, st in ((2, 0), (3, 1)):  # off-beat plucks on chord tones
+            m.add("music", pluck(prog[k][st] + 12, m.B * 0.22, bright=5200, tau=0.1), b + q / 4, gain=0.2, pan=0.2 if st else -0.2)
+    m.add("drums", crash(), 14, gain=0.5)
+    m.add("fx", impact(), 14, gain=0.6)
+    m.add("fx", riser(m.B * 3, 400, 6000), 11, gain=0.45)
+    write("re12_b_original.wav", m.render(kicks, duck=0.55, verb_send=0.2, name="re12b", tail_fade=0.4))
+
+
 if __name__ == "__main__":
-    if "--remaster" in sys.argv:  # re-balance from the saved stems only (seconds instead of minutes)
+    if "--re12" in sys.argv:
+        re12_b()
+    elif "--remaster" in sys.argv:  # re-balance from the saved stems only (seconds instead of minutes)
         for name, fn in FILES.items():
             write(fn, master(dict(np.load(STEMS / f"{name}.npz")), 0.35, GAINS[name]))
     else:
