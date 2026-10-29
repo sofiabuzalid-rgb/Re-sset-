@@ -285,6 +285,11 @@ GAINS = {
     "ad4": {"kick": 0.75, "drums": 3.2, "music": 2.8, "fx": 0.9},
     "re12b": {"kick": 0.8, "drums": 2.4, "music": 2.6, "fx": 0.9},
     "perisur": {"kick": 0.8, "drums": 1.2, "music": 2.8, "fx": 0.9},
+    "outlet2_ad06_pop": {"kick": 0.8, "drums": 2.2, "music": 2.6, "fx": 0.9},
+    "outlet2_ad07_beat": {"kick": 1.0, "drums": 2.4, "music": 2.4, "fx": 0.9},
+    "outlet2_ad08_editorial": {"kick": 0.6, "drums": 1.4, "music": 2.8, "fx": 0.9},
+    "outlet2_ad09_playful": {"kick": 0.8, "drums": 2.2, "music": 2.6, "fx": 0.9},
+    "outlet2_ad10_energetic": {"kick": 1.0, "drums": 2.4, "music": 2.4, "fx": 0.9},
 }
 FILES = {"ad1": "ad1_ya_llego.wav", "ad2": "ad2_chat.wav", "ad4": "ad4_no_te_duermas.wav"}
 
@@ -547,12 +552,86 @@ def perisur_music():
     write("perisur_music_original.wav", m.render([], duck=0.0, verb_send=0.35, name="perisur", tail_fade=1.2))
 
 
+# ---------- OUTLET second wave — five original tracks, one personality each (no licensed music) ----------
+def groove(name, bpm, beats, prog, roots, style):
+    """one original track: beats are counted from 0; style = pop | beat | editorial | playful | energetic"""
+    B = 60 / bpm
+    m = Mix(beats * B + 0.6, bpm)
+    kicks = []
+    for b in range(beats):
+        ch = prog[(b // 4) % len(prog)]
+        rt = roots[(b // 4) % len(roots)]
+        q = b % 4
+        if style == "pop":
+            if q in (0, 2):
+                m.add("kick", kick(0.22), b, gain=0.8); kicks.append(b)
+            if q in (1, 3):
+                m.add("drums", clap(0.12, 1700), b, gain=0.45)
+            m.add("drums", hat(0.03, 7500), b + 0.5, gain=0.2, pan=0.25)
+            m.add("music", bass(rt + (12 if q % 2 else 0), B * 0.42, lp=650), b + 0.5, gain=0.42)
+            m.add("music", pluck(ch[(q + 1) % 4] + 12, B * 0.22, bright=5000, tau=0.1), b + 0.25, gain=0.2, pan=-0.2)
+            if q == 0:
+                m.add("music", pad(ch, B * 4, lp=2000), b, gain=0.18)
+        elif style == "beat":
+            if q in (0, 2):
+                m.add("kick", kick(0.2, 170, 50, 1.1), b, gain=1.0); kicks.append(b)
+            if q in (1, 3):
+                m.add("drums", snare(0.13), b, gain=0.55)
+            for s16 in (0.25, 0.5, 0.75):
+                m.add("drums", hat(0.025, 8000), b + s16, gain=0.14, pan=0.3)
+            m.add("music", bass(rt, B * 0.9, lp=300, saw_mix=0.2, tau=0.4), b, gain=0.55)
+            if q == 0:
+                m.add("music", supersaw(ch, B * 3.6, tau=0.3, lp_lo=700, lp_hi=3800, env_tau=0.2), b, gain=0.28)
+        elif style == "editorial":
+            if q == 0:
+                m.add("kick", kick(0.3, 120, 48, 0.6), b, gain=0.45); kicks.append(b)
+                m.add("music", pad(ch, B * 4, lp=1500), b, gain=0.2)
+            if q % 2 == 0:
+                m.add("music", epiano(ch, B * 1.8), b, gain=0.24)
+            m.add("drums", shaker(), b + 0.5, gain=0.18, pan=0.3)
+            if q in (0, 2):
+                m.add("music", marimba(ch[q // 2] + 24, 0.8), b, gain=0.16, pan=0.2)
+        elif style == "playful":
+            if q in (0, 2):
+                m.add("kick", kick(0.2, 160, 52, 0.9), b, gain=0.85); kicks.append(b)
+            if q in (1, 3):
+                m.add("drums", clap(0.13, 1500), b, gain=0.5)
+            m.add("drums", hat(0.03, 7000), b + 0.5, gain=0.2, pan=-0.25)
+            m.add("music", bass(rt + 12, B * 0.45, lp=800, saw_mix=0.5, tau=0.18), b + 0.5, gain=0.42)
+            m.add("music", marimba(ch[q] + 24, 0.4), b, gain=0.26, pan=0.25 if q % 2 else -0.25)
+            if q == 0:
+                m.add("music", epiano(ch, B * 3.5), b, gain=0.2)
+        elif style == "energetic":
+            m.add("kick", kick(0.2, 175, 55, 1.1), b, gain=1.0); kicks.append(b)
+            if q in (1, 3):
+                m.add("drums", clap(0.14, 1600), b, gain=0.6)
+            for s16 in (0.25, 0.5, 0.75):
+                m.add("drums", hat(0.02, 8000), b + s16, gain=0.14, pan=0.25)
+            m.add("music", bass(rt + 12, B * 0.22, lp=900, saw_mix=0.7, tau=0.12), b + 0.25, gain=0.4)
+            m.add("music", bass(rt + 12, B * 0.22, lp=900, saw_mix=0.7, tau=0.12), b + 0.75, gain=0.4)
+            m.add("music", supersaw(ch, B * 0.4, tau=0.12, lp_lo=800, lp_hi=5200, env_tau=0.1), b + 0.5, gain=0.3)
+    if style == "energetic":
+        m.add("fx", riser(B * 2, 400, 7000), beats - 2, gain=0.45)
+        m.add("fx", impact(), beats - 0.02, gain=0.7)
+    write(f"{name}.wav", m.render(kicks, duck=0.5, verb_send=0.2, name=name))
+
+
+def outlet2_tracks():
+    groove("outlet2_ad06_pop", 120, 48, [[65, 69, 72, 76], [62, 65, 69, 72], [60, 64, 67, 71], [67, 71, 74, 77]], [41, 38, 36, 43], "pop")
+    groove("outlet2_ad07_beat", 100, 40, [[57, 60, 64, 67], [53, 57, 60, 64], [48, 52, 55, 59], [55, 59, 62, 65]], [45, 41, 48, 43], "beat")
+    groove("outlet2_ad08_editorial", 96, 37, [[50, 53, 57, 60], [46, 50, 53, 57], [48, 52, 55, 59], [45, 48, 52, 55]], [38, 34, 36, 33], "editorial")
+    groove("outlet2_ad09_playful", 112, 50, [[67, 71, 74, 78], [64, 67, 71, 74], [60, 64, 67, 71], [62, 66, 69, 73]], [43, 40, 36, 38], "playful")
+    groove("outlet2_ad10_energetic", 124, 26, [[57, 60, 64, 67], [53, 57, 60, 64], [48, 52, 55, 59], [55, 59, 62, 65]], [45, 41, 48, 43], "energetic")
+
+
 
 if __name__ == "__main__":
     if "--re12" in sys.argv:
         re12_b()
     elif "--perisur" in sys.argv:
         perisur_music()
+    elif "--outlet2" in sys.argv:
+        outlet2_tracks()
     elif "--remaster" in sys.argv:  # re-balance from the saved stems only (seconds instead of minutes)
         for name, fn in FILES.items():
             write(fn, master(dict(np.load(STEMS / f"{name}.npz")), 0.35, GAINS[name]))
