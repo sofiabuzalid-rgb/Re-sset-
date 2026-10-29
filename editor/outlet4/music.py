@@ -284,6 +284,7 @@ GAINS = {
     "ad2": {"kick": 1.8, "drums": 2.6, "music": 2.1, "fx": 0.9},
     "ad4": {"kick": 0.75, "drums": 3.2, "music": 2.8, "fx": 0.9},
     "re12b": {"kick": 0.8, "drums": 2.4, "music": 2.6, "fx": 0.9},
+    "perisur": {"kick": 0.8, "drums": 1.2, "music": 2.8, "fx": 0.9},
 }
 FILES = {"ad1": "ad1_ya_llego.wav", "ad2": "ad2_chat.wav", "ad4": "ad4_no_te_duermas.wav"}
 
@@ -528,9 +529,30 @@ def re12_b():
     write("re12_b_original.wav", m.render(kicks, duck=0.55, verb_send=0.2, name="re12b", tail_fade=0.4))
 
 
+# ---------- RE PERISUR store film — 18.8 s, slow and minimal (84 BPM, E minor), no kick: soft keys, pad and a sparse marimba ----------
+def perisur_music():
+    m = Mix(18.8, 84)
+    prog = [[52, 55, 59, 62], [48, 52, 55, 59], [45, 48, 52, 55], [50, 54, 57, 61]]  # Em9 Cmaj7 Am7 D9 (bar = 2.86 s)
+    for bar in range(7):
+        b0 = bar * 4 * 0.0 + bar * 2.857
+        ch = prog[bar % 4]
+        m.add("music", epiano(ch, 2.857), sec=b0, gain=0.5)
+        m.add("music", pad([n + 12 for n in ch[:3]], 2.857 + 0.8, lp=1400), sec=b0, gain=0.22)
+        m.add("music", bass(ch[0] - 24, 2.4, lp=260, saw_mix=0.1, tau=0.6), sec=b0, gain=0.35)
+        for k, n in enumerate([ch[0] + 24, ch[2] + 24, ch[1] + 24, ch[3] + 24]):
+            if (bar + k) % 2 == 0:
+                m.add("music", marimba(n, 0.7), sec=b0 + k * 0.714, gain=0.18, pan=0.25 if k % 2 else -0.25)
+    for k in range(int(18.8 / 0.357)):
+        m.add("drums", shaker(), sec=k * 0.357 + 0.18, gain=0.07, pan=0.3)
+    write("perisur_music_original.wav", m.render([], duck=0.0, verb_send=0.35, name="perisur", tail_fade=1.2))
+
+
+
 if __name__ == "__main__":
     if "--re12" in sys.argv:
         re12_b()
+    elif "--perisur" in sys.argv:
+        perisur_music()
     elif "--remaster" in sys.argv:  # re-balance from the saved stems only (seconds instead of minutes)
         for name, fn in FILES.items():
             write(fn, master(dict(np.load(STEMS / f"{name}.npz")), 0.35, GAINS[name]))
