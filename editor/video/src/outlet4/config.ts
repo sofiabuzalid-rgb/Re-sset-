@@ -22,6 +22,8 @@ export const CLIP_DUR: Record<string, number> = {
   // nuevos (Drive "OUTLET RE:SET", 27 oct)
   IMG_2838: 4.6, IMG_2847: 2.9, IMG_2979: 7.76, IMG_2980: 1.73, IMG_2981: 2.56, IMG_2982: 4.73, IMG_2983: 6.26, IMG_2984: 9.46,
   IMG_2985: 9.06, IMG_2986: 3.46, IMG_2987: 4.26, IMG_2988: 7.63, IMG_2989: 7.53, IMG_2991: 2.3, IMG_2992: 2.6, IMG_2994: 5.73, IMG_2995: 5.0,
+  // playeras en gancho (subidas el 29 oct): 3186 rayas rojas ATM · 3187 rayas "10" · 3189 Brasil
+  IMG_3186: 9.16, IMG_3187: 6.1, IMG_3189: 7.56,
   // outlet navideño + NFL (ya usados en campañas anteriores)
   IMG_2839: 3.2, IMG_2840: 3.26, IMG_2842: 7.16, IMG_2846: 5.56, IMG_2848: 3.86, IMG_2851: 8.26, IMG_2852: 5.23, IMG_2857: 4.33,
   IMG_2861: 3.2, IMG_2862: 4.66, IMG_2863: 2.3, IMG_2865: 3.63, IMG_2866: 3.13, IMG_2037: 6.73, IMG_2038: 6.43, IMG_2039: 6.16, IMG_2040: 5.53,

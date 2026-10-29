@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Easing, interpolate, Sequence, useCurrentFrame } from "remotion";
-import { At, Block, BeatProvider, BlurDefs, C, cl, EndCard, Grid4, Music, Note, outE, overE, Shade, Shot, Split3, Sfx, T, Vid, Words, useBeat, type Cell } from "../outlet4/fx";
+import { At, Block, BeatProvider, BlurDefs, C, cl, EndCard, Grid4, Music, Note, outE, overE, Shade, Shot, Split3, Sfx, T, Tag25, Vid, Words, useBeat, type Cell } from "../outlet4/fx";
 
 /** second wave · five ads, each one its own idea; every cut and reveal lands on its own track. Beats are counted from 0. */
 export const OUTLET2 = {
@@ -16,12 +16,13 @@ export const frames2 = (k: Key2) => Math.round(OUTLET2[k].beats * OUTLET2[k].B *
 const CREAM = "#F4F1EA";
 const SANS = "Montserrat";
 
-/** shared frame: beat clock, motion-blur filters, the track from its beat 0 */
-const Frame2: React.FC<{ k: Key2; bg?: string; children: React.ReactNode }> = ({ k, bg = C.ink, children }) => (
+/** shared frame: beat clock, motion-blur filters, the track from its beat 0; `tag` = beats where the 25% OFF corner tag sits above everything */
+const Frame2: React.FC<{ k: Key2; bg?: string; tag?: [number, number]; children: React.ReactNode }> = ({ k, bg = C.ink, tag, children }) => (
   <BeatProvider B={OUTLET2[k].B} off={0}>
     <AbsoluteFill style={{ backgroundColor: bg, overflow: "hidden" }}>
       <BlurDefs />
       {children}
+      {tag && <At b0={tag[0]} b1={tag[1]}><Tag25 /></At>}
       <Music src={OUTLET2[k].music} startS={0} total={frames2(k)} />
     </AbsoluteFill>
   </BeatProvider>
@@ -84,7 +85,7 @@ const Chip: React.FC<{ left: number; top: number; from: number; children: React.
    06 · YO SOLO IBA A VER… — pop, 120 BPM, 24 s
    ===================================================================================== */
 export const Ad06: React.FC = () => (
-  <Frame2 k="ad06">
+  <Frame2 k="ad06" tag={[8, 34]}>
     <At b0={0} b1={8}>
       <Shot src="IMG_2861" at={0.3} z={[1.0, 1.18]} fout="zoom" />
       <Shade top={250} h={560} o={0.5} />
@@ -99,13 +100,14 @@ export const Ad06: React.FC = () => (
       <Shot src="IMG_2842" at={0.8} fin="snap" z={[1.1, 1.0]} />
     </At>
     <At b0={18} b1={20}><Shot src="IMG_2865" at={0.4} fin="whip" /></At>
-    <At b0={20} b1={22}><Shot src="IMG_2988" at={0.7} fin="snap" /></At>
+    <At b0={20} b1={22}><Shot src="IMG_3186" at={2.5} fin="snap" /></At>
     <At b0={22} b1={24}><Shot src="IMG_2852" at={0.4} fin="whip" /></At>
     <At b0={24} b1={26}><Shot src="IMG_2862" at={0.6} fin="snap" fout="zoom" /></At>
 
     <At b0={26} b1={34}>
+      <Shot src="IMG_2842" at={1.0} z={[1.0, 1.05]} dim={0.6} />
       <Shade top={220} h={520} o={0.5} />
-      <Block top={260}><Words text="Ok, pero VEAN ESTAS" style={{ ...T.serif, fontSize: 96 }} step={2} exit={4} /></Block>
+      <Block top={350}><Words text="Ok, pero VEAN ESTAS" style={{ ...T.serif, fontSize: 96 }} step={2} exit={4} /></Block>
       <Pile cards={[
         { src: "IMG_2846", at: 1.0, b: 0, x: 60, y: 720, w: 420, h: 560, r: -4 },
         { src: "IMG_2851", at: 1.0, b: 1, x: 560, y: 660, w: 440, h: 600, r: 3 },
@@ -142,12 +144,14 @@ export const Ad06: React.FC = () => (
 const Big25: React.FC = () => {
   const f = useCurrentFrame();
   const { d } = useBeat();
-  const s = interpolate(f, [0, d(2.4)], [2.6, 1], { ...cl, easing: outE });
+  const s = interpolate(f, [0, d(2.4)], [2.2, 1], { ...cl, easing: outE });
   const o = interpolate(f, [d(2.4), d(2.8)], [0, 1], cl);
+  const base: React.CSSProperties = { position: "absolute", top: 640, left: 0, right: 0, textAlign: "center", fontFamily: SANS, fontWeight: 900, fontSize: 200, lineHeight: 1, letterSpacing: "-0.03em", color: C.ink, whiteSpace: "nowrap" };
   return (
-    <div style={{ position: "absolute", top: 640, left: 0, right: 0, textAlign: "center", fontFamily: SANS, fontWeight: 900, fontSize: 200, lineHeight: 1, letterSpacing: "-0.03em", color: C.ink, whiteSpace: "nowrap", transform: `scale(${s})` }}>
-      25<span style={{ opacity: o }}>% OFF</span>
-    </div>
+    <>
+      <div style={{ ...base, opacity: 1 - o, transform: `scale(${s})` }}>25</div>
+      <div style={{ ...base, opacity: o }}>25% OFF</div>
+    </>
   );
 };
 
@@ -181,6 +185,7 @@ export const Ad07: React.FC = () => (
     </At>
 
     <At b0={35} b1={40}>
+      <Shot src="IMG_2861" at={0.4} z={[1.0, 1.06]} />
       <EndCard logoTop={820} storeTop={1000}>
         <Block top={460}><Words text="Aprovecha el 25% OFF." style={{ ...T.serif, fontSize: 100 }} step={2} /></Block>
         <Block top={720}><Words text="OUTLET RE:SET" style={{ ...T.kicker, fontSize: 52 }} delay={6} /></Block>
@@ -221,7 +226,7 @@ const CELL_LABELS = [
 
 export const Ad08: React.FC = () => {
   return (
-    <Frame2 k="ad08" bg={CREAM}>
+    <Frame2 k="ad08" bg={CREAM} tag={[14, 28]}>
       <At b0={0} b1={4}>
         <Block top={520}><Words text={"Tu pijama dice\nmucho de ti."} style={{ ...T.serif, fontSize: 96, color: C.ink, textShadow: "none" }} step={3} exit={3} /></Block>
         <Block top={1000}><Words text="¿Cuál eres?" style={{ fontFamily: SANS, fontWeight: 900, fontSize: 130, color: C.ink, textShadow: "none" }} delay={10} step={2} exit={3} /></Block>
@@ -252,6 +257,7 @@ export const Ad08: React.FC = () => {
       </At>
 
       <At b0={34} b1={37}>
+        <Shot src="IMG_2846" at={1.0} z={[1.0, 1.06]} />
         <EndCard logoTop={800} storeTop={1000}>
           <Block top={400}><Words text={"Encuentra la\nque va contigo."} style={{ ...T.serif, fontSize: 100 }} step={2} /></Block>
           <Block top={680}><Words text="OUTLET RE:SET." style={{ ...T.kicker, fontSize: 50 }} delay={6} /></Block>
@@ -287,22 +293,23 @@ export const Ad09: React.FC = () => (
     </At>
 
     <At b0={6} b1={14}>
-      <Shot src="IMG_2857" at={0.5} z={[1.0, 1.05]} dim={0.7} />
-      <FeedCard src="IMG_2857" at={0.5} x={70} y={520} w={940} h={700} from={0} />
-      <FeedCard src="IMG_2839" at={0.5} x={70} y={1240} w={940} h={520} from={2} />
+      <Shot src="IMG_2857" at={0} z={[1.0, 1.05]} dim={0.7} />
+      <FeedCard src="IMG_2857" at={0} x={70} y={520} w={940} h={700} from={0} />
+      <FeedCard src="IMG_2842" at={0.5} x={70} y={1240} w={940} h={520} from={2} />
     </At>
 
-    <At b0={14} b1={22}>
-      <Shot src="IMG_2865" at={0.5} z={[1.0, 1.05]} dim={0.75} />
-      <FeedCard src="IMG_2848" at={0.8} x={60} y={320} w={450} h={600} from={0} />
-      <FeedCard src="IMG_2865" at={0.5} x={570} y={320} w={450} h={600} from={1} />
-      <FeedCard src="IMG_2984" at={3.0} x={60} y={960} w={450} h={600} from={2} />
-      <FeedCard src="IMG_2862" at={0.7} x={570} y={960} w={450} h={600} from={3} />
+    <At b0={14} b1={22.6}>
+      <Shot src="IMG_2851" at={2.0} z={[1.0, 1.05]} dim={0.75} />
+      <FeedCard src="IMG_2851" at={1.0} x={60} y={320} w={450} h={600} from={0} />
+      <FeedCard src="IMG_2846" at={0.5} x={570} y={320} w={450} h={600} from={1} />
+      <FeedCard src="IMG_2989" at={1.0} x={60} y={960} w={450} h={600} from={2} />
+      <FeedCard src="IMG_2862" at={0.3} x={570} y={960} w={450} h={600} from={3} />
     </At>
 
-    <At b0={22} b1={30}><Split3 cells={[{ src: "IMG_2988", at: 0.8 }, { src: "IMG_2846", at: 1.0 }, { src: "IMG_2852", at: 1.0 }]} /></At>
+    <At b0={22} b1={30} pre={9}><Split3 cells={[{ src: "IMG_3186", at: 0.5 }, { src: "IMG_3187", at: 0.5 }, { src: "IMG_3189", at: 0.5 }]} /></At>
 
     <At b0={30} b1={36}>
+      <Shot src="IMG_3189" at={3.5} z={[1.0, 1.08]} dim={0.45} />
       <Shade top={760} h={420} o={0.6} />
       <Note top={820} size={80}>Ok, mensaje recibido</Note>
     </At>
@@ -330,10 +337,10 @@ export const Ad10: React.FC = () => (
     </At>
 
     <At b0={4} b1={6}><Shot src="IMG_2842" at={0.8} fin="snap" z={[1.1, 1.0]} /></At>
-    <At b0={6} b1={8}><Shot src="IMG_2846" at={1.0} fin="whip" /></At>
+    <At b0={6} b1={8}><Shot src="IMG_3187" at={2.5} fin="whip" /></At>
     <At b0={8} b1={10}><Shot src="IMG_2852" at={1.0} fin="zoom" z={[1.15, 1.0]} /></At>
     <At b0={10} b1={12}><Shot src="IMG_2862" at={0.4} fin="snap" /></At>
-    <At b0={12} b1={14}><Shot src="IMG_2861" at={0.3} fin="whip" /></At>
+    <At b0={12} b1={14}><Shot src="IMG_3189" at={2.0} fin="whip" /></At>
     <At b0={14} b1={16}><Shot src="IMG_2865" at={0.4} fin="snap" z={[1.1, 1.0]} /></At>
 
     <At b0={16} b1={20}>
@@ -342,6 +349,7 @@ export const Ad10: React.FC = () => (
     </At>
 
     <At b0={20} b1={26}>
+      <Shot src="IMG_2842" at={2.0} z={[1.0, 1.06]} />
       <EndCard logoTop={800} storeTop={1000}>
         <Block top={380}><Words text="OUTLET RE:SET" style={{ ...T.mega, fontSize: 100 }} step={2} /></Block>
         <Block top={620}><Words text="Descúbrelo ahora." style={{ ...T.serif, fontSize: 80 }} delay={6} /></Block>

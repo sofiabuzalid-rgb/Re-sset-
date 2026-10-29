@@ -7,7 +7,7 @@ ID=$1
 OUT=out/$2
 TMP=out/_$ID.mp4
 mkdir -p public-lean out
-for d in outlet4 fonts brand; do rm -rf -- "public-lean/$d"; cp -al "public/$d" "public-lean/$d"; done
+for d in outlet4 fonts brand perisur; do rm -rf -- "public-lean/$d"; cp -al "public/$d" "public-lean/$d"; done
 npx remotion render src/index.ts "$ID" "$TMP" --public-dir=public-lean --codec=h264 --crf=15 --audio-codec=aac --audio-bitrate=256k \
   --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell --concurrency=4 --log=error
 ffmpeg -v error -y -i "$TMP" -c:v libx264 -preset slow -crf 17 -pix_fmt yuv420p -r 30 -colorspace bt709 -color_primaries bt709 -color_trc bt709 \
