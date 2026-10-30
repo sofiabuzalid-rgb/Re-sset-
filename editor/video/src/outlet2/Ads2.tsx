@@ -292,7 +292,7 @@ const Feed: React.FC = () => {
   return (
     <div style={{ position: "absolute", left: 190 - 190 * grow, top: 860 - 860 * grow, width: 700 + 380 * grow, height: 1240 + 680 * grow, borderRadius: 70 * (1 - grow), background: INK, padding: 16 * (1 - grow), boxSizing: "border-box", boxShadow: "0 40px 90px rgba(0,0,0,0.35)" }}>
       <div style={{ position: "relative", width: "100%", height: "100%", borderRadius: 56 * (1 - grow), overflow: "hidden", background: WHITE }}>
-        {FEED.map((src, i) => {
+        {[...FEED, ...FEED].map((src, i) => {
           const y = 40 + 250 * grow + i * 780 - scroll;
           if (y > 1920 || y < -780) return null;
           return (
