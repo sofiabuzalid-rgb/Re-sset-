@@ -70,7 +70,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="RESET-OUTLET-07-HAZ-LAS-CUENTAS" component={Ad07} durationInFrames={frames2("ad07")} fps={30} width={1080} height={1920} />
       <Composition id="RESET-OUTLET-08-ELIGE-TU-PERSONALIDAD" component={Ad08} durationInFrames={frames2("ad08")} fps={30} width={1080} height={1920} />
       <Composition id="RESET-OUTLET-09-ALGORITMO" component={Ad09} durationInFrames={frames2("ad09")} fps={30} width={1080} height={1920} />
-      <Composition id="RESET-OUTLET-11-FAMILIA" component={Ad11} durationInFrames={frames2("ad11")} fps={30} width={1080} height={1920} />
+      <Composition id="RESET-FIESTAS-FAMILIA" component={Ad11} durationInFrames={frames2("ad11")} fps={30} width={1080} height={1920} />
       <Composition id="RESET-OUTLET-10-DIEZ-SEGUNDOS" component={Ad10} durationInFrames={frames2("ad10")} fps={30} width={1080} height={1920} />
       <Composition id="RESET-PERISUR-STORE-REVEAL" component={() => <Perisur music="outlet4/audio/perisur_music_original.wav" />} durationInFrames={PERISUR_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="RE-12-A-REF-AUDIO" component={() => <Re12 music="outlet4/audio/re12_ref.wav" />} durationInFrames={RE_FRAMES} fps={30} width={1080} height={1920} />

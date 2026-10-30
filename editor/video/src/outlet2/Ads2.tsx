@@ -441,7 +441,8 @@ export const Ad10: React.FC = () => (
 );
 
 /* =====================================================================================
-   11 · FAMILIA — the client's model video (AI-generated, Higgsfield), blue satin pajama cut out;
+   11 · FIESTAS EN FAMILIA — holiday (Navidad / Hanukkah) pajamas, NOT part of the outlet: no discount, no "outlet".
+   The client's model video (AI-generated, Higgsfield), blue satin pajama cut out;
    each shot runs at its own speed so the footage's own cuts land on the beat
    ===================================================================================== */
 const FAM = "HF_FAMILIA";
@@ -463,7 +464,21 @@ const FamShot: React.FC<{ at: number; rate?: number; i?: number }> = ({ at, rate
     </AbsoluteFill>
   );
 };
-/** closing: four of the prints in a grid, slowed down, the offer and the CTA on top */
+/** holiday lockup for bright footage: black logo on a white tab, the season on a lime block (no discount: not outlet) */
+const FiestasLockup: React.FC<{ top: number; from?: number }> = ({ top, from = 0 }) => {
+  const { f, d } = useF();
+  const p = interpolate(f, [d(from), d(from) + 7], [0, 1], { ...cl, easing: over });
+  return (
+    <div style={{ position: "absolute", top, left: 0, right: 0, display: "flex", flexDirection: "column", alignItems: "center", opacity: Math.min(1, p * 1.5), transform: `scale(${1.25 - 0.25 * p})` }}>
+      <div style={{ background: WHITE, padding: "16px 36px 14px", boxShadow: "0 12px 30px rgba(0,0,0,0.18)" }}>
+        <Img src={staticFile("brand/reset-logo-black.png")} style={{ width: 280, display: "block" }} />
+      </div>
+      <div style={{ background: LIME, fontFamily: SANS, fontWeight: 900, fontSize: 64, lineHeight: 1, letterSpacing: "-0.02em", color: INK, whiteSpace: "nowrap", padding: "14px 34px 18px", boxShadow: "0 16px 36px rgba(0,0,0,0.22)", transform: `scale(${punch(f, d, 0.04)})` }}>NAVIDAD · HANUKKAH</div>
+    </div>
+  );
+};
+
+/** closing: four of the prints in a grid, slowed down, the season and the CTA on top */
 const FamGrid: React.FC = () => {
   const { f, d } = useF();
   const cells: [number, number][] = [[0.2, 0.35], [2.35, 0.2], [5.4, 0.15], [7.35, 0.25]];
@@ -480,7 +495,7 @@ const FamGrid: React.FC = () => {
           );
         })}
       </AbsoluteFill>
-      <Lockup top={760} from={1.5} dark />
+      <FiestasLockup top={820} from={1.5} />
       <div style={{ position: "absolute", top: 1200, left: 0, right: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 14, opacity: a(2.5), transform: `scale(${(0.7 + 0.3 * a(2.5)) * punch(f, d, 0.03)})` }}>
         <div style={{ background: INK, color: LIME, fontFamily: SANS, fontWeight: 900, fontSize: 60, padding: "20px 60px 24px", borderRadius: 999, boxShadow: "0 14px 34px rgba(0,0,0,0.3)" }}>Compra ahora</div>
         <div style={{ background: WHITE, color: INK, fontFamily: SANS, fontWeight: 800, fontSize: 40, padding: "8px 26px 10px" }}>{WEB}</div>
@@ -499,7 +514,7 @@ export const Ad11: React.FC = () => (
       <At key={i} b0={b0} b1={b1}><FamShot at={at} rate={rate} i={i} /></At>
     ))}
     <At b0={5} b1={21}>
-      <Lockup top={1120} dark />
+      <FiestasLockup top={1260} />
     </At>
     <At b0={21} b1={31}><FamGrid /></At>
     <Sfx b={5} name="impact" vol={0.3} />
