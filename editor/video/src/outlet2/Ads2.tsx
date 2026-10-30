@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Easing, interpolate, Sequence, useCurrentFrame } from "remotion";
-import { At, Block, BeatProvider, BlurDefs, C, cl, EndCard, Grid4, Music, Note, outE, overE, Shade, Shot, Split3, Sfx, T, Tag25, Vid, Words, useBeat, type Cell } from "../outlet4/fx";
+import { At, Block, BeatProvider, BlurDefs, C, cl, EndCard, Grid4, Music, Note, outE, overE, Shade, Shot, Split3, Sfx, T, Tag25, Vid, Words, useBeat, useSeg, type Cell } from "../outlet4/fx";
 
 /** second wave · five ads, each one its own idea; every cut and reveal lands on its own track. Beats are counted from 0. */
 export const OUTLET2 = {
@@ -28,13 +28,28 @@ const Frame2: React.FC<{ k: Key2; bg?: string; tag?: [number, number]; children:
   </BeatProvider>
 );
 
+/** slow push-in over the whole block, so type-only scenes never sit still */
+const Drift: React.FC<{ to?: number; children: React.ReactNode }> = ({ to = 1.07, children }) => {
+  const f = useCurrentFrame();
+  const d = useSeg();
+  return <AbsoluteFill style={{ transform: `scale(${interpolate(f, [0, d], [1, to], cl)})` }}>{children}</AbsoluteFill>;
+};
+
+/** pulses on every beat */
+const Pulse: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const f = useCurrentFrame();
+  const { d } = useBeat();
+  const k = 1 + 0.045 * Math.exp(-(f % d(1)) / 4);
+  return <div style={{ transform: `scale(${k})` }}>{children}</div>;
+};
+
 /** two full-height panels that slide in from the edges on the block's first beat */
 const Split2: React.FC<{ a: Cell; b: Cell }> = ({ a, b }) => {
   const f = useCurrentFrame();
   const { d } = useBeat();
   const p = interpolate(f, [0, d(0.5)], [0, 1], { ...cl, easing: outE });
   return (
-    <AbsoluteFill style={{ backgroundColor: C.ink }}>
+    <AbsoluteFill>
       <div style={{ position: "absolute", left: 0, top: 0, width: 540, height: 1920, overflow: "hidden", transform: `translateX(${(p - 1) * 540}px)` }}>
         <Vid src={a.src} at={a.at} />
       </div>
@@ -86,7 +101,7 @@ const Chip: React.FC<{ left: number; top: number; from: number; children: React.
    ===================================================================================== */
 export const Ad06: React.FC = () => (
   <Frame2 k="ad06" tag={[8, 34]}>
-    <At b0={0} b1={8}>
+    <At b0={0} b1={8.6}>
       <Shot src="IMG_2861" at={0.3} z={[1.0, 1.18]} fout="zoom" />
       <Shade top={250} h={560} o={0.5} />
       <Block top={300}>
@@ -158,8 +173,10 @@ const Big25: React.FC = () => {
 export const Ad07: React.FC = () => (
   <Frame2 k="ad07" bg={CREAM}>
     <At b0={0} b1={6}>
-      <Block top={330}><Words text="La matemática que sí me interesa:" style={{ ...T.serif, fontSize: 56, color: C.ink, textShadow: "none" }} step={2} exit={2} /></Block>
-      <Big25 />
+      <Drift to={1.08}>
+        <Block top={330}><Words text="La matemática que sí me interesa:" style={{ ...T.serif, fontSize: 56, color: C.ink, textShadow: "none" }} step={2} exit={2} /></Block>
+        <Pulse><Big25 /></Pulse>
+      </Drift>
     </At>
     <Sfx b={0} name="whoosh" vol={0.4} />
 
@@ -170,9 +187,16 @@ export const Ad07: React.FC = () => (
       </div>
     </At>
 
-    <At b0={10} b1={20}>
-      <BarShrink />
+    <At b0={10} b1={15}>
+      <Drift to={1.03}><BarShrink /></Drift>
     </At>
+    <At b0={15} b1={20}>
+      <Grid4 stagger={2} cells={[{ src: "IMG_2861", at: 0.4 }, { src: "IMG_2848", at: 0.5 }, { src: "IMG_2989", at: 1.0 }, { src: "IMG_3189", at: 0.5 }]} />
+      <div style={{ position: "absolute", top: 890, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
+        <Pulse><div style={{ background: C.lime, color: C.ink, fontFamily: SANS, fontWeight: 900, fontSize: 104, padding: "12px 40px 18px", boxShadow: "0 18px 50px rgba(0,0,0,0.35)" }}>−25%</div></Pulse>
+      </div>
+    </At>
+    <Sfx b={15} name="pop" vol={0.35} />
 
     <At b0={20} b1={28}><Shot src="IMG_2848" at={0.8} fin="snap" z={[1.1, 1.0]} /></At>
     <At b0={22} b1={24}><Shot src="IMG_2984" at={3.0} fin="snap" /></At>
@@ -202,11 +226,10 @@ const BarShrink: React.FC = () => {
   const labels = interpolate(f, [d(0.5), d(1)], [0, 1], cl);
   return (
     <AbsoluteFill style={{ background: CREAM }}>
-      <div style={{ position: "absolute", top: 700, left: 64, right: 64, fontFamily: SANS, fontWeight: 800, fontSize: 48, color: C.ink, opacity: labels, display: "flex", justifyContent: "space-between" }}>
-        <span>100%</span><span>75%</span>
-      </div>
+      <div style={{ position: "absolute", top: 700, left: 64, fontFamily: SANS, fontWeight: 800, fontSize: 48, color: C.ink, opacity: labels }}>100%</div>
+      <div style={{ position: "absolute", top: 700, left: 64 + 952 * 0.75 - 100, width: 100, textAlign: "right", fontFamily: SANS, fontWeight: 800, fontSize: 48, color: C.ink, opacity: interpolate(f, [d(3), d(3.4)], [0, 1], cl) }}>75%</div>
       <div style={{ position: "absolute", top: 780, left: 64, width: 952 * w, height: 120, background: C.ink, transformOrigin: "left center" }} />
-      <div style={{ position: "absolute", top: 1000, left: 64, right: 64, textAlign: "center", fontFamily: SANS, fontWeight: 900, fontSize: 220, letterSpacing: "-0.03em", color: C.ink, opacity: interpolate(f, [d(3), d(3.6)], [0, 1], cl) }}>25% OFF</div>
+      <div style={{ position: "absolute", top: 1000, left: 0, right: 0, textAlign: "center", fontFamily: SANS, fontWeight: 900, fontSize: 180, whiteSpace: "nowrap", letterSpacing: "-0.03em", color: C.ink, opacity: interpolate(f, [d(3), d(3.6)], [0, 1], cl) }}><Pulse>25% OFF</Pulse></div>
     </AbsoluteFill>
   );
 };
@@ -228,8 +251,10 @@ export const Ad08: React.FC = () => {
   return (
     <Frame2 k="ad08" bg={CREAM} tag={[14, 28]}>
       <At b0={0} b1={4}>
-        <Block top={520}><Words text={"Tu pijama dice\nmucho de ti."} style={{ ...T.serif, fontSize: 96, color: C.ink, textShadow: "none" }} step={3} exit={3} /></Block>
-        <Block top={1000}><Words text="¿Cuál eres?" style={{ fontFamily: SANS, fontWeight: 900, fontSize: 130, color: C.ink, textShadow: "none" }} delay={10} step={2} exit={3} /></Block>
+        <Drift to={1.08}>
+          <Block top={520}><Words text={"Tu pijama dice\nmucho de ti."} style={{ ...T.serif, fontSize: 96, color: C.ink, textShadow: "none" }} step={3} exit={3} /></Block>
+          <Block top={1000}><Pulse><Words text="¿Cuál eres?" style={{ fontFamily: SANS, fontWeight: 900, fontSize: 130, color: C.ink, textShadow: "none" }} delay={10} step={2} exit={3} /></Pulse></Block>
+        </Drift>
       </At>
 
       <At b0={4} b1={14}>
