@@ -11,7 +11,7 @@ import { Ad01, Ad02, Ad03, Ad04, DUR as ADS_DUR } from "./ads4/Ads";
 import { OutletAd01, OutletAd02, OutletAd03, OutletAd04 } from "./outlet4/Ads";
 import { Re12, RE_FRAMES } from "./re12/Re12";
 import { Perisur, PERISUR_FRAMES } from "./perisur/Perisur";
-import { Ad06, Ad07, Ad08, Ad09, Ad10, frames2 } from "./outlet2/Ads2";
+import { Ad06, Ad07, Ad08, Ad09, Ad10, Ad11, frames2 } from "./outlet2/Ads2";
 import { frames as outletFrames } from "./outlet4/config";
 import { TOTAL_S as PROMO_S } from "./promo/config";
 import { Outlet2 } from "./outlet25b/Outlet2";
@@ -70,6 +70,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="RESET-OUTLET-07-HAZ-LAS-CUENTAS" component={Ad07} durationInFrames={frames2("ad07")} fps={30} width={1080} height={1920} />
       <Composition id="RESET-OUTLET-08-ELIGE-TU-PERSONALIDAD" component={Ad08} durationInFrames={frames2("ad08")} fps={30} width={1080} height={1920} />
       <Composition id="RESET-OUTLET-09-ALGORITMO" component={Ad09} durationInFrames={frames2("ad09")} fps={30} width={1080} height={1920} />
+      <Composition id="RESET-OUTLET-11-FAMILIA" component={Ad11} durationInFrames={frames2("ad11")} fps={30} width={1080} height={1920} />
       <Composition id="RESET-OUTLET-10-DIEZ-SEGUNDOS" component={Ad10} durationInFrames={frames2("ad10")} fps={30} width={1080} height={1920} />
       <Composition id="RESET-PERISUR-STORE-REVEAL" component={() => <Perisur music="outlet4/audio/perisur_music_original.wav" />} durationInFrames={PERISUR_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="RE-12-A-REF-AUDIO" component={() => <Re12 music="outlet4/audio/re12_ref.wav" />} durationInFrames={RE_FRAMES} fps={30} width={1080} height={1920} />

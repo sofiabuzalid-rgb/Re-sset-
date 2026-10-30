@@ -15,6 +15,7 @@ export const OUTLET2 = {
   ad08: { beats: 47, track: 4 },
   ad09: { beats: 55, track: 5 },
   ad10: { beats: 31, track: 2 },
+  ad11: { beats: 31, track: 2 },
 } as const;
 export type Key2 = keyof typeof OUTLET2;
 export const frames2 = (k: Key2) => Math.round(OUTLET2[k].beats * B * 30);
@@ -81,14 +82,30 @@ const Cuts: React.FC<{ b0: number; shots: [string, number][]; step?: number }> =
 );
 
 /** the offer, locked in the centre like the reference: logo, OUTLET, 25% OFF */
-const Lockup: React.FC<{ top?: number; from?: number }> = ({ top = 640, from = 0 }) => {
+const Lockup: React.FC<{ top?: number; from?: number; dark?: boolean }> = ({ top = 640, from = 0, dark }) => {
   const { f, d } = useF();
+  if (dark) return <LockupDark top={top} from={from} />;
   const p = interpolate(f, [d(from), d(from) + 7], [0, 1], { ...cl, easing: over });
   return (
     <div style={{ position: "absolute", top, left: 0, right: 0, display: "flex", flexDirection: "column", alignItems: "center", opacity: Math.min(1, p * 1.5), transform: `scale(${1.25 - 0.25 * p})` }}>
       <Img src={staticFile("brand/reset-logo-white.png")} style={{ width: 330, filter: "drop-shadow(0 3px 18px rgba(0,0,0,0.55))" }} />
       <div style={{ fontFamily: SANS, fontWeight: 700, fontSize: 64, letterSpacing: "0.5em", marginLeft: "0.5em", color: WHITE, textShadow: SH, marginTop: 18 }}>OUTLET</div>
       <div style={{ fontFamily: SANS, fontWeight: 900, fontSize: 196, lineHeight: 0.95, letterSpacing: "-0.035em", color: WHITE, textShadow: SH, whiteSpace: "nowrap", transform: `scale(${punch(f, d, 0.05)})` }}>25% OFF</div>
+    </div>
+  );
+};
+
+/** the lockup for bright footage (white walls): black logo, OUTLET on a white tab, 25% OFF on a lime block */
+const LockupDark: React.FC<{ top: number; from: number }> = ({ top, from }) => {
+  const { f, d } = useF();
+  const p = interpolate(f, [d(from), d(from) + 7], [0, 1], { ...cl, easing: over });
+  return (
+    <div style={{ position: "absolute", top, left: 0, right: 0, display: "flex", flexDirection: "column", alignItems: "center", opacity: Math.min(1, p * 1.5), transform: `scale(${1.25 - 0.25 * p})` }}>
+      <div style={{ background: WHITE, padding: "14px 34px 16px", display: "flex", flexDirection: "column", alignItems: "center", boxShadow: "0 12px 30px rgba(0,0,0,0.18)" }}>
+        <Img src={staticFile("brand/reset-logo-black.png")} style={{ width: 260 }} />
+        <div style={{ fontFamily: SANS, fontWeight: 700, fontSize: 52, letterSpacing: "0.5em", marginLeft: "0.5em", color: INK, marginTop: 8 }}>OUTLET</div>
+      </div>
+      <div style={{ background: LIME, fontFamily: SANS, fontWeight: 900, fontSize: 170, lineHeight: 1, letterSpacing: "-0.035em", color: INK, whiteSpace: "nowrap", padding: "8px 34px 16px", boxShadow: "0 16px 36px rgba(0,0,0,0.22)", transform: `scale(${punch(f, d, 0.05)})` }}>25% OFF</div>
     </div>
   );
 };
@@ -420,5 +437,71 @@ export const Ad10: React.FC = () => (
     </At>
     <Sfx b={1} name="swipe" vol={0.3} />
     <Sfx b={2} name="whoosh" vol={0.3} />
+  </Frame2>
+);
+
+/* =====================================================================================
+   11 · FAMILIA — the client's model video (AI-generated, Higgsfield), blue satin pajama cut out;
+   each shot runs at its own speed so the footage's own cuts land on the beat
+   ===================================================================================== */
+const FAM = "HF_FAMILIA";
+/** [beat in, beat out, second in the clip, playback rate] — the clip's blue satin shot (6.04–7.29 s) is never used */
+const FAM_CUTS: [number, number, number, number][] = [
+  [5, 6, 1.75, 1], [6, 8, 2.35, 1], [8, 9, 3.35, 1], [9, 11, 3.95, 1], [11, 12, 4.9, 1], [12, 13.5, 5.36, 1],
+  [13.5, 16, 7.3, 1], [16, 18, 8.4, 1], [18, 21, 9.3, 1],
+];
+const FamShot: React.FC<{ at: number; rate?: number; i?: number }> = ({ at, rate = 1, i = 0 }) => {
+  const { f, d } = useF();
+  const seg = useSeg();
+  const snap = interpolate(f, [0, 4], [1.1, 1], { ...cl, easing: outE });
+  const z = interpolate(f, [0, seg], i % 2 ? [1.08, 1.0] : [1.0, 1.08], cl);
+  return (
+    <AbsoluteFill style={{ overflow: "hidden", background: INK }}>
+      <AbsoluteFill style={{ transform: `scale(${snap * z * punch(f, d, 0.012)})`, filter: "contrast(1.04) saturate(1.06)" }}>
+        <Vid src={FAM} at={at} rate={rate} />
+      </AbsoluteFill>
+    </AbsoluteFill>
+  );
+};
+/** closing: four of the prints in a grid, slowed down, the offer and the CTA on top */
+const FamGrid: React.FC = () => {
+  const { f, d } = useF();
+  const cells: [number, number][] = [[0.2, 0.35], [2.35, 0.2], [5.4, 0.15], [7.35, 0.25]];
+  const a = (b: number) => interpolate(f, [d(b), d(b) + 7], [0, 1], { ...cl, easing: outE });
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill style={{ background: WHITE, display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap: 8, padding: 8 }}>
+        {cells.map(([at, rate], i) => {
+          const p = interpolate(f, [d(i * 0.25), d(i * 0.25) + 5], [0, 1], { ...cl, easing: over });
+          return (
+            <div key={i} style={{ position: "relative", overflow: "hidden", opacity: Math.min(1, p * 2), transform: `scale(${0.7 + 0.3 * p})` }}>
+              <AbsoluteFill style={{ transform: "scale(1.25)", transformOrigin: "50% 30%" }}><Vid src={FAM} at={at} rate={rate} /></AbsoluteFill>
+            </div>
+          );
+        })}
+      </AbsoluteFill>
+      <Lockup top={760} from={1.5} dark />
+      <div style={{ position: "absolute", top: 1200, left: 0, right: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 14, opacity: a(2.5), transform: `scale(${(0.7 + 0.3 * a(2.5)) * punch(f, d, 0.03)})` }}>
+        <div style={{ background: INK, color: LIME, fontFamily: SANS, fontWeight: 900, fontSize: 60, padding: "20px 60px 24px", borderRadius: 999, boxShadow: "0 14px 34px rgba(0,0,0,0.3)" }}>Compra ahora</div>
+        <div style={{ background: WHITE, color: INK, fontFamily: SANS, fontWeight: 800, fontSize: 40, padding: "8px 26px 10px" }}>{WEB}</div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+export const Ad11: React.FC = () => (
+  <Frame2 k="ad11">
+    <At b0={0} b1={5}>
+      <FamShot at={0} rate={0.8} />
+      <Slam top={290} lines={[{ t: "PIJAMAS PARA", b: 0.5, c: INK, bg: WHITE, size: 120 }, { t: "TODA LA FAMILIA", b: 1.5, c: INK, bg: LIME, size: 110 }]} out={5} />
+    </At>
+    {FAM_CUTS.map(([b0, b1, at, rate], i) => (
+      <At key={i} b0={b0} b1={b1}><FamShot at={at} rate={rate} i={i} /></At>
+    ))}
+    <At b0={5} b1={21}>
+      <Lockup top={1120} dark />
+    </At>
+    <At b0={21} b1={31}><FamGrid /></At>
+    <Sfx b={5} name="impact" vol={0.3} />
   </Frame2>
 );
