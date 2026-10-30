@@ -1,386 +1,454 @@
 import React from "react";
-import { AbsoluteFill, Easing, interpolate, Sequence, useCurrentFrame } from "remotion";
-import { At, Block, BeatProvider, BlurDefs, C, cl, EndCard, Grid4, Music, Note, outE, overE, Shade, Shot, Split3, Sfx, T, Tag25, Vid, Words, useBeat, useSeg, type Cell } from "../outlet4/fx";
+import { AbsoluteFill, Easing, Img, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
+import { STORES, WEB } from "../campana/shared";
+import { At, BeatProvider, cl, Music, Sfx, Split3, Ticker, useBeat, useSeg, Vid } from "../outlet4/fx";
 
-/** second wave · five ads, each one its own idea; every cut and reveal lands on its own track. Beats are counted from 0. */
+/** second wave · five ads on the client's Pixabay afro house (licensed for commercial use), each on its own section of the track.
+ *  Look: bright footage in clean rounded cards on solid brand colours, giant type that lands on the beat. */
+const AF = 0.5725; // seconds per beat of the afro house
+const GRID0 = 14.338; // a downbeat of the track; the drop is beat 8 of this grid (18.92 s)
+const atBeat = (k: number) => GRID0 + k * AF;
+const TRACK = "outlet4/audio/afrohouse.mp3";
+
 export const OUTLET2 = {
-  ad06: { B: 0.5, beats: 48, music: "outlet4/audio/outlet2_ad06_pop.wav" },
-  ad07: { B: 0.6, beats: 40, music: "outlet4/audio/outlet2_ad07_beat.wav" },
-  ad08: { B: 0.625, beats: 37, music: "outlet4/audio/outlet2_ad08_editorial.wav" },
-  ad09: { B: 60 / 112, beats: 50, music: "outlet4/audio/outlet2_ad09_playful.wav" },
-  ad10: { B: 60 / 124, beats: 26, music: "outlet4/audio/outlet2_ad10_energetic.wav" },
+  ad06: { beats: 42, startS: atBeat(-4) }, // drop at beat 12
+  ad07: { beats: 42, startS: atBeat(0) }, // drop at beat 8
+  ad08: { beats: 40, startS: atBeat(4) }, // drop at beat 4
+  ad09: { beats: 47, startS: atBeat(-12) }, // drop at beat 20
+  ad10: { beats: 22, startS: atBeat(6) }, // drop at beat 2
 } as const;
 export type Key2 = keyof typeof OUTLET2;
-export const frames2 = (k: Key2) => Math.round(OUTLET2[k].beats * OUTLET2[k].B * 30);
+export const frames2 = (k: Key2) => Math.round(OUTLET2[k].beats * AF * 30);
 
+const LIME = "#E2EC95";
+const INK = "#141414";
 const CREAM = "#F4F1EA";
+const WHITE = "#FFFFFF";
+const BLUSH = "#F3D6CF";
 const SANS = "Montserrat";
+const GRADE = "brightness(1.07) contrast(1.07) saturate(1.12)";
+const over = Easing.bezier(0.34, 1.56, 0.64, 1);
+const outE = Easing.out(Easing.cubic);
 
-/** shared frame: beat clock, motion-blur filters, the track from its beat 0; `tag` = beats where the 25% OFF corner tag sits above everything */
-const Frame2: React.FC<{ k: Key2; bg?: string; tag?: [number, number]; children: React.ReactNode }> = ({ k, bg = C.ink, tag, children }) => (
-  <BeatProvider B={OUTLET2[k].B} off={0}>
-    <AbsoluteFill style={{ backgroundColor: bg, overflow: "hidden" }}>
-      <BlurDefs />
+const useF = () => {
+  const f = useCurrentFrame();
+  const { d } = useBeat();
+  return { f, d };
+};
+/** a punch that decays after every beat */
+const punch = (f: number, d: (b: number) => number, amt: number) => 1 + amt * Math.exp(-(f % d(1)) / 4);
+/** font size that keeps an uppercase Montserrat 900 line inside the safe width */
+const fit = (t: string, max: number) => Math.min(max, Math.floor(950 / (Math.max(3, t.length) * 0.68)));
+
+const Frame2: React.FC<{ k: Key2; children: React.ReactNode }> = ({ k, children }) => (
+  <BeatProvider B={AF} off={0}>
+    <AbsoluteFill style={{ backgroundColor: INK, overflow: "hidden" }}>
       {children}
-      {tag && <At b0={tag[0]} b1={tag[1]}><Tag25 /></At>}
-      <Music src={OUTLET2[k].music} startS={0} total={frames2(k)} />
+      <Music src={TRACK} startS={OUTLET2[k].startS} total={frames2(k)} />
     </AbsoluteFill>
   </BeatProvider>
 );
 
-/** slow push-in over the whole block, so type-only scenes never sit still */
-const Drift: React.FC<{ to?: number; children: React.ReactNode }> = ({ to = 1.07, children }) => {
-  const f = useCurrentFrame();
-  const d = useSeg();
-  return <AbsoluteFill style={{ transform: `scale(${interpolate(f, [0, d], [1, to], cl)})` }}>{children}</AbsoluteFill>;
-};
+const Bg: React.FC<{ c: string }> = ({ c }) => <AbsoluteFill style={{ background: c }} />;
 
-/** pulses on every beat */
-const Pulse: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const f = useCurrentFrame();
-  const { d } = useBeat();
-  const k = 1 + 0.045 * Math.exp(-(f % d(1)) / 4);
-  return <div style={{ transform: `scale(${k})` }}>{children}</div>;
-};
-
-/** two full-height panels that slide in from the edges on the block's first beat */
-const Split2: React.FC<{ a: Cell; b: Cell }> = ({ a, b }) => {
-  const f = useCurrentFrame();
-  const { d } = useBeat();
-  const p = interpolate(f, [0, d(0.5)], [0, 1], { ...cl, easing: outE });
+/** full-bleed shot: snaps in on its beat, slow push, a small punch on every beat */
+const Full: React.FC<{ src: string; at: number; z?: [number, number] }> = ({ src, at, z = [1.0, 1.06] }) => {
+  const { f, d } = useF();
+  const seg = useSeg();
+  const snap = interpolate(f, [0, 5], [1.12, 1], { ...cl, easing: outE });
+  const zz = interpolate(f, [0, seg], z, cl);
   return (
-    <AbsoluteFill>
-      <div style={{ position: "absolute", left: 0, top: 0, width: 540, height: 1920, overflow: "hidden", transform: `translateX(${(p - 1) * 540}px)` }}>
-        <Vid src={a.src} at={a.at} />
-      </div>
-      <div style={{ position: "absolute", left: 540, top: 0, width: 540, height: 1920, overflow: "hidden", transform: `translateX(${(1 - p) * 540}px)` }}>
-        <Vid src={b.src} at={b.at} />
-      </div>
+    <AbsoluteFill style={{ overflow: "hidden", background: INK }}>
+      <AbsoluteFill style={{ transform: `scale(${snap * zz * punch(f, d, 0.02)})`, filter: GRADE }}>
+        <Vid src={src} at={at} />
+      </AbsoluteFill>
     </AbsoluteFill>
   );
 };
 
-/** framed product cards that land on their own beat (relative to the block) and sit like a pile of prints */
-type Pc = Cell & { b: number; x: number; y: number; w: number; h: number; r: number };
-const Pile: React.FC<{ cards: Pc[] }> = ({ cards }) => {
-  const f = useCurrentFrame();
-  const { d } = useBeat();
+/** one product per beat, full-bleed */
+const Montage: React.FC<{ b0: number; shots: [string, number][] }> = ({ b0, shots }) => (
+  <>
+    {shots.map(([src, at], i) => (
+      <At key={i} b0={b0 + i} b1={b0 + i + 1}>
+        <Full src={src} at={at} />
+      </At>
+    ))}
+  </>
+);
+
+/** rounded footage card that lands on its beat (relative to the block) */
+type CardP = { src: string; at: number; x: number; y: number; w: number; h: number; r?: number; b?: number; from?: "up" | "left" | "right" | "pop"; label?: string; hi?: boolean };
+const Card: React.FC<CardP> = ({ src, at, x, y, w, h, r = 0, b = 0, from = "up", label, hi }) => {
+  const { f, d } = useF();
+  const s = d(b);
+  if (f < s) return null;
+  const p = interpolate(f, [s, s + 9], [0, 1], { ...cl, easing: over });
+  const dx = from === "left" ? -(1 - p) * 800 : from === "right" ? (1 - p) * 800 : 0;
+  const dy = from === "up" ? (1 - p) * 600 : 0;
+  const sc = (from === "pop" ? 0.4 + 0.6 * p : 1) * punch(f, d, 0.015);
   return (
-    <AbsoluteFill>
-      {cards.map((c, k) => {
-        const s = d(c.b);
-        if (f < s - 1) return null;
-        const p = interpolate(f, [s, s + 8], [0, 1], { ...cl, easing: overE });
+    <div style={{ position: "absolute", left: x, top: y, width: w, height: h, borderRadius: 34, overflow: "hidden", background: WHITE, outline: hi ? `10px solid ${LIME}` : "none", boxShadow: "0 30px 70px rgba(0,0,0,0.28)", opacity: Math.min(1, p * 2), transform: `translate(${dx}px, ${dy}px) rotate(${r}deg) scale(${sc})` }}>
+      <Sequence from={s} layout="none">
+        <AbsoluteFill style={{ filter: GRADE }}>
+          <Vid src={src} at={at} />
+        </AbsoluteFill>
+      </Sequence>
+      {label && <div style={{ position: "absolute", left: 22, bottom: 22, background: INK, color: LIME, fontFamily: SANS, fontWeight: 800, fontSize: 34, letterSpacing: "0.04em", padding: "10px 22px", borderRadius: 999 }}>{label}</div>}
+    </div>
+  );
+};
+
+/** giant uppercase lines that slam in on their beats; unrevealed lines keep their space so nothing jumps */
+type Line = { t: string; b: number; c?: string; bg?: string; size?: number };
+const Slam: React.FC<{ lines: Line[]; top: number; size?: number; gap?: number; out?: number }> = ({ lines, top, size = 170, gap = 8, out }) => {
+  const { f, d } = useF();
+  const o = out === undefined ? 1 : interpolate(f, [d(out) - 4, d(out)], [1, 0], cl);
+  return (
+    <div style={{ position: "absolute", top, left: 0, right: 0, display: "flex", flexDirection: "column", alignItems: "center", gap, opacity: o }}>
+      {lines.map((L, i) => {
+        const s = d(L.b);
+        const on = f >= s;
+        const p = on ? interpolate(f, [s, s + 6], [0, 1], { ...cl, easing: over }) : 0;
         return (
-          <div key={k} style={{ position: "absolute", left: c.x, top: c.y, width: c.w, height: c.h, padding: 10, boxSizing: "border-box", background: "#FFFBF2", boxShadow: "0 24px 50px rgba(0,0,0,0.35)", transform: `translateY(${(1 - p) * 220}px) rotate(${c.r + (1 - p) * 6}deg)`, opacity: Math.min(1, p * 2) }}>
-            <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden" }}>
-              <Sequence from={s} layout="none">
-                <AbsoluteFill>
-                  <Vid src={c.src} at={c.at} />
-                </AbsoluteFill>
-              </Sequence>
-            </div>
+          <div key={i} style={{ fontFamily: SANS, fontWeight: 900, fontSize: fit(L.t, L.size ?? size), lineHeight: 0.95, letterSpacing: "-0.025em", textTransform: "uppercase", whiteSpace: "nowrap", color: L.c ?? INK, background: L.bg, padding: L.bg ? "8px 24px 14px" : 0, opacity: on ? Math.min(1, p * 1.6) : 0, transform: `scale(${on ? 1.35 - 0.35 * p : 1})` }}>
+            {L.t}
           </div>
         );
       })}
+    </div>
+  );
+};
+
+/** small sans line */
+const Kick: React.FC<{ t: string; b: number; top: number; c?: string; out?: number }> = ({ t, b, top, c = INK, out }) => {
+  const { f, d } = useF();
+  const p = interpolate(f, [d(b), d(b) + 8], [0, 1], { ...cl, easing: outE });
+  const o = out === undefined ? 1 : interpolate(f, [d(out) - 4, d(out)], [1, 0], cl);
+  return <div style={{ position: "absolute", top, left: 72, right: 72, textAlign: "center", fontFamily: SANS, fontWeight: 800, fontSize: 40, letterSpacing: "0.08em", textTransform: "uppercase", color: c, opacity: p * o, transform: `translateY(${(1 - p) * 16}px)` }}>{t}</div>;
+};
+
+/** round 25% OFF badge that wobbles and pulses on the beat */
+const Badge25: React.FC<{ x: number; y: number; size?: number; dark?: boolean; b?: number }> = ({ x, y, size = 240, dark, b = 0 }) => {
+  const { f, d } = useF();
+  const s = d(b);
+  if (f < s) return null;
+  const p = interpolate(f, [s, s + 9], [0, 1], { ...cl, easing: over });
+  return (
+    <div style={{ position: "absolute", left: x, top: y, width: size, height: size, borderRadius: "50%", background: dark ? INK : LIME, color: dark ? LIME : INK, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", fontFamily: SANS, fontWeight: 900, boxShadow: "0 18px 40px rgba(0,0,0,0.25)", transform: `scale(${p * punch(f, d, 0.06)}) rotate(${-10 + 6 * Math.sin((f - s) / 9)}deg)` }}>
+      <div style={{ fontSize: size * 0.36, lineHeight: 0.9, letterSpacing: "-0.03em" }}>25%</div>
+      <div style={{ fontSize: size * 0.17, letterSpacing: "0.14em", marginLeft: "0.14em" }}>OFF</div>
+    </div>
+  );
+};
+
+/** closing card on lime: logo, the product, the offer, the CTA, stores and web */
+const EndLime: React.FC<{ src: string; at: number; cta: string; title?: string }> = ({ src, at, cta, title = "OUTLET RE:SET" }) => {
+  const { f, d } = useF();
+  const a = (b: number) => interpolate(f, [d(b), d(b) + 8], [0, 1], { ...cl, easing: outE });
+  return (
+    <AbsoluteFill style={{ background: LIME }}>
+      <Img src={staticFile("brand/reset-logo-black.png")} style={{ position: "absolute", top: 262, left: "50%", width: 300, marginLeft: -150, opacity: a(0) }} />
+      <Card src={src} at={at} x={250} y={410} w={580} h={720} r={-3} from="pop" />
+      <Badge25 x={690} y={340} size={240} dark b={1} />
+      <div style={{ position: "absolute", top: 1160, left: 0, right: 0, textAlign: "center", fontFamily: SANS, fontWeight: 900, fontSize: fit(title, 110), letterSpacing: "-0.02em", color: INK, opacity: a(0.5), transform: `translateY(${(1 - a(0.5)) * 20}px)` }}>{title}</div>
+      <div style={{ position: "absolute", top: 1300, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: a(1), transform: `scale(${(0.8 + 0.2 * a(1)) * punch(f, d, 0.03)})` }}>
+        <div style={{ background: INK, color: LIME, fontFamily: SANS, fontWeight: 900, fontSize: 56, padding: "20px 54px 24px", borderRadius: 999 }}>{cta}</div>
+      </div>
+      <div style={{ position: "absolute", top: 1440, left: 0, right: 0, textAlign: "center", fontFamily: SANS, fontWeight: 700, fontSize: 30, color: INK, opacity: a(1.5) }}>
+        {WEB} · {STORES.map((s) => s.name).join(" · ")}
+      </div>
     </AbsoluteFill>
   );
 };
 
-/** a small label for a product cell: ink chip, Montserrat, placed inside the safe area */
-const Chip: React.FC<{ left: number; top: number; from: number; children: React.ReactNode }> = ({ left, top, from, children }) => {
-  const f = useCurrentFrame();
-  const { d } = useBeat();
-  if (f < d(from)) return null;
-  const p = interpolate(f, [d(from), d(from) + 6], [0, 1], { ...cl, easing: outE });
-  return <div style={{ position: "absolute", left, top, opacity: p, transform: `translateY(${(1 - p) * 14}px)`, background: C.ink, color: C.ivory, fontFamily: SANS, fontWeight: 800, fontSize: 40, letterSpacing: "0.06em", padding: "12px 26px" }}>{children}</div>;
-};
-
 /* =====================================================================================
-   06 · YO SOLO IBA A VER… — pop, 120 BPM, 24 s
+   06 · YO SOLO IBA A VER… — the "just looking" pile grows faster and faster, a counter keeps score
    ===================================================================================== */
-export const Ad06: React.FC = () => (
-  <Frame2 k="ad06" tag={[8, 34]}>
-    <At b0={0} b1={8.6}>
-      <Shot src="IMG_2861" at={0.3} z={[1.0, 1.18]} fout="zoom" />
-      <Shade top={250} h={560} o={0.5} />
-      <Block top={300}>
-        <Words text={"POV: entras al outlet\ndiciendo que no vas a comprar nada"} style={{ ...T.serif, fontSize: 70 }} step={2} exit={4} />
-      </Block>
-    </At>
-    <At b0={8} b1={16}>
-      <Split2 a={{ src: "IMG_2839", at: 0.5 }} b={{ src: "IMG_2857", at: 0.5 }} />
-    </At>
-    <At b0={16} b1={26} pre={0}>
-      <Shot src="IMG_2842" at={0.8} fin="snap" z={[1.1, 1.0]} />
-    </At>
-    <At b0={18} b1={20}><Shot src="IMG_2865" at={0.4} fin="whip" /></At>
-    <At b0={20} b1={22}><Shot src="IMG_3186" at={2.5} fin="snap" /></At>
-    <At b0={22} b1={24}><Shot src="IMG_2852" at={0.4} fin="whip" /></At>
-    <At b0={24} b1={26}><Shot src="IMG_2862" at={0.6} fin="snap" fout="zoom" /></At>
-
-    <At b0={26} b1={34}>
-      <Shot src="IMG_2842" at={1.0} z={[1.0, 1.05]} dim={0.6} />
-      <Shade top={220} h={520} o={0.5} />
-      <Block top={350}><Words text="Ok, pero VEAN ESTAS" style={{ ...T.serif, fontSize: 96 }} step={2} exit={4} /></Block>
-      <Pile cards={[
-        { src: "IMG_2846", at: 1.0, b: 0, x: 60, y: 720, w: 420, h: 560, r: -4 },
-        { src: "IMG_2851", at: 1.0, b: 1, x: 560, y: 660, w: 440, h: 600, r: 3 },
-        { src: "IMG_2986", at: 0.6, b: 2, x: 230, y: 1040, w: 480, h: 640, r: -2 },
-        { src: "IMG_2989", at: 1.0, b: 3, x: 80, y: 1260, w: 360, h: 480, r: 5 },
-        { src: "IMG_2992", at: 0.4, b: 4, x: 640, y: 1220, w: 380, h: 500, r: -5 },
-      ]} />
-    </At>
-
-    <At b0={34} b1={40}>
-      <Shot src="IMG_2862" at={0.6} z={[1.0, 1.1]} dim={0.55} />
-      <Block top={650}>
-        <Words text={"25%\nOFF"} style={{ ...T.mega, fontSize: 340, color: C.lime }} step={3} exit={3} />
-      </Block>
-    </At>
-    <Sfx b={34} name="impact" vol={0.6} />
-
-    <At b0={40} b1={44}>
-      <Shot src="IMG_2839" at={0.5} fin="snap" z={[1.05, 1.0]} />
-    </At>
-    <At b0={44} b1={48}>
-      <Shot src="IMG_2852" at={1.0} z={[1.0, 1.06]} />
-      <EndCard logoTop={780} storeTop={960}>
-        <Block top={300}><Words text={"OUTLET RE:SET"} style={{ ...T.mega, fontSize: 116 }} step={2} /></Block>
-        <Block top={560}><Words text="Elige tu favorita." style={{ ...T.serif, fontSize: 84 }} delay={8} step={2} /></Block>
-      </EndCard>
-    </At>
-  </Frame2>
-);
-
-/* =====================================================================================
-   07 · HAZ LAS CUENTAS — beat, 100 BPM, 24 s · motion typography
-   ===================================================================================== */
-const Big25: React.FC = () => {
-  const f = useCurrentFrame();
-  const { d } = useBeat();
-  const s = interpolate(f, [0, d(2.4)], [2.2, 1], { ...cl, easing: outE });
-  const o = interpolate(f, [d(2.4), d(2.8)], [0, 1], cl);
-  const base: React.CSSProperties = { position: "absolute", top: 640, left: 0, right: 0, textAlign: "center", fontFamily: SANS, fontWeight: 900, fontSize: 200, lineHeight: 1, letterSpacing: "-0.03em", color: C.ink, whiteSpace: "nowrap" };
+const PILE: (CardP & { b: number })[] = [
+  { src: "IMG_2857", at: 0.3, b: 4, x: 60, y: 760, w: 470, h: 620, r: -7, from: "left" },
+  { src: "IMG_2848", at: 0.5, b: 5, x: 550, y: 720, w: 470, h: 620, r: 6, from: "right" },
+  { src: "IMG_3189", at: 0.5, b: 6, x: 300, y: 900, w: 480, h: 620, r: -2 },
+  { src: "IMG_2842", at: 1.0, b: 8, x: 40, y: 900, w: 440, h: 580, r: 8, from: "left" },
+  { src: "IMG_2988", at: 0.6, b: 8.5, x: 600, y: 880, w: 440, h: 580, r: -8, from: "right" },
+  { src: "IMG_2995", at: 1.8, b: 9, x: 320, y: 760, w: 460, h: 600, r: 3 },
+  { src: "IMG_3186", at: 1.0, b: 9.5, x: 90, y: 820, w: 450, h: 600, r: -5, from: "left" },
+  { src: "IMG_2852", at: 1.0, b: 10, x: 540, y: 800, w: 450, h: 600, r: 7, from: "right" },
+  { src: "IMG_3187", at: 1.0, b: 10.5, x: 300, y: 860, w: 470, h: 620, r: -3 },
+  { src: "IMG_2846", at: 1.0, b: 11, x: 120, y: 740, w: 440, h: 580, r: 5, from: "left" },
+  { src: "IMG_2862", at: 0.5, b: 11.5, x: 520, y: 900, w: 440, h: 580, r: -6, from: "right" },
+];
+const Counter: React.FC = () => {
+  const { f, d } = useF();
+  if (f < d(4)) return null;
+  const n = 1 + PILE.filter((c) => f >= d(c.b)).length;
+  const last = Math.max(...PILE.filter((c) => f >= d(c.b)).map((c) => d(c.b)));
+  const k = 1 + 0.25 * Math.exp(-(f - last) / 4);
   return (
     <>
-      <div style={{ ...base, opacity: 1 - o, transform: `scale(${s})` }}>25</div>
-      <div style={{ ...base, opacity: o }}>25% OFF</div>
+      <div style={{ position: "absolute", top: 280, left: 72, right: 72, textAlign: "center", fontFamily: SANS, fontWeight: 800, fontSize: 40, letterSpacing: "0.06em", color: INK }}>PIJAMAS QUE "SOLO IBA A VER":</div>
+      <div style={{ position: "absolute", top: 340, left: 0, right: 0, textAlign: "center", fontFamily: SANS, fontWeight: 900, fontSize: 300, lineHeight: 1, color: INK, transform: `scale(${k})` }}>{n}</div>
     </>
   );
 };
 
-export const Ad07: React.FC = () => (
-  <Frame2 k="ad07" bg={CREAM}>
-    <At b0={0} b1={6}>
-      <Drift to={1.08}>
-        <Block top={330}><Words text="La matemática que sí me interesa:" style={{ ...T.serif, fontSize: 56, color: C.ink, textShadow: "none" }} step={2} exit={2} /></Block>
-        <Pulse><Big25 /></Pulse>
-      </Drift>
+export const Ad06: React.FC = () => (
+  <Frame2 k="ad06">
+    <At b0={0} b1={12}>
+      <Bg c={CREAM} />
+      <Slam top={300} out={4} lines={[{ t: "YO SOLO", b: 0 }, { t: "IBA A VER…", b: 0.5 }]} />
+      <Kick t="entrando al outlet de RE:SET" b={0.8} top={640} out={4} />
+      <Card src="IMG_2861" at={0.3} b={0} x={250} y={720} w={580} h={760} r={-2} />
+      {PILE.map((c, i) => <Card key={i} {...c} />)}
+      <Counter />
+      <Badge25 x={790} y={620} size={230} b={4} />
     </At>
-    <Sfx b={0} name="whoosh" vol={0.4} />
-
-    <At b0={6} b1={10}><Split2 a={{ src: "IMG_2857", at: 0.5 }} b={{ src: "IMG_2861", at: 0.4 }} /></At>
-    <At b0={6} b1={10}>
-      <div style={{ position: "absolute", top: 900, left: 0, right: 0, textAlign: "center" }}>
-        <div style={{ display: "inline-block", background: C.lime, color: C.ink, fontFamily: SANS, fontWeight: 900, fontSize: 110, padding: "14px 40px 20px" }}>25% OFF</div>
-      </div>
+    <Montage b0={12} shots={[["IMG_2842", 1], ["IMG_3187", 1], ["IMG_2857", 0.5], ["IMG_2989", 1], ["IMG_3189", 1], ["IMG_2861", 0.4], ["IMG_2848", 0.8], ["IMG_2995", 1.8]]} />
+    <At b0={12} b1={20}>
+      <Slam top={300} lines={[{ t: "OK, PERO", b: 0, bg: LIME }, { t: "VEAN ESTAS", b: 0.5, bg: LIME }]} size={150} out={7.6} />
+      <Badge25 x={780} y={1260} size={210} b={1} />
     </At>
-
-    <At b0={10} b1={15}>
-      <Drift to={1.03}><BarShrink /></Drift>
+    <At b0={20} b1={28}>
+      <Bg c={LIME} />
+      <Kick t="en el outlet de RE:SET" b={0} top={330} />
+      <Slam top={420} lines={[{ t: "25%", b: 0, size: 460 }, { t: "OFF", b: 0.5, size: 300 }]} gap={0} />
+      <Card src="IMG_3186" at={1.0} b={1} x={-40} y={1220} w={480} h={560} r={-8} from="left" />
+      <Card src="IMG_2857" at={1.0} b={1.5} x={640} y={1200} w={480} h={560} r={8} from="right" />
     </At>
-    <At b0={15} b1={20}>
-      <Grid4 stagger={2} cells={[{ src: "IMG_2861", at: 0.4 }, { src: "IMG_2848", at: 0.5 }, { src: "IMG_2989", at: 1.0 }, { src: "IMG_3189", at: 0.5 }]} />
-      <div style={{ position: "absolute", top: 890, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
-        <Pulse><div style={{ background: C.lime, color: C.ink, fontFamily: SANS, fontWeight: 900, fontSize: 104, padding: "12px 40px 18px", boxShadow: "0 18px 50px rgba(0,0,0,0.35)" }}>−25%</div></Pulse>
-      </div>
+    <At b0={28} b1={34}>
+      <Bg c={INK} />
+      <Slam top={270} lines={[{ t: "ELIGE TU FAVORITA", b: 0, c: LIME }]} size={90} />
+      <Card src="IMG_2842" at={1.0} b={0} x={60} y={420} w={470} h={540} from="pop" />
+      <Card src="IMG_2861" at={0.4} b={0.5} x={550} y={420} w={470} h={540} from="pop" />
+      <Card src="IMG_3189" at={1.0} b={1} x={60} y={980} w={470} h={540} from="pop" />
+      <Card src="IMG_2848" at={0.8} b={1.5} x={550} y={980} w={470} h={540} from="pop" />
     </At>
-    <Sfx b={15} name="pop" vol={0.35} />
-
-    <At b0={20} b1={28}><Shot src="IMG_2848" at={0.8} fin="snap" z={[1.1, 1.0]} /></At>
-    <At b0={22} b1={24}><Shot src="IMG_2984" at={3.0} fin="snap" /></At>
-    <At b0={24} b1={26}><Shot src="IMG_2839" at={0.4} fin="whip" /></At>
-    <At b0={26} b1={28}><Shot src="IMG_2862" at={0.7} fin="snap" /></At>
-
-    <At b0={28} b1={35}>
-      <Shot src="IMG_2852" at={1.0} z={[1.0, 1.06]} dim={0.4} />
-      <Block top={600}><Words text={"Las cuentas salen\nmejor en RE:SET"} style={{ ...T.serif, fontSize: 92 }} step={2} exit={4} /></Block>
+    <At b0={34} b1={42}>
+      <EndLime src="IMG_2861" at={0.4} cta="Elige tu favorita" />
     </At>
-
-    <At b0={35} b1={40}>
-      <Shot src="IMG_2861" at={0.4} z={[1.0, 1.06]} />
-      <EndCard logoTop={820} storeTop={1000}>
-        <Block top={460}><Words text="Aprovecha el 25% OFF." style={{ ...T.serif, fontSize: 100 }} step={2} /></Block>
-        <Block top={720}><Words text="OUTLET RE:SET" style={{ ...T.kicker, fontSize: 52 }} delay={6} /></Block>
-      </EndCard>
-    </At>
+    <Sfx b={1} name="pop" vol={0.3} />
+    {PILE.map((c, i) => <Sfx key={i} b={c.b} name="pop" vol={0.22} />)}
+    <Sfx b={12} name="impact" vol={0.5} />
+    <Sfx b={20} name="impact" vol={0.45} />
+    <Sfx b={28} name="whoosh" off={-4} vol={0.35} />
+    <Sfx b={34} name="whoosh" off={-4} vol={0.35} />
   </Frame2>
 );
 
-/** a full-width bar that shrinks to 75% on the beat: 100% → 75%, with its two labels */
-const BarShrink: React.FC = () => {
-  const f = useCurrentFrame();
-  const { d } = useBeat();
-  const w = interpolate(f, [d(1), d(3)], [1, 0.75], { ...cl, easing: Easing.inOut(Easing.cubic) });
-  const labels = interpolate(f, [d(0.5), d(1)], [0, 1], cl);
-  return (
-    <AbsoluteFill style={{ background: CREAM }}>
-      <div style={{ position: "absolute", top: 700, left: 64, fontFamily: SANS, fontWeight: 800, fontSize: 48, color: C.ink, opacity: labels }}>100%</div>
-      <div style={{ position: "absolute", top: 700, left: 64 + 952 * 0.75 - 100, width: 100, textAlign: "right", fontFamily: SANS, fontWeight: 800, fontSize: 48, color: C.ink, opacity: interpolate(f, [d(3), d(3.4)], [0, 1], cl) }}>75%</div>
-      <div style={{ position: "absolute", top: 780, left: 64, width: 952 * w, height: 120, background: C.ink, transformOrigin: "left center" }} />
-      <div style={{ position: "absolute", top: 1000, left: 0, right: 0, textAlign: "center", fontFamily: SANS, fontWeight: 900, fontSize: 180, whiteSpace: "nowrap", letterSpacing: "-0.03em", color: C.ink, opacity: interpolate(f, [d(3), d(3.6)], [0, 1], cl) }}><Pulse>25% OFF</Pulse></div>
-    </AbsoluteFill>
-  );
+/** a lime plus sign that pops in on its beat */
+const PlusSign: React.FC<{ x: number; b: number }> = ({ x, b }) => {
+  const { f, d } = useF();
+  if (f < d(b)) return null;
+  const p = interpolate(f, [d(b), d(b) + 6], [0, 1], { ...cl, easing: over });
+  return <div style={{ position: "absolute", left: x - 30, top: 800, width: 60, textAlign: "center", fontFamily: SANS, fontWeight: 900, fontSize: 110, lineHeight: 1, color: LIME, zIndex: 3, transform: `scale(${p})` }}>+</div>;
 };
 
 /* =====================================================================================
-   08 · ELIGE TU PERSONALIDAD — editorial, 96 BPM, 23 s · interactive 2×2
+   07 · HAZ LAS CUENTAS — the equation builds on the beat, the drop answers it
+   ===================================================================================== */
+export const Ad07: React.FC = () => (
+  <Frame2 k="ad07">
+    <At b0={0} b1={8}>
+      <Bg c={CREAM} />
+      <Kick t="la matemática que sí me interesa:" b={0} top={290} />
+      <Slam top={400} gap={14} lines={[{ t: "100%", b: 1, size: 300 }, { t: "− 25%", b: 3, size: 300, bg: LIME }, { t: "=", b: 5, size: 220 }, { t: "TU FAVORITA", b: 6, size: 150 }]} />
+    </At>
+    <At b0={8} b1={14}>
+      <Bg c={INK} />
+      <Slam top={300} lines={[{ t: "25% OFF", b: 0, c: LIME, size: 250 }]} />
+      <Card src="IMG_2861" at={0.4} b={1} x={40} y={640} w={280} h={440} r={-4} />
+      <Card src="IMG_3189" at={0.5} b={2} x={400} y={640} w={280} h={440} />
+      <Card src="IMG_2857" at={0.5} b={3} x={760} y={640} w={280} h={440} r={4} />
+      {[360, 720].map((x, i) => <PlusSign key={x} x={x} b={1.5 + i} />)}
+      <Slam top={1200} lines={[{ t: "TODAS CON 25% OFF", b: 4, c: INK, bg: LIME, size: 80 }]} />
+    </At>
+    <Montage b0={14} shots={[["IMG_2848", 0.8], ["IMG_3186", 1], ["IMG_2842", 1], ["IMG_2989", 1], ["IMG_2857", 1.5], ["IMG_3187", 1], ["IMG_2861", 1], ["IMG_2984", 7.6], ["IMG_2995", 1.8], ["IMG_2852", 1]]} />
+    <At b0={14} b1={24}>
+      <Slam top={300} lines={[{ t: "LAS CUENTAS", b: 2, bg: WHITE }, { t: "SALEN MEJOR", b: 2.5, bg: WHITE }, { t: "EN RE:SET", b: 3, bg: LIME }]} size={130} out={9.6} />
+      <Badge25 x={790} y={1270} size={210} b={1} />
+    </At>
+    <At b0={24} b1={30}>
+      <Full src="IMG_3189" at={2.5} />
+      <Ticker text="25% OFF" top={560} size={92} bg={LIME} fg={INK} rot={-6} />
+      <Ticker text="OUTLET RE:SET" top={1020} size={92} bg={INK} fg={LIME} rot={5} speed={0.6} />
+    </At>
+    <At b0={30} b1={42}>
+      <EndLime src="IMG_2848" at={0.8} cta="Aprovecha el 25% OFF" />
+    </At>
+    {[1, 3, 5, 6].map((b) => <Sfx key={b} b={b} name="click" vol={0.4} />)}
+    <Sfx b={8} name="impact" vol={0.5} />
+    {[9, 10, 11].map((b) => <Sfx key={b} b={b} name="pop" vol={0.28} />)}
+    <Sfx b={24} name="whoosh" off={-4} vol={0.35} />
+    <Sfx b={30} name="whoosh" off={-4} vol={0.35} />
+  </Frame2>
+);
+
+/* =====================================================================================
+   08 · ELIGE TU PERSONALIDAD — four styles, four colours, then you pick
    ===================================================================================== */
 const STYLES = [
-  { src: "IMG_2839", at: 0.5, label: "Colorida" },
-  { src: "IMG_2857", at: 0.5, label: "Divertida" },
-  { src: "IMG_2861", at: 0.4, label: "Clásica" },
-  { src: "IMG_2865", at: 0.5, label: "Minimalista" },
+  { w: "COLORIDA", bg: LIME, fg: INK, src: "IMG_2842", at: 1.0, from: "left" as const },
+  { w: "DIVERTIDA", bg: CREAM, fg: INK, src: "IMG_2857", at: 0.5, from: "right" as const },
+  { w: "CLÁSICA", bg: INK, fg: LIME, src: "IMG_2861", at: 0.4, from: "left" as const },
+  { w: "DEPORTIVA", bg: BLUSH, fg: INK, src: "IMG_3189", at: 0.5, from: "right" as const },
 ];
-const CELL_LABELS = [
-  { left: 40, top: 270 }, { left: 580, top: 270 }, { left: 40, top: 1230 }, { left: 580, top: 1230 },
+const GRID = [
+  { x: 60, y: 560 }, { x: 550, y: 560 }, { x: 60, y: 1070 }, { x: 550, y: 1070 },
 ];
-
-export const Ad08: React.FC = () => {
+const Pick: React.FC = () => {
+  const { f, d } = useF();
+  const hi = f >= d(2) ? [0, 2, 1, 3, 0, 2, 1, 3, 2, 2, 2, 2][Math.min(11, Math.floor((f - d(2)) / d(0.5)))] : -1;
   return (
-    <Frame2 k="ad08" bg={CREAM} tag={[14, 28]}>
-      <At b0={0} b1={4}>
-        <Drift to={1.08}>
-          <Block top={520}><Words text={"Tu pijama dice\nmucho de ti."} style={{ ...T.serif, fontSize: 96, color: C.ink, textShadow: "none" }} step={3} exit={3} /></Block>
-          <Block top={1000}><Pulse><Words text="¿Cuál eres?" style={{ fontFamily: SANS, fontWeight: 900, fontSize: 130, color: C.ink, textShadow: "none" }} delay={10} step={2} exit={3} /></Pulse></Block>
-        </Drift>
-      </At>
-
-      <At b0={4} b1={14}>
-        <Grid4 stagger={2} cells={STYLES.map((s) => ({ src: s.src, at: s.at }))} />
-        {STYLES.map((s, k) => <Chip key={s.label} left={CELL_LABELS[k].left} top={CELL_LABELS[k].top} from={1 + k}>{s.label}</Chip>)}
-      </At>
-
-      <At b0={14} b1={20}>
-        <Grid4 instant cells={STYLES.map((s) => ({ src: s.src, at: s.at }))} hi={(fr) => Math.floor(fr / 9) % 4} />
-      </At>
-
-      {STYLES.map((s, k) => (
-        <At key={s.label} b0={20 + k * 2} b1={22 + k * 2}>
-          <Shot src={s.src} at={s.at} fin="snap" z={[1.06, 1.0]} />
-          <Chip left={64} top={260} from={0}>{s.label}</Chip>
-        </At>
-      ))}
-
-      <At b0={28} b1={34}>
-        <Grid4 instant cells={STYLES.map((s) => ({ src: s.src, at: s.at }))} />
-        <Shade top={700} h={520} o={0.55} />
-        <Block top={800}>
-          <Words text="Todas con 25% OFF" style={{ ...T.mega, fontSize: 108, color: C.lime }} step={2} exit={3} />
-        </Block>
-      </At>
-
-      <At b0={34} b1={37}>
-        <Shot src="IMG_2846" at={1.0} z={[1.0, 1.06]} />
-        <EndCard logoTop={800} storeTop={1000}>
-          <Block top={400}><Words text={"Encuentra la\nque va contigo."} style={{ ...T.serif, fontSize: 100 }} step={2} /></Block>
-          <Block top={680}><Words text="OUTLET RE:SET." style={{ ...T.kicker, fontSize: 50 }} delay={6} /></Block>
-        </EndCard>
-      </At>
-    </Frame2>
+    <>
+      {STYLES.map((s, i) => <Card key={i} src={s.src} at={s.at} b={i * 0.25} x={GRID[i].x} y={GRID[i].y} w={470} h={480} from="pop" label={s.w} hi={hi === i} />)}
+    </>
   );
 };
 
+export const Ad08: React.FC = () => (
+  <Frame2 k="ad08">
+    <At b0={0} b1={4}>
+      <Bg c={INK} />
+      <Slam top={380} lines={[{ t: "TU PIJAMA", b: 0, c: WHITE }, { t: "DICE MUCHO", b: 0.5, c: WHITE }, { t: "DE TI.", b: 1, c: LIME }]} />
+      <Slam top={1060} lines={[{ t: "¿CUÁL ERES?", b: 2, c: INK, bg: LIME, size: 110 }]} />
+    </At>
+    {STYLES.map((s, i) => (
+      <At key={i} b0={4 + i * 4} b1={8 + i * 4}>
+        <Bg c={s.bg} />
+        <Kick t={`0${i + 1} / 04`} b={0} top={270} c={s.fg} />
+        <Slam top={340} lines={[{ t: s.w, b: 0, c: s.fg, size: 200 }]} />
+        <Card src={s.src} at={s.at} b={0.25} x={190} y={560} w={700} h={960} r={i % 2 ? 3 : -3} from={s.from} />
+      </At>
+    ))}
+    <At b0={20} b1={28}>
+      <Bg c={CREAM} />
+      <Slam top={280} lines={[{ t: "¿YA SABES", b: 0 }, { t: "CUÁL ERES?", b: 0.5 }]} size={120} />
+      <Pick />
+    </At>
+    <At b0={28} b1={34}>
+      <Bg c={INK} />
+      <Slam top={300} lines={[{ t: "TODAS CON", b: 0, c: WHITE, size: 140 }, { t: "25% OFF", b: 0.5, c: LIME, size: 250 }]} />
+      {STYLES.map((s, i) => <Card key={i} src={s.src} at={s.at} b={1 + i * 0.5} x={30 + i * 240} y={900} w={300} h={440} r={[-10, -4, 4, 10][i]} />)}
+    </At>
+    <At b0={34} b1={40}>
+      <EndLime src="IMG_2857" at={0.5} cta="Encuentra la tuya" />
+    </At>
+    <Sfx b={2} name="pop" vol={0.35} />
+    <Sfx b={4} name="impact" vol={0.45} />
+    {[8, 12, 16].map((b) => <Sfx key={b} b={b} name="swipe" off={-3} vol={0.35} />)}
+    {[22, 22.5, 23, 23.5, 24, 24.5, 25, 25.5].map((b) => <Sfx key={b} b={b} name="click" vol={0.25} />)}
+    <Sfx b={28} name="whoosh" off={-4} vol={0.35} />
+    <Sfx b={34} name="whoosh" off={-4} vol={0.35} />
+  </Frame2>
+);
+
 /* =====================================================================================
-   09 · EL ALGORITMO ME CONOCE — playful, 112 BPM, 27 s · social-first, original feed cards
+   09 · EL ALGORITMO ME CONOCE — a feed (original design) that fills up with pajamas, then the drop
    ===================================================================================== */
-const FeedCard: React.FC<{ src: string; at: number; x: number; y: number; w: number; h: number; from: number }> = ({ src, at, x, y, w, h, from }) => {
-  const f = useCurrentFrame();
-  const { d } = useBeat();
-  if (f < d(from)) return null;
-  const p = interpolate(f, [d(from), d(from) + 8], [0, 1], { ...cl, easing: overE });
+const FEED = ["IMG_2842", "IMG_3189", "IMG_2857", "IMG_2861", "IMG_3186", "IMG_2848", "IMG_3187", "IMG_2995", "IMG_2852", "IMG_2846", "IMG_2862", "IMG_2988"];
+const FEED_AT: Record<string, number> = { IMG_2995: 1.8, IMG_2988: 0.5 };
+const NOTES: [number, string][] = [[8, "Para ti: pijamas con 25% OFF"], [12, "Te puede gustar: otra pijama RE:SET"], [16, "Sigues viendo pijamas…"]];
+
+const Feed: React.FC = () => {
+  const { f, d } = useF();
+  const grow = interpolate(f, [d(6), d(8.5)], [0, 1], { ...cl, easing: Easing.inOut(Easing.cubic) });
+  const scroll = 1.5 * f + 0.03 * f * f;
+  const ITEM = 780;
   return (
-    <div style={{ position: "absolute", left: x, top: y + (1 - p) * 180, width: w, height: h, borderRadius: 44, overflow: "hidden", background: "#FFFBF2", boxShadow: "0 22px 48px rgba(0,0,0,0.3)", opacity: Math.min(1, p * 2), transform: `scale(${0.92 + 0.08 * p})` }}>
-      <Vid src={src} at={at} />
+    <div style={{ position: "absolute", left: 190 - 190 * grow, top: 820 - 700 * grow, width: 700 + 380 * grow, height: 1300 + 500 * grow, borderRadius: 70 * (1 - grow) + 10, background: INK, padding: 16 * (1 - grow), boxSizing: "border-box", boxShadow: "0 40px 90px rgba(0,0,0,0.35)" }}>
+      <div style={{ position: "relative", width: "100%", height: "100%", borderRadius: 56 * (1 - grow), overflow: "hidden", background: WHITE }}>
+        {FEED.map((src, i) => {
+          const y = 40 + i * ITEM - scroll;
+          if (y > 1900 || y < -ITEM) return null;
+          return (
+            <div key={i} style={{ position: "absolute", left: 24, right: 24, top: y, height: ITEM - 40 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 16, height: 80 }}>
+                <div style={{ width: 60, height: 60, borderRadius: 30, background: LIME, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: SANS, fontWeight: 900, fontSize: 24, color: INK }}>RE</div>
+                <div style={{ fontFamily: SANS, fontWeight: 800, fontSize: 30, color: INK }}>re:set</div>
+                <div style={{ marginLeft: "auto", background: INK, color: LIME, fontFamily: SANS, fontWeight: 800, fontSize: 24, padding: "8px 16px", borderRadius: 999 }}>25% OFF</div>
+              </div>
+              <div style={{ position: "absolute", top: 90, left: 0, right: 0, bottom: 0, borderRadius: 26, overflow: "hidden", filter: GRADE }}>
+                <Vid src={src} at={FEED_AT[src] ?? 1.0} />
+              </div>
+            </div>
+          );
+        })}
+        {NOTES.map(([b, t]) => {
+          const p = interpolate(f, [d(b), d(b) + 7, d(b + 3), d(b + 3) + 7], [0, 1, 1, 0], { ...cl, easing: outE });
+          if (p <= 0) return null;
+          return (
+            <div key={b} style={{ position: "absolute", left: 40, right: 40, top: 60 + 180 * grow - (1 - p) * 220, background: "rgba(255,255,255,0.96)", borderRadius: 34, padding: "26px 30px", display: "flex", alignItems: "center", gap: 20, boxShadow: "0 18px 40px rgba(0,0,0,0.25)" }}>
+              <div style={{ width: 80, height: 80, flexShrink: 0, borderRadius: 22, background: LIME, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: SANS, fontWeight: 900, fontSize: 24, color: INK }}>RE</div>
+              <div style={{ fontFamily: SANS, fontWeight: 800, fontSize: 46, color: INK }}>{t}</div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
 
 export const Ad09: React.FC = () => (
-  <Frame2 k="ad09" bg={C.ink}>
-    <At b0={0} b1={6}>
-      <Shot src="IMG_2862" at={0.6} z={[1.0, 1.12]} dim={0.6} />
-      <Block top={330}>
-        <div style={{ fontFamily: SANS, fontWeight: 800, fontSize: 40, letterSpacing: "0.3em", color: C.lime, marginBottom: 24 }}>POV</div>
-        <Words text={"Mi algoritmo cuando\ndescubre que RE:SET\ntiene 25% OFF"} style={{ ...T.serif, fontSize: 78 }} step={3} exit={3} />
-      </Block>
+  <Frame2 k="ad09">
+    <At b0={0} b1={20}>
+      <Bg c={LIME} />
+      <Slam top={270} out={6.5} size={120} lines={[{ t: "MI ALGORITMO", b: 0 }, { t: "CUANDO VE QUE", b: 0.5 }, { t: "RE:SET TIENE", b: 1 }, { t: "25% OFF", b: 1.5, c: LIME, bg: INK }]} />
+      <Feed />
     </At>
-
-    <At b0={6} b1={14}>
-      <Shot src="IMG_2857" at={0} z={[1.0, 1.05]} dim={0.7} />
-      <FeedCard src="IMG_2857" at={0} x={70} y={520} w={940} h={700} from={0} />
-      <FeedCard src="IMG_2842" at={0.5} x={70} y={1240} w={940} h={520} from={2} />
+    <At b0={20} b1={24}>
+      <Bg c={INK} />
+      <Slam top={560} lines={[{ t: "OK,", b: 0, c: WHITE, size: 220 }, { t: "MENSAJE", b: 0.5, c: LIME, size: 220 }, { t: "RECIBIDO.", b: 1, c: LIME, size: 220 }]} />
     </At>
-
-    <At b0={14} b1={22.6}>
-      <Shot src="IMG_2851" at={2.0} z={[1.0, 1.05]} dim={0.75} />
-      <FeedCard src="IMG_2851" at={1.0} x={60} y={320} w={450} h={600} from={0} />
-      <FeedCard src="IMG_2846" at={0.5} x={570} y={320} w={450} h={600} from={1} />
-      <FeedCard src="IMG_2989" at={1.0} x={60} y={960} w={450} h={600} from={2} />
-      <FeedCard src="IMG_2862" at={0.3} x={570} y={960} w={450} h={600} from={3} />
+    <Montage b0={24} shots={[["IMG_3186", 1], ["IMG_2842", 1], ["IMG_3187", 1], ["IMG_2857", 1], ["IMG_3189", 1], ["IMG_2861", 0.4], ["IMG_2848", 0.8], ["IMG_2995", 1.8]]} />
+    <At b0={24} b1={32}>
+      <Badge25 x={780} y={1270} size={210} b={0.5} />
     </At>
-
-    <At b0={22} b1={30} pre={9}><Split3 cells={[{ src: "IMG_3186", at: 0.5 }, { src: "IMG_3187", at: 0.5 }, { src: "IMG_3189", at: 0.5 }]} /></At>
-
-    <At b0={30} b1={36}>
-      <Shot src="IMG_3189" at={3.5} z={[1.0, 1.08]} dim={0.45} />
-      <Shade top={760} h={420} o={0.6} />
-      <Note top={820} size={80}>Ok, mensaje recibido</Note>
+    <At b0={32} b1={36}>
+      <Split3 cells={[{ src: "IMG_3186", at: 2 }, { src: "IMG_3187", at: 2 }, { src: "IMG_3189", at: 2 }]} />
+      <Slam top={300} lines={[{ t: "25% OFF", b: 0.5, c: INK, bg: LIME, size: 160 }]} />
     </At>
-
-    <At b0={36} b1={50}>
-      <Shot src="IMG_2852" at={1.0} z={[1.0, 1.06]} />
-      <EndCard logoTop={800} storeTop={1040}>
-        <Block top={260}><Words text="RE:SET OUTLET" style={{ ...T.mega, fontSize: 104 }} step={2} /></Block>
-        <Block top={440}><Words text="25% OFF" style={{ ...T.mega, fontSize: 200, color: C.lime }} delay={4} step={3} /></Block>
-        <Block top={660}><Words text="Compra ahora." style={{ ...T.serif, fontSize: 80 }} delay={12} /></Block>
-      </EndCard>
+    <At b0={36} b1={47}>
+      <EndLime src="IMG_3189" at={0.5} cta="Compra ahora" title="RE:SET OUTLET" />
     </At>
+    {NOTES.map(([b]) => <Sfx key={b} b={b} name="notif" vol={0.4} />)}
+    <Sfx b={20} name="impact" vol={0.5} />
+    <Sfx b={32} name="whoosh" off={-4} vol={0.35} />
+    <Sfx b={36} name="whoosh" off={-4} vol={0.35} />
   </Frame2>
 );
 
 /* =====================================================================================
-   10 · DIEZ SEGUNDOS PARA ENAMORARTE — energetic, 124 BPM, 13 s
+   10 · DIEZ SEGUNDOS PARA ENAMORARTE — a countdown, one pajama per beat, then the offer
    ===================================================================================== */
+const COUNT: [string, number][] = [["IMG_2842", 1], ["IMG_3189", 1], ["IMG_2857", 0.5], ["IMG_2861", 0.4], ["IMG_3186", 1.5], ["IMG_2848", 0.8], ["IMG_2984", 7.6], ["IMG_3187", 1.5], ["IMG_2995", 1.8], ["IMG_2852", 1]];
+const Num: React.FC<{ n: number }> = ({ n }) => {
+  const f = useCurrentFrame();
+  const p = interpolate(f, [0, 5], [1.4, 1], { ...cl, easing: outE });
+  return <div style={{ position: "absolute", top: 250, left: 72, fontFamily: SANS, fontWeight: 900, fontSize: 280, lineHeight: 1, color: LIME, textShadow: "0 6px 30px rgba(0,0,0,0.45)", transform: `scale(${p})`, transformOrigin: "left top" }}>{n}</div>;
+};
+
 export const Ad10: React.FC = () => (
   <Frame2 k="ad10">
-    <At b0={0} b1={4}>
-      <Shot src="IMG_2979" at={0.5} z={[1.0, 1.15]} fout="zoom" />
-      <Shade top={420} h={680} o={0.7} />
-      <Block top={520}><Words text={"Dame 10 segundos\npara enseñarte\neste outlet."} style={{ ...T.serif, fontSize: 80 }} step={2} exit={3} /></Block>
+    <At b0={0} b1={2}>
+      <Bg c={CREAM} />
+      <Slam top={520} lines={[{ t: "DAME", b: 0 }, { t: "10 SEGUNDOS", b: 0.25 }, { t: "PARA ENAMORARTE", b: 0.5, bg: LIME }]} />
     </At>
-
-    <At b0={4} b1={6}><Shot src="IMG_2842" at={0.8} fin="snap" z={[1.1, 1.0]} /></At>
-    <At b0={6} b1={8}><Shot src="IMG_3187" at={2.5} fin="whip" /></At>
-    <At b0={8} b1={10}><Shot src="IMG_2852" at={1.0} fin="zoom" z={[1.15, 1.0]} /></At>
-    <At b0={10} b1={12}><Shot src="IMG_2862" at={0.4} fin="snap" /></At>
-    <At b0={12} b1={14}><Shot src="IMG_3189" at={2.0} fin="whip" /></At>
-    <At b0={14} b1={16}><Shot src="IMG_2865" at={0.4} fin="snap" z={[1.1, 1.0]} /></At>
-
-    <At b0={16} b1={20}>
-      <Shot src="IMG_2988" at={0.6} z={[1.0, 1.08]} dim={0.4} />
-      <Block top={560}><Words text={"25% OFF"} style={{ ...T.mega, fontSize: 200, color: C.lime }} step={3} exit={3} /></Block>
+    {COUNT.map(([src, at], i) => (
+      <At key={i} b0={2 + i} b1={3 + i}>
+        <Full src={src} at={at} />
+        <Num n={10 - i} />
+      </At>
+    ))}
+    <At b0={12} b1={16}>
+      <Bg c={LIME} />
+      <Kick t="outlet RE:SET" b={0} top={330} />
+      <Slam top={440} gap={0} lines={[{ t: "25%", b: 0, size: 480 }, { t: "OFF", b: 0.4, size: 300 }]} />
     </At>
-
-    <At b0={20} b1={26}>
-      <Shot src="IMG_2842" at={2.0} z={[1.0, 1.06]} />
-      <EndCard logoTop={800} storeTop={1000}>
-        <Block top={380}><Words text="OUTLET RE:SET" style={{ ...T.mega, fontSize: 100 }} step={2} /></Block>
-        <Block top={620}><Words text="Descúbrelo ahora." style={{ ...T.serif, fontSize: 80 }} delay={6} /></Block>
-      </EndCard>
+    <At b0={16} b1={22}>
+      <EndLime src="IMG_2842" at={1.0} cta="Descúbrelo ahora" />
     </At>
-    <Sfx b={16} name="impact" vol={0.6} />
+    <Sfx b={2} name="impact" vol={0.45} />
+    <Sfx b={12} name="impact" vol={0.5} />
+    <Sfx b={16} name="whoosh" off={-4} vol={0.35} />
   </Frame2>
 );
-
