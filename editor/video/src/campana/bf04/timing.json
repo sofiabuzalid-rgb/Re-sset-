@@ -1,0 +1,357 @@
+{
+ "fps": 30,
+ "total": 874,
+ "pieceStarts": [
+  0.0,
+  3.0,
+  13.167,
+  13.667
+ ],
+ "pieceSrc": [
+  null,
+  0.3,
+  null,
+  0.067
+ ],
+ "voiceEnd": 17.133,
+ "lastWord": 17.29,
+ "ambient": false,
+ "words": [
+  {
+   "w": "Aparte",
+   "s": 3.24,
+   "e": 3.5,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "lo",
+   "s": 3.5,
+   "e": 3.86,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "padre",
+   "s": 3.86,
+   "e": 4.24,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "es",
+   "s": 4.24,
+   "e": 4.36,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 4.36,
+   "e": 4.58,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "a",
+   "s": 4.58,
+   "e": 4.74,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "pesar",
+   "s": 4.74,
+   "e": 4.9,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 4.9,
+   "e": 4.96,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 4.96,
+   "e": 5.18,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "tenga",
+   "s": 5.18,
+   "e": 5.36,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "el",
+   "s": 5.36,
+   "e": 5.5,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "estampado",
+   "s": 5.5,
+   "e": 5.82,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 5.82,
+   "e": 5.96,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "Navidad,",
+   "s": 5.96,
+   "e": 6.28,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "no",
+   "s": 6.62,
+   "e": 6.72,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "es",
+   "s": 6.72,
+   "e": 6.78,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 6.78,
+   "e": 6.98,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "típica",
+   "s": 6.98,
+   "e": 7.32,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "pijama",
+   "s": 7.32,
+   "e": 7.62,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 7.62,
+   "e": 7.78,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "nada",
+   "s": 7.78,
+   "e": 7.9,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "más",
+   "s": 7.9,
+   "e": 8.12,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "ocupas",
+   "s": 8.12,
+   "e": 8.4,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "una",
+   "s": 8.4,
+   "e": 8.64,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "vez",
+   "s": 8.64,
+   "e": 8.92,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "en",
+   "s": 8.92,
+   "e": 9.02,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "tu",
+   "s": 9.02,
+   "e": 9.22,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "vida,",
+   "s": 9.22,
+   "e": 9.36,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "sino",
+   "s": 9.74,
+   "e": 10.2,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "lo",
+   "s": 10.2,
+   "e": 10.38,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "puedes",
+   "s": 10.38,
+   "e": 10.6,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "ocupar",
+   "s": 10.6,
+   "e": 11.2,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "todo",
+   "s": 11.2,
+   "e": 11.54,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "el",
+   "s": 11.54,
+   "e": 11.82,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "tiempo",
+   "s": 11.82,
+   "e": 12.16,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "porque",
+   "s": 12.16,
+   "e": 12.32,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "está",
+   "s": 12.32,
+   "e": 12.48,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "súper",
+   "s": 12.48,
+   "e": 12.68,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "cómoda.",
+   "s": 12.68,
+   "e": 13.12,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "Aparte",
+   "s": 13.84,
+   "e": 14.0,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "es",
+   "s": 14.0,
+   "e": 14.06,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "el",
+   "s": 14.06,
+   "e": 14.24,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "color",
+   "s": 14.24,
+   "e": 14.64,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 14.64,
+   "e": 14.76,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 14.76,
+   "e": 15.66,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "temporada,",
+   "s": 15.66,
+   "e": 16.16,
+   "piece": 3,
+   "br": true
+  },
+  {
+   "w": "verde",
+   "s": 16.16,
+   "e": 16.7,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "militar.",
+   "s": 16.7,
+   "e": 17.04,
+   "piece": 3,
+   "br": true
+  }
+ ]
+}

@@ -56,6 +56,43 @@ SPECS = {
         commas={(0, "pijama"), (0, "padre"), (0, "increíble"), (1, "temporada")},
         end=4.2,
     ),
+    # BUEN FIN 2026 (15% OFF en toda la tienda) — only her real words; the promotion is graphic copy, never put in her voice
+    "bf01": dict(  # LA SEÑAL
+        pieces=[
+            ("t", "8944", "Por favor", "de AirBizit"),       # Por favor quiero que vean estas pijamas de RE:SET
+            ("gap", 4.6),                                     # she models the sets (montage)
+            ("t", "9047", "por favor", "que está"),          # Por favor vean este modelo de pijama, está súper padre, el color está increíble y aparte no saben la calidad y lo cómodo que está.
+            ("gap", 3.2),                                     # variety + 15% OFF en toda la tienda
+            ("t", "9054", "Tiene que", "y Perisur."),        # Tiene que correr al RE:SET por este set en nuestras dos sucursales, en la Avenida Stim y Perisur.
+        ],
+        commas={(2, "pijama"), (2, "padre"), (2, "increíble")},
+        end=3.6,
+    ),
+    "bf02": dict(  # VISITA PERISUR
+        pieces=[
+            ("gap", 10.4),                                    # the store film (Perisur, the RE:SET wall, the products)
+            ("t", "9015", "hay dos", "ya mismo."),           # hay dos sucursales para que las puedas adquirir ya mismo.
+            ("t", "9015", "Hay una", "ya mismo."),           # Hay una en Perisur y otra en Avenida Stim, así que ve por ellas ya mismo.
+        ],
+        end=4.6,
+    ),
+    "bf03": dict(  # ELIGE UNA — music and graphic copy; her real question closes it
+        pieces=[
+            ("gap", 17.6),
+            ("m", "9049", 0.70, 1.36, [("¿Qué", 0.78, 0.92), ("opina?", 0.92, 1.15)]),
+        ],
+        end=4.2,
+    ),
+    "bf04": dict(  # NAVIDAD Y BÁSICAS
+        pieces=[
+            ("gap", 3.0),                                     # split screen hook
+            ("t", "8947", "Aparte lo", "súper cómoda."),     # … a pesar de que tenga el estampado de Navidad, no es la típica pijama que nada más ocupas una vez en tu vida, sino lo puedes ocupar todo el tiempo porque está súper cómoda.
+            ("gap", 0.5),
+            ("t", "9048", "Aparte es", "verde militar."),    # Aparte es el color de la temporada, verde militar.
+        ],
+        commas={(3, "temporada")},
+        end=12.0,
+    ),
     "viaje": dict(
         pieces=[
             ("t", "8974", "Estás super", "tú quieras."),     # Está súper cómoda y súper práctica para que la puedas llevar en cualquier parte cuando te vayas de viaje, en tu maleta, en tu bolsa de mano, donde tú quieras.
@@ -183,9 +220,9 @@ def build(ad):
             W[i : i + 3] = [{**W[i], "w": "aparte", "e": W[i + 2]["e"]}]
             break
     for i in range(len(W) - 1):
-        if W[i]["w"] == "el" and W[i + 1]["w"] == "RE:SET" and ad == "favorita":
+        if W[i]["w"] == "el" and W[i + 1]["w"] == "RE:SET" and ad in ("favorita", "bf01"):
             W[i]["w"] = "al"  # Sherpa: "correr al reset"
-        if W[i]["w"] == "en" and W[i + 1]["w"] == "Avenida" and ad == "favorita":
+        if W[i]["w"] == "en" and W[i + 1]["w"] == "Avenida" and ad in ("favorita", "bf01"):
             W.insert(i + 1, {**W[i + 1], "w": "la", "s": round(W[i + 1]["s"] - 0.08, 3), "e": W[i + 1]["s"]})
         if W[i]["w"] == "que" and W[i + 1]["w"].startswith("regalar"):
             W[i]["w"] = "qué"

@@ -1,0 +1,31 @@
+{
+ "fps": 30,
+ "total": 674,
+ "pieceStarts": [
+  0.0,
+  17.6
+ ],
+ "pieceSrc": [
+  null,
+  0.7
+ ],
+ "voiceEnd": 18.26,
+ "lastWord": 18.3,
+ "ambient": false,
+ "words": [
+  {
+   "w": "¿Qué",
+   "s": 17.68,
+   "e": 17.82,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "opina?",
+   "s": 17.82,
+   "e": 18.05,
+   "piece": 1,
+   "br": true
+  }
+ ]
+}

@@ -535,11 +535,11 @@ def re12_b():
 
 
 # ---------- RE PERISUR store film — 18.8 s, slow and minimal (84 BPM, E minor), no kick: soft keys, pad and a sparse marimba ----------
-def perisur_music():
-    m = Mix(18.8, 84)
+def perisur_music(secs=18.8, out="perisur_music_original.wav"):
+    m = Mix(secs, 84)
     prog = [[52, 55, 59, 62], [48, 52, 55, 59], [45, 48, 52, 55], [50, 54, 57, 61]]  # Em9 Cmaj7 Am7 D9 (bar = 2.86 s)
-    for bar in range(7):
-        b0 = bar * 4 * 0.0 + bar * 2.857
+    for bar in range(int(secs / 2.857) + 1):
+        b0 = bar * 2.857
         ch = prog[bar % 4]
         m.add("music", epiano(ch, 2.857), sec=b0, gain=0.5)
         m.add("music", pad([n + 12 for n in ch[:3]], 2.857 + 0.8, lp=1400), sec=b0, gain=0.22)
@@ -547,9 +547,9 @@ def perisur_music():
         for k, n in enumerate([ch[0] + 24, ch[2] + 24, ch[1] + 24, ch[3] + 24]):
             if (bar + k) % 2 == 0:
                 m.add("music", marimba(n, 0.7), sec=b0 + k * 0.714, gain=0.18, pan=0.25 if k % 2 else -0.25)
-    for k in range(int(18.8 / 0.357)):
+    for k in range(int(secs / 0.357)):
         m.add("drums", shaker(), sec=k * 0.357 + 0.18, gain=0.07, pan=0.3)
-    write("perisur_music_original.wav", m.render([], duck=0.0, verb_send=0.35, name="perisur", tail_fade=1.2))
+    write(out, m.render([], duck=0.0, verb_send=0.35, name="perisur", tail_fade=1.2))
 
 
 # ---------- OUTLET second wave — five original tracks, one personality each (no licensed music) ----------
@@ -630,6 +630,8 @@ if __name__ == "__main__":
         re12_b()
     elif "--perisur" in sys.argv:
         perisur_music()
+    elif "--perisur23" in sys.argv:
+        perisur_music(23.0, "perisur_music_original_23s.wav")
     elif "--outlet2" in sys.argv:
         outlet2_tracks()
     elif "--remaster" in sys.argv:  # re-balance from the saved stems only (seconds instead of minutes)
