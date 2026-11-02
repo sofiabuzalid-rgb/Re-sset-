@@ -30,6 +30,25 @@ const AB = 0.5725; // one beat of the afro house
 const AFRO = "outlet4/audio/afrohouse.mp3";
 const AFRO_GRID = 14.338; // a downbeat of the track; its drop is 8 beats later (18.918 s)
 
+/** a soundtrack and its beat: `startS` = second of the track at frame 0, chosen so beat k of the ad lands at k·B */
+export type Track = { src: string; startS: number; B: number; bed?: number; duck?: number };
+/** licensed for paid media: the client's Pixabay afro house, a different section per ad */
+export const AFRO_TRACKS: Record<string, Track> = {
+  bf05: { src: AFRO, startS: AFRO_GRID + 4 * AB, B: AB, bed: 0.9 },
+  bf06: { src: AFRO, startS: 0, B: AB, bed: 0.75, duck: 0.12 },
+  bf07: { src: AFRO, startS: AFRO_GRID + 20 * AB, B: AB, bed: 0.8, duck: 0.11 },
+  bf08: { src: AFRO, startS: AFRO_GRID + 13 * AB, B: AB, bed: 0.85 },
+};
+/** more upbeat alternates, all tracks the client sent — NOT licensed for paid media (review / organic only):
+ *  05 Owen's Black Friday reel audio, 140 BPM (reel_music.py loop; its drop 4 beats in) · 06 "Make It Sound Cool" (Artlist preview, 114.8 BPM)
+ *  07 "NFL Main Theme" (Spotify recording, 114.8 BPM) · 08 the chat reel's audio (copy_86ECF4FC, 106 BPM) */
+export const FUN_TRACKS: Record<string, Track> = {
+  bf05: { src: "outlet4/audio/reel3_n5.wav", startS: 0.42852, B: 0.42852, bed: 0.85 },
+  bf06: { src: "outlet4/audio/artlist_make_it_sound_cool.wav", startS: 1.115, B: 0.5225, bed: 0.7, duck: 0.12 },
+  bf07: { src: "outlet4/audio/nfl_main_theme.wav", startS: 1.115, B: 0.5225, bed: 0.75, duck: 0.11 },
+  bf08: { src: "outlet4/audio/ad2_ref.wav", startS: 0.3521, B: 0.56599, bed: 0.85 },
+};
+
 /* ---------- music, ducked under her words ---------- */
 const Bed: React.FC<{ src: string; startS: number; words: Word[]; total: number; bed?: number; duck?: number }> = ({ src, startS, words, total, bed = 0.8, duck = 0.13 }) => {
   const spans = words.map((w) => [w.s - 0.25, w.e + 0.3]);
@@ -40,21 +59,21 @@ const Bed: React.FC<{ src: string; startS: number; words: Word[]; total: number;
   return <Audio src={staticFile(src)} startFrom={Math.round(startS * FPS)} volume={(f) => g(f / FPS) * interpolate(f, [0, 4], [0, 1], clamp) * interpolate(f, [total - 24, total], [1, 0], clamp)} />;
 };
 
-const beatPunch = (f: number, phase = 0, amt = 0.05) => {
-  const per = AB * FPS;
+const beatPunch = (f: number, phase = 0, amt = 0.05, B = AB) => {
+  const per = B * FPS;
   return 1 + amt * Math.exp(-(((f - phase) % per) + per) % per / 3.5);
 };
 
 /* ---------- the offer, always readable ---------- */
 /** lime band under the top safe line: BUEN FIN | 15% OFF EN TODA LA TIENDA (absolute seconds) */
-const OfferBar: React.FC<{ from: number; to: number; phase?: number }> = ({ from, to, phase = 0 }) => {
+const OfferBar: React.FC<{ from: number; to: number; phase?: number; B?: number }> = ({ from, to, phase = 0, B = AB }) => {
   const f = useCurrentFrame();
   if (f < F(from) || f >= F(to)) return null;
   const p = interpolate(f, [F(from), F(from) + 7], [0, 1], { ...clamp, easing: easeOut });
   const o = interpolate(f, [F(to) - 5, F(to)], [1, 0], clamp);
   return (
     <div style={{ position: "absolute", top: 250, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: o, transform: `translateY(${(1 - p) * -40}px)` }}>
-      <div style={{ display: "flex", alignItems: "center", background: LIME, borderRadius: 999, padding: "8px 30px 8px 8px", gap: 18, boxShadow: "0 10px 30px rgba(0,0,0,0.28)", transform: `scale(${beatPunch(f, F(phase), 0.025)})` }}>
+      <div style={{ display: "flex", alignItems: "center", background: LIME, borderRadius: 999, padding: "8px 30px 8px 8px", gap: 18, boxShadow: "0 10px 30px rgba(0,0,0,0.28)", transform: `scale(${beatPunch(f, F(phase), 0.025, B)})` }}>
         <div style={{ background: INK, color: IVORY, fontFamily: SANS, fontWeight: 800, fontSize: 30, letterSpacing: "0.22em", padding: "12px 20px 12px 26px", borderRadius: 999 }}>BUEN FIN</div>
         <div style={{ fontFamily: SANS, fontWeight: 900, fontSize: 44, color: INK, letterSpacing: "-0.01em", whiteSpace: "nowrap" }}>15% OFF <span style={{ fontWeight: 700, fontSize: 30 }}>EN TODA LA TIENDA</span></div>
       </div>
@@ -156,7 +175,6 @@ const Frame: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 /* =====================================================================================
    05 · ¿CUÁL TIENE 15%? → TODAS. Un sello de 15% cae sobre cada pijama, una por golpe
    ===================================================================================== */
-const DROP5 = 4 * AB; // the music starts 4 beats before its drop
 const ALL: [string, number, number, number][] = [
   // [clip, second, stamp x, stamp y]
   ["IMG_8943", 1.6, 700, 560], ["IMG_2842", 1.0, 90, 600], ["IMG_9051", 0.4, 720, 640], ["IMG_2848", 0.8, 100, 520], ["IMG_9025", 0.3, 690, 520],
@@ -174,8 +192,15 @@ const Count: React.FC<{ n: number }> = ({ n }) => (
   </div>
 );
 
-export const BF05: React.FC = () => {
+export const BF05: React.FC<{ m?: Track }> = ({ m = AFRO_TRACKS.bf05 }) => {
   const voice = T5.pieceStarts[1];
+  const B = m.B;
+  const DROP5 = 4 * B; // the music starts 4 beats before its drop
+  const n = Math.floor((voice - DROP5 - 2 * B) / B);
+  const items = Array.from({ length: n }, (_, i) => {
+    const [src, at, x, y] = ALL[i % ALL.length];
+    return [src, at + (i >= ALL.length ? 1.2 : 0), x, y] as [string, number, number, number];
+  });
   return (
     <Frame>
       {/* hook on ivory: the question, word by word */}
@@ -184,13 +209,13 @@ export const BF05: React.FC = () => {
         <Lines top={560} lines={[{ t: "¿Qué pijamas", at: 0.0, size: 104 }, { t: "de RE:SET tienen", at: 0.35, size: 92 }, { t: "15% OFF", at: 0.75, size: 150, bg: LIME }, { t: "este Buen Fin?", at: 1.15, size: 92 }]} />
       </At>
       {/* the answer, on the drop */}
-      <At b0={DROP5} b1={DROP5 + 2 * AB}>
+      <At b0={DROP5} b1={DROP5 + 2 * B}>
         <Shot src="IMG_8943" at={2.6} fin="zoom" />
         <AbsoluteFill style={{ background: "rgba(16,16,16,0.35)" }} />
         <Lines top={640} lines={[{ t: "TODAS.", at: 0, size: 240, fg: LIME }]} />
       </At>
-      {ALL.map(([src, at, x, y], i) => (
-        <At key={i} b0={DROP5 + (2 + i) * AB} b1={i === ALL.length - 1 ? voice : DROP5 + (3 + i) * AB} pre={["whip", "whipL", "push"].includes(FINS[i % FINS.length]) ? 6 : 0}>
+      {items.map(([src, at, x, y], i) => (
+        <At key={i} b0={DROP5 + (2 + i) * B} b1={i === items.length - 1 ? voice : DROP5 + (3 + i) * B} pre={["whip", "whipL", "push"].includes(FINS[i % FINS.length]) ? 6 : 0}>
           <Shot src={src} at={at} fin={FINS[i % FINS.length]} z={i % 2 ? [1.08, 1.0] : [1.0, 1.08]} />
           <Stamp x={x} y={y} r={i % 2 ? 10 : -12} />
           <Count n={i + 1} />
@@ -200,15 +225,15 @@ export const BF05: React.FC = () => {
       <At b0={voice} b1={T5.voiceEnd}>
         <Shot src="IMG_9054" at={lip(T5, 1, voice)} z={[1.0, 1.05]} />
       </At>
-      <OfferBar from={DROP5 + 2 * AB} to={T5.voiceEnd} phase={DROP5} />
+      <OfferBar from={DROP5 + 2 * B} to={T5.voiceEnd} phase={DROP5} B={B} />
       <Captions words={T5.words} until={T5.voiceEnd} style={CAP} />
       <At b0={T5.voiceEnd} b1={T5.total / FPS}>
         <End src="IMG_9051" at={1.0} line="Todas tus favoritas," cta="Ven por la tuya" />
       </At>
-      {ALL.map((_, i) => <Sfx key={i} b={DROP5 + (2 + i) * AB + 0.07} name="pop" vol={0.22} />)}
+      {items.map((_, i) => <Sfx key={i} b={DROP5 + (2 + i) * B + 0.07} name="pop" vol={0.22} />)}
       <Sfx b={DROP5} name="impact" vol={0.5} />
       <Audio src={staticFile("campana/bf05/voice.wav")} />
-      <Bed src={AFRO} startS={AFRO_GRID + 4 * AB} words={T5.words} total={T5.total} bed={0.9} />
+      <Bed src={m.src} startS={m.startS} words={T5.words} total={T5.total} bed={m.bed} duck={m.duck} />
     </Frame>
   );
 };
@@ -234,7 +259,7 @@ const Split2: React.FC<{ a: [string, number]; b: [string, number]; la: string; l
   );
 };
 
-export const BF06: React.FC = () => {
+export const BF06: React.FC<{ m?: Track }> = ({ m = AFRO_TRACKS.bf06 }) => {
   const P = T6.pieceStarts;
   return (
     <Frame>
@@ -269,7 +294,7 @@ export const BF06: React.FC = () => {
       </At>
       <Sfx b={P[1]} name="impact" vol={0.35} />
       <Audio src={staticFile("campana/bf06/voice.wav")} />
-      <Bed src={AFRO} startS={0} words={T6.words} total={T6.total} bed={0.75} duck={0.12} />
+      <Bed src={m.src} startS={m.startS} words={T6.words} total={T6.total} bed={m.bed} duck={m.duck} />
     </Frame>
   );
 };
@@ -288,7 +313,7 @@ const Reason: React.FC<{ n: number; title: string }> = ({ n, title }) => {
   );
 };
 
-export const BF07: React.FC = () => {
+export const BF07: React.FC<{ m?: Track }> = ({ m = AFRO_TRACKS.bf07 }) => {
   const P = T7.pieceStarts;
   const r1 = 1.7;
   const MONT: [string, number][] = [["IMG_2842", 1.0], ["IMG_9051", 0.4], ["IMG_2848", 0.8], ["IMG_9025", 0.3], ["IMG_2861", 0.4], ["IMG_8974", 1.0]];
@@ -330,7 +355,7 @@ export const BF07: React.FC = () => {
       </At>
       {[r1, P[1], P[4]].map((b) => <Sfx key={b} b={b} name="pop" vol={0.35} />)}
       <Audio src={staticFile("campana/bf07/voice.wav")} />
-      <Bed src={AFRO} startS={AFRO_GRID + 20 * AB} words={T7.words} total={T7.total} bed={0.8} duck={0.11} />
+      <Bed src={m.src} startS={m.startS} words={T7.words} total={T7.total} bed={m.bed} duck={m.duck} />
     </Frame>
   );
 };
@@ -348,10 +373,12 @@ const LIST: [string, string, number][] = [
   ["Rojo de pinos", "IMG_2861", 0.4],
   ["La de gorros navideños", "IMG_2857", 0.5],
 ];
-const L0 = 4 * AB; // the list starts on beat 4
-const PER = 2 * AB; // one item every two beats
+// the list starts on beat 4 and ticks one item every two beats of the ad's track
+const listTimes = (B: number) => ({ L0: 4 * B, PER: 2 * B, B });
 
-const ListCard: React.FC = () => {
+const ListCard: React.FC<{ B: number }> = ({ B }) => {
+  const { L0, PER } = listTimes(B);
+  const AB = B;
   const f = useCurrentFrame();
   const t = f / FPS + L0; // the card's block starts at L0; its timeline is absolute
   const done = (i: number) => t >= L0 + i * PER + AB;
@@ -384,7 +411,8 @@ const ListCard: React.FC = () => {
   );
 };
 
-export const BF08: React.FC = () => {
+export const BF08: React.FC<{ m?: Track }> = ({ m = AFRO_TRACKS.bf08 }) => {
+  const { L0, PER, B: AB } = listTimes(m.B);
   const listEnd = L0 + LIST.length * PER;
   const voice = T8.pieceStarts[1];
   return (
@@ -402,7 +430,7 @@ export const BF08: React.FC = () => {
       <At b0={listEnd} b1={listEnd + 4 * AB}><Shot src="IMG_2857" at={1.5} z={[1.0, 1.06]} /></At>
       <At b0={L0} b1={listEnd + 4 * AB}>
         <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(16,16,16,0.15) 0%, rgba(16,16,16,0) 60%)" }} />
-        <ListCard />
+        <ListCard B={m.B} />
       </At>
       {/* where to buy */}
       <At b0={listEnd + 4 * AB} b1={voice}>
@@ -419,7 +447,7 @@ export const BF08: React.FC = () => {
       {LIST.map((_, i) => <Sfx key={i} b={L0 + i * PER + AB} name="click" vol={0.4} />)}
       <Sfx b={listEnd} name="impact" vol={0.45} />
       <Audio src={staticFile("campana/bf08/voice.wav")} />
-      <Bed src={AFRO} startS={AFRO_GRID + 13 * AB} words={T8.words} total={T8.total} bed={0.85} />
+      <Bed src={m.src} startS={m.startS} words={T8.words} total={T8.total} bed={m.bed} duck={m.duck} />
     </Frame>
   );
 };
