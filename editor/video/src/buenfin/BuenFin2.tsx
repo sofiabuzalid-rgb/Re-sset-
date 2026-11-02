@@ -190,7 +190,7 @@ export const BF05: React.FC = () => {
         <Lines top={640} lines={[{ t: "TODAS.", at: 0, size: 240, fg: LIME }]} />
       </At>
       {ALL.map(([src, at, x, y], i) => (
-        <At key={i} b0={DROP5 + (2 + i) * AB} b1={Math.min(voice, DROP5 + (3 + i) * AB)} pre={["whip", "whipL", "push"].includes(FINS[i % FINS.length]) ? 6 : 0}>
+        <At key={i} b0={DROP5 + (2 + i) * AB} b1={i === ALL.length - 1 ? voice : DROP5 + (3 + i) * AB} pre={["whip", "whipL", "push"].includes(FINS[i % FINS.length]) ? 6 : 0}>
           <Shot src={src} at={at} fin={FINS[i % FINS.length]} z={i % 2 ? [1.08, 1.0] : [1.0, 1.08]} />
           <Stamp x={x} y={y} r={i % 2 ? 10 : -12} />
           <Count n={i + 1} />
