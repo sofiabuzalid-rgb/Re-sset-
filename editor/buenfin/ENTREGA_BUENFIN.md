@@ -76,8 +76,19 @@ confirmada; 01, 03 y 04 usan secciones distintas de la misma. Si me pasas tres p
 fashion lifestyle), se cambian en `MUSIC` de `BuenFin.tsx`.
 
 ## Revisión de los MP4 finales
-Se reprodujeron completos en hojas de un cuadro cada medio segundo; QC técnico de `render.sh` (decodificación completa, cuadros negros, congelados,
-silencios, sonoridad). Resultados en la sección final de esta nota.
+Los cuatro se revisaron completos en hojas de un cuadro cada medio segundo, más el QC técnico de `render.sh`:
+
+| Archivo | Duración | Sonoridad | Pico | Decodifica | Cuadros negros | Silencios | 15% visible desde |
+|---|---|---|---|---|---|---|---|
+| 01 La señal | 27.4 s | -14.4 LUFS | -2.8 dBFS | OK | 0 | 0 | 1.6 s |
+| 02 Visita Perisur | 23.0 s | -14.9 LUFS | -2.2 dBFS | OK | 0 | 0 | 0.5 s |
+| 03 Elige una | 22.5 s | -14.5 LUFS | -4.9 dBFS | OK | 0 | 0 | 1.1 s (en el hook) |
+| 04 Navidad y básicas | 29.2 s | -12.2 LUFS | -1.1 dBFS | OK | 0 | 0 | 1.5 s |
+
+- Ninguno muestra 25% OFF, "outlet" ni promociones anteriores.
+- Subtítulos literales, sincronizados palabra a palabra, máximo dos líneas, dentro de la zona segura (encima de los 340 px inferiores).
+- 03 tiene un congelado de 1 s al inicio: es el hook tipográfico sobre fondo marfil, intencional.
+- 04 quedó 2 dB por encima del objetivo de -14 LUFS (lo empuja el drop de la pista); Meta normaliza al reproducir.
 
 ## Pendiente antes de pautar
 1. **Condiciones del Buen Fin:** confirma que el 15% aplica a toda la tienda sin exclusiones, y fechas o términos si Meta o la marca los requieren. No puse ninguna.
