@@ -1,0 +1,129 @@
+{
+ "fps": 30,
+ "total": 712,
+ "pieceStarts": [
+  0.0,
+  15.2
+ ],
+ "pieceSrc": [
+  null,
+  0.067
+ ],
+ "voiceEnd": 19.933,
+ "lastWord": 20.163,
+ "ambient": false,
+ "words": [
+  {
+   "w": "De",
+   "s": 15.393,
+   "e": 15.613,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "verdad,",
+   "s": 15.613,
+   "e": 15.873,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "si",
+   "s": 16.013,
+   "e": 16.113,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "no",
+   "s": 16.113,
+   "e": 16.313,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "saben",
+   "s": 16.313,
+   "e": 16.553,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "aún",
+   "s": 16.553,
+   "e": 16.813,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "qué",
+   "s": 16.813,
+   "e": 17.053,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "regalar,",
+   "s": 17.053,
+   "e": 17.613,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "dense",
+   "s": 17.673,
+   "e": 17.893,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "una",
+   "s": 17.893,
+   "e": 18.073,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "vuelta,",
+   "s": 18.073,
+   "e": 18.213,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "sí",
+   "s": 18.533,
+   "e": 18.633,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "o",
+   "s": 18.633,
+   "e": 18.833,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "sí,",
+   "s": 18.833,
+   "e": 18.953,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "por",
+   "s": 19.053,
+   "e": 19.333,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "RE:SET.",
+   "s": 19.333,
+   "e": 19.913,
+   "piece": 1,
+   "br": true
+  }
+ ]
+}

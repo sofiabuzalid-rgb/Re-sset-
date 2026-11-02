@@ -95,3 +95,21 @@ Los cuatro se revisaron completos en hojas de un cuadro cada medio segundo, más
 2. **Pijama blanca con personaje (Grinch):** aparece doblada sobre la cama en los planos de IMG_8944 y IMG_8947 (AD01 y AD04). Si RE:SET no tiene licencia del personaje, se cambian esos planos.
 3. **Música:** ver arriba.
 4. **Material sin revisar:** IMG_8945 e IMG_8954 (RESET HOY) y los videos grandes de Drive siguen sin descargarse por el límite de 10 MB del conector.
+
+---
+
+# Segunda tanda (05–08) · foco total en BUEN FIN · 15% OFF
+
+Composiciones en `editor/video/src/buenfin/BuenFin2.tsx`. En las cuatro, una barra lima "BUEN FIN | 15% OFF EN TODA LA TIENDA" queda fija arriba
+casi todo el video, además de un bloque gigante "BUEN FIN · 15 % OFF · EN TODA LA TIENDA" en el momento clave y en el cierre.
+
+| Archivo | Idea | Hook | Voz real |
+|---|---|---|---|
+| `RESET_BUENFIN_05_TODAS_TIENEN_15.mp4` | Un sello de 15% cae sobre cada pijama, una por golpe (17 modelos) | "¿Qué pijamas de RE:SET tienen 15% OFF este Buen Fin?" → **TODAS.** en el drop | IMG_9054 "Tiene que correr al RE:SET… Avenida Stim y Perisur." |
+| `RESET_BUENFIN_06_REGALOS.mp4` | Adelantar los regalos de Navidad en Buen Fin; mismo estampado adulto y niño | Ella: "Les tengo una idea buenísima, por si no saben qué regalar esta Navidad." + "REGALOS DE NAVIDAD con 15% OFF este Buen Fin" | IMG_8931 · IMG_8946 "Imagínate que lo puedes combinar con toda tu familia." · IMG_8949 "Así que en serio… yo ya tengo las mías." |
+| `RESET_BUENFIN_07_TRES_RAZONES.mp4` | 1. 15% OFF en toda la tienda · 2. La calidad · 3. Trae su bolsita | "3 razones para comprar tu pijama este BUEN FIN" | IMG_9047 "Y aparte no saben la calidad y lo cómodo que está." · IMG_9018 "Por favor, vean, estamos aquí contra luz y no se transparenta nada." · IMG_8974 "Está súper cómoda y súper práctica…" · IMG_9054 |
+| `RESET_BUENFIN_08_MI_LISTA.mp4` | Una lista que se palomea al ritmo; cada pijama en pantalla mientras se marca, y al final "TODO CON 15% OFF" | "Lo que me voy a comprar en el BUEN FIN de RE:SET" | IMG_8948 "De verdad, si no saben aún qué regalar, dense una vuelta, sí o sí, por RE:SET." |
+
+Material: protagonista (RESET HOY: roja de renos, verde de galletas, olivo, azul marino con bolsita), producto (duendes, esquí, rojo de pinos,
+verde de pinos, gorros), percheros adulto/niño de tienda y el kiosco de Perisur. Clips nuevos preparados: IMG_8931, 8948, 9018, 8936.
+Música: "Afro House" (Pixabay, uso comercial permitido), una sección distinta por anuncio y bajada bajo su voz.

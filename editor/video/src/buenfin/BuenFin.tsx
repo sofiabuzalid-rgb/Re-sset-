@@ -23,7 +23,7 @@ const IVORY = COLORS.ivory;
 const LIME = COLORS.lime;
 const SANS = "Montserrat";
 const SERIF = "Playfair";
-const MEDIA = "campana/media";
+const MEDIA = "outlet4"; // the campaign clips are hard-linked here (one copy in the render bundle)
 const GRADE = "brightness(1.04) contrast(1.05) saturate(1.03)";
 
 /* ---------- music: a licensed track from a chosen second, ducked under her words ---------- */
@@ -204,7 +204,7 @@ export const BF02: React.FC = () => {
   const end = S2[S2.length - 1];
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
-      <Timeline shots={S2} grade="brightness(1.03) contrast(1.04) saturate(0.98)" base="perisur" />
+      <Timeline shots={S2} grade="brightness(1.03) contrast(1.04) saturate(0.98)" base="outlet4" />
       <Vignette strength={0.22} />
       <Grain opacity={0.04} />
       {/* 0–3 s: the RE:SET wall, the offer */}

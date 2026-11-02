@@ -1,0 +1,143 @@
+{
+ "fps": 30,
+ "total": 651,
+ "pieceStarts": [
+  0.0,
+  13.6
+ ],
+ "pieceSrc": [
+  null,
+  0.433
+ ],
+ "voiceEnd": 18.3,
+ "lastWord": 18.417,
+ "ambient": false,
+ "words": [
+  {
+   "w": "Tiene",
+   "s": 13.707,
+   "e": 13.867,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 13.867,
+   "e": 14.067,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "correr",
+   "s": 14.067,
+   "e": 14.207,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "al",
+   "s": 14.207,
+   "e": 14.507,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "RE:SET",
+   "s": 14.507,
+   "e": 14.847,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "por",
+   "s": 14.847,
+   "e": 15.007,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "este",
+   "s": 15.007,
+   "e": 15.367,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "set",
+   "s": 15.367,
+   "e": 15.887,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "en",
+   "s": 15.887,
+   "e": 16.067,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "nuestras",
+   "s": 16.067,
+   "e": 16.247,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "dos",
+   "s": 16.247,
+   "e": 16.427,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "sucursales,",
+   "s": 16.427,
+   "e": 16.847,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "en",
+   "s": 16.907,
+   "e": 17.067,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 16.987,
+   "e": 17.067,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "Avenida",
+   "s": 17.067,
+   "e": 17.467,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "Stim",
+   "s": 17.467,
+   "e": 17.707,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "y",
+   "s": 17.707,
+   "e": 17.867,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "Perisur.",
+   "s": 17.867,
+   "e": 18.167,
+   "piece": 1,
+   "br": true
+  }
+ ]
+}

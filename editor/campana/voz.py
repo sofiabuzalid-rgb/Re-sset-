@@ -93,6 +93,38 @@ SPECS = {
         commas={(3, "temporada")},
         end=12.0,
     ),
+    # BUEN FIN · segunda tanda (bf05–bf08)
+    "bf05": dict(  # ¿CUÁL TIENE 15%? TODAS — music-led stamp montage, her CTA closes
+        pieces=[("gap", 13.6), ("t", "9054", "Tiene que", "y Perisur.")],
+        end=3.4,
+    ),
+    "bf06": dict(  # ADELANTA TUS REGALOS
+        pieces=[
+            ("t", "8931", "Les tengo", "esta navidad."),     # Les tengo una idea buenísima, por si no saben qué regalar esta Navidad.
+            ("gap", 3.2),                                     # → cómpralos este Buen Fin con 15% OFF
+            ("t", "8946", "Imagínate que", "tu familia."),   # Imagínate que lo puedes combinar con toda tu familia.
+            ("gap", 3.4),                                     # adulto y niño, mismo estampado
+            ("t", "8949", "Así que", "las mías."),           # Así que en serio, si todavía no saben qué regalar esta Navidad, dense una vuelta por RE:SET porque yo ya tengo las mías.
+        ],
+        end=4.2,
+    ),
+    "bf07": dict(  # 3 RAZONES
+        pieces=[
+            ("gap", 5.4),                                     # hook + razón 1: 15% OFF en toda la tienda
+            ("t", "9047", "y a partir", "que está"),         # y aparte no saben la calidad y lo cómodo que está.
+            ("gap", 0.3),
+            ("t", "9018", "por favor,", "nada."),            # Por favor, vean, estamos aquí contra luz y no se transparenta nada.
+            ("gap", 1.0),                                     # razón 3
+            ("t", "8974", "Estás super", "tú quieras."),     # Está súper cómoda y súper práctica para que la puedas llevar en cualquier parte cuando te vayas de viaje, …
+            ("gap", 0.4),
+            ("t", "9054", "Tiene que", "y Perisur."),
+        ],
+        end=3.4,
+    ),
+    "bf08": dict(  # MI LISTA DEL BUEN FIN — music-led checklist, her line closes
+        pieces=[("gap", 15.2), ("t", "8948", "De verdad,", "por reset.")],  # De verdad, si no saben aún qué regalar, dense una vuelta, sí o sí, por RE:SET.
+        end=3.8,
+    ),
     "viaje": dict(
         pieces=[
             ("t", "8974", "Estás super", "tú quieras."),     # Está súper cómoda y súper práctica para que la puedas llevar en cualquier parte cuando te vayas de viaje, en tu maleta, en tu bolsa de mano, donde tú quieras.
@@ -220,14 +252,16 @@ def build(ad):
             W[i : i + 3] = [{**W[i], "w": "aparte", "e": W[i + 2]["e"]}]
             break
     for i in range(len(W) - 1):
-        if W[i]["w"] == "el" and W[i + 1]["w"] == "RE:SET" and ad in ("favorita", "bf01"):
+        if W[i]["w"] == "el" and W[i + 1]["w"] == "RE:SET" and ad in ("favorita", "bf01", "bf05", "bf07"):
             W[i]["w"] = "al"  # Sherpa: "correr al reset"
-        if W[i]["w"] == "en" and W[i + 1]["w"] == "Avenida" and ad in ("favorita", "bf01"):
+        if W[i]["w"] == "en" and W[i + 1]["w"] == "Avenida" and ad in ("favorita", "bf01", "bf05", "bf07"):
             W.insert(i + 1, {**W[i + 1], "w": "la", "s": round(W[i + 1]["s"] - 0.08, 3), "e": W[i + 1]["s"]})
         if W[i]["w"] == "que" and W[i + 1]["w"].startswith("regalar"):
             W[i]["w"] = "qué"
         if W[i]["w"] == "si" and W[i + 1]["w"] == "o":
             W[i]["w"] = "sí"
+        if W[i]["w"] == "o" and W[i + 1]["w"] in ("si", "si,") and i > 0 and W[i - 1]["w"] == "sí":
+            W[i + 1]["w"] = W[i + 1]["w"].replace("si", "sí")
     if ad == "viaje":  # 8987: both recognisers "Es broma, no me fui, pero nada [n]os quería decirles que esta pijama …"; her other takes (8986, 8988) say "nos"
         k87 = [k for k, p in enumerate(spec["pieces"]) if p[1] == "8987"][0]
         for w in W:

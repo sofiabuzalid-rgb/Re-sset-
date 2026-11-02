@@ -1,0 +1,526 @@
+{
+ "fps": 30,
+ "total": 897,
+ "pieceStarts": [
+  0.0,
+  5.4,
+  7.933,
+  8.233,
+  13.35,
+  14.35,
+  21.417,
+  21.817
+ ],
+ "pieceSrc": [
+  null,
+  6.467,
+  null,
+  0.667,
+  null,
+  0.233,
+  null,
+  0.433
+ ],
+ "voiceEnd": 26.517,
+ "lastWord": 26.633,
+ "ambient": false,
+ "words": [
+  {
+   "w": "Y",
+   "s": 5.4,
+   "e": 5.4,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "aparte",
+   "s": 5.4,
+   "e": 5.773,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "no",
+   "s": 5.773,
+   "e": 5.913,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "saben",
+   "s": 5.913,
+   "e": 6.113,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 6.113,
+   "e": 6.353,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "calidad",
+   "s": 6.353,
+   "e": 7.053,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "y",
+   "s": 7.053,
+   "e": 7.133,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "lo",
+   "s": 7.133,
+   "e": 7.333,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "cómodo",
+   "s": 7.333,
+   "e": 7.573,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 7.573,
+   "e": 7.713,
+   "piece": 1,
+   "br": false
+  },
+  {
+   "w": "está.",
+   "s": 7.713,
+   "e": 7.933,
+   "piece": 1,
+   "br": true
+  },
+  {
+   "w": "Por",
+   "s": 8.233,
+   "e": 8.467,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "favor,",
+   "s": 8.467,
+   "e": 8.947,
+   "piece": 3,
+   "br": true
+  },
+  {
+   "w": "vean,",
+   "s": 9.087,
+   "e": 9.307,
+   "piece": 3,
+   "br": true
+  },
+  {
+   "w": "estamos",
+   "s": 9.527,
+   "e": 9.867,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "aquí",
+   "s": 9.867,
+   "e": 10.347,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "contra",
+   "s": 10.347,
+   "e": 10.807,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "luz",
+   "s": 10.807,
+   "e": 11.447,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "y",
+   "s": 11.447,
+   "e": 11.667,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "no",
+   "s": 11.667,
+   "e": 11.767,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "se",
+   "s": 11.767,
+   "e": 12.127,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "transparenta",
+   "s": 12.127,
+   "e": 12.957,
+   "piece": 3,
+   "br": false
+  },
+  {
+   "w": "nada.",
+   "s": 12.957,
+   "e": 13.077,
+   "piece": 3,
+   "br": true
+  },
+  {
+   "w": "Está",
+   "s": 14.457,
+   "e": 14.897,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "súper",
+   "s": 14.897,
+   "e": 15.097,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "cómoda",
+   "s": 15.097,
+   "e": 15.337,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "y",
+   "s": 15.337,
+   "e": 15.577,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "súper",
+   "s": 15.577,
+   "e": 15.797,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "práctica",
+   "s": 15.797,
+   "e": 16.197,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "para",
+   "s": 16.197,
+   "e": 16.297,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 16.297,
+   "e": 16.417,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 16.417,
+   "e": 16.557,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "puedas",
+   "s": 16.557,
+   "e": 16.777,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "llevar",
+   "s": 16.777,
+   "e": 16.937,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "en",
+   "s": 16.937,
+   "e": 17.177,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "cualquier",
+   "s": 17.177,
+   "e": 17.637,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "parte",
+   "s": 17.637,
+   "e": 17.837,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "cuando",
+   "s": 17.837,
+   "e": 18.017,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "te",
+   "s": 18.017,
+   "e": 18.097,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "vayas",
+   "s": 18.097,
+   "e": 18.297,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 18.297,
+   "e": 18.497,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "viaje,",
+   "s": 18.497,
+   "e": 18.697,
+   "piece": 5,
+   "br": true
+  },
+  {
+   "w": "en",
+   "s": 18.717,
+   "e": 18.797,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "tu",
+   "s": 18.797,
+   "e": 18.977,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "maleta,",
+   "s": 18.977,
+   "e": 19.437,
+   "piece": 5,
+   "br": true
+  },
+  {
+   "w": "en",
+   "s": 19.497,
+   "e": 19.657,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "tu",
+   "s": 19.657,
+   "e": 19.857,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "bolsa",
+   "s": 19.857,
+   "e": 20.097,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "de",
+   "s": 20.097,
+   "e": 20.357,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "mano,",
+   "s": 20.357,
+   "e": 20.617,
+   "piece": 5,
+   "br": true
+  },
+  {
+   "w": "donde",
+   "s": 20.717,
+   "e": 20.917,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "tú",
+   "s": 20.917,
+   "e": 21.077,
+   "piece": 5,
+   "br": false
+  },
+  {
+   "w": "quieras.",
+   "s": 21.077,
+   "e": 21.117,
+   "piece": 5,
+   "br": true
+  },
+  {
+   "w": "Tiene",
+   "s": 21.923,
+   "e": 22.083,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "que",
+   "s": 22.083,
+   "e": 22.283,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "correr",
+   "s": 22.283,
+   "e": 22.423,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "al",
+   "s": 22.423,
+   "e": 22.723,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "RE:SET",
+   "s": 22.723,
+   "e": 23.063,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "por",
+   "s": 23.063,
+   "e": 23.223,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "este",
+   "s": 23.223,
+   "e": 23.583,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "set",
+   "s": 23.583,
+   "e": 24.103,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "en",
+   "s": 24.103,
+   "e": 24.283,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "nuestras",
+   "s": 24.283,
+   "e": 24.463,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "dos",
+   "s": 24.463,
+   "e": 24.643,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "sucursales,",
+   "s": 24.643,
+   "e": 25.063,
+   "piece": 7,
+   "br": true
+  },
+  {
+   "w": "en",
+   "s": 25.123,
+   "e": 25.283,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "la",
+   "s": 25.203,
+   "e": 25.283,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "Avenida",
+   "s": 25.283,
+   "e": 25.683,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "Stim",
+   "s": 25.683,
+   "e": 25.923,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "y",
+   "s": 25.923,
+   "e": 26.083,
+   "piece": 7,
+   "br": false
+  },
+  {
+   "w": "Perisur.",
+   "s": 26.083,
+   "e": 26.383,
+   "piece": 7,
+   "br": true
+  }
+ ]
+}
