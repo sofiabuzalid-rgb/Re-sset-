@@ -35,26 +35,25 @@ const CUTS: Cut[] = [
   // 0–1.5 s · hook (black, flash, close-ups of the festive prints)
   { from: 4, len: 20, src: "s4", at: 29.0, rate: 1.4, zoom: [1.42, 1.3], flash: true, ox: 45 },
   { from: 24, len: 21, src: "s4", at: 20.5, rate: 1.6, zoom: [1.35, 1.22], whip: true, ox: 55 },
-  // 1.5–6 s · showroom glimpses (voice: "la mejor temporada del año")
+  // 1.5–7.5 s · showroom ("Muy felices de que ya empezó la mejor temporada del año." / "Tenemos aquí las de Navidad.")
   { from: 45, len: 30, src: "s4", at: 0.25, rate: 0.9, zoom: [1.06, 1.16], flash: true, oy: 55 },
   { from: 75, len: 30, src: "s4", at: 20.3, rate: 1.1, zoom: [1.12, 1.2], whip: true },
   { from: 105, len: 30, src: "s4", at: 14.3, rate: 0.9, zoom: [1.0, 1.0], punch: true, oy: 40 },
-  { from: 135, len: 23, src: "s4", at: 6.2, rate: 1.0, zoom: [1.05, 1.14], whip: true },
-  { from: 158, len: 22, src: "s4", at: 24.6, ramp: [2.2, 0.9], zoom: [1.2, 1.1], ox: 40 },
-  // 6–10 s · inventory, building (half-beat cuts, ramps, punch-ins)
-  { from: 180, len: 15, src: "s1", at: 4.4, ramp: [2.0, 0.8], zoom: [1.1, 1.2], flash: true },
-  { from: 195, len: 15, src: "s3", at: 2.4, rate: 1.4, zoom: [1.0, 1.0], punch: true },
-  { from: 210, len: 15, src: "s1", at: 13.4, ramp: [2.0, 0.8], zoom: [1.15, 1.25], whip: true },
-  { from: 225, len: 15, src: "s3", at: 7.1, rate: 1.3, zoom: [1.0, 1.0], punch: true },
-  { from: 240, len: 15, src: "s1", at: 20.9, ramp: [2.2, 0.9], zoom: [1.1, 1.22], flash: true },
-  { from: 255, len: 15, src: "s3", at: 3.2, rate: 1.4, zoom: [1.12, 1.24], whip: true },
-  { from: 270, len: 8, src: "s1", at: 9.0, rate: 1.8, zoom: [1.0, 1.0], punch: true },
-  { from: 278, len: 7, src: "s2", at: 0.2, rate: 1.8, zoom: [1.1, 1.2], whip: true },
-  { from: 285, len: 8, src: "s1", at: 16.5, rate: 2.0, zoom: [1.0, 1.0], punch: true },
-  { from: 293, len: 7, src: "s3", at: 5.6, rate: 2.0, zoom: [1.15, 1.3], whip: true },
-  // 10–13 s · the festive pajamas, slower (voice: "es como el regalo perfecto")
-  { from: 300, len: 45, src: "s4", at: 25.0, rate: 0.75, zoom: [1.04, 1.16], flash: true },
-  { from: 345, len: 45, src: "s4", at: 27.4, rate: 0.75, zoom: [1.16, 1.06], whip: true, ox: 45 },
+  { from: 135, len: 20, src: "s4", at: 6.2, rate: 1.0, zoom: [1.05, 1.14], whip: true },
+  { from: 155, len: 33, src: "s4", at: 24.6, ramp: [1.8, 0.8], zoom: [1.2, 1.1], ox: 40, flash: true },
+  { from: 188, len: 37, src: "s4", at: 28.8, rate: 0.9, zoom: [1.1, 1.2], whip: true },
+  // 7.5–11 s · inventory, building ("Tenemos estas calientitas que les han gustado muchísimo.")
+  { from: 225, len: 15, src: "s1", at: 4.4, ramp: [2.0, 0.8], zoom: [1.1, 1.2], flash: true },
+  { from: 240, len: 15, src: "s3", at: 2.4, rate: 1.4, zoom: [1.0, 1.0], punch: true },
+  { from: 255, len: 15, src: "s1", at: 13.4, ramp: [2.0, 0.8], zoom: [1.15, 1.25], whip: true },
+  { from: 270, len: 15, src: "s3", at: 7.1, rate: 1.3, zoom: [1.0, 1.0], punch: true },
+  { from: 285, len: 15, src: "s1", at: 20.9, ramp: [2.2, 0.9], zoom: [1.1, 1.22], flash: true },
+  { from: 300, len: 15, src: "s3", at: 3.2, rate: 1.4, zoom: [1.12, 1.24], whip: true },
+  { from: 315, len: 8, src: "s1", at: 9.0, rate: 1.8, zoom: [1.0, 1.0], punch: true },
+  { from: 323, len: 7, src: "s3", at: 5.6, rate: 2.0, zoom: [1.15, 1.3], whip: true },
+  // 11–13 s · the festive pajamas, slower ("Es como el regalo perfecto.")
+  { from: 330, len: 30, src: "s4", at: 25.0, rate: 0.75, zoom: [1.04, 1.14], flash: true },
+  { from: 360, len: 30, src: "s4", at: 27.4, rate: 0.75, zoom: [1.16, 1.08], whip: true, ox: 45 },
 ];
 
 /** one exact source frame. Freeze clamps to the composition length (450), so freeze at 0 and shift the clip instead */
@@ -128,19 +127,36 @@ const HookText: React.FC = () => {
 };
 
 type W = { w: string; s: number; e: number };
+/** split a phrase into even one-line chunks: at most 4 words and ~22 characters each (5 words → 3 + 2) */
+const chunks = (words: W[]) => {
+  const chars = words.reduce((k, w) => k + w.w.length + 1, 0);
+  const n = Math.max(Math.ceil(words.length / 4), Math.ceil(chars / 22));
+  const out: W[][] = [];
+  let i = 0;
+  for (let k = 0; k < n; k++) {
+    const size = Math.ceil((words.length - i) / (n - k));
+    out.push(words.slice(i, i + size));
+    i += size;
+  }
+  return out;
+};
 const Subtitle: React.FC<{ words: W[]; len: number }> = ({ words, len }) => {
   const f = useCurrentFrame();
   const t = f / FPS;
   const out = interpolate(f, [len - 6, len], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const txt = words.map((w, i) => (i === 0 ? w.w[0].toUpperCase() + w.w.slice(1) : w.w));
+  const ws = words.map((w, i) => ({ ...w, w: i === 0 ? w.w[0].toUpperCase() + w.w.slice(1) : w.w }));
+  const cs = chunks(ws);
+  let k = 0;
+  for (let i = 0; i < cs.length; i++) if (t >= cs[i][0].s - 0.06) k = i;
+  const c = cs[k];
   return (
     <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 430, opacity: out }}>
-      <div style={{ fontFamily: "Montserrat", fontWeight: 600, fontSize: 54, letterSpacing: "0.01em", color: "#FFFFFF", textAlign: "center", textShadow: SHADOW, maxWidth: 900, lineHeight: 1.2 }}>
-        {txt.map((w, i) => {
-          const a = interpolate(t, [words[i].s - 0.04, words[i].s + 0.1], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+      <div style={{ fontFamily: "Montserrat", fontWeight: 600, fontSize: 58, letterSpacing: "0.01em", color: "#FFFFFF", textAlign: "center", textShadow: SHADOW, maxWidth: 900, lineHeight: 1.2 }}>
+        {c.map((w, i) => {
+          const a = interpolate(t, [w.s - 0.04, w.s + 0.1], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
           return (
-            <span key={i} style={{ opacity: 0.12 + 0.88 * a, marginRight: "0.28em", display: "inline-block", transform: `translateY(${(1 - a) * 6}px)` }}>
-              {w}
+            <span key={`${k}-${i}`} style={{ opacity: 0.15 + 0.85 * a, marginRight: "0.28em", display: "inline-block", transform: `translateY(${(1 - a) * 6}px)` }}>
+              {w.w}
             </span>
           );
         })}
@@ -178,15 +194,18 @@ const EndCard: React.FC = () => {
 
 // voice placement (frames in the edit) and a music bed that dips under every phrase
 const VOICE = [
-  { id: "temporada", at: 60 },
-  { id: "regalo", at: 308 },
+  { id: "felices", at: 40 },
+  { id: "navidad", at: 154 },
+  { id: "calientitas", at: 222 },
+  { id: "regalo", at: 326 },
+  { id: "esperamos", at: 404 },
 ] as const;
 
 export const Teaser: React.FC = () => {
   const dips = VOICE.map((v) => [v.at, v.at + Math.round((VOZ as any)[v.id].dur * FPS)]);
   const musicVol = (f: number) => {
-    let g = 1;
-    for (const [a, b] of dips) g = Math.min(g, interpolate(f, [a - 6, a, b, b + 8], [1, 0.3, 0.3, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }));
+    let g = 0.8;
+    for (const [a, b] of dips) g = Math.min(g, interpolate(f, [a - 6, a, b, b + 8], [0.8, 0.13, 0.13, 0.8], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }));
     return g * interpolate(f, [TEASER_FRAMES - 20, TEASER_FRAMES], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   };
   return (
@@ -221,7 +240,7 @@ export const Teaser: React.FC = () => {
       <Sequence from={22} durationInFrames={20}>
         <Audio src={staticFile("outlet4/audio/sfx_whoosh.wav")} volume={0.35} />
       </Sequence>
-      <Sequence from={176} durationInFrames={20}>
+      <Sequence from={221} durationInFrames={20}>
         <Audio src={staticFile("outlet4/audio/sfx_whoosh.wav")} volume={0.3} />
       </Sequence>
     </AbsoluteFill>
