@@ -124,12 +124,7 @@ export const EspectacularBuenFin: React.FC = () => (
 );
 
 // Como en el video original: espectacular verde de la marca, tipografía serif fina, "EL BUEN FIN", el porcentaje enorme,
-// y el cartel oficial de El Buen Fin chico, abajo al centro. Tres pijamas reales entre la oferta y el cartel.
-const Arch: React.FC<{ src: string; pos: string; left: number }> = ({ src, pos, left }) => (
-  <div style={{ position: "absolute", top: 1190, left, width: 196, height: 410, border: `3px solid rgba(246,240,228,0.85)`, borderRadius: "98px 98px 4px 4px", overflow: "hidden" }}>
-    <Img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: pos }} />
-  </div>
-);
+// y el cartel oficial de El Buen Fin chico, abajo al centro. Foto real de la tienda entre la oferta y el cartel.
 export const EspectacularOriginal: React.FC = () => (
   <AbsoluteFill style={{ background: GREEN, color: IVORY }}>
     <Img src={staticFile("brand/reset-logo-white.png")} style={{ position: "absolute", top: 120, left: "50%", width: 470, marginLeft: -235 }} />
@@ -137,14 +132,15 @@ export const EspectacularOriginal: React.FC = () => (
     <div style={{ position: "absolute", top: 455, left: 0, right: 0, textAlign: "center", fontFamily: "Cormorant", fontWeight: 500, fontSize: 400, lineHeight: 1, letterSpacing: "-0.01em", fontVariantNumeric: "lining-nums", fontFeatureSettings: '"lnum" 1' }}>{COPY.pct}</div>
     <div style={{ position: "absolute", top: 880, left: 0, right: 0, textAlign: "center", fontFamily: "Cormorant", fontWeight: 500, fontSize: 120, lineHeight: 1, letterSpacing: "0.16em", paddingLeft: "0.16em" }}>{COPY.off}</div>
     <div style={{ position: "absolute", top: 1045, left: 0, right: 0, textAlign: "center", fontFamily: "Montserrat", fontWeight: 500, fontSize: 34, letterSpacing: "0.3em", paddingLeft: "0.3em" }}>{COPY.scope}</div>
-    <Arch src="buenfin_cdmx/IMG_2041.jpg" pos="50% 45%" left={40} />
-    <Arch src="buenfin_cdmx/IMG_2848.jpg" pos="50% 40%" left={262} />
-    <Arch src="buenfin_cdmx/IMG_2052.jpg" pos="40% 45%" left={484} />
-    <div style={{ position: "absolute", top: 1660, left: 0, right: 0, textAlign: "center", fontFamily: "Cormorant", fontStyle: "italic", fontWeight: 500, fontSize: 70, lineHeight: 1.05 }}>
+    {/* foto real de la tienda RE:SET (letrero + aparador con pijamas) */}
+    <div style={{ position: "absolute", top: 1170, left: 50, width: 620, height: 560, border: `3px solid rgba(246,240,228,0.85)`, borderRadius: "310px 310px 6px 6px", overflow: "hidden" }}>
+      <Img src={staticFile("buenfin_cdmx/tienda.jpg")} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "38% 22%", filter: "brightness(1.12) contrast(1.04)" }} />
+    </div>
+    <div style={{ position: "absolute", top: 1775, left: 0, right: 0, textAlign: "center", fontFamily: "Cormorant", fontStyle: "italic", fontWeight: 500, fontSize: 66, lineHeight: 1.05 }}>
       Pijamas para todos<br />tus momentos
     </div>
-    <div style={{ position: "absolute", top: 1840, left: 0, right: 0, textAlign: "center", fontFamily: "Montserrat", fontWeight: 500, fontSize: 28, letterSpacing: "0.3em", paddingLeft: "0.3em" }}>{COPY.cta}</div>
+    <div style={{ position: "absolute", top: 1938, left: 0, right: 0, textAlign: "center", fontFamily: "Montserrat", fontWeight: 500, fontSize: 28, letterSpacing: "0.3em", paddingLeft: "0.3em" }}>{COPY.cta}</div>
     {/* cartel oficial de El Buen Fin: chico, abajo al centro, como en el original */}
-    <Img src={staticFile("buenfin_cdmx/buenfin_cartel.png")} style={{ position: "absolute", top: 1960, left: "50%", width: 290, marginLeft: -145, filter: "drop-shadow(0 10px 18px rgba(0,0,0,0.45))" }} />
+    <Img src={staticFile("buenfin_cdmx/buenfin_cartel.png")} style={{ position: "absolute", top: 2020, left: "50%", width: 270, marginLeft: -135, filter: "drop-shadow(0 10px 18px rgba(0,0,0,0.45))" }} />
   </AbsoluteFill>
 );
