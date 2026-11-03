@@ -22,8 +22,8 @@ const Close: React.FC = () => {
   const a = interpolate(f, [CDMX.closeFrom * 30, CDMX.closeFrom * 30 + 12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <div style={{ position: "absolute", top: 1350, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: a, transform: `translateY(${(1 - a) * 20}px)` }}>
-      <div style={{ background: "rgba(17,17,17,0.92)", color: "#FFFFFF", fontFamily: "Montserrat", textAlign: "center", padding: "20px 44px 22px", borderRadius: 12, whiteSpace: "nowrap" }}>
-        <div style={{ fontWeight: 800, fontSize: 50, letterSpacing: "0.06em" }}>BUEN FIN · <span style={{ color: "#FF3B3B" }}>15% OFF</span></div>
+      <div style={{ background: "rgba(22,53,40,0.93)", color: "#F6F0E4", fontFamily: "Montserrat", textAlign: "center", padding: "20px 44px 22px", borderRadius: 12, whiteSpace: "nowrap" }}>
+        <div style={{ fontWeight: 800, fontSize: 50, letterSpacing: "0.06em" }}>BUEN FIN · <span style={{ color: "#E2EC95" }}>15% OFF</span></div>
         <div style={{ fontWeight: 700, fontSize: 34, letterSpacing: "0.16em", marginTop: 6 }}>EN TODA LA TIENDA</div>
         <div style={{ fontWeight: 600, fontSize: 26, letterSpacing: "0.32em", marginTop: 12, opacity: 0.85 }}>VEN A CONOCERNOS</div>
       </div>

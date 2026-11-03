@@ -7,6 +7,8 @@ import { AbsoluteFill, Img, staticFile } from "remotion";
 
 loadFont({ family: "Montserrat", url: staticFile("fonts/Montserrat-Variable.woff2"), weight: "100 900" });
 loadFont({ family: "Playfair", url: staticFile("fonts/PlayfairDisplay-Italic-Variable.woff2"), weight: "400 900", style: "italic" });
+loadFont({ family: "Cormorant", url: staticFile("fonts/Cormorant-500.woff2"), weight: "500" });
+loadFont({ family: "Cormorant", url: staticFile("fonts/Cormorant-500-italic.woff2"), weight: "500", style: "italic" });
 
 export const BILLBOARD = { width: 1100, height: 1800 };
 export const COPY = {
@@ -118,5 +120,31 @@ export const EspectacularBuenFin: React.FC = () => (
     {/* esquina doblada, como el cartel */}
     <div style={{ position: "absolute", right: 26, bottom: 30, width: 0, height: 0, borderStyle: "solid", borderWidth: "0 0 130px 130px", borderColor: `transparent transparent ${INK} transparent` }} />
     <div style={{ position: "absolute", right: 40, bottom: 44, width: 104, height: 104, background: "linear-gradient(135deg, #FFFFFF 0%, #DADADA 100%)", clipPath: "polygon(0 0, 100% 0, 0 100%)", boxShadow: "0 0 0 4px #111" }} />
+  </AbsoluteFill>
+);
+
+// Como en el video original: espectacular verde de la marca, tipografía serif fina, "EL BUEN FIN", el porcentaje enorme,
+// y el cartel oficial de El Buen Fin chico, abajo al centro. Tres pijamas reales entre la oferta y el cartel.
+const Arch: React.FC<{ src: string; pos: string; left: number }> = ({ src, pos, left }) => (
+  <div style={{ position: "absolute", top: 1190, left, width: 196, height: 410, border: `3px solid rgba(246,240,228,0.85)`, borderRadius: "98px 98px 4px 4px", overflow: "hidden" }}>
+    <Img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: pos }} />
+  </div>
+);
+export const EspectacularOriginal: React.FC = () => (
+  <AbsoluteFill style={{ background: GREEN, color: IVORY }}>
+    <Img src={staticFile("brand/reset-logo-white.png")} style={{ position: "absolute", top: 120, left: "50%", width: 470, marginLeft: -235 }} />
+    <div style={{ position: "absolute", top: 380, left: 0, right: 0, textAlign: "center", fontFamily: "Cormorant", fontWeight: 500, fontSize: 80, letterSpacing: "0.12em", paddingLeft: "0.12em" }}>{COPY.event}</div>
+    <div style={{ position: "absolute", top: 455, left: 0, right: 0, textAlign: "center", fontFamily: "Cormorant", fontWeight: 500, fontSize: 400, lineHeight: 1, letterSpacing: "-0.01em", fontVariantNumeric: "lining-nums", fontFeatureSettings: '"lnum" 1' }}>{COPY.pct}</div>
+    <div style={{ position: "absolute", top: 880, left: 0, right: 0, textAlign: "center", fontFamily: "Cormorant", fontWeight: 500, fontSize: 120, lineHeight: 1, letterSpacing: "0.16em", paddingLeft: "0.16em" }}>{COPY.off}</div>
+    <div style={{ position: "absolute", top: 1045, left: 0, right: 0, textAlign: "center", fontFamily: "Montserrat", fontWeight: 500, fontSize: 34, letterSpacing: "0.3em", paddingLeft: "0.3em" }}>{COPY.scope}</div>
+    <Arch src="buenfin_cdmx/IMG_2041.jpg" pos="50% 45%" left={40} />
+    <Arch src="buenfin_cdmx/IMG_2848.jpg" pos="50% 40%" left={262} />
+    <Arch src="buenfin_cdmx/IMG_2052.jpg" pos="40% 45%" left={484} />
+    <div style={{ position: "absolute", top: 1660, left: 0, right: 0, textAlign: "center", fontFamily: "Cormorant", fontStyle: "italic", fontWeight: 500, fontSize: 70, lineHeight: 1.05 }}>
+      Pijamas para todos<br />tus momentos
+    </div>
+    <div style={{ position: "absolute", top: 1840, left: 0, right: 0, textAlign: "center", fontFamily: "Montserrat", fontWeight: 500, fontSize: 28, letterSpacing: "0.3em", paddingLeft: "0.3em" }}>{COPY.cta}</div>
+    {/* cartel oficial de El Buen Fin: chico, abajo al centro, como en el original */}
+    <Img src={staticFile("buenfin_cdmx/buenfin_cartel.png")} style={{ position: "absolute", top: 1960, left: "50%", width: 290, marginLeft: -145, filter: "drop-shadow(0 10px 18px rgba(0,0,0,0.45))" }} />
   </AbsoluteFill>
 );

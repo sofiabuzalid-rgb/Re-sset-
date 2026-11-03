@@ -13,7 +13,7 @@ import { Re12, RE_FRAMES } from "./re12/Re12";
 import { Perisur, PERISUR_FRAMES } from "./perisur/Perisur";
 import { BF01, BF02, BF03, BF04, BF_FRAMES } from "./buenfin/BuenFin";
 import { BF05, BF06, BF07, BF08, BF2_FRAMES, FUN_TRACKS } from "./buenfin/BuenFin2";
-import { Espectacular, BILLBOARD, EspectacularAlto, BILLBOARD_ALTO, EspectacularBuenFin } from "./buenfin/Espectacular";
+import { Espectacular, BILLBOARD, EspectacularAlto, BILLBOARD_ALTO, EspectacularBuenFin, EspectacularOriginal } from "./buenfin/Espectacular";
 import { Cdmx, CDMX, CDMX_AUDIO } from "./buenfin/Cdmx";
 import { Ad06, Ad07, Ad08, Ad09, Ad10, Ad11, frames2 } from "./outlet2/Ads2";
 import { frames as outletFrames } from "./outlet4/config";
@@ -87,6 +87,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="RESET-BUENFIN-CDMX-CINEMATIC" component={() => <Cdmx audio={CDMX_AUDIO.review} />} durationInFrames={Math.round(CDMX.seconds * 30)} fps={30} width={1080} height={1920} />
       <Composition id="RESET-BUENFIN-CDMX-META-ADS" component={() => <Cdmx audio={CDMX_AUDIO.paid} />} durationInFrames={Math.round(CDMX.seconds * 30)} fps={30} width={1080} height={1920} />
       <Composition id="BUENFIN-ESPECTACULAR" component={Espectacular} durationInFrames={1} fps={30} width={BILLBOARD.width} height={BILLBOARD.height} />
+      <Composition id="BUENFIN-ESPECTACULAR-ORIGINAL" component={EspectacularOriginal} durationInFrames={1} fps={30} width={BILLBOARD_ALTO.width} height={BILLBOARD_ALTO.height} />
       <Composition id="BUENFIN-ESPECTACULAR-CUADRO" component={EspectacularBuenFin} durationInFrames={1} fps={30} width={BILLBOARD_ALTO.width} height={BILLBOARD_ALTO.height} />
       <Composition id="BUENFIN-ESPECTACULAR-ALTO" component={EspectacularAlto} durationInFrames={1} fps={30} width={BILLBOARD_ALTO.width} height={BILLBOARD_ALTO.height} />
       <Composition id="RESET-BUENFIN-01-LA-SENAL" component={BF01} durationInFrames={BF_FRAMES.bf01} fps={30} width={1080} height={1920} />
