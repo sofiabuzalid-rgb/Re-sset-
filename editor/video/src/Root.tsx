@@ -13,6 +13,8 @@ import { Re12, RE_FRAMES } from "./re12/Re12";
 import { Perisur, PERISUR_FRAMES } from "./perisur/Perisur";
 import { BF01, BF02, BF03, BF04, BF_FRAMES } from "./buenfin/BuenFin";
 import { BF05, BF06, BF07, BF08, BF2_FRAMES, FUN_TRACKS } from "./buenfin/BuenFin2";
+import { Espectacular, BILLBOARD } from "./buenfin/Espectacular";
+import { Cdmx, CDMX, CDMX_AUDIO } from "./buenfin/Cdmx";
 import { Ad06, Ad07, Ad08, Ad09, Ad10, Ad11, frames2 } from "./outlet2/Ads2";
 import { frames as outletFrames } from "./outlet4/config";
 import { TOTAL_S as PROMO_S } from "./promo/config";
@@ -82,6 +84,9 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="RESET-BUENFIN-06-REGALOS-MUSICA-REEL" component={() => <BF06 m={FUN_TRACKS.bf06} />} durationInFrames={BF2_FRAMES.bf06} fps={30} width={1080} height={1920} />
       <Composition id="RESET-BUENFIN-07-TRES-RAZONES-MUSICA-REEL" component={() => <BF07 m={FUN_TRACKS.bf07} />} durationInFrames={BF2_FRAMES.bf07} fps={30} width={1080} height={1920} />
       <Composition id="RESET-BUENFIN-08-MI-LISTA-MUSICA-REEL" component={() => <BF08 m={FUN_TRACKS.bf08} />} durationInFrames={BF2_FRAMES.bf08} fps={30} width={1080} height={1920} />
+      <Composition id="RESET-BUENFIN-CDMX-CINEMATIC" component={() => <Cdmx audio={CDMX_AUDIO.review} />} durationInFrames={Math.round(CDMX.seconds * 30)} fps={30} width={1080} height={1920} />
+      <Composition id="RESET-BUENFIN-CDMX-META-ADS" component={() => <Cdmx audio={CDMX_AUDIO.paid} />} durationInFrames={Math.round(CDMX.seconds * 30)} fps={30} width={1080} height={1920} />
+      <Composition id="BUENFIN-ESPECTACULAR" component={Espectacular} durationInFrames={1} fps={30} width={BILLBOARD.width} height={BILLBOARD.height} />
       <Composition id="RESET-BUENFIN-01-LA-SENAL" component={BF01} durationInFrames={BF_FRAMES.bf01} fps={30} width={1080} height={1920} />
       <Composition id="RESET-BUENFIN-02-VISITA-PERISUR" component={BF02} durationInFrames={BF_FRAMES.bf02} fps={30} width={1080} height={1920} />
       <Composition id="RESET-BUENFIN-03-ELIGE-UNA" component={BF03} durationInFrames={BF_FRAMES.bf03} fps={30} width={1080} height={1920} />
