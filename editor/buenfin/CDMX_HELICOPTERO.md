@@ -55,3 +55,9 @@ cámara fija o casi fija; que el espectacular quede completamente visible al men
   La tela se suelta a los 2.9 s y el panel queda libre a los 5.3 s (el script imprime la cobertura cada 0.5 s).
 - Espectacular actual: `BUENFIN-ESPECTACULAR-ORIGINAL` (720×2400), como en el video de referencia: verde de marca, serif fina, "EL BUEN FIN", 15% enorme, OFF, EN TODA LA TIENDA, tres pijamas y el cartel oficial de El Buen Fin chico abajo al centro. Alternativas: `BUENFIN-ESPECTACULAR-CUADRO` (calendario completo) y `BUENFIN-ESPECTACULAR-ALTO`.
 - Límite: la foto es fija, así que los autos y los árboles no se mueven; solo se mueven el helicóptero, la tela y la cámara.
+
+## Versión realista (foto completa + tráfico)
+- Foto y helicóptero a resolución completa: se leyeron de Canva por partes (zoom 3× y 9 vistas de página unidas sin costuras), porque `media.canva.com` está bloqueado en el entorno. Archivos: `public/buenfin_cdmx/reforma_plate.png` (1014×1800) y `helicoptero.png`.
+- Tela: lona crema, malla subdividida con sombreado suave, pliegues oscurecidos por curvatura, textura de tejido y dobladillo, resistencia al aire (se infla como vela) y barra separadora bajo el gancho.
+- Tráfico (`editor/buenfin/traffic.py`): el taxi del primer plano está detenido junto a la banqueta con intermitentes; el taxi de adelante avanza; entran coches nuevos por abajo en los carriles libres y se alejan hacia el Ángel con perspectiva, sombra de contacto y desenfoque de movimiento. El asfalto que deja libre el taxi se rellena con la misma avenida escalada desde el punto de fuga.
+- Los coches lejanos se quedan en su lugar (fila de tráfico al fondo).

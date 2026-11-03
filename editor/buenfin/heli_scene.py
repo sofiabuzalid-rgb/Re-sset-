@@ -19,6 +19,7 @@ import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from composite import green_mask, quad_from_mask  # noqa: E402
+from traffic import Traffic  # noqa: E402
 
 FPS = 30
 OUT_W, OUT_H = 1080, 1920
@@ -86,9 +87,17 @@ def heli_cutout(img):
             if st[i, cv2.CC_STAT_AREA] > 0.08 * st[big[0], cv2.CC_STAT_AREA]:
                 keep[lab_ == i] = 255
     keep = cv2.morphologyEx(keep, cv2.MORPH_CLOSE, np.ones((k, k), np.uint8))
+    # thin parts below the rotor plane (landing skids, antennas) come back; only the frozen blades stay out
+    ys_ = np.where(keep.any(1))[0]
+    if len(ys_):
+        cols = keep[:, keep.shape[1] // 3: 2 * keep.shape[1] // 3]
+        top_body = int(np.where(cols.any(1))[0].min()) if cols.any() else int(ys_.min())
+        below = np.zeros_like(fg)
+        below[top_body + int(0.12 * (ys_.max() - top_body)):, :] = 255
+        near = cv2.dilate(keep, np.ones((k * 4, k * 4), np.uint8))
+        keep = cv2.max(keep, cv2.min(cv2.min(fg, below), near))
     x, y, bw, bh = cv2.boundingRect(keep)
     rgba = np.dstack([img, cv2.GaussianBlur(keep, (3, 3), 0)])[y:y + bh, x:x + bw]
-    # mast = topmost body pixel in the middle third; it carries the rotor
     a = rgba[..., 3]
     cols = range(bw // 3, 2 * bw // 3)
     tops = [(np.argmax(a[:, c] > 128), c) for c in cols if (a[:, c] > 128).any()]
@@ -123,7 +132,7 @@ class Cloth:
         b = np.concatenate([p[1].ravel() for p in pairs])
         self.a, self.b = a, b
         self.rest = np.linalg.norm(self.p[a] - self.p[b], axis=1)
-        self.stiff = np.concatenate([np.full(p[0].size, s) for p, s in zip(pairs, [1, 1, .6, .6, .25, .25])])
+        self.stiff = np.concatenate([np.full(p[0].size, s) for p, s in zip(pairs, [1, 1, .7, .7, .45, .45])])
         self.idx = idx
         self.pinned = np.zeros(len(self.p), bool)
         self.pinned[idx[0]] = True
@@ -131,7 +140,7 @@ class Cloth:
         # gathered top: the pins hold the fabric 9% narrower than it is, so it buckles into vertical folds
         top = idx[0]
         cx = self.p[top, :2].mean(0)
-        self.pin_pos[top, :2] = cx + (self.p[top, :2] - cx) * 0.87
+        self.pin_pos[top, :2] = cx + (self.p[top, :2] - cx) * 0.93
         self.p[top] = self.pin_pos[top]
         self.prev[top] = self.pin_pos[top]
         # a few gentle ripples so it never starts as a flat sheet
@@ -143,9 +152,14 @@ class Cloth:
         p = self.p if p is None else p
         return np.stack([p[:, 0] + p[:, 2] * self.NX, p[:, 1] + p[:, 2] * self.NY], 1)
 
-    def step(self, dt, t, hook3, L, wall_poly, on_wall, wind):
+    def step(self, dt, t, hooks, L, wall_poly, on_wall, wind):
+        """hooks: one 3D point per attach point (the ends and middle of the spreader bar under the helicopter)."""
         p, prev = self.p, self.prev
         acc = np.zeros_like(p)
+        # aerodynamic drag on the fabric's normal: it catches air like a sail (billows instead of falling like a rope)
+        n = self.normals()
+        vn = np.einsum("ij,ij->i", (p - prev) / dt, n)
+        acc -= (5.5 * vn)[:, None] * n
         acc[:, 1] += 520.0                                                 # gravity (px/s²)
         # rotor wash + breeze: traveling waves pushing the fabric off the wall
         u, v = self.uv[:, 0], self.uv[:, 1]
@@ -169,12 +183,12 @@ class Cloth:
             np.add.at(cnt, self.b, 1)
             p += delta / np.maximum(cnt, 1)[:, None] * 1.6
             # ropes: the attach points can't get farther than L from the hook (inextensible, slack allowed)
-            if hook3 is not None:
-                for i in self.attach:
-                    r = p[i] - hook3
+            if hooks is not None:
+                for i, h in zip(self.attach, hooks):
+                    r = p[i] - h
                     dist = np.linalg.norm(r)
                     if dist > L:
-                        p[i] = hook3 + r / dist * L
+                        p[i] = h + r / dist * L
             p[self.pinned] = self.pin_pos[self.pinned]
             # the building: no going through the facade
             xy = self.proj(p)
@@ -186,53 +200,77 @@ class Cloth:
         self.prev[touching, :2] = lerp(self.prev[touching, :2], p[touching, :2], 0.25)
         self.p = p
 
-    def normals(self):
-        P = self.p.reshape(self.nv, self.nu, 3)
+    def normals(self, P=None):
+        P = (self.p if P is None else P).reshape(self.nv, self.nu, 3) if P is None else P
         du = np.gradient(P, axis=1)
         dv = np.gradient(P, axis=0)
         n = np.cross(du, dv)
         n /= np.linalg.norm(n, axis=2, keepdims=True) + 1e-9
         n[n[..., 2] < 0] *= -1                                              # two-sided fabric: face the camera
-        return n.reshape(-1, 3)
+        return n.reshape(-1, 3) if P.ndim == 3 and P.shape[:2] == (self.nv, self.nu) else n
 
 
-def render_cloth(cloth, canvas_shape, shadow_offset=None):
-    """Return (color float32 HxWx3, alpha HxW, shadow alpha HxW)."""
+def render_cloth(cloth, canvas_shape, shadow_offset=None, sub=3):
+    """Return (color float32 HxWx3, alpha HxW, shadow alpha HxW). The particle grid is subdivided (bicubic) so the
+    fabric shades smoothly; light = wrapped sun + sky fill; folds darken by curvature; cream canvas with weave and hem."""
     H, W = canvas_shape
-    xy = cloth.proj()
-    n = cloth.normals()
-    L = np.array([-0.45, -0.55, 0.70])
-    L /= np.linalg.norm(L)
-    lam = np.clip(n @ L, 0, 1)
-    shade = 0.50 + 0.58 * lam                                               # ambient + sun
-    color_l = np.zeros((H, W), np.float32)
-    alpha = np.zeros((H, W), np.uint8)
-    shadow = np.zeros((H, W), np.uint8)
     nu, nv = cloth.nu, cloth.nv
-    I = cloth.idx
-    quads = np.stack([I[:-1, :-1].ravel(), I[:-1, 1:].ravel(), I[1:, 1:].ravel(), I[1:, :-1].ravel()], 1)
-    zq = cloth.p[quads, 2].mean(1)
+    P = cloth.p.reshape(nv, nu, 3).astype(np.float32)
+    fu, fv = (nu - 1) * sub + 1, (nv - 1) * sub + 1
+    F = cv2.resize(P, (fu, fv), interpolation=cv2.INTER_CUBIC)
+    du = np.gradient(F, axis=1)
+    dv = np.gradient(F, axis=0)
+    n = np.cross(du, dv)
+    n /= np.linalg.norm(n, axis=2, keepdims=True) + 1e-9
+    n[n[..., 2] < 0] *= -1
+    L = np.array([-0.45, -0.55, 0.70], np.float32)
+    L /= np.linalg.norm(L)
+    lam = (n @ L)
+    wrap = np.clip((lam + 0.35) / 1.35, 0, 1)
+    sky = np.clip(0.5 + 0.5 * n[..., 2], 0, 1)
+    # folds: concave (valley) areas get less light
+    lap = cv2.Laplacian(F[..., 2], cv2.CV_32F, ksize=3)
+    ao = np.clip(1.0 + 0.012 * np.clip(lap, -40, 0) * 1.0, 0.72, 1.0)
+    weave = cloth._weave if hasattr(cloth, "_weave") and cloth._weave.shape == wrap.shape else None
+    if weave is None:
+        rs = np.random.RandomState(11)
+        weave = 1 + 0.035 * cv2.GaussianBlur(rs.randn(fv, fu).astype(np.float32), (0, 0), 0.8)
+        cloth._weave = weave
+    hem = np.ones_like(wrap)
+    hem[:2], hem[-2:], hem[:, :2], hem[:, -2:] = 0.88, 0.88, 0.88, 0.88
+    lit = (0.36 * sky + 0.74 * wrap) * ao * weave * hem
+    sun_col = np.array([200, 222, 240], np.float32)     # cream canvas in sunlight (BGR)
+    shade_col = np.array([178, 182, 190], np.float32)   # cooler in shadow (sky bounce)
+    mix = np.clip(wrap, 0, 1)[..., None]
+    col_v = (shade_col * (1 - mix) + sun_col * mix) * lit[..., None]
+    sx_, sy_ = F[..., 0] + F[..., 2] * cloth.NX, F[..., 1] + F[..., 2] * cloth.NY
+    pts = np.round(np.stack([sx_, sy_], -1) * 16).astype(np.int32)
+    q00, q01, q11, q10 = pts[:-1, :-1], pts[:-1, 1:], pts[1:, 1:], pts[1:, :-1]
+    quads = np.stack([q00, q01, q11, q10], 2).reshape(-1, 4, 2)
+    cq = ((col_v[:-1, :-1] + col_v[1:, 1:] + col_v[:-1, 1:] + col_v[1:, :-1]) / 4).reshape(-1, 3)
+    zq = ((F[:-1, :-1, 2] + F[1:, 1:, 2]) / 2).ravel()
     order = np.argsort(zq)
-    pts = np.round(xy * 16).astype(np.int32)
-    sq = shade[quads].mean(1)
+    col = np.zeros((H, W, 3), np.float32)
+    alpha = np.zeros((H, W), np.uint8)
     for k in order:
-        poly = pts[quads[k]]
-        cv2.fillConvexPoly(color_l, poly, float(sq[k]), shift=4)
-        cv2.fillConvexPoly(alpha, poly, 255, shift=4)
+        c = cq[k]
+        cv2.fillConvexPoly(col, quads[k], (float(c[0]), float(c[1]), float(c[2])), shift=4)
+        cv2.fillConvexPoly(alpha, quads[k], 255, shift=4)
+    shadow = np.zeros((H, W), np.uint8)
     if shadow_offset is not None:
         sx, sy = shadow_offset
         z = cloth.p[:, 2]
+        xy = cloth.proj()
+        I = cloth.idx
+        cq_ = np.stack([I[:-1, :-1].ravel(), I[:-1, 1:].ravel(), I[1:, 1:].ravel(), I[1:, :-1].ravel()], 1)
+        zc = z[cq_].mean(1)
         spts = np.round(np.stack([xy[:, 0] + z * sx, xy[:, 1] + z * sy], 1) * 16).astype(np.int32)
-        for k in range(len(quads)):
-            if zq[k] > 4:
-                cv2.fillConvexPoly(shadow, spts[quads[k]], 255, shift=4)
+        for k in np.where(zc > 4)[0]:
+            cv2.fillConvexPoly(shadow, spts[cq_[k]], 255, shift=4)
     a = alpha > 0
-    # smooth the faceted shading inside the cloth (normalized blur keeps the edge clean)
-    blur = cv2.GaussianBlur(color_l, (0, 0), 2.2)
-    wb = cv2.GaussianBlur(a.astype(np.float32), (0, 0), 2.2)
-    color_l = np.where(a, blur / np.maximum(wb, 1e-3), 0)
-    fabric = np.array([228, 234, 238], np.float32)                          # warm white (BGR)
-    col = color_l[..., None] * fabric
+    blur = cv2.GaussianBlur(col, (0, 0), 1.0)
+    wb = cv2.GaussianBlur(a.astype(np.float32), (0, 0), 1.0)[..., None]
+    col = np.where(a[..., None], blur / np.maximum(wb, 1e-3), 0)
     return col, cv2.GaussianBlur(alpha, (3, 3), 0), cv2.GaussianBlur(shadow, (0, 0), 7)
 
 
@@ -314,6 +352,8 @@ def main():
         q = (np.array([float(v) for v in a.quad.split(",")], np.float32).reshape(4, 2) * [sx, sy]).astype(np.float32)
     bg, q, _ = billboard_plate(plate, design, q)
     print("panel (escena):", q.round(1).tolist())
+    traffic = Traffic(bg)            # cars lifted off the photo; they drive away along their lanes
+    bg = traffic.clean
     heli, mast = heli_cutout(cv2.imread(a.heli, cv2.IMREAD_COLOR))
     Hunit = cv2.getPerspectiveTransform(np.float32([[0, 0], [1, 0], [1, 1], [0, 1]]), q.astype(np.float32))
     cloth = Cloth(Hunit)
@@ -341,11 +381,18 @@ def main():
     def hook_of(c):
         return np.array([c[0] + heli_w * 0.02, c[1] + heli_w * 0.2])
 
-    def hook3_of(t):
-        h = hook_of(heli_pos(t))
-        return np.array([h[0] - Z_HOOK * Cloth.NX, h[1] - Z_HOOK * Cloth.NY, Z_HOOK])
+    # spreader bar under the hook keeps the top edge open (the fabric hangs as a sheet, not a rope)
+    top_w = float(np.linalg.norm(cloth.proj()[cloth.attach[0]] - cloth.proj()[cloth.attach[-1]]))
+    BAR_W, BAR_DROP = top_w * 0.5, heli_w * 0.36
 
-    L0 = max(np.linalg.norm(cloth.p[i] - hook3_of(0)) for i in cloth.attach) * 1.02
+    def bar_of(t):
+        h = hook_of(heli_pos(t))
+        return np.array([[h[0] + dx, h[1] + BAR_DROP] for dx in (-BAR_W / 2, 0, BAR_W / 2)])
+
+    def hooks3_of(t):
+        return np.array([[b[0] - Z_HOOK * Cloth.NX, b[1] - Z_HOOK * Cloth.NY, Z_HOOK] for b in bar_of(t)])
+
+    L0 = max(np.linalg.norm(cloth.p[i] - h) for i, h in zip(cloth.attach, hooks3_of(0))) * 1.02
     L_end = 90.0
 
     def rope(t):
@@ -374,7 +421,7 @@ def main():
                 cloth.pinned[:] = False
                 released = True
             wind = 260.0 if ts < T_PULL else 900.0 * (1 - smooth((ts - T_REVEAL) / 3.0)) + 200
-            cloth.step(1.0 / (FPS * sub), ts, hook3_of(ts), rope(ts), wall_x, not released, wind)
+            cloth.step(1.0 / (FPS * sub), ts, hooks3_of(ts), rope(ts), wall_x, not released, wind)
         xyq = (cloth.proj() / 4 * 16).astype(np.int32)
         cm = np.zeros((SH // 4, SW // 4), np.uint8)
         I = cloth.idx
@@ -386,6 +433,7 @@ def main():
         if want is not None and f > max(want) and not os.environ.get("FULL_SIM"):
             break
         frame = bg.astype(np.float32)
+        traffic.draw(frame, t)
         col, alpha, shadow = render_cloth(cloth, (SH, SW), shadow_offset=(0.55, 0.45))
         sh = (shadow.astype(np.float32) / 255 * 0.42) * (cv2.GaussianBlur(panel_mask, (0, 0), 25).astype(np.float32) / 255 * 1.6).clip(0, 1)
         frame *= (1 - sh)[..., None]
@@ -395,8 +443,13 @@ def main():
         c = heli_pos(t)
         hk = hook_of(c)
         xy = cloth.proj()
-        for i in cloth.attach:
-            cv2.line(frame, (int(hk[0] * 16), int(hk[1] * 16)), (int(xy[i, 0] * 16), int(xy[i, 1] * 16)), (34, 34, 36), 2, cv2.LINE_AA, shift=4)
+        bar = bar_of(t)
+        P16 = lambda v: (int(v[0] * 16), int(v[1] * 16))  # noqa: E731
+        for e in (bar[0], bar[-1]):
+            cv2.line(frame, P16(hk), P16(e), (34, 34, 36), 2, cv2.LINE_AA, shift=4)
+        cv2.line(frame, P16(bar[0]), P16(bar[-1]), (30, 30, 32), 5, cv2.LINE_AA, shift=4)
+        for i, b in zip(cloth.attach, bar):
+            cv2.line(frame, P16(b), P16(xy[i]), (40, 40, 42), 2, cv2.LINE_AA, shift=4)
         vel = (heli_pos(t + 1 / FPS) - c) * FPS
         tilt = float(np.clip(-vel[0] * 0.012, -14, 14)) * 1.0 + math.sin(t * 1.7) * 0.8
         draw_heli(frame, heli, mast, c, heli_w, tilt, t, vel)
