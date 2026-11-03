@@ -87,3 +87,36 @@ export const EspectacularAlto: React.FC = () => (
     <div style={{ position: "absolute", top: 2272, left: 0, right: 0, textAlign: "center", fontWeight: 700, fontSize: 32, letterSpacing: "0.18em", paddingLeft: "0.18em" }}>{COPY.cta}</div>
   </AbsoluteFill>
 );
+
+// El espectacular ES el cuadro de El Buen Fin: página blanca de calendario con marco negro y franja roja,
+// el cartel oficial arriba (sin deformar) y la oferta de RE:SET debajo.
+const BF_RED = "#E3141B";
+const INK = "#111111";
+export const EspectacularBuenFin: React.FC = () => (
+  <AbsoluteFill style={{ background: "#FFFFFF", fontFamily: "Montserrat", color: INK }}>
+    <div style={{ position: "absolute", inset: 0, border: `18px solid ${INK}`, borderRightWidth: 26, borderBottomWidth: 30 }} />
+    <Img src={staticFile("buenfin_cdmx/buenfin_cartel.png")} style={{ position: "absolute", top: 40, left: 36, width: 640 }} />
+    <Img src={staticFile("brand/reset-logo-white.png")} style={{ position: "absolute", top: 712, left: "50%", width: 380, marginLeft: -190, filter: "invert(1)" }} />
+    <div style={{ position: "absolute", top: 868, left: 0, right: 0, textAlign: "center", fontWeight: 900, fontSize: 300, lineHeight: 1, letterSpacing: "-0.05em" }}>{COPY.pct}</div>
+    <div style={{ position: "absolute", top: 1146, left: 0, right: 0, textAlign: "center", fontWeight: 900, fontSize: 186, lineHeight: 1, color: BF_RED, letterSpacing: "-0.02em" }}>{COPY.off}</div>
+    <div style={{ position: "absolute", top: 1356, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
+      <div style={{ background: INK, color: "#FFFFFF", fontWeight: 800, fontSize: 52, lineHeight: 1.08, letterSpacing: "0.08em", padding: "14px 30px 16px 36px", textAlign: "center" }}>
+        EN TODA<br />LA TIENDA
+      </div>
+    </div>
+    {[["buenfin_cdmx/IMG_2041.jpg", "50% 45%"], ["buenfin_cdmx/IMG_2848.jpg", "50% 40%"], ["buenfin_cdmx/IMG_2052.jpg", "40% 45%"]].map(([src, pos], i) => (
+      <div key={src} style={{ position: "absolute", top: 1560, left: 44 + i * 214, width: 196, height: 300, border: `6px solid ${INK}`, overflow: "hidden", borderRadius: 6 }}>
+        <Img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: pos }} />
+      </div>
+    ))}
+    {/* franja roja del calendario */}
+    <div style={{ position: "absolute", left: 18, right: 26, bottom: 30, height: 460, background: BF_RED }} />
+    <div style={{ position: "absolute", top: 1960, left: 0, right: 0, textAlign: "center", color: "#FFFFFF", fontFamily: "Playfair", fontStyle: "italic", fontWeight: 600, fontSize: 58, lineHeight: 1.05 }}>
+      Pijamas para todos<br />tus momentos
+    </div>
+    <div style={{ position: "absolute", top: 2125, left: 0, right: 0, textAlign: "center", color: "#FFFFFF", fontWeight: 800, fontSize: 34, letterSpacing: "0.16em", paddingLeft: "0.16em" }}>{COPY.cta}</div>
+    {/* esquina doblada, como el cartel */}
+    <div style={{ position: "absolute", right: 26, bottom: 30, width: 0, height: 0, borderStyle: "solid", borderWidth: "0 0 130px 130px", borderColor: `transparent transparent ${INK} transparent` }} />
+    <div style={{ position: "absolute", right: 40, bottom: 44, width: 104, height: 104, background: "linear-gradient(135deg, #FFFFFF 0%, #DADADA 100%)", clipPath: "polygon(0 0, 100% 0, 0 100%)", boxShadow: "0 0 0 4px #111" }} />
+  </AbsoluteFill>
+);

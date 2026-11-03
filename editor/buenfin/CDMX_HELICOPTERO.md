@@ -53,5 +53,5 @@ cámara fija o casi fija; que el espectacular quede completamente visible al men
 - `editor/buenfin/heli_scene.py foto.png helicoptero.png espectacular_alto.png plate_comp.mp4` construye los 12 s:
   tela simulada con física, helicóptero con rotor girando y cables, sombra de la tela, cámara casi fija con empuje lento, grano.
   La tela se suelta a los 2.9 s y el panel queda libre a los 5.3 s (el script imprime la cobertura cada 0.5 s).
-- Diseño en formato alto (`BUENFIN-ESPECTACULAR-ALTO`, 720×2400) para que entre en el panel de la foto sin deformarse.
+- Espectacular actual: `BUENFIN-ESPECTACULAR-CUADRO` (720×2400), el cuadro de El Buen Fin (cartel oficial, página blanca, marco negro, franja roja) con el 15% OFF de RE:SET y tres pijamas. Alternativa en verde de marca: `BUENFIN-ESPECTACULAR-ALTO`.
 - Límite: la foto es fija, así que los autos y los árboles no se mueven; solo se mueven el helicóptero, la tela y la cámara.
