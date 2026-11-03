@@ -47,3 +47,11 @@ cámara fija o casi fija; que el espectacular quede completamente visible al men
 ## Audio
 - **Revisión:** audio de la referencia (`public/buenfin_cdmx/ref_audio.wav`, 0–11.4 s, sin el sonido final del teléfono). Sin licencia: no pautar.
 - **Pauta:** "Afro House" (Pixabay, uso comercial permitido), con su drop alineado a la revelación.
+
+## Ruta actual (sin video IA): foto + escena construida
+- Foto de Reforma con el espectacular en verde croma y foto de un helicóptero, generadas con Canva (IDs de Canva `MAHZ0iJYqTc` y `MAHZ0o4erv4`).
+- `editor/buenfin/heli_scene.py foto.png helicoptero.png espectacular_alto.png plate_comp.mp4` construye los 12 s:
+  tela simulada con física, helicóptero con rotor girando y cables, sombra de la tela, cámara casi fija con empuje lento, grano.
+  La tela se suelta a los 2.9 s y el panel queda libre a los 5.3 s (el script imprime la cobertura cada 0.5 s).
+- Diseño en formato alto (`BUENFIN-ESPECTACULAR-ALTO`, 720×2400) para que entre en el panel de la foto sin deformarse.
+- Límite: la foto es fija, así que los autos y los árboles no se mueven; solo se mueven el helicóptero, la tela y la cámara.

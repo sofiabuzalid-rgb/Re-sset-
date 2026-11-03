@@ -1,6 +1,7 @@
 // RE:SET · BUEN FIN CDMX — recreación del reel del helicóptero que retira la tela del espectacular.
-// La escena (Paseo de la Reforma, helicóptero, tela) viene de un generador de video con el espectacular en VERDE CROMA;
-// editor/buenfin/composite.py coloca el diseño de RE:SET con perspectiva y seguimiento → buenfin_cdmx/plate_comp.mp4.
+// La escena sale de editor/buenfin/heli_scene.py (foto de Reforma con el espectacular en VERDE CROMA + helicóptero recortado
+// + tela simulada con física; el diseño de RE:SET se coloca con perspectiva) → buenfin_cdmx/plate_comp.mp4.
+// Si después llega una toma de video real, editor/buenfin/composite.py produce el mismo archivo.
 // Aquí solo: la escena compuesta, el audio sincronizado y un cierre discreto. Todo editable.
 import React from "react";
 import { AbsoluteFill, Audio, interpolate, OffthreadVideo, staticFile, useCurrentFrame } from "remotion";
@@ -20,10 +21,11 @@ const Close: React.FC = () => {
   const f = useCurrentFrame();
   const a = interpolate(f, [CDMX.closeFrom * 30, CDMX.closeFrom * 30 + 12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
-    <div style={{ position: "absolute", top: 1330, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: a, transform: `translateY(${(1 - a) * 20}px)` }}>
-      <div style={{ background: "rgba(22,53,40,0.92)", color: "#F6F0E4", fontFamily: "Montserrat", fontWeight: 800, fontSize: 40, letterSpacing: "0.12em", padding: "16px 34px 18px", borderRadius: 10, textAlign: "center" }}>
-        BUEN FIN · <span style={{ color: "#E2EC95" }}>15% OFF</span> EN TODA LA TIENDA
-        <div style={{ fontWeight: 600, fontSize: 30, letterSpacing: "0.3em", marginTop: 8 }}>VEN A CONOCERNOS</div>
+    <div style={{ position: "absolute", top: 1350, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: a, transform: `translateY(${(1 - a) * 20}px)` }}>
+      <div style={{ background: "rgba(22,53,40,0.92)", color: "#F6F0E4", fontFamily: "Montserrat", textAlign: "center", padding: "20px 44px 22px", borderRadius: 12, whiteSpace: "nowrap" }}>
+        <div style={{ fontWeight: 800, fontSize: 50, letterSpacing: "0.06em" }}>BUEN FIN · <span style={{ color: "#E2EC95" }}>15% OFF</span></div>
+        <div style={{ fontWeight: 700, fontSize: 34, letterSpacing: "0.16em", marginTop: 6 }}>EN TODA LA TIENDA</div>
+        <div style={{ fontWeight: 600, fontSize: 26, letterSpacing: "0.32em", marginTop: 12, opacity: 0.85 }}>VEN A CONOCERNOS</div>
       </div>
     </div>
   );

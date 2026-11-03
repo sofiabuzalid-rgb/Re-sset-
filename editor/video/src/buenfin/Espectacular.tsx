@@ -54,3 +54,35 @@ export const Espectacular: React.FC = () => (
     </div>
   </AbsoluteFill>
 );
+
+// Formato alto (building wrap): mismas palabras y fotos, acomodadas para el espectacular de la toma de Reforma (~1:3.3),
+// así el diseño entra en el panel sin estirarse ni aplastarse.
+export const BILLBOARD_ALTO = { width: 720, height: 2400 };
+const PhotoA: React.FC<{ src: string; pos: string; top: number; left: number; w: number; h: number; arch?: boolean }> = ({ src, pos, top, left, w, h, arch }) => (
+  <div style={{ position: "absolute", top, left, width: w, height: h, background: IVORY, padding: 10, boxShadow: "0 18px 40px rgba(0,0,0,0.45)" }}>
+    <div style={{ width: "100%", height: "100%", overflow: "hidden", borderRadius: arch ? `${w / 2}px ${w / 2}px 6px 6px` : 6 }}>
+      <Img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: pos }} />
+    </div>
+  </div>
+);
+export const EspectacularAlto: React.FC = () => (
+  <AbsoluteFill style={{ background: `radial-gradient(140% 60% at 50% 18%, ${GREEN2} 0%, ${GREEN} 70%)`, fontFamily: "Montserrat", color: IVORY }}>
+    <div style={{ position: "absolute", inset: 26, border: `3px solid rgba(246,240,228,0.35)` }} />
+    <Img src={staticFile("brand/reset-logo-white.png")} style={{ position: "absolute", top: 90, left: "50%", width: 500, marginLeft: -250 }} />
+    <div style={{ position: "absolute", top: 330, left: 0, right: 0, textAlign: "center", fontWeight: 700, fontSize: 64, letterSpacing: "0.2em", paddingLeft: "0.2em" }}>{COPY.event}</div>
+    <div style={{ position: "absolute", top: 420, left: 0, right: 0, textAlign: "center", fontWeight: 900, fontSize: 330, lineHeight: 1, letterSpacing: "-0.05em" }}>{COPY.pct}</div>
+    <div style={{ position: "absolute", top: 735, left: 0, right: 0, textAlign: "center", fontWeight: 900, fontSize: 210, lineHeight: 1, color: LIME, letterSpacing: "-0.02em" }}>{COPY.off}</div>
+    <div style={{ position: "absolute", top: 985, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
+      <div style={{ background: LIME, color: GREEN, fontWeight: 800, fontSize: 60, lineHeight: 1.08, letterSpacing: "0.08em", padding: "18px 34px 20px 40px", textAlign: "center" }}>
+        EN TODA<br />LA TIENDA
+      </div>
+    </div>
+    <PhotoA src="buenfin_cdmx/IMG_2848.jpg" pos="50% 38%" top={1225} left={70} w={580} h={520} arch />
+    <PhotoA src="buenfin_cdmx/IMG_2041.jpg" pos="50% 45%" top={1775} left={70} w={280} h={300} />
+    <PhotoA src="buenfin_cdmx/IMG_2052.jpg" pos="40% 45%" top={1775} left={370} w={280} h={300} />
+    <div style={{ position: "absolute", top: 2105, left: 0, right: 0, textAlign: "center", fontFamily: "Playfair", fontStyle: "italic", fontWeight: 500, fontSize: 60, lineHeight: 1.05 }}>
+      Pijamas para todos<br />tus momentos
+    </div>
+    <div style={{ position: "absolute", top: 2252, left: 0, right: 0, textAlign: "center", fontWeight: 700, fontSize: 36, letterSpacing: "0.18em", paddingLeft: "0.18em" }}>{COPY.cta}</div>
+  </AbsoluteFill>
+);
