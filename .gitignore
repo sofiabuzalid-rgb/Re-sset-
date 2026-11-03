@@ -34,3 +34,6 @@ editor/video/public/outlet4/
 editor/video/public-lean/
 editor/video/public/perisur/
 editor/video/public/buenfin_cdmx/
+
+# teaser "la mejor temporada": transcoded source clips + generated voice/music (rebuild with editor/teaser/*.py)
+editor/video/public/teaser/
