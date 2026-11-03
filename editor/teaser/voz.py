@@ -1,8 +1,9 @@
 """RE:SET · Teaser "la mejor temporada" — voz real del cuarto video (showroom), solo las frases útiles.
 
 Fuente: el canal derecho del video (su voz llega 6 dB más fuerte que en el izquierdo; mismo ruido de tienda).
-Limpieza: paso alto/bajo → RNNoise (voz, 70 % húmedo: sin sonido robótico) → FFT ligero → nivel igual por frase
-(−16 LUFS cada una) → EQ (menos "caja" a 250 Hz, presencia a 3 kHz) → de-esser → compresión → limitador.
+Limpieza: filtros de zumbido eléctrico (183/363/540/717 Hz…, más fuerte que su voz en esa banda) → reducción espectral con
+el perfil de ruido de las pausas de esta misma grabación → RNNoise 80 % → entre palabras el fondo baja 12 dB → EQ suave
+(sin realzar agudos), de-esser, compresión 2:1 sin subir el piso de ruido → mismo nivel de voz en cada frase.
 Cada frase se ubica por texto en las palabras de Whisper y se corta en el silencio medido en la envolvente (nunca a media
 palabra). No se cambia tono ni velocidad.
 Uso: python3 editor/teaser/voz.py <video4> <whisper.json>
@@ -11,10 +12,14 @@ Escribe editor/video/public/teaser/voz_<id>.wav y editor/video/src/teaser/voz.js
 import json, subprocess, sys
 from pathlib import Path
 import numpy as np
+import noisereduce as nr
+import scipy.signal as ss
 
 ROOT = Path(__file__).resolve().parents[2]
 RNN = ROOT / "editor/campana/rnnoise_speech.rnnn"
 SR = 48000
+import os
+PROP, RMIX, GPRE = float(os.environ.get("PROP", 0.75)), float(os.environ.get("RMIX", 0.8)), float(os.environ.get("GPRE", 0.18))
 # (id, primeras palabras, últimas palabras) en el orden del video
 PHRASES = [
     ("felices", "Muy felices", "del año."),                   # Muy felices de que ya empezó la mejor temporada del año.
@@ -30,10 +35,34 @@ END = {"felices": 4.18, "calientitas": 33.02}  # "año" ends ~3.87 s, "Tenemos�
 FIX = {"yo": "ya"}
 
 
-def load(path):
-    af = f"pan=mono|c0=c1,highpass=f=90,lowpass=f=11000,arnndn=m={RNN}:mix=0.7,afftdn=nr=6:nf=-42:tn=1"
-    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-af", af, "-ar", str(SR), "-f", "f32le", "-"], capture_output=True, check=True).stdout
-    return np.frombuffer(raw, np.float32).copy()
+def ff(x, af):
+    y = subprocess.run(["ffmpeg", "-v", "error", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-", "-af", af, "-f", "f32le", "-"],
+                       input=x.astype(np.float32).tobytes(), capture_output=True, check=True).stdout
+    y = np.frombuffer(y, np.float32).astype(np.float64)
+    return np.pad(y, (0, max(0, len(x) - len(y))))[:len(x)]
+
+
+def load(path, words=None):
+    """right channel → de-hum (the shop's mains buzz: 183/363/540/717 Hz… is louder than her voice in that band)
+    → spectral gating with a noise profile taken from the pauses of this same recording → RNNoise (strength picked so all five phrases still transcribe word-for-word)"""
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-af", "pan=mono|c0=c1,highpass=f=90,lowpass=f=9000", "-ar", str(SR), "-f", "f32le", "-"],
+                         capture_output=True, check=True).stdout
+    x = np.frombuffer(raw, np.float32).astype(np.float64)
+    f, p = ss.welch(x, SR, nperseg=SR * 2)
+    d = 10 * np.log10(p + 1e-20)
+    for c in [55.5, 183, 363, 540.5, 717, 897, 1077, 1257]:  # find each harmonic's exact peak, notch it twice
+        k = (f > c - 5) & (f < c + 5)
+        fc = f[np.where(k)[0][np.argmax(d[k])]]
+        for _ in range(2):
+            b, a = ss.iirnotch(fc, Q=fc / 4.0, fs=SR)
+            x = ss.filtfilt(b, a, x)
+    if words:
+        quiet = np.ones(len(x), bool)
+        for w in words:
+            quiet[max(0, int((w["start"] - 0.12) * SR)):int((w["end"] + 0.15) * SR)] = False
+        x = nr.reduce_noise(y=x, sr=SR, y_noise=x[quiet], stationary=True, prop_decrease=PROP, n_fft=2048, time_mask_smooth_ms=50, freq_mask_smooth_hz=250)
+    x = ff(x, f"arnndn=m={RNN}:mix={RMIX}")
+    return x.astype(np.float32)
 
 
 def env_db(x, hop=0.01):
@@ -69,7 +98,7 @@ def bounds(db, ws, a, b, n_sec):
 def main():
     video, asr = sys.argv[1], sys.argv[2]
     ws = json.load(open(asr))["words"]
-    x = load(video)
+    x = load(video, ws)
     db = env_db(x)
     out_dir = ROOT / "editor/video/public/teaser"
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -79,22 +108,28 @@ def main():
         b = find(ws, pb, last=True, start=a)
         s, e = bounds(db, ws, a, b, len(x) / SR)
         s, e = START.get(pid, s), END.get(pid, e)
-        seg = x[int(s * SR):int(e * SR)].copy()
+        seg = x[int(s * SR):int(e * SR)].astype(np.float64)
+        # between words the room is turned down 12 dB (smooth 40 ms ramps), so no noise bed is pumped up later
+        gate = np.full(len(seg), 0.25)
+        for w in ws[a:b + 1]:
+            gate[max(0, int((w["start"] - s - GPRE) * SR)):int((max(w["end"], w["start"] + 0.12) - s + 0.14) * SR)] = 1.0
+        k = int(0.04 * SR)
+        gate = np.convolve(gate, np.ones(k) / k, mode="same")
+        seg *= gate
         f, g = int(0.02 * SR), int((0.03 if pid == "calientitas" else 0.07) * SR)
         seg[:f] *= np.linspace(0, 1, f)
         seg[-g:] *= np.linspace(1, 0, g)
-        tmp = out_dir / f"_raw_{pid}.f32"
-        seg.astype(np.float32).tofile(tmp)
         chain = ",".join([
-            "loudnorm=I=-16:TP=-2:LRA=7:linear=true",
-            "equalizer=f=250:t=q:w=1.0:g=-3.5", "equalizer=f=3000:t=q:w=1.2:g=3", "highshelf=f=8000:g=2",
-            "deesser=i=0.4", "acompressor=threshold=-22dB:ratio=3:attack=6:release=110:makeup=2.5", "alimiter=limit=0.89",
+            "equalizer=f=220:t=q:w=1.0:g=-2.5", "equalizer=f=2600:t=q:w=1.4:g=1.5", "lowpass=f=8500",
+            "deesser=i=0.3", "acompressor=threshold=-20dB:ratio=2:attack=10:release=150:makeup=1",
         ])
+        y = ff(seg, chain)
+        v = y[np.abs(y) > np.abs(y).max() * 0.05]
+        y = y / (np.sqrt(np.mean(v ** 2)) + 1e-9) * 0.15  # same speech level for every phrase
+        y = 0.9 * np.tanh(y / 0.9)  # soft limiter: no hard clipping
         wav = out_dir / f"voz_{pid}.wav"
-        # two passes: loudnorm needs the whole phrase; pad a little silence so it measures cleanly
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", str(tmp), "-af", f"apad=pad_dur=0.3,{chain},atrim=0:{e - s:.3f}",
-                        "-ar", str(SR), str(wav)], check=True)
-        tmp.unlink()
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-", "-c:a", "pcm_s16le", str(wav)],
+                       input=y.astype(np.float32).tobytes(), check=True)
         words = [dict(w=FIX.get(w["word"], w["word"]), s=round(max(w["start"] - s, 0), 3), e=round(min(max(w["end"], w["start"] + 0.12), e) - s, 3)) for w in ws[a:b + 1]]
         if words[-1]["w"][-1] not in ".,?!":
             words[-1]["w"] += "."

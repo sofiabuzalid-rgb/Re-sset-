@@ -205,7 +205,7 @@ export const Teaser: React.FC = () => {
   const dips = VOICE.map((v) => [v.at, v.at + Math.round((VOZ as any)[v.id].dur * FPS)]);
   const musicVol = (f: number) => {
     let g = 0.8;
-    for (const [a, b] of dips) g = Math.min(g, interpolate(f, [a - 6, a, b, b + 8], [0.8, 0.13, 0.13, 0.8], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }));
+    for (const [a, b] of dips) g = Math.min(g, interpolate(f, [a - 6, a, b, b + 8], [0.8, 0.08, 0.08, 0.8], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }));
     return g * interpolate(f, [TEASER_FRAMES - 20, TEASER_FRAMES], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   };
   return (
