@@ -68,21 +68,22 @@ const PhotoA: React.FC<{ src: string; pos: string; top: number; left: number; w:
 export const EspectacularAlto: React.FC = () => (
   <AbsoluteFill style={{ background: `radial-gradient(140% 60% at 50% 18%, ${GREEN2} 0%, ${GREEN} 70%)`, fontFamily: "Montserrat", color: IVORY }}>
     <div style={{ position: "absolute", inset: 26, border: `3px solid rgba(246,240,228,0.35)` }} />
-    <Img src={staticFile("brand/reset-logo-white.png")} style={{ position: "absolute", top: 90, left: "50%", width: 500, marginLeft: -250 }} />
-    <div style={{ position: "absolute", top: 330, left: 0, right: 0, textAlign: "center", fontWeight: 700, fontSize: 64, letterSpacing: "0.2em", paddingLeft: "0.2em" }}>{COPY.event}</div>
-    <div style={{ position: "absolute", top: 420, left: 0, right: 0, textAlign: "center", fontWeight: 900, fontSize: 330, lineHeight: 1, letterSpacing: "-0.05em" }}>{COPY.pct}</div>
-    <div style={{ position: "absolute", top: 735, left: 0, right: 0, textAlign: "center", fontWeight: 900, fontSize: 210, lineHeight: 1, color: LIME, letterSpacing: "-0.02em" }}>{COPY.off}</div>
-    <div style={{ position: "absolute", top: 985, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
-      <div style={{ background: LIME, color: GREEN, fontWeight: 800, fontSize: 60, lineHeight: 1.08, letterSpacing: "0.08em", padding: "18px 34px 20px 40px", textAlign: "center" }}>
+    <Img src={staticFile("brand/reset-logo-white.png")} style={{ position: "absolute", top: 72, left: "50%", width: 420, marginLeft: -210 }} />
+    {/* cartel oficial de El Buen Fin (en lugar del texto) */}
+    <Img src={staticFile("buenfin_cdmx/buenfin_cartel.png")} style={{ position: "absolute", top: 262, left: "50%", width: 480, marginLeft: -240, filter: "drop-shadow(0 16px 26px rgba(0,0,0,0.45))" }} />
+    <div style={{ position: "absolute", top: 742, left: 0, right: 0, textAlign: "center", fontWeight: 900, fontSize: 300, lineHeight: 1, letterSpacing: "-0.05em" }}>{COPY.pct}</div>
+    <div style={{ position: "absolute", top: 1022, left: 0, right: 0, textAlign: "center", fontWeight: 900, fontSize: 190, lineHeight: 1, color: LIME, letterSpacing: "-0.02em" }}>{COPY.off}</div>
+    <div style={{ position: "absolute", top: 1238, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
+      <div style={{ background: LIME, color: GREEN, fontWeight: 800, fontSize: 52, lineHeight: 1.08, letterSpacing: "0.08em", padding: "14px 30px 16px 36px", textAlign: "center" }}>
         EN TODA<br />LA TIENDA
       </div>
     </div>
-    <PhotoA src="buenfin_cdmx/IMG_2848.jpg" pos="50% 38%" top={1225} left={70} w={580} h={520} arch />
-    <PhotoA src="buenfin_cdmx/IMG_2041.jpg" pos="50% 45%" top={1775} left={70} w={280} h={300} />
-    <PhotoA src="buenfin_cdmx/IMG_2052.jpg" pos="40% 45%" top={1775} left={370} w={280} h={300} />
-    <div style={{ position: "absolute", top: 2105, left: 0, right: 0, textAlign: "center", fontFamily: "Playfair", fontStyle: "italic", fontWeight: 500, fontSize: 60, lineHeight: 1.05 }}>
+    <PhotoA src="buenfin_cdmx/IMG_2848.jpg" pos="50% 38%" top={1440} left={70} w={580} h={410} arch />
+    <PhotoA src="buenfin_cdmx/IMG_2041.jpg" pos="50% 45%" top={1876} left={70} w={280} h={240} />
+    <PhotoA src="buenfin_cdmx/IMG_2052.jpg" pos="40% 45%" top={1876} left={370} w={280} h={240} />
+    <div style={{ position: "absolute", top: 2140, left: 0, right: 0, textAlign: "center", fontFamily: "Playfair", fontStyle: "italic", fontWeight: 500, fontSize: 52, lineHeight: 1.05 }}>
       Pijamas para todos<br />tus momentos
     </div>
-    <div style={{ position: "absolute", top: 2252, left: 0, right: 0, textAlign: "center", fontWeight: 700, fontSize: 36, letterSpacing: "0.18em", paddingLeft: "0.18em" }}>{COPY.cta}</div>
+    <div style={{ position: "absolute", top: 2272, left: 0, right: 0, textAlign: "center", fontWeight: 700, fontSize: 32, letterSpacing: "0.18em", paddingLeft: "0.18em" }}>{COPY.cta}</div>
   </AbsoluteFill>
 );

@@ -4,7 +4,7 @@
 // Si después llega una toma de video real, editor/buenfin/composite.py produce el mismo archivo.
 // Aquí solo: la escena compuesta, el audio sincronizado y un cierre discreto. Todo editable.
 import React from "react";
-import { AbsoluteFill, Audio, interpolate, OffthreadVideo, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Audio, Img, interpolate, OffthreadVideo, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 
 export const CDMX = {
   plate: "buenfin_cdmx/plate_comp.mp4",
@@ -19,8 +19,13 @@ export const CDMX_AUDIO = {
 
 const Close: React.FC = () => {
   const f = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const pop = spring({ frame: f - CDMX.closeFrom * 30 - 6, fps, config: { damping: 11, stiffness: 140 } });
   const a = interpolate(f, [CDMX.closeFrom * 30, CDMX.closeFrom * 30 + 12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
+    <>
+    {/* cartel oficial de El Buen Fin, entra con un pop sobre el cielo */}
+    <Img src={staticFile("buenfin_cdmx/buenfin_cartel.png")} style={{ position: "absolute", top: 1010, left: 70, width: 300, transform: `scale(${pop}) rotate(${-8 + (1 - pop) * -10}deg)`, transformOrigin: "50% 80%", filter: "drop-shadow(0 14px 22px rgba(0,0,0,0.45))" }} />
     <div style={{ position: "absolute", top: 1350, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: a, transform: `translateY(${(1 - a) * 20}px)` }}>
       <div style={{ background: "rgba(22,53,40,0.92)", color: "#F6F0E4", fontFamily: "Montserrat", textAlign: "center", padding: "20px 44px 22px", borderRadius: 12, whiteSpace: "nowrap" }}>
         <div style={{ fontWeight: 800, fontSize: 50, letterSpacing: "0.06em" }}>BUEN FIN · <span style={{ color: "#E2EC95" }}>15% OFF</span></div>
@@ -28,6 +33,7 @@ const Close: React.FC = () => {
         <div style={{ fontWeight: 600, fontSize: 26, letterSpacing: "0.32em", marginTop: 12, opacity: 0.85 }}>VEN A CONOCERNOS</div>
       </div>
     </div>
+    </>
   );
 };
 
