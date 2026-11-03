@@ -34,23 +34,34 @@ TAXI_OUTLINE = [(480 + cx / 1.6, 1430 + cy / 1.6) for cx, cy in [
     (395, 72), (470, 60), (490, 45), (540, 45), (560, 62), (628, 78), (662, 108), (700, 146), (742, 158), (753, 178), (754, 270),
     (740, 336), (600, 336), (440, 305), (285, 300), (255, 275), (248, 215), (262, 175), (300, 148), (340, 110), (370, 85)]]
 # distant cars stay where they are (queued far down the avenue); only their lanes are used
-STATIC = {"dark", "white", "taxi", "suv"}
+STATIC = set()  # with the car-free plate every car can drive
 # (sprite, lane = whose lane, t_enter, depth at t_enter, speed in depth units/s); depth 1 = the foreground taxi's spot
-SCHEDULE = [   # cars that drive in from behind the camera start below the frame (depth < 0.45) and pass by
-    ("taxi2", "taxi2", 0.0, 178 / 70, 0.30),
-    ("car_white", "mid", 0.0, 0.62, 0.40),
-    ("taxi", "left", 1.6, 0.44, 0.40),
-    ("car_silver", "mid", 3.3, 0.44, 0.46),
-    ("car_white", "left", 5.4, 0.44, 0.38),
-    ("taxi", "mid", 7.0, 0.44, 0.44),
-    ("car_silver", "left", 8.9, 0.44, 0.41),
-    ("car_white", "mid", 10.5, 0.44, 0.45),
+SCHEDULE = [   # everything rolls: the taxi pulls away, cars come in from behind the camera and overtake
+    ("taxi", "taxi", 0.0, 1.0, 0.42),
+    ("taxi2", "taxi2", 0.0, 178 / 70, 0.55),
+    ("suv", "suv", 0.0, 178 / 82, 0.50),
+    ("dark", "dark", 0.0, 178 / 70, 0.60),
+    ("white", "white", 0.0, 178 / 37, 0.70),
+    ("car_white", "mid", 0.0, 0.70, 0.62),
+    ("car_silver", "left", 0.5, 0.44, 0.58),
+    ("car_white", "taxi", 1.6, 0.42, 0.55),
+    ("car_dark", "mid", 2.4, 0.44, 0.66),
+    ("car_silver", "left", 3.6, 0.44, 0.60),
+    ("taxi", "taxi", 4.4, 0.42, 0.52),
+    ("car_dark", "mid", 5.4, 0.44, 0.64),
+    ("taxi", "left", 6.6, 0.44, 0.58),
+    ("car_silver", "taxi", 7.4, 0.42, 0.55),
+    ("car_dark", "left", 8.8, 0.44, 0.60),
+    ("taxi", "mid", 9.4, 0.44, 0.66),
+    ("car_silver", "taxi", 10.4, 0.42, 0.54),
+    ("car_white", "left", 11.2, 0.44, 0.60),
 ]
 
 
 class Traffic:
-    def __init__(self, plate):
-        """plate: BGR at the working resolution (the cars are taken from it and removed from it)."""
+    def __init__(self, plate, clean=None):
+        """plate: BGR at the working resolution (the cars are taken from it and removed from it).
+        clean: the same view without cars (aligned, same size; black where unknown) — used to fill behind them."""
         H, W = plate.shape[:2]
         self.W, self.H = W, H
         self.yh = HORIZON_Y * H
@@ -97,13 +108,46 @@ class Traffic:
         white = hsv.copy()
         white[pink, 1] *= 0.08
         white[pink, 2] = np.minimum(255, white[pink, 2] * 1.25)
+        hue, sat, val = hsv[..., 0], hsv[..., 1], white[..., 2]
+        red = ((hue < 8) | (hue > 172)) & (sat > 110)          # tail lights (the pink body is ~165)
+        red[: int(red.shape[0] * 0.42)] = False                 # tail lights sit low; the roof edge is pink, not red
+        red = cv2.dilate(red.astype(np.uint8), np.ones((5, 5), np.uint8)) > 0
+        paint = (val > 105) & ~red                               # body panels (glass, tyres and tail lights are darker/red)
+        paint = cv2.morphologyEx(paint.astype(np.uint8), cv2.MORPH_OPEN, np.ones((3, 3), np.uint8)) > 0
+        plate_area = np.zeros_like(paint)
         silver = white.copy()
-        silver[..., 2] *= 0.74
-        silver[..., 1] *= 0.6
-        for nm, v in (("car_white", white), ("car_silver", silver)):
+        silver[paint, 2] *= 0.66
+        silver[paint, 1] = 8
+        dark = white.copy()
+        dark[paint, 2] = dark[paint, 2] * 0.2 + 4
+        dark[paint, 0], dark[paint, 1] = 110, 55   # deep blue-grey
+        _ = plate_area
+        for nm, v in (("car_white", white), ("car_silver", silver), ("car_dark", dark)):
             im = cv2.cvtColor(np.clip(v, 0, 255).astype(np.uint8), cv2.COLOR_HSV2BGR)
             self.sprites[nm] = {**base, "rgba": np.dstack([im, base["rgba"][..., 3]])}
-        self.clean = self._fill(plate, hole)
+        if clean is not None:
+            self.clean = self._fill_from(plate, clean, hole)
+        else:
+            self.clean = self._fill(plate, hole)
+
+    def _fill_from(self, plate, clean, hole):
+        """Paste the car-free plate behind the cars, colour-matched to the photo around them, feathered."""
+        H, W = hole.shape
+        valid = clean.max(2) > 8
+        ring = (cv2.dilate(hole, np.ones((41, 41), np.uint8)) > 0) & (hole == 0) & valid
+        p = plate.astype(np.float32)
+        c = clean.astype(np.float32)
+        if ring.sum() > 500:
+            gain = (p[ring].mean(0) + 1) / (c[ring].mean(0) + 1)
+            c = c * gain
+        grow = cv2.dilate(hole, np.ones((9, 9), np.uint8))
+        a = (cv2.GaussianBlur(grow, (0, 0), 3).astype(np.float32) / 255 * valid)[..., None]
+        out = p * (1 - a) + c * a
+        rest = (hole > 0) & ~valid
+        if rest.any():  # anything the clean plate doesn't cover: the avenue-scaling fill
+            fb = self._fill(plate, (rest * 255).astype(np.uint8))
+            out[rest] = fb[rest]
+        return np.clip(out, 0, 255).astype(np.uint8)
 
     def _fill(self, plate, hole):
         """Remove the cars. Road: the same avenue scaled about the vanishing point (lane lines stay on their lines,
@@ -114,10 +158,10 @@ class Traffic:
         slope = (by_ - ay_) / (bx_ - ax_)
         road = (yy > ay_ + (xx - ax_) * slope + 2).astype(np.uint8)
         out = plate.astype(np.float32).copy()
-        known = (hole == 0) & (road > 0)
-        todo = (hole > 0) & (road > 0)
-        for _ in range(3):  # a few passes: what got filled can feed the next one
-            for k in (1.25, 1.45, 1.7, 2.0, 0.85, 0.75, 0.65, 2.4, 0.55, 0.45):
+        known = hole == 0
+        todo = hole > 0
+        for _ in range(3):
+            for k in (0.7, 0.6, 0.8, 0.5, 0.86, 0.42, 1.25, 1.5):
                 if not todo.any():
                     break
                 mx = self.vpx + (xx - self.vpx) * k
@@ -129,8 +173,9 @@ class Traffic:
                 out[sel] = src[sel]
                 todo &= ~sel
                 known |= sel
+        _ = road
         # above the kerb (out-of-focus sidewalk and shop fronts): smooth fill, no patch blocks
-        other = ((hole > 0) & (road == 0)) | todo
+        other = todo
         if other.any():
             ys = np.where(other.any(1))[0]
             y0, y1 = max(0, ys.min() - 60), min(H, ys.max() + 20)
@@ -159,12 +204,12 @@ class Traffic:
             K = self.sprites["taxi"]["y_ref"] - self.yh  # depth 1 = the foreground taxi's spot
             y = self.yh + K / z
             s = (y - self.yh) / (y_ref - self.yh)
-            if s < 0.06 or y > self.H * 1.25:
+            if s < 0.09 or y > self.H * 1.25:
                 continue
             y_next = self.yh + K / (z + v / 30.0)
             cars.append((y, name, lane, s, y - y_next))
         # hazard lights of the stopped taxi (it sits at depth 1, drawn into the plate)
-        if int(t * 3.0) % 2 == 0:
+        if False:
             for x0, y0, x1, y1 in HAZARDS:
                 cx_, cy_ = (x0 + x1) / 2 * self.W, (y0 + y1) / 2 * self.H
                 rx, ry = (x1 - x0) / 2 * self.W, (y1 - y0) / 2 * self.H

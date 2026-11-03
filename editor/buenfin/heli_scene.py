@@ -341,6 +341,7 @@ def main():
     ap.add_argument("out")
     ap.add_argument("--seconds", type=float, default=12.0)
     ap.add_argument("--frames", help="solo estos cuadros como PNG (vista previa), p.ej. 0,75,160")
+    ap.add_argument("--clean", help="la misma foto sin coches (alineada); permite mover todos los coches")
     ap.add_argument("--quad", help="esquinas del verde en la foto: x0,y0,x1,y1,x2,y2,x3,y3 (tl,tr,br,bl)")
     a = ap.parse_args()
 
@@ -352,7 +353,10 @@ def main():
         q = (np.array([float(v) for v in a.quad.split(",")], np.float32).reshape(4, 2) * [sx, sy]).astype(np.float32)
     bg, q, _ = billboard_plate(plate, design, q)
     print("panel (escena):", q.round(1).tolist())
-    traffic = Traffic(bg)            # cars lifted off the photo; they drive away along their lanes
+    clean = None
+    if a.clean:
+        clean = cv2.resize(cv2.imread(a.clean, cv2.IMREAD_COLOR), (SW, SH), interpolation=cv2.INTER_CUBIC)
+    traffic = Traffic(bg, clean)     # cars lifted off the photo; they drive away along their lanes
     bg = traffic.clean
     heli, mast = heli_cutout(cv2.imread(a.heli, cv2.IMREAD_COLOR))
     Hunit = cv2.getPerspectiveTransform(np.float32([[0, 0], [1, 0], [1, 1], [0, 1]]), q.astype(np.float32))

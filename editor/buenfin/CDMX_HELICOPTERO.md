@@ -61,3 +61,7 @@ cámara fija o casi fija; que el espectacular quede completamente visible al men
 - Tela: lona crema, malla subdividida con sombreado suave, pliegues oscurecidos por curvatura, textura de tejido y dobladillo, resistencia al aire (se infla como vela) y barra separadora bajo el gancho.
 - Tráfico (`editor/buenfin/traffic.py`): el taxi del primer plano está detenido junto a la banqueta con intermitentes; el taxi de adelante avanza; entran coches nuevos por abajo en los carriles libres y se alejan hacia el Ángel con perspectiva, sombra de contacto y desenfoque de movimiento. El asfalto que deja libre el taxi se rellena con la misma avenida escalada desde el punto de fuga.
 - Los coches lejanos se quedan en su lugar (fila de tráfico al fondo).
+
+## Todos los coches en movimiento
+- Versión de la misma foto sin coches generada con Canva (ID `MAHZ1e0ETds`), leída por partes y alineada a la original con una homografía (794 puntos coincidentes): `public/buenfin_cdmx/reforma_sin_coches.png`.
+- `heli_scene.py ... --clean reforma_sin_coches.png`: detrás de cada coche aparece calle real (con ajuste de color y bordes suaves), así que todos los coches de la foto avanzan y entran coches nuevos (blancos, taxis, gris y oscuro).
