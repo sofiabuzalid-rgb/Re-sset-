@@ -1,9 +1,103 @@
 {
   "fps": 30,
   "bpm": 120,
-  "total": 510,
-  "endAt": 480,
-  "note": "BUEN FIN invitations. Grid: beat = 15 frames, bar = 60. Scenes: hook envelope 0–60, falling invitations 60–150, tent card 15% OFF 150–270, product invitations 270–390, final invitation 390–510. Prints are real fabric crops (IMG_8940 red nordic, IMG_9029 green gingerbread); the product windows play real clips of each set.",
-  "offer": {"pct": "15%", "off": "OFF", "scope": "en toda la tienda"},
-  "close": {"cta": "Aprovecha ya", "fine": "Solo por tiempo limitado", "where": "resetwear.com.mx · Perisur · Av. Stim 39"}
+  "total": 556,
+  "endAt": 526,
+  "note": "BUEN FIN invitations. Grid: beat = 15 frames, bar = 60. Scenes: hook envelope 0–60, falling invitations 54–135, tent card 15% OFF 135–243, product invitations 225–443 (terrace first, then one card per beat), final invitation 437–556 (music hits its last chord at 526). Prints are real fabric crops (IMG_8940 red nordic, IMG_9029 green gingerbread); each product window plays a real clip of that set.",
+  "offer": {
+    "pct": "15%",
+    "off": "OFF",
+    "scope": "en toda la tienda"
+  },
+  "close": {
+    "cta": "Aprovecha ya",
+    "fine": "Solo por tiempo limitado",
+    "where": "resetwear.com.mx · Perisur · Av. Stim 39"
+  },
+  "products": [
+    {
+      "id": "terraza",
+      "src": "IMG_9017",
+      "in": 0.3,
+      "y": 0.5,
+      "what": "red nordic set on the terrace (kept, first)"
+    },
+    {
+      "id": "verde-risa",
+      "src": "IMG_9030",
+      "in": 0.0,
+      "y": 0.4,
+      "what": "green set, laughing on the sofa"
+    },
+    {
+      "id": "blanca",
+      "src": "IMG_8509",
+      "in": 6.0,
+      "y": 0.4,
+      "what": "white print set, mirror"
+    },
+    {
+      "id": "gris",
+      "src": "IMG_1311",
+      "in": 4.0,
+      "y": 0.5,
+      "what": "grey set, full look"
+    },
+    {
+      "id": "roja-sofa",
+      "src": "IMG_9001",
+      "in": 0.3,
+      "y": 0.7,
+      "what": "red set lying on the sofa"
+    },
+    {
+      "id": "rosa",
+      "src": "IMG_2551",
+      "in": 1.0,
+      "y": 0.3,
+      "what": "mauve set, waist and hands"
+    },
+    {
+      "id": "salvia",
+      "src": "IMG_8473",
+      "in": 4.4,
+      "y": 0.4,
+      "what": "sage set, mirror"
+    },
+    {
+      "id": "roja-cama",
+      "src": "IMG_8942",
+      "in": 0.3,
+      "y": 0.2,
+      "what": "red set on the bed"
+    },
+    {
+      "id": "gris-detalle",
+      "src": "IMG_1545",
+      "in": 0.5,
+      "y": 0.4,
+      "what": "grey set, fabric and waist"
+    },
+    {
+      "id": "salvia-sonrisa",
+      "src": "IMG_1554",
+      "in": 3.0,
+      "y": 0.4,
+      "what": "sage set with the hanger, smiling"
+    },
+    {
+      "id": "roja-almohada",
+      "src": "IMG_8964",
+      "in": 2.0,
+      "y": 0.5,
+      "what": "red set with the polka-dot pillow"
+    },
+    {
+      "id": "bolsas-kids",
+      "src": "IMG_2305",
+      "in": 1.4,
+      "y": 0.3,
+      "what": "RE:SET Kids bags"
+    }
+  ]
 }

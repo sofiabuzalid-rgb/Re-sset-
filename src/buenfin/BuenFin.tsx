@@ -309,7 +309,6 @@ const FLOOR: FloorCard[] = [
   { x: 760, y: 2040, r: -4, t: 90, kind: "paper", w: 600, h: 430 },
   { x: 240, y: 2380, r: 12, t: 105, kind: "green", w: 540, h: 390 },
   { x: 1230, y: 2310, r: -9, t: 120, kind: "paper", w: 560, h: 400 },
-  { x: 780, y: 2740, r: 5, t: 135, kind: "red", w: 600, h: 430 },
 ];
 
 const FloorSheet: React.FC<{ c: FloorCard }> = ({ c }) => {
@@ -395,8 +394,8 @@ const TentCard: React.FC = () => {
   const up = useSpring(0, { damping: 11, mass: 0.6 });
   const rot = interpolate(up, [0, 1], [88, 0]);
   const beat = f > 30 ? Math.exp(-((f - 30) % BEAT) / 4) * 0.012 : 0; // a light pulse on every beat
-  const out = interpolate(f, [104, 120], [0, 1], { ...clamp, easing: Easing.in(Easing.cubic) });
-  const tag = ramp(f, 60, 14);
+  const out = interpolate(f, [92, 108], [0, 1], { ...clamp, easing: Easing.in(Easing.cubic) });
+  const tag = ramp(f, 45, 14);
   return (
     <AbsoluteFill>
       <div
@@ -506,21 +505,24 @@ const TentCard: React.FC = () => {
   );
 };
 
-// ───────────────────────── scene 4 — product invitations, dealt one per two beats
-const PRODUCTS = ["red", "green", "navy", "olive"];
+// ───────────────────────── scene 4 — product invitations: the terrace card holds two beats, then one card per beat
+const PRODUCTS = edit.products.map((p) => p.id);
+const dealAt = (i: number) => 8 + (i === 0 ? 0 : 30 + (i - 1) * BEAT);
+export const PRODUCTS_LEN = dealAt(PRODUCTS.length - 1) + 30;
 const ProductCard: React.FC<{ clip: string; i: number }> = ({ clip, i }) => {
   const f = useCurrentFrame();
-  const t0 = 8 + i * 30;
+  const t0 = dealAt(i);
   const enter = useSpring(t0, { damping: 15, mass: 0.7 });
-  // how many cards were dealt on top of this one (smooth)
+  // how many cards were dealt on top of this one (smooth); only the top three stay visible in the stack
   const k = PRODUCTS.reduce(
-    (n, _, j) => (j > i ? n + spring({ frame: f - 8 - j * 30, fps: 30, config: { damping: 15, mass: 0.7 } }) : n),
+    (n, _, j) => (j > i ? n + spring({ frame: f - dealAt(j), fps: 30, config: { damping: 15, mass: 0.7 } }) : n),
     0,
   );
-  const x = interpolate(enter, [0, 1], [1250, 0]) - k * 46;
-  const y = -k * 38;
-  const r = interpolate(enter, [0, 1], [22, i % 2 ? 2.5 : -2.5]) - k * 3.5;
-  if (f < t0 - 1) return null;
+  const kk = Math.min(k, 3);
+  const x = interpolate(enter, [0, 1], [1250, 0]) - kk * 46;
+  const y = -kk * 38;
+  const r = interpolate(enter, [0, 1], [22, i % 2 ? 2.5 : -2.5]) - kk * 3.5;
+  if (f < t0 - 1 || k > 3.98) return null;
   return (
     <div
       style={{
@@ -529,8 +531,9 @@ const ProductCard: React.FC<{ clip: string; i: number }> = ({ clip, i }) => {
         top: 560,
         width: 700,
         height: 960,
-        transform: `translate(${x}px, ${y}px) rotate(${r}deg) scale(${1 - k * 0.035})`,
-        filter: `brightness(${1 - k * 0.1})`,
+        transform: `translate(${x}px, ${y}px) rotate(${r}deg) scale(${1 - kk * 0.035})`,
+        filter: `brightness(${1 - kk * 0.1})`,
+        opacity: interpolate(k, [3, 3.9], [1, 0], clamp),
         zIndex: i,
       }}
     >
@@ -753,7 +756,7 @@ const FinalInvitation: React.FC = () => {
 
 export const BuenFin: React.FC = () => {
   const f = useCurrentFrame();
-  const floorBlur = interpolate(f, [150, 166], [0, 7], clamp);
+  const floorBlur = interpolate(f, [135, 151], [0, 7], clamp);
   return (
     <AbsoluteFill
       style={{
@@ -768,18 +771,18 @@ export const BuenFin: React.FC = () => {
         />
         <Envelope />
       </Sequence>
-      <Sequence durationInFrames={282}>
+      <Sequence durationInFrames={250}>
         <AbsoluteFill style={{ opacity: interpolate(f, [56, 64], [0, 1], clamp) }}>
           <Floor blur={floorBlur} />
         </AbsoluteFill>
       </Sequence>
-      <Sequence from={150} durationInFrames={122}>
+      <Sequence from={135} durationInFrames={110}>
         <TentCard />
       </Sequence>
-      <Sequence from={262} durationInFrames={136}>
+      <Sequence from={225} durationInFrames={PRODUCTS_LEN + 12}>
         <Products />
       </Sequence>
-      <Sequence from={384}>
+      <Sequence from={225 + PRODUCTS_LEN + 6}>
         <FinalInvitation />
       </Sequence>
       <AbsoluteFill
