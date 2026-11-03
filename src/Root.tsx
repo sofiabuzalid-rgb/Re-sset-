@@ -15,6 +15,7 @@ import {GreyDetail, GREY_TOTAL} from './grey/GreyDetail';
 import {HotbookRecap, HOTBOOK_TOTAL} from './hotbook/HotbookRecap';
 import {XmasHomeAd, XMASHOME_TOTAL} from './xmashome/XmasHomeAd';
 import {VoiceAd, voiceAdTotal} from './voicead/VoiceAd';
+import {BuenFin, BUENFIN_TOTAL} from './buenfin/BuenFin';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
@@ -63,5 +64,7 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="PijamaFavorita" component={VoiceAd} durationInFrames={voiceAdTotal('favorita')} fps={FPS} width={1080} height={1920} defaultProps={{ad: 'favorita' as const}} />
 		{/* Meta Ads 04: "Tu pijama de viaje" — navy set → its bag → suitcase → on the move */}
 		<Composition id="PijamaDeViaje" component={VoiceAd} durationInFrames={voiceAdTotal('viaje')} fps={FPS} width={1080} height={1920} defaultProps={{ad: 'viaje' as const}} />
+		{/* Meta Ads: "Invitaciones Buen Fin" — invitation cards made from the real pajama prints, 15% OFF */}
+		<Composition id="InvitacionesBuenFin" component={BuenFin} durationInFrames={BUENFIN_TOTAL} fps={FPS} width={1080} height={1920} />
 	</>
 );

@@ -3,10 +3,12 @@ ORIGINAL music beds for the RE:SET voice ads (no third-party material), rendered
 Presets, each its own sonic identity:
   fashion — 116 BPM, A minor (Am9–Fmaj7–Cmaj7–G6): muted guitar chops, Rhodes, round synth bass, four-on-the-floor
             with claps, open hats and shaker; fresh and modern, built to sit under a voice.
+  buenfin — 120 BPM, D minor (Dm9–Bbmaj7–Fmaj7–C6): the fashion kit with a harder kick from the first frame,
+            Rhodes stabs on the beat the graphics land on; cool, quick, made for a promo.
   travel  — 124 BPM, D major (D–A/C#–Bm7–G): strummed acoustic guitar, bright piano stabs, finger snaps, tambourine,
             bouncy bass; light and on the move.
 Both have a one-bar lift into the end card and a short final chord. Length follows the ad's edit.
-Output: public/<ad>/music.wav  ·  Usage: python3 scripts/build-voicead-music.py <ad> <preset>
+Output: public/<ad>/music.wav  ·  Usage: python3 scripts/build-voicead-music.py <ad | path/to/edit.json> <preset>
 """
 import json, os, subprocess, sys
 import mido
@@ -15,12 +17,15 @@ import soundfile as sf
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 AD, PRESET = sys.argv[1], sys.argv[2]
-e = json.load(open(os.path.join(ROOT, "src", "voicead", f"{AD}.json")))
+# an ad is either src/voicead/<ad>.json (shot list) or any edit JSON path giving "total" and "endAt" frames
+EP = AD if AD.endswith(".json") else os.path.join(ROOT, "src", "voicead", f"{AD}.json")
+AD = os.path.basename(EP)[:-5]
+e = json.load(open(EP))
 OUT = os.path.join(ROOT, "public", AD)
 os.makedirs(OUT, exist_ok=True)
 FPS, SR, TPB = e["fps"], 48000, 480
-TOTAL = sum(s["frames"] for s in e["shots"])
-END_AT = TOTAL - e["shots"][-1]["frames"]  # first frame of the end card
+TOTAL = e.get("total") or sum(s["frames"] for s in e["shots"])
+END_AT = e.get("endAt") or TOTAL - e["shots"][-1]["frames"]  # first frame of the end card
 SF2 = "/usr/share/sounds/sf2/FluidR3_GM.sf2"
 rng = np.random.default_rng(len(AD))
 NOTE = {"C": 0, "C#": 1, "D": 2, "Eb": 3, "E": 4, "F": 5, "F#": 6, "G": 7, "G#": 8, "A": 9, "Bb": 10, "B": 11}
@@ -29,6 +34,9 @@ P = {
     "fashion": dict(bpm=116, prog={0: 4, 1: 28, 2: 38, 3: 89},  # rhodes, muted gtr, synth bass, warm pad
                     chords=[["A3", "C4", "E4", "G4", "B4"], ["A3", "C4", "E4", "F4"], ["G3", "B3", "C4", "E4"], ["G3", "B3", "D4", "E4"]],
                     bass=["A1", "F1", "C2", "G1"]),
+    "buenfin": dict(bpm=120, prog={0: 4, 1: 28, 2: 38, 3: 89},
+                    chords=[["D4", "F4", "A4", "C5", "E5"], ["D4", "F4", "A4", "Bb4"], ["C4", "E4", "F4", "A4"], ["C4", "E4", "G4", "A4"]],
+                    bass=["D2", "Bb1", "F1", "C2"]),
     "travel": dict(bpm=124, prog={0: 0, 1: 25, 2: 33, 3: 48},  # piano, steel gtr, finger bass, strings
                    chords=[["D3", "A3", "D4", "F#4"], ["C#3", "A3", "E4", "A4"], ["B2", "F#3", "D4", "A4"], ["G2", "D3", "G3", "B3"]],
                    bass=["D2", "C#2", "B1", "G1"]),
@@ -54,7 +62,7 @@ for b in range(bars):
     n(3, b0, nn(ch[0]) - 12, 3.9, 44)
     for note in ch[1:]:
         n(3, b0, note, 3.9, 40)
-    if PRESET == "fashion":
+    if PRESET in ("fashion", "buenfin"):
         for at, d in ((0, 0.3), (0.75, 0.2), (1.5, 0.3), (2.5, 0.2), (3.0, 0.3)):
             for note in ch:
                 n(0, b0 + at, note, d, 62)
@@ -76,12 +84,12 @@ for b in range(bars):
             n(2, b0 + at, nn(root) + o, d, 88)
     # drums (GM channel 10)
     for k in range(4):
-        n(9, b0 + k, 36, 0.2, 96 if b else 70)
+        n(9, b0 + k, 36, 0.2, 96 if b or PRESET == "buenfin" else 70)
     for k in (1, 3):
-        n(9, b0 + k, 39 if PRESET == "fashion" else 39, 0.2, 84)
+        n(9, b0 + k, 39, 0.2, 84)
     for k in range(8):
-        n(9, b0 + k / 2, 42 if k % 2 == 0 else 46 if PRESET == "fashion" else 42, 0.1, 50 if k % 2 else 40)
-        n(9, b0 + k / 2 + 0.25, 82 if PRESET == "fashion" else 54, 0.08, 40)
+        n(9, b0 + k / 2, 42 if k % 2 == 0 else 46 if PRESET != "travel" else 42, 0.1, 50 if k % 2 else 40)
+        n(9, b0 + k / 2 + 0.25, 82 if PRESET != "travel" else 54, 0.08, 40)
     if lift:
         for k in range(8):
             n(9, b0 + 2 + k / 4, 38, 0.1, 50 + 6 * k, human=False)

@@ -1,0 +1,9 @@
+{
+  "fps": 30,
+  "bpm": 120,
+  "total": 510,
+  "endAt": 480,
+  "note": "BUEN FIN invitations. Grid: beat = 15 frames, bar = 60. Scenes: hook envelope 0–60, falling invitations 60–150, tent card 15% OFF 150–270, product invitations 270–390, final invitation 390–510. Prints are real fabric crops (IMG_8940 red nordic, IMG_9029 green gingerbread); the product windows play real clips of each set.",
+  "offer": {"pct": "15%", "off": "OFF", "scope": "en toda la tienda"},
+  "close": {"cta": "Aprovecha ya", "fine": "Solo por tiempo limitado", "where": "resetwear.com.mx · Perisur · Av. Stim 39"}
+}
