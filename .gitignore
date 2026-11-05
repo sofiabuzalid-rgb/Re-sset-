@@ -37,3 +37,6 @@ editor/video/public/buenfin_cdmx/
 
 # teaser "la mejor temporada": transcoded source clips + generated voice/music (rebuild with editor/teaser/*.py)
 editor/video/public/teaser/
+
+# Essentials AD01: converted clips + generated voice/music (rebuild with editor/essentials/*.py)
+editor/video/public/essentials/

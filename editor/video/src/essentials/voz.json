@@ -1,0 +1,635 @@
+{
+ "dur": 33.24,
+ "words": [
+  {
+   "w": "¿Una",
+   "s": 0.36,
+   "e": 0.7,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "pijama",
+   "s": 0.7,
+   "e": 1.04,
+   "hl": true,
+   "end_sentence": false
+  },
+  {
+   "w": "de",
+   "s": 1.04,
+   "e": 1.38,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "RE:SET",
+   "s": 1.38,
+   "e": 1.58,
+   "hl": true,
+   "end_sentence": false
+  },
+  {
+   "w": "por",
+   "s": 1.58,
+   "e": 1.76,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "menos",
+   "s": 1.76,
+   "e": 1.92,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "de",
+   "s": 1.92,
+   "e": 2.06,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "850",
+   "s": 2.06,
+   "e": 2.96,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "pesos?",
+   "s": 2.96,
+   "e": 3.64,
+   "hl": false,
+   "end_sentence": true
+  },
+  {
+   "w": "Sí,",
+   "s": 3.88,
+   "e": 4.28,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "este",
+   "s": 4.48,
+   "e": 4.64,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "Buen",
+   "s": 4.64,
+   "e": 4.86,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "Fin.",
+   "s": 4.86,
+   "e": 5.52,
+   "hl": false,
+   "end_sentence": true
+  },
+  {
+   "w": "Conoce",
+   "s": 5.66,
+   "e": 5.96,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "a",
+   "s": 5.96,
+   "e": 6.06,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "nuestras",
+   "s": 6.06,
+   "e": 6.6,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "Essentials,",
+   "s": 6.6,
+   "e": 6.84,
+   "hl": true,
+   "end_sentence": false
+  },
+  {
+   "w": "pijamas",
+   "s": 7.1,
+   "e": 7.5,
+   "hl": true,
+   "end_sentence": false
+  },
+  {
+   "w": "de",
+   "s": 7.5,
+   "e": 7.86,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "calidad",
+   "s": 7.86,
+   "e": 8.14,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "con",
+   "s": 8.14,
+   "e": 8.34,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "acabados",
+   "s": 8.34,
+   "e": 8.8,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "cuidados,",
+   "s": 8.8,
+   "e": 9.26,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "diseños",
+   "s": 9.34,
+   "e": 9.74,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "elegantes",
+   "s": 9.74,
+   "e": 10.3,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "y",
+   "s": 10.3,
+   "e": 10.44,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "opciones",
+   "s": 10.44,
+   "e": 10.76,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "de",
+   "s": 10.76,
+   "e": 10.92,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "manga",
+   "s": 10.92,
+   "e": 11.28,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "corta",
+   "s": 11.28,
+   "e": 11.62,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "y",
+   "s": 11.62,
+   "e": 11.8,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "manga",
+   "s": 11.8,
+   "e": 12.04,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "larga.",
+   "s": 12.04,
+   "e": 12.16,
+   "hl": false,
+   "end_sentence": true
+  },
+  {
+   "w": "Tenemos",
+   "s": 12.92,
+   "e": 13.36,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "diferentes",
+   "s": 13.36,
+   "e": 13.74,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "modelos",
+   "s": 13.74,
+   "e": 14.02,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "y",
+   "s": 14.02,
+   "e": 14.18,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "colores",
+   "s": 14.18,
+   "e": 14.52,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "para",
+   "s": 14.52,
+   "e": 14.64,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "que",
+   "s": 14.64,
+   "e": 14.84,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "encuentres",
+   "s": 14.84,
+   "e": 15.12,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "tu",
+   "s": 15.12,
+   "e": 15.3,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "favorita.",
+   "s": 15.3,
+   "e": 16.02,
+   "hl": false,
+   "end_sentence": true
+  },
+  {
+   "w": "Y",
+   "s": 16.18,
+   "e": 16.24,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "lo",
+   "s": 16.24,
+   "e": 16.5,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "mejor,",
+   "s": 16.5,
+   "e": 16.52,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "15%",
+   "s": 17.0,
+   "e": 17.46,
+   "hl": true,
+   "end_sentence": false
+  },
+  {
+   "w": "de",
+   "s": 17.64,
+   "e": 17.82,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "descuento",
+   "s": 17.82,
+   "e": 18.14,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "en",
+   "s": 18.14,
+   "e": 18.26,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "toda",
+   "s": 18.26,
+   "e": 18.4,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "la",
+   "s": 18.4,
+   "e": 18.54,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "tienda.",
+   "s": 18.54,
+   "e": 19.22,
+   "hl": false,
+   "end_sentence": true
+  },
+  {
+   "w": "Las",
+   "s": 19.4,
+   "e": 19.48,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "de",
+   "s": 19.48,
+   "e": 19.66,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "adulto",
+   "s": 19.66,
+   "e": 20.14,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "bajan",
+   "s": 20.14,
+   "e": 20.36,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "de",
+   "s": 20.36,
+   "e": 20.46,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "999",
+   "s": 20.46,
+   "e": 21.62,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "a",
+   "s": 21.62,
+   "e": 21.78,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "849",
+   "s": 21.78,
+   "e": 23.28,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "y",
+   "s": 23.28,
+   "e": 23.4,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "las",
+   "s": 23.4,
+   "e": 23.54,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "de",
+   "s": 23.54,
+   "e": 23.8,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "niños",
+   "s": 23.8,
+   "e": 24.04,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "de",
+   "s": 24.04,
+   "e": 24.2,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "699",
+   "s": 24.24,
+   "e": 25.38,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "a",
+   "s": 25.38,
+   "e": 25.54,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "594.",
+   "s": 25.54,
+   "e": 26.57,
+   "hl": false,
+   "end_sentence": true
+  },
+  {
+   "w": "Visítanos",
+   "s": 27.02,
+   "e": 27.44,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "en",
+   "s": 27.44,
+   "e": 27.52,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "Avenida",
+   "s": 27.52,
+   "e": 27.98,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "Stim",
+   "s": 27.98,
+   "e": 28.46,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "39",
+   "s": 28.46,
+   "e": 29.06,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "o",
+   "s": 29.06,
+   "e": 29.22,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "en",
+   "s": 29.22,
+   "e": 29.36,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "Perisur,",
+   "s": 29.36,
+   "e": 29.78,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "planta",
+   "s": 29.92,
+   "e": 30.24,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "baja.",
+   "s": 30.24,
+   "e": 30.56,
+   "hl": false,
+   "end_sentence": true
+  },
+  {
+   "w": "Aprovecha",
+   "s": 30.7,
+   "e": 31.1,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "el",
+   "s": 31.12,
+   "e": 31.14,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "Buen",
+   "s": 31.2,
+   "e": 31.4,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "Fin",
+   "s": 31.4,
+   "e": 31.52,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "de",
+   "s": 31.52,
+   "e": 31.62,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "RE:SET",
+   "s": 31.62,
+   "e": 32.14,
+   "hl": true,
+   "end_sentence": false
+  },
+  {
+   "w": "y",
+   "s": 32.14,
+   "e": 32.26,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "ven",
+   "s": 32.26,
+   "e": 32.42,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "por",
+   "s": 32.42,
+   "e": 32.54,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "tus",
+   "s": 32.54,
+   "e": 32.74,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "favoritas.",
+   "s": 32.74,
+   "e": 33.14,
+   "hl": false,
+   "end_sentence": true
+  }
+ ]
+}
