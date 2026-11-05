@@ -48,10 +48,10 @@ Cortes en silencio medido: 4.835 (−78 dB), 21.825 (−63), 23.83 (−65), 31.5
 | 2.5–7.9 | 2691 / 2693 / 2691 · ella con los conjuntos (disolvencias) | Te presentamos nuestra Soft Winter… | **SOFT WINTER BY RE:SET** (2.5–4.7 s) · **BUEN FIN · 15% OFF** (2.7–6.6 s) |
 | 7.9–13.3 | 2693 (rampa) · 2692 tejido · 2692 tejido · 2693 cuello | …tela más gruesa, su textura suave… calientitas… | |
 | 13.3–16.8 | 2691 · 2692 conjunto, más lento | …perfectas para dormir cómodo… en casa. | **Tu momento favorito del día empieza aquí.** |
-| 16.8–20 | paneles en arco: gris azulado · salvia · gris claro | Tenemos diferentes modelos… colores súper lindos. | |
+| 16.8–20 | paneles en arco: gris azulado · salvia · gris claro (solo prenda) | Tenemos diferentes modelos… colores súper lindos. | |
 | 20–24.2 | bolsitas: perchero · silla · mesa con estampado RE:SET | Además vienen con su práctica bolsita de viaje… | |
 | 24.2–26 | ella con el conjunto gris | Y aprovecha porque este Buen Fin tenemos… | |
-| 26–28.6 | fondo avena, tres modelos en arco | …15% de descuento en la tienda. | **BUEN FIN RE:SET · 15% OFF · EN TODA LA TIENDA** (en su "15%") |
+| 26–28.6 | fondo avena, tres pijamas en arco (solo prenda, sin caras) | …15% de descuento en la tienda. | **BUEN FIN RE:SET · 15% OFF · EN TODA LA TIENDA** (en su "15%") |
 | 28.3–32 | conjunto salvia frente a RE:SET | Visítanos en Avenida Stim 39 o en Perisur. | logo · **Encuentra tu favorita en RE:SET.** · **BUEN FIN · 15% OFF EN TODA LA TIENDA** · Visítanos en Av. Stim 39 · Perisur |
 
 ## Audio

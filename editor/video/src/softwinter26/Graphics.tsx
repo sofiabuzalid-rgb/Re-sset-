@@ -102,7 +102,7 @@ export const Reveal: React.FC<{ tiles: Shot[] }> = ({ tiles }) => {
           return (
             <div key={i} style={{ position: "relative", flex: 1, overflow: "hidden", borderRadius: "160px 160px 18px 18px", opacity: a, transform: `translateY(${(1 - a) * 50}px)`, boxShadow: "0 16px 36px rgba(74,58,48,0.2)" }}>
               <div style={{ position: "absolute", left: "50%", top: "50%", width: 1080, height: 1920, transform: "translate(-50%,-50%) scale(0.36)" }}>
-                <Frame src={s.src} frame={srcFrame(s, f)} cx={s.cx} z={1.1} />
+                <Frame src={s.src} frame={srcFrame(s, f)} cx={s.cx} cy={s.cy} z={s.z ? s.z[0] : 1.1} />
               </div>
             </div>
           );

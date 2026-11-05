@@ -7,10 +7,10 @@ export const FPS = 30;
 export const W = 1080;
 export const H = 1920;
 export const DUR: Record<string, number> = { w2691: 8.5, w2692: 10.15, w2693: 7.0, w2694: 4.8, w2695: 1.6, w2696: 6.6, w2697: 5.2, w2698: 12.2 };
-export type Shot = { from: number; len: number; src: string; at: number; cx: number; cx1?: number; z?: [number, number]; rate?: number; ramp?: [number, number]; soft?: number };
+export type Shot = { from: number; len: number; src: string; at: number; cx: number; cx1?: number; z?: [number, number]; rate?: number; ramp?: [number, number]; soft?: number; cy?: number };
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
-export const Frame: React.FC<{ src: string; frame: number; cx: number; z?: number }> = ({ src, frame, cx, z = 1 }) => {
+export const Frame: React.FC<{ src: string; frame: number; cx: number; z?: number; cy?: number }> = ({ src, frame, cx, z = 1, cy = 0.5 }) => {
   const vw = W * z; // these clips are vertical (1080×1920): z zooms in, cx picks the horizontal focus
   const vh = H * z;
   const left = Math.min(0, Math.max(W - vw, W / 2 - cx * vw));
@@ -18,7 +18,7 @@ export const Frame: React.FC<{ src: string; frame: number; cx: number; z?: numbe
     <AbsoluteFill style={{ overflow: "hidden", background: "#000" }}>
       <Freeze frame={0}>
         <Sequence from={-frame} layout="none">
-          <OffthreadVideo muted src={staticFile(`softwinter26/${src}.mp4`)} style={{ position: "absolute", left, top: (H - vh) / 2, width: vw, height: vh, filter: "contrast(1.02) saturate(0.98) brightness(1.02)" }} />
+          <OffthreadVideo muted src={staticFile(`softwinter26/${src}.mp4`)} style={{ position: "absolute", left, top: Math.min(0, Math.max(H - vh, H / 2 - cy * vh)), width: vw, height: vh, filter: "contrast(1.02) saturate(0.98) brightness(1.02)" }} />
         </Sequence>
       </Freeze>
     </AbsoluteFill>
@@ -61,7 +61,7 @@ export const Panels: React.FC<{ shots: Shot[]; at: number[]; bg: string }> = ({ 
         return (
           <div key={i} style={{ position: "absolute", left: gap + i * (pw + gap), top: 300, width: pw, height: 1200, overflow: "hidden", borderRadius: pw / 2, opacity: a, transform: `translateY(${(1 - a) * 80}px)`, boxShadow: "0 18px 40px rgba(74,58,48,0.18)" }}>
             <div style={{ position: "absolute", left: -(W - pw) / 2, top: -(H - 1200) / 2, width: W, height: H }}>
-              <Frame src={s.src} frame={srcFrame(s, f)} cx={s.cx} z={1.1 - 0.04 * Math.min(1, f / 90)} />
+              <Frame src={s.src} frame={srcFrame(s, f)} cx={s.cx} cy={s.cy} z={(s.cy ? 1.35 : 1.1) - 0.04 * Math.min(1, f / 90)} />
             </div>
           </div>
         );

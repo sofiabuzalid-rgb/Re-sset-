@@ -43,13 +43,14 @@ export const SHOTS: Shot[] = [
 ];
 const PANELS: Shot[] = [
   { from: 0, len: 95, src: "w2691", at: 4.4, cx: 0.45 },
-  { from: 0, len: 95, src: "w2692", at: 1.4, cx: 0.4 },
-  { from: 0, len: 95, src: "w2693", at: 5.6, cx: 0.55 },
+  { from: 0, len: 95, src: "w2692", at: 9.2, cx: 0.5, cy: 0.66 },
+  { from: 0, len: 95, src: "w2693", at: 2.2, cx: 0.5, rate: 0.4 },
 ];
 const TILES: Shot[] = [
-  { from: 0, len: 70, src: "w2691", at: 4.0, cx: 0.45 },
-  { from: 0, len: 70, src: "w2692", at: 9.0, cx: 0.5 },
-  { from: 0, len: 70, src: "w2693", at: 5.6, cx: 0.55 },
+  // product only: the garment fills each arch (no faces)
+  { from: 0, len: 70, src: "w2691", at: 6.6, cx: 0.45, cy: 0.66, z: [1.5, 1.5] },
+  { from: 0, len: 70, src: "w2692", at: 4.5, cx: 0.5, z: [1.1, 1.1] },
+  { from: 0, len: 70, src: "w2693", at: 2.4, cx: 0.5, z: [1.2, 1.2] },
 ];
 const HERO: Shot = { from: 0, len: 110, src: "w2692", at: 8.4, cx: 0.5 };
 
