@@ -1,12 +1,12 @@
 """RE:SET · Christmas × Buen Fin AD02 — pista de voz (nota de voz original de ella) + palabras con tiempos para subtítulos.
 
-Fuente: Calle_Bosque_de_Pirules_5_2.m4a (41.2 s). La voz viene limpia (ruido de fondo −64 dB) pero saturada: 299 tramos
-recortados. Cadena: reconstrucción de picos (declip.py, spline cúbica) → paso alto 75 Hz → EQ correctiva suave
+Fuente: The_Fit_Pilates_2_2.m4a (44.7 s; reemplaza la nota anterior). La voz viene limpia (ruido de fondo −91 dB) pero
+saturada: 495 tramos recortados. Cadena: reconstrucción de picos (declip.py, spline cúbica) → paso alto 75 Hz → EQ correctiva suave
 (−2 dB a 250 Hz, +1.5 dB a 3 kHz) → de-esser → compresión 2.5:1 → limitador → −16 LUFS. Sin reducción de ruido (no hace
 falta) y sin cambiar tono ni velocidad.
-Edición: se usa todo lo que dice salvo "Además, tenemos en(vío) gratis en compras desde 1499" (no se entiende con claridad
-y es una condición de compra no confirmada) y "en Plaza Stim Bosques" (dentro de la frase de sucursales: queda "Visítanos en
-Avenida Stim 39 o en Perisur."). Todos los cortes caen en silencio medido (< −60 dB) con cruce de 30 ms.
+Edición: se usa todo lo que dice salvo "Sí, para todos." (repite "para toda la familia"), "Además, tenemos en(vío) gratis en
+compras desde $1,499 pesos" (no se entiende con claridad y es una condición de compra no confirmada) y "en plaza Stim Bosques"
+(queda "Visítanos en Avenida Stim 39, y en Perisur."). Todos los cortes caen en silencio medido (≤ −58 dB) con cruce de 30 ms.
 Uso: python3 editor/navidad/voz.py <nota.m4a> <whisper.json>
 """
 import json, subprocess, sys
@@ -19,11 +19,12 @@ from declip import declip  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 SR = 48000
-LEAD = 0.30  # puts her "15%" exactly on beat 14 (7.0 s) of the 120 BPM track
-PARTS = [(0.62, 28.19), (31.90, 33.96), (35.10, 40.80)]  # source seconds; every edge sits in measured silence
-GAPS = [0.22, 0.18]  # pause where the envío sentence was / the comma pause before "o en Perisur"
+LEAD = 0.16  # puts her first "15%" exactly on beat 13 (6.5 s) of the 120 BPM track
+# source seconds; every edge is the measured minimum of the envelope (dB in comments)
+PARTS = [(1.08, 12.925), (14.24, 28.49), (32.58, 35.03), (36.45, 43.30)]  # −69 | −69…−58 | −66…−76 | −66…−66 | −66…−73
+GAPS = [0.22, 0.25, 0.15]  # where "Sí, para todos." was / where the envío sentence was / the comma pause after "39,"
 # spelling of what she says (Whisper's mistakes, confirmed by the brand name and the verified store addresses)
-FIX = {"Reset": "RE:SET", "buen": "Buen", "fin": "Fin", "Steam": "Stim", "39": "39"}
+FIX = {"Reset": "RE:SET", "Reset.": "RE:SET.", "buen": "Buen", "fin": "Fin", "Steam": "Stim", "navidad": "Navidad", "navidad.": "Navidad.", "color": "color,"}
 HIGHLIGHT = {"pijamas", "navideñas", "navidad", "re:set", "15%"}
 
 
@@ -70,6 +71,10 @@ def main():
                     break
                 words.append(dict(w=txt, s=round(w["start"] + off, 3), e=round(min(w["end"], b) + off, 3), hl=txt.lower().strip("¿?,.") in HIGHLIGHT))
                 break
+    for i in range(len(words) - 1):  # "Peri" "Sur." → "Perisur."
+        if words[i]["w"] == "Peri" and words[i + 1]["w"].startswith("Sur"):
+            words[i:i + 2] = [{**words[i], "w": "Perisur" + words[i + 1]["w"][3:], "e": words[i + 1]["e"]}]
+            break
     # sentence ends → one subtitle block per sentence
     for w in words:
         w["end_sentence"] = w["w"][-1] in ".?"

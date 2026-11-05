@@ -1,704 +1,746 @@
 {
- "dur": 36.03,
+ "dur": 36.175,
  "words": [
   {
    "w": "¿Quieres",
-   "s": 0.34,
-   "e": 0.76,
+   "s": 0.24,
+   "e": 0.7,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "adelantarte",
-   "s": 0.76,
-   "e": 1.22,
+   "s": 0.7,
+   "e": 1.14,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "a",
-   "s": 1.22,
-   "e": 1.3,
+   "s": 1.14,
+   "e": 1.22,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "tus",
-   "s": 1.3,
-   "e": 1.48,
+   "s": 1.22,
+   "e": 1.38,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "regalos",
-   "s": 1.48,
-   "e": 1.72,
+   "s": 1.38,
+   "e": 1.62,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "de",
-   "s": 1.72,
-   "e": 1.84,
+   "s": 1.62,
+   "e": 1.76,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "Navidad",
-   "s": 1.84,
-   "e": 2.2,
+   "s": 1.76,
+   "e": 2.06,
    "hl": true,
    "end_sentence": false
   },
   {
    "w": "y",
-   "s": 2.2,
-   "e": 2.42,
+   "s": 2.06,
+   "e": 2.26,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "aprovechar",
-   "s": 2.42,
-   "e": 2.72,
+   "s": 2.26,
+   "e": 2.56,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "un",
-   "s": 2.72,
-   "e": 2.92,
+   "s": 2.56,
+   "e": 2.76,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "súper",
-   "s": 2.92,
-   "e": 3.18,
+   "s": 2.76,
+   "e": 3.02,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "descuento?",
-   "s": 3.18,
-   "e": 3.9,
+   "s": 3.02,
+   "e": 3.68,
    "hl": false,
    "end_sentence": true
   },
   {
    "w": "Este",
-   "s": 4.08,
-   "e": 4.24,
+   "s": 3.86,
+   "e": 4.02,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "Buen",
-   "s": 4.24,
-   "e": 4.46,
+   "s": 4.02,
+   "e": 4.04,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "Fin",
-   "s": 4.46,
-   "e": 4.76,
+   "s": 4.24,
+   "e": 4.38,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "es",
-   "s": 4.76,
-   "e": 4.86,
+   "s": 4.38,
+   "e": 4.5,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "el",
-   "s": 4.86,
-   "e": 5.08,
+   "s": 4.5,
+   "e": 4.72,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "momento.",
-   "s": 5.08,
-   "e": 5.76,
+   "s": 4.72,
+   "e": 5.26,
    "hl": false,
    "end_sentence": true
   },
   {
    "w": "En",
-   "s": 5.88,
-   "e": 6.04,
+   "s": 5.38,
+   "e": 5.54,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "RE:SET",
-   "s": 6.04,
-   "e": 6.6,
+   "s": 5.54,
+   "e": 6.06,
    "hl": true,
    "end_sentence": false
   },
   {
    "w": "tenemos",
-   "s": 6.6,
-   "e": 6.98,
+   "s": 6.06,
+   "e": 6.5,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "15%",
-   "s": 6.98,
-   "e": 7.32,
+   "s": 6.5,
+   "e": 6.84,
    "hl": true,
    "end_sentence": false
   },
   {
    "w": "de",
-   "s": 7.56,
-   "e": 7.74,
+   "s": 7.1,
+   "e": 7.3,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "descuento",
-   "s": 7.74,
-   "e": 8.1,
+   "s": 7.3,
+   "e": 7.62,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "en",
-   "s": 8.1,
-   "e": 8.28,
+   "s": 7.62,
+   "e": 7.78,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "toda",
-   "s": 8.28,
-   "e": 8.42,
+   "s": 7.78,
+   "e": 7.92,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "la",
-   "s": 8.42,
-   "e": 8.58,
+   "s": 7.92,
+   "e": 8.08,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "tienda,",
-   "s": 8.58,
-   "e": 9.02,
+   "s": 8.08,
+   "e": 8.68,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "incluyendo",
-   "s": 9.2,
-   "e": 9.42,
+   "s": 8.88,
+   "e": 9.3,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "nuestra",
-   "s": 9.62,
-   "e": 9.82,
+   "s": 9.3,
+   "e": 9.36,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "colección",
-   "s": 9.82,
-   "e": 10.14,
+   "s": 9.5,
+   "e": 9.82,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "de",
-   "s": 10.14,
-   "e": 10.24,
+   "s": 9.82,
+   "e": 9.92,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "pijamas",
-   "s": 10.24,
-   "e": 10.6,
+   "s": 9.92,
+   "e": 10.3,
    "hl": true,
    "end_sentence": false
   },
   {
    "w": "navideñas",
-   "s": 10.6,
-   "e": 11.16,
+   "s": 10.3,
+   "e": 10.86,
    "hl": true,
    "end_sentence": false
   },
   {
    "w": "para",
-   "s": 11.16,
-   "e": 11.36,
+   "s": 10.86,
+   "e": 11.1,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "toda",
-   "s": 11.36,
-   "e": 11.52,
+   "s": 11.1,
+   "e": 11.26,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "la",
-   "s": 11.52,
-   "e": 11.8,
+   "s": 11.26,
+   "e": 11.58,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "familia.",
-   "s": 11.8,
-   "e": 12.26,
-   "hl": false,
-   "end_sentence": true
-  },
-  {
-   "w": "Sí,",
-   "s": 12.5,
-   "e": 12.78,
-   "hl": false,
-   "end_sentence": false
-  },
-  {
-   "w": "para",
-   "s": 12.78,
-   "e": 13.04,
-   "hl": false,
-   "end_sentence": false
-  },
-  {
-   "w": "todos.",
-   "s": 13.04,
-   "e": 13.48,
+   "s": 11.58,
+   "e": 12.005,
    "hl": false,
    "end_sentence": true
   },
   {
    "w": "Tenemos",
-   "s": 13.72,
-   "e": 13.9,
+   "s": 12.485,
+   "e": 12.705,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "pijamas",
-   "s": 13.9,
-   "e": 14.08,
+   "s": 12.705,
+   "e": 12.945,
    "hl": true,
    "end_sentence": false
   },
   {
    "w": "para",
-   "s": 14.26,
-   "e": 14.44,
+   "s": 13.105,
+   "e": 13.285,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "mamá,",
-   "s": 14.44,
-   "e": 14.8,
+   "s": 13.285,
+   "e": 13.705,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "papá,",
-   "s": 14.88,
-   "e": 15.34,
+   "s": 13.825,
+   "e": 14.305,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "niños,",
-   "s": 15.52,
-   "e": 15.76,
+   "s": 14.545,
+   "e": 14.745,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "niñas,",
-   "s": 15.84,
-   "e": 16.44,
+   "s": 14.845,
+   "e": 15.385,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "con",
-   "s": 16.52,
-   "e": 16.76,
+   "s": 15.545,
+   "e": 15.765,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "modelos",
-   "s": 16.76,
-   "e": 16.98,
+   "s": 15.765,
+   "e": 15.985,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "y",
-   "s": 16.98,
-   "e": 17.1,
+   "s": 15.985,
+   "e": 16.125,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "estampados",
-   "s": 17.1,
-   "e": 17.58,
+   "s": 16.125,
+   "e": 16.585,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "navideños",
-   "s": 17.58,
-   "e": 18.06,
+   "s": 16.585,
+   "e": 17.125,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "para",
-   "s": 18.06,
-   "e": 18.2,
+   "s": 17.125,
+   "e": 17.285,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "que",
-   "s": 18.2,
-   "e": 18.46,
+   "s": 17.285,
+   "e": 17.525,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "toda",
-   "s": 18.46,
-   "e": 18.6,
+   "s": 17.525,
+   "e": 17.665,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "la",
-   "s": 18.6,
-   "e": 18.9,
+   "s": 17.665,
+   "e": 18.005,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "familia",
-   "s": 18.9,
-   "e": 18.9,
+   "s": 18.005,
+   "e": 18.065,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "pueda",
-   "s": 19.18,
-   "e": 19.44,
+   "s": 18.245,
+   "e": 18.505,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "combinar",
-   "s": 19.44,
-   "e": 19.76,
+   "s": 18.505,
+   "e": 18.845,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "esta",
-   "s": 19.76,
-   "e": 19.92,
+   "s": 18.845,
+   "e": 19.025,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "Navidad.",
-   "s": 19.92,
-   "e": 20.58,
+   "s": 19.025,
+   "e": 19.605,
    "hl": true,
    "end_sentence": true
   },
   {
    "w": "Desde",
-   "s": 20.78,
-   "e": 20.96,
+   "s": 19.845,
+   "e": 20.025,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "los",
-   "s": 20.96,
-   "e": 21.18,
+   "s": 20.025,
+   "e": 20.225,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "clásicos",
-   "s": 21.18,
-   "e": 21.62,
+   "s": 20.225,
+   "e": 20.605,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "tonos",
-   "s": 21.62,
-   "e": 21.92,
+   "s": 20.605,
+   "e": 20.905,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "rojos",
-   "s": 21.92,
-   "e": 22.28,
+   "s": 20.905,
+   "e": 21.325,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "hasta",
-   "s": 22.28,
-   "e": 22.52,
+   "s": 21.325,
+   "e": 21.545,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "diseños",
-   "s": 22.52,
-   "e": 22.68,
+   "s": 21.545,
+   "e": 21.805,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "llenos",
-   "s": 22.8,
-   "e": 23.04,
+   "s": 21.805,
+   "e": 22.025,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "de",
-   "s": 23.04,
-   "e": 23.34,
+   "s": 22.025,
+   "e": 22.305,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "color,",
-   "s": 23.34,
-   "e": 23.74,
+   "s": 22.305,
+   "e": 22.325,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "con",
-   "s": 23.92,
-   "e": 24.08,
+   "s": 22.545,
+   "e": 22.725,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "detalles",
-   "s": 24.08,
-   "e": 24.54,
+   "s": 22.725,
+   "e": 23.125,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "cuidados,",
-   "s": 24.54,
-   "e": 24.96,
+   "s": 23.125,
+   "e": 23.605,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "acabados",
-   "s": 25.08,
-   "e": 25.42,
+   "s": 23.745,
+   "e": 24.065,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "de",
-   "s": 25.42,
-   "e": 25.64,
+   "s": 24.065,
+   "e": 24.345,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "calidad",
-   "s": 25.64,
-   "e": 25.98,
+   "s": 24.345,
+   "e": 24.585,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "y",
-   "s": 25.98,
-   "e": 26.12,
+   "s": 24.585,
+   "e": 24.725,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "opciones",
-   "s": 26.12,
-   "e": 26.66,
+   "s": 24.725,
+   "e": 25.285,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "perfectas",
-   "s": 26.66,
-   "e": 27.02,
+   "s": 25.285,
+   "e": 25.605,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "para",
-   "s": 27.02,
-   "e": 27.22,
+   "s": 25.605,
+   "e": 25.805,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "regalar.",
-   "s": 27.22,
-   "e": 27.86,
+   "s": 25.805,
+   "e": 26.475,
    "hl": false,
    "end_sentence": true
   },
   {
    "w": "Visítanos",
-   "s": 28.31,
-   "e": 28.71,
+   "s": 26.945,
+   "e": 27.365,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "en",
-   "s": 28.71,
-   "e": 28.83,
+   "s": 27.365,
+   "e": 27.505,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "Avenida",
-   "s": 28.83,
-   "e": 29.17,
+   "s": 27.505,
+   "e": 27.865,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "Stim",
-   "s": 29.17,
-   "e": 29.69,
+   "s": 27.865,
+   "e": 28.465,
    "hl": false,
    "end_sentence": false
   },
   {
-   "w": "39",
-   "s": 29.69,
-   "e": 30.09,
+   "w": "39,",
+   "s": 28.465,
+   "e": 29.025,
    "hl": false,
    "end_sentence": false
   },
   {
-   "w": "o",
-   "s": 30.43,
-   "e": 30.53,
+   "w": "y",
+   "s": 29.455,
+   "e": 29.635,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "en",
-   "s": 30.53,
-   "e": 30.67,
+   "s": 29.635,
+   "e": 29.775,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "Perisur.",
-   "s": 30.67,
-   "e": 31.21,
+   "s": 29.775,
+   "e": 30.395,
    "hl": false,
    "end_sentence": true
   },
   {
    "w": "Este",
-   "s": 31.39,
-   "e": 31.53,
+   "s": 30.575,
+   "e": 30.695,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "Buen",
-   "s": 31.53,
-   "e": 31.77,
+   "s": 30.695,
+   "e": 30.935,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "Fin",
-   "s": 31.77,
-   "e": 32.59,
+   "s": 30.935,
+   "e": 31.275,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "adelanta",
-   "s": 32.59,
-   "e": 32.93,
+   "s": 31.275,
+   "e": 31.635,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "tus",
-   "s": 32.93,
-   "e": 33.11,
+   "s": 31.635,
+   "e": 31.835,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "regalos,",
-   "s": 33.11,
-   "e": 33.43,
+   "s": 31.835,
+   "e": 32.175,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "combina",
-   "s": 33.51,
-   "e": 33.87,
+   "s": 32.295,
+   "e": 32.635,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "a",
+   "s": 32.635,
+   "e": 32.755,
    "hl": false,
    "end_sentence": false
   },
   {
    "w": "toda",
-   "s": 33.87,
-   "e": 34.19,
+   "s": 32.755,
+   "e": 32.915,
    "hl": false,
    "end_sentence": false
   },
   {
-   "w": "familia.",
-   "s": 34.19,
-   "e": 35.85,
+   "w": "la",
+   "s": 32.915,
+   "e": 33.135,
    "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "familia",
+   "s": 33.135,
+   "e": 33.595,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "y",
+   "s": 33.695,
+   "e": 33.915,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "aprovecha",
+   "s": 33.915,
+   "e": 34.175,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "el",
+   "s": 34.175,
+   "e": 34.395,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "15%",
+   "s": 34.395,
+   "e": 34.755,
+   "hl": true,
+   "end_sentence": false
+  },
+  {
+   "w": "off",
+   "s": 35.195,
+   "e": 35.435,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "en",
+   "s": 35.435,
+   "e": 35.595,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "RE:SET.",
+   "s": 35.595,
+   "e": 35.715,
+   "hl": true,
    "end_sentence": true
   }
  ]
