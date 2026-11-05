@@ -15,6 +15,7 @@ import { BF01, BF02, BF03, BF04, BF_FRAMES } from "./buenfin/BuenFin";
 import { BF05, BF06, BF07, BF08, BF2_FRAMES, FUN_TRACKS } from "./buenfin/BuenFin2";
 import { Teaser, TEASER_FRAMES } from "./teaser/Teaser";
 import { Essentials, ESS_FRAMES } from "./essentials/Essentials";
+import { Navidad as ChristmasAD02, XMAS_FRAMES } from "./navidad/Navidad";
 import { Espectacular, BILLBOARD, EspectacularAlto, BILLBOARD_ALTO, EspectacularBuenFin, EspectacularOriginal } from "./buenfin/Espectacular";
 import { Cdmx, CDMX, CDMX_AUDIO } from "./buenfin/Cdmx";
 import { Ad06, Ad07, Ad08, Ad09, Ad10, Ad11, frames2 } from "./outlet2/Ads2";
@@ -86,6 +87,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="RESET-BUENFIN-06-REGALOS-MUSICA-REEL" component={() => <BF06 m={FUN_TRACKS.bf06} />} durationInFrames={BF2_FRAMES.bf06} fps={30} width={1080} height={1920} />
       <Composition id="RESET-BUENFIN-07-TRES-RAZONES-MUSICA-REEL" component={() => <BF07 m={FUN_TRACKS.bf07} />} durationInFrames={BF2_FRAMES.bf07} fps={30} width={1080} height={1920} />
       <Composition id="RESET-BUENFIN-08-MI-LISTA-MUSICA-REEL" component={() => <BF08 m={FUN_TRACKS.bf08} />} durationInFrames={BF2_FRAMES.bf08} fps={30} width={1080} height={1920} />
+      <Composition id="RESET-CHRISTMAS-BUENFIN-AD02" component={ChristmasAD02} durationInFrames={XMAS_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="RESET-ESSENTIALS-BUENFIN-AD01" component={Essentials} durationInFrames={ESS_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="RESET-TEASER-MEJOR-TEMPORADA" component={Teaser} durationInFrames={TEASER_FRAMES} fps={30} width={1080} height={1920} />
       <Composition id="RESET-BUENFIN-CDMX-CINEMATIC" component={() => <Cdmx audio={CDMX_AUDIO.review} />} durationInFrames={Math.round(CDMX.seconds * 30)} fps={30} width={1080} height={1920} />

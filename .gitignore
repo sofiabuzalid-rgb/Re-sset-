@@ -40,3 +40,6 @@ editor/video/public/teaser/
 
 # Essentials AD01: converted clips + generated voice/music (rebuild with editor/essentials/*.py)
 editor/video/public/essentials/
+
+# Christmas AD02: converted clips + generated voice/music (rebuild with editor/navidad/*.py)
+editor/video/public/navidad/
