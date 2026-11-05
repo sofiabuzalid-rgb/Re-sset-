@@ -1,0 +1,628 @@
+{
+ "dur": 30.995,
+ "words": [
+  {
+   "w": "Te",
+   "s": 2.825,
+   "e": 3.065,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "presentamos",
+   "s": 3.065,
+   "e": 3.665,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "nuestra",
+   "s": 3.665,
+   "e": 3.985,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "Soft",
+   "s": 3.985,
+   "e": 4.305,
+   "hl": true,
+   "end_sentence": false
+  },
+  {
+   "w": "Winter,",
+   "s": 4.305,
+   "e": 4.605,
+   "hl": true,
+   "end_sentence": false
+  },
+  {
+   "w": "una",
+   "s": 4.725,
+   "e": 4.885,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "colección",
+   "s": 4.885,
+   "e": 5.385,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "pensada",
+   "s": 5.385,
+   "e": 5.785,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "para",
+   "s": 5.785,
+   "e": 5.945,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "los",
+   "s": 5.945,
+   "e": 6.085,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "días",
+   "s": 6.085,
+   "e": 6.505,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "más",
+   "s": 6.505,
+   "e": 6.785,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "fríos",
+   "s": 6.785,
+   "e": 7.045,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "del",
+   "s": 7.045,
+   "e": 7.285,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "año.",
+   "s": 7.285,
+   "e": 7.605,
+   "hl": false,
+   "end_sentence": true
+  },
+  {
+   "w": "Lo",
+   "s": 7.865,
+   "e": 7.945,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "que",
+   "s": 7.945,
+   "e": 8.105,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "las",
+   "s": 8.105,
+   "e": 8.285,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "hace",
+   "s": 8.285,
+   "e": 8.665,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "especiales",
+   "s": 8.665,
+   "e": 9.145,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "es",
+   "s": 9.145,
+   "e": 9.265,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "su",
+   "s": 9.265,
+   "e": 9.405,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "tela",
+   "s": 9.405,
+   "e": 9.765,
+   "hl": true,
+   "end_sentence": false
+  },
+  {
+   "w": "más",
+   "s": 9.765,
+   "e": 9.945,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "gruesa,",
+   "s": 9.945,
+   "e": 10.545,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "su",
+   "s": 10.625,
+   "e": 10.805,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "textura",
+   "s": 10.805,
+   "e": 11.245,
+   "hl": true,
+   "end_sentence": false
+  },
+  {
+   "w": "suave",
+   "s": 11.245,
+   "e": 11.605,
+   "hl": true,
+   "end_sentence": false
+  },
+  {
+   "w": "y",
+   "s": 11.605,
+   "e": 11.725,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "lo",
+   "s": 11.725,
+   "e": 11.885,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "calientitas",
+   "s": 11.885,
+   "e": 12.445,
+   "hl": true,
+   "end_sentence": false
+  },
+  {
+   "w": "que",
+   "s": 12.445,
+   "e": 12.645,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "son,",
+   "s": 12.645,
+   "e": 12.925,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "perfectas",
+   "s": 13.285,
+   "e": 13.665,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "para",
+   "s": 13.665,
+   "e": 13.925,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "dormir",
+   "s": 13.925,
+   "e": 14.225,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "cómodo",
+   "s": 14.225,
+   "e": 14.625,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "y",
+   "s": 14.625,
+   "e": 14.845,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "disfrutar",
+   "s": 14.845,
+   "e": 15.205,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "esos",
+   "s": 15.205,
+   "e": 15.385,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "días",
+   "s": 15.385,
+   "e": 15.545,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "de",
+   "s": 15.545,
+   "e": 15.685,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "invierno",
+   "s": 15.685,
+   "e": 16.005,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "en",
+   "s": 16.005,
+   "e": 16.225,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "casa.",
+   "s": 16.225,
+   "e": 16.525,
+   "hl": false,
+   "end_sentence": true
+  },
+  {
+   "w": "Tenemos",
+   "s": 16.985,
+   "e": 17.325,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "diferentes",
+   "s": 17.325,
+   "e": 17.705,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "modelos",
+   "s": 17.705,
+   "e": 18.045,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "de",
+   "s": 18.045,
+   "e": 18.185,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "manga",
+   "s": 18.185,
+   "e": 18.525,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "larga,",
+   "s": 18.525,
+   "e": 18.725,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "colores",
+   "s": 18.845,
+   "e": 19.205,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "súper",
+   "s": 19.205,
+   "e": 19.405,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "lindos.",
+   "s": 19.405,
+   "e": 19.71,
+   "hl": false,
+   "end_sentence": true
+  },
+  {
+   "w": "Además",
+   "s": 20.28,
+   "e": 20.58,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "vienen",
+   "s": 20.58,
+   "e": 20.74,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "con",
+   "s": 20.74,
+   "e": 20.9,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "su",
+   "s": 20.9,
+   "e": 21.08,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "práctica",
+   "s": 21.08,
+   "e": 21.46,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "bolsita",
+   "s": 21.46,
+   "e": 21.8,
+   "hl": true,
+   "end_sentence": false
+  },
+  {
+   "w": "de",
+   "s": 21.8,
+   "e": 22.02,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "viaje",
+   "s": 22.02,
+   "e": 22.24,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "para",
+   "s": 22.24,
+   "e": 22.38,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "llevarlas",
+   "s": 22.38,
+   "e": 22.84,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "contigo",
+   "s": 22.84,
+   "e": 23.24,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "a",
+   "s": 23.24,
+   "e": 23.4,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "donde",
+   "s": 23.4,
+   "e": 23.62,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "vayas.",
+   "s": 23.62,
+   "e": 24.14,
+   "hl": false,
+   "end_sentence": true
+  },
+  {
+   "w": "Y",
+   "s": 24.32,
+   "e": 24.56,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "aprovecha",
+   "s": 24.56,
+   "e": 24.92,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "porque",
+   "s": 24.92,
+   "e": 25.06,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "este",
+   "s": 25.06,
+   "e": 25.2,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "Buen",
+   "s": 25.2,
+   "e": 25.38,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "Fin",
+   "s": 25.38,
+   "e": 25.68,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "tenemos",
+   "s": 25.68,
+   "e": 26.0,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "15%",
+   "s": 26.0,
+   "e": 26.38,
+   "hl": true,
+   "end_sentence": false
+  },
+  {
+   "w": "de",
+   "s": 26.56,
+   "e": 26.68,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "descuento",
+   "s": 26.68,
+   "e": 26.98,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "en",
+   "s": 26.98,
+   "e": 27.06,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "la",
+   "s": 27.06,
+   "e": 27.2,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "tienda.",
+   "s": 27.2,
+   "e": 27.745,
+   "hl": false,
+   "end_sentence": true
+  },
+  {
+   "w": "Visítanos",
+   "s": 28.285,
+   "e": 28.705,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "en",
+   "s": 28.705,
+   "e": 28.825,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "Avenida",
+   "s": 28.825,
+   "e": 29.205,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "Stim",
+   "s": 29.205,
+   "e": 29.665,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "39",
+   "s": 29.665,
+   "e": 30.085,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "o",
+   "s": 30.085,
+   "e": 30.125,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "en",
+   "s": 30.185,
+   "e": 30.245,
+   "hl": false,
+   "end_sentence": false
+  },
+  {
+   "w": "Perisur.",
+   "s": 30.285,
+   "e": 30.965,
+   "hl": false,
+   "end_sentence": true
+  }
+ ]
+}

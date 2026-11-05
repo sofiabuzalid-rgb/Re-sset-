@@ -8,7 +8,7 @@ OUT=out/$2
 TMP=out/_$ID.mp4
 mkdir -p public-lean out
 rm -rf -- public-lean && mkdir -p public-lean/campana
-for d in outlet4 fonts brand buenfin_cdmx teaser essentials navidad; do [ -d "public/$d" ] || continue; cp -al "public/$d" "public-lean/$d"; done
+for d in outlet4 fonts brand buenfin_cdmx teaser essentials navidad softwinter26; do [ -d "public/$d" ] || continue; cp -al "public/$d" "public-lean/$d"; done
 for d in public/campana/*/; do n=$(basename "$d"); [ "$n" != media ] && cp -al "$d" "public-lean/campana/$n"; done  # voice tracks only: the clips are linked into outlet4
 npx remotion render src/index.ts "$ID" "$TMP" --public-dir=public-lean --codec=h264 --crf=15 --audio-codec=aac --audio-bitrate=256k \
   --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell --concurrency=4 --log=error

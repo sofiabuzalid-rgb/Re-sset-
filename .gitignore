@@ -43,3 +43,6 @@ editor/video/public/essentials/
 
 # Christmas AD02: converted clips + generated voice/music (rebuild with editor/navidad/*.py)
 editor/video/public/navidad/
+
+# Soft Winter AD03: converted clips + generated voice/music (rebuild with editor/softwinter26/*.py)
+editor/video/public/softwinter26/
