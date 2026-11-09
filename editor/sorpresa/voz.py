@@ -54,6 +54,12 @@ def main():
                 merged[-1]["e"] = w["end"]
                 continue
             merged.append(dict(w=t, s=w["start"], e=w["end"]))
+        if c == "4130":  # Whisper dropped a word: "muchísimas [pijamas] navideñas" (heard as "piramas" in the mix, "vidas" isolated)
+            for i, w in enumerate(merged):
+                if w["w"] == "muchísimas" and merged[i + 1]["w"] == "navideñas":
+                    w["e"] = 7.10
+                    merged.insert(i + 1, dict(w="pijamas", s=7.10, e=7.44))
+                    break
         if c == "4129" and merged and merged[0]["w"] == "Te":  # it's a question: "¿Te gustan las pijamas …?"
             merged[0]["w"] = "¿Te"
         words[c] = merged
