@@ -13,6 +13,8 @@
     "build:favorita": "remotion render PijamaFavorita out/reset-pijama-favorita.mp4",
     "build:viaje": "remotion render PijamaDeViaje out/reset-pijama-de-viaje.mp4",
     "build:buenfin": "remotion render InvitacionesBuenFin out/reset-buen-fin.mp4",
+    "build:football1": "remotion render FootballOutletAd01 out/RESET_FOOTBALL_OUTLET_AD01.mp4",
+    "build:football2": "remotion render FootballOutletAd02 out/RESET_FOOTBALL_OUTLET_AD02.mp4",
     "still": "remotion still ChristmasReel out/poster.png --frame=60",
     "audio": "python3 scripts/generate-audio.py",
     "typecheck": "tsc --noEmit"

@@ -16,6 +16,7 @@ import {HotbookRecap, HOTBOOK_TOTAL} from './hotbook/HotbookRecap';
 import {XmasHomeAd, XMASHOME_TOTAL} from './xmashome/XmasHomeAd';
 import {VoiceAd, voiceAdTotal} from './voicead/VoiceAd';
 import {BuenFin, BUENFIN_TOTAL} from './buenfin/BuenFin';
+import {FootballAd, footballTotal} from './football/FootballAd';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
@@ -66,5 +67,8 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="PijamaDeViaje" component={VoiceAd} durationInFrames={voiceAdTotal('viaje')} fps={FPS} width={1080} height={1920} defaultProps={{ad: 'viaje' as const}} />
 		{/* Meta Ads: "Invitaciones Buen Fin" — invitation cards made from the real pajama prints, 15% OFF */}
 		<Composition id="InvitacionesBuenFin" component={BuenFin} durationInFrames={BUENFIN_TOTAL} fps={FPS} width={1080} height={1920} />
+		{/* Meta Ads: Football collection, outlet 25% OFF — UGC, her real voice, literal subtitles */}
+		<Composition id="FootballOutletAd01" component={FootballAd} durationInFrames={footballTotal('ad01')} fps={FPS} width={1080} height={1920} defaultProps={{ad: 'ad01' as const}} />
+		<Composition id="FootballOutletAd02" component={FootballAd} durationInFrames={footballTotal('ad02')} fps={FPS} width={1080} height={1920} defaultProps={{ad: 'ad02' as const}} />
 	</>
 );

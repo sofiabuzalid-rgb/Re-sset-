@@ -1,0 +1,291 @@
+{
+  "fps": 30,
+  "title": "RESET_FOOTBALL_OUTLET_AD01 — El descubrimiento",
+  "note": "Voice = the protagonist's real takes only (docs/football/transcripts.json). IMG_4120 question + offer as a J-cut under the rack hook, staying on her as she points at the rack, then 'la de Argentina, la de Brasil, la de México' (IMG_4121) over the matching shirts, CTA 'Ven por las tuyas' (IMG_4120). The Barça and club-name lines are not used: IMG_4121 says the Barça design is not at 25%, IMG_4123 says it is.",
+  "transcripts": "docs/football/transcripts.json",
+  "fix": {
+    "aula": "outlet",
+    "reset": "RE:SET"
+  },
+  "music": {
+    "file": "music.wav",
+    "local": true,
+    "offset": 0,
+    "gain": 0
+  },
+  "voice": [
+    {
+      "src": "IMG_4120",
+      "a": 0.3,
+      "b": 9.35,
+      "at": 0
+    },
+    {
+      "src": "IMG_4121",
+      "a": 14.7,
+      "b": 18.2,
+      "at": 290
+    },
+    {
+      "src": "IMG_4120",
+      "a": 9.5,
+      "b": 10.5,
+      "at": 640
+    }
+  ],
+  "shots": [
+    {
+      "id": "s01",
+      "src": "IMG_4107",
+      "in": 0.6,
+      "frames": 60,
+      "zoom": [
+        1.18,
+        1.24
+      ],
+      "focus": [
+        0.12,
+        0.45
+      ],
+      "what": "hook: the rack of football pajamas (framed to keep the Barça-style shirt out)"
+    },
+    {
+      "id": "s02",
+      "src": "IMG_4120",
+      "sync": 0,
+      "frames": 75,
+      "zoom": [
+        1.12,
+        1.16
+      ],
+      "focus": [
+        0.6,
+        0.4
+      ],
+      "what": "'¿Estás buscando en qué ver tus partidos favoritos de fútbol? ¿Qué crees?'"
+    },
+    {
+      "id": "s03",
+      "src": "IMG_4120",
+      "sync": 0,
+      "frames": 65,
+      "zoom": [
+        1.0,
+        1.02
+      ],
+      "focus": [
+        0.6,
+        0.4
+      ],
+      "what": "'Todas estas tienen el 25%…': she points at the rack (wider)"
+    },
+    {
+      "id": "s04",
+      "src": "IMG_4120",
+      "sync": 0,
+      "frames": 75,
+      "zoom": [
+        1.16,
+        1.2
+      ],
+      "focus": [
+        0.6,
+        0.4
+      ],
+      "what": "'…de descuento en el outlet de RE:SET'"
+    },
+    {
+      "id": "s05",
+      "src": "IMG_4112",
+      "in": 1.8,
+      "frames": 55,
+      "zoom": [
+        1.0,
+        1.05
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "'la de Argentina'"
+    },
+    {
+      "id": "s06",
+      "src": "IMG_4113",
+      "in": 0.8,
+      "frames": 36,
+      "zoom": [
+        1.0,
+        1.05
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "'la de Brasil'"
+    },
+    {
+      "id": "s07",
+      "src": "IMG_4114",
+      "in": 0.8,
+      "frames": 34,
+      "zoom": [
+        1.0,
+        1.05
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "'la de México'"
+    },
+    {
+      "id": "s08",
+      "src": "IMG_4113",
+      "in": 3.4,
+      "frames": 36,
+      "zoom": [
+        1.0,
+        1.04
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "detail: 10 BRASIL print"
+    },
+    {
+      "id": "s09",
+      "src": "IMG_4112",
+      "in": 0.0,
+      "frames": 36,
+      "zoom": [
+        1.0,
+        1.04
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "detail: 10 ARGENTINA print"
+    },
+    {
+      "id": "s10",
+      "src": "IMG_4121",
+      "in": 11.5,
+      "frames": 48,
+      "zoom": [
+        1.04,
+        1.08
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "she holds a design up to camera"
+    },
+    {
+      "id": "s11",
+      "src": "IMG_4107",
+      "in": 2.7,
+      "frames": 57,
+      "zoom": [
+        1.34,
+        1.38
+      ],
+      "focus": [
+        0.05,
+        0.5
+      ],
+      "what": "variety: the whole rack (framed to keep the Barça-style shirt out)"
+    },
+    {
+      "id": "s12",
+      "src": "IMG_4121",
+      "in": 15.3,
+      "frames": 63,
+      "zoom": [
+        1.22,
+        1.26
+      ],
+      "focus": [
+        0.08,
+        0.5
+      ],
+      "what": "variety: her hand along the rack"
+    },
+    {
+      "id": "s13",
+      "src": "IMG_4120",
+      "sync": 2,
+      "frames": 35,
+      "zoom": [
+        1.14,
+        1.18
+      ],
+      "focus": [
+        0.6,
+        0.4
+      ],
+      "what": "'Ven por las tuyas.'"
+    },
+    {
+      "id": "s14",
+      "src": "IMG_4114",
+      "in": 2.9,
+      "frames": 75,
+      "zoom": [
+        1.02,
+        1.08
+      ],
+      "focus": [
+        0.5,
+        0.35
+      ],
+      "what": "CTA: RE:SET label on the collar + crest"
+    }
+  ],
+  "texts": [
+    {
+      "from": 0,
+      "to": 62,
+      "kind": "hook",
+      "lines": [
+        "¿PIJAMAS DE FÚTBOL?",
+        "OUTLET · 25% OFF"
+      ]
+    },
+    {
+      "from": 522,
+      "to": 638,
+      "kind": "banner",
+      "lines": [
+        "VARIOS DISEÑOS",
+        "OUTLET 25% OFF"
+      ]
+    },
+    {
+      "from": 678,
+      "to": 750,
+      "kind": "cta",
+      "lines": [
+        "Descubre las pijamas de fútbol de RE:SET.",
+        "25% OFF EN OUTLET"
+      ]
+    }
+  ],
+  "badge": {
+    "text": "PIJAMAS · OUTLET 25% OFF",
+    "ranges": [
+      [
+        60,
+        520
+      ],
+      [
+        638,
+        678
+      ]
+    ]
+  },
+  "subtitleTop": 1320
+}

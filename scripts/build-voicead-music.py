@@ -5,6 +5,8 @@ Presets, each its own sonic identity:
             with claps, open hats and shaker; fresh and modern, built to sit under a voice.
   buenfin — 120 BPM, D minor (Dm9–Bbmaj7–Fmaj7–C6): the fashion kit with a harder kick from the first frame,
             Rhodes stabs on the beat the graphics land on; cool, quick, made for a promo.
+  sporty  — 118 BPM, C major pop (Cmaj7–G6–Am9–Fadd9): bright piano chops, clean guitar, claps, four-on-the-floor;
+            upbeat sporty lifestyle without stadium clichés.
   travel  — 124 BPM, D major (D–A/C#–Bm7–G): strummed acoustic guitar, bright piano stabs, finger snaps, tambourine,
             bouncy bass; light and on the move.
 Both have a one-bar lift into the end card and a short final chord. Length follows the ad's edit.
@@ -37,6 +39,9 @@ P = {
     "buenfin": dict(bpm=120, prog={0: 4, 1: 28, 2: 38, 3: 89},
                     chords=[["D4", "F4", "A4", "C5", "E5"], ["D4", "F4", "A4", "Bb4"], ["C4", "E4", "F4", "A4"], ["C4", "E4", "G4", "A4"]],
                     bass=["D2", "Bb1", "F1", "C2"]),
+    "sporty": dict(bpm=118, prog={0: 0, 1: 27, 2: 33, 3: 81},  # piano, clean gtr, finger bass, soft lead
+                   chords=[["C4", "E4", "G4", "B4"], ["B3", "D4", "G4", "A4"], ["C4", "E4", "A4", "B4"], ["A3", "C4", "F4", "G4"]],
+                   bass=["C2", "G1", "A1", "F1"]),
     "travel": dict(bpm=124, prog={0: 0, 1: 25, 2: 33, 3: 48},  # piano, steel gtr, finger bass, strings
                    chords=[["D3", "A3", "D4", "F#4"], ["C#3", "A3", "E4", "A4"], ["B2", "F#3", "D4", "A4"], ["G2", "D3", "G3", "B3"]],
                    bass=["D2", "C#2", "B1", "G1"]),
@@ -62,7 +67,7 @@ for b in range(bars):
     n(3, b0, nn(ch[0]) - 12, 3.9, 44)
     for note in ch[1:]:
         n(3, b0, note, 3.9, 40)
-    if PRESET in ("fashion", "buenfin"):
+    if PRESET in ("fashion", "buenfin", "sporty"):
         for at, d in ((0, 0.3), (0.75, 0.2), (1.5, 0.3), (2.5, 0.2), (3.0, 0.3)):
             for note in ch:
                 n(0, b0 + at, note, d, 62)
@@ -84,7 +89,7 @@ for b in range(bars):
             n(2, b0 + at, nn(root) + o, d, 88)
     # drums (GM channel 10)
     for k in range(4):
-        n(9, b0 + k, 36, 0.2, 96 if b or PRESET == "buenfin" else 70)
+        n(9, b0 + k, 36, 0.2, 96 if b or PRESET in ("buenfin", "sporty") else 70)
     for k in (1, 3):
         n(9, b0 + k, 39, 0.2, 84)
     for k in range(8):

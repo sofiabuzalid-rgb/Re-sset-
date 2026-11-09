@@ -1,0 +1,259 @@
+{
+  "fps": 30,
+  "title": "RESET_FOOTBALL_OUTLET_AD02 — ¿Cuál es tu favorita?",
+  "note": "Voice = her real takes only. IMG_4121 opening (her own version of the hook), IMG_4119 'jersey normal… en pijama' over the designs, IMG_4123 CTA. No clip range repeats AD01's. The comparison still is the rack photo cropped to leave out the Barça-style shirt, whose outlet status is contradicted in the footage.",
+  "transcripts": "docs/football/transcripts.json",
+  "fix": {
+    "aula": "outlet",
+    "reset": "RE:SET",
+    "Mad": "un",
+    "Jersey": "jersey",
+    "Piyama": "pijama",
+    "Piyamas": "pijamas"
+  },
+  "music": {
+    "file": "music.wav",
+    "local": true,
+    "offset": 0,
+    "gain": 0
+  },
+  "voice": [
+    {
+      "src": "IMG_4121",
+      "a": 0.45,
+      "b": 9.5,
+      "at": 0
+    },
+    {
+      "src": "IMG_4119",
+      "a": 0.65,
+      "b": 6.25,
+      "at": 266
+    },
+    {
+      "src": "IMG_4123",
+      "a": 20.9,
+      "b": 22.75,
+      "at": 590
+    }
+  ],
+  "shots": [
+    {
+      "id": "s01",
+      "src": "IMG_4121",
+      "sync": 0,
+      "frames": 118,
+      "zoom": [
+        1.1,
+        1.16
+      ],
+      "focus": [
+        0.3,
+        0.4
+      ],
+      "what": "hook: 'Si tú eres de los que aman apasionadamente el fútbol'"
+    },
+    {
+      "id": "s02",
+      "src": "IMG_4123",
+      "in": 12.0,
+      "frames": 54,
+      "zoom": [
+        1.08,
+        1.12
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "'tienes que ver todas estas pijamas': she pulls designs on the rack"
+    },
+    {
+      "id": "s03",
+      "src": "IMG_4121",
+      "sync": 0,
+      "frames": 43,
+      "zoom": [
+        1.16,
+        1.2
+      ],
+      "focus": [
+        0.3,
+        0.4
+      ],
+      "what": "'que tenemos en el outlet'"
+    },
+    {
+      "id": "s04",
+      "src": "IMG_4113",
+      "in": 1.9,
+      "frames": 45,
+      "zoom": [
+        1.0,
+        1.05
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "'de RE:SET con 25% de descuento': first design, Brasil"
+    },
+    {
+      "id": "s05",
+      "src": "IMG_4119",
+      "sync": 1,
+      "frames": 76,
+      "zoom": [
+        1.08,
+        1.12
+      ],
+      "focus": [
+        0.6,
+        0.4
+      ],
+      "what": "'¿Por qué ver el partido en un jersey normal'"
+    },
+    {
+      "id": "s06",
+      "src": "IMG_4114",
+      "in": 5.4,
+      "frames": 28,
+      "zoom": [
+        1.0,
+        1.04
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "second design, México, full"
+    },
+    {
+      "id": "s07",
+      "src": "IMG_4114",
+      "in": 1.95,
+      "frames": 28,
+      "zoom": [
+        1.02,
+        1.06
+      ],
+      "focus": [
+        0.5,
+        0.45
+      ],
+      "what": "México crest detail"
+    },
+    {
+      "id": "s08",
+      "src": "IMG_4119",
+      "sync": 1,
+      "frames": 48,
+      "zoom": [
+        1.14,
+        1.18
+      ],
+      "focus": [
+        0.6,
+        0.4
+      ],
+      "what": "'en lo más cómodo del mundo, en pijama?'"
+    },
+    {
+      "id": "s09",
+      "src": "IMG_4112",
+      "in": 3.65,
+      "frames": 30,
+      "zoom": [
+        1.0,
+        1.04
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "Argentina design"
+    },
+    {
+      "id": "s10",
+      "src": "IMG_4123",
+      "in": 14.5,
+      "frames": 40,
+      "zoom": [
+        1.06,
+        1.1
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "more options on the rack"
+    },
+    {
+      "id": "s11",
+      "photo": "rack-photo.jpg",
+      "frames": 66,
+      "zoom": [
+        1.0,
+        1.06
+      ],
+      "focus": [
+        0.45,
+        0.5
+      ],
+      "what": "¿Cuál es tu favorita?: the designs side by side"
+    },
+    {
+      "id": "s12",
+      "src": "IMG_4123",
+      "sync": 2,
+      "frames": 80,
+      "zoom": [
+        1.08,
+        1.12
+      ],
+      "focus": [
+        0.4,
+        0.35
+      ],
+      "what": "'¿Qué estás esperando? Ven por las tuyas.' under the RE:SET sign"
+    }
+  ],
+  "texts": [
+    {
+      "from": 0,
+      "to": 90,
+      "kind": "hook",
+      "lines": [
+        "PIJAMAS PARA FANS DEL FÚTBOL",
+        "OUTLET RE:SET · 25% OFF"
+      ]
+    },
+    {
+      "from": 512,
+      "to": 576,
+      "kind": "question",
+      "lines": [
+        "¿CUÁL ES TU FAVORITA?"
+      ]
+    },
+    {
+      "from": 596,
+      "to": 656,
+      "kind": "cta",
+      "lines": [
+        "Encuentra la tuya.",
+        "OUTLET RE:SET · 25% OFF"
+      ]
+    }
+  ],
+  "badge": {
+    "text": "PIJAMAS · OUTLET 25% OFF",
+    "ranges": [
+      [
+        90,
+        586
+      ]
+    ]
+  },
+  "subtitleTop": 1320
+}

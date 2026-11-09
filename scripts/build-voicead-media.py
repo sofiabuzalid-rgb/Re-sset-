@@ -7,10 +7,12 @@ favorita, Tu pijama de viaje.
   de-mud / presence EQ, de-ess, light compression, every segment levelled to the same loudness, 25 ms fades,
   segments are cut at word boundaries with breathing room so no consonant is clipped.
 - Subtitles: literal words of each placed segment (Whisper word timings), grouped into <= 2-line blocks;
-  only spelling and brand names are normalised (see FIX). Written to src/voicead/<ad>.subs.json.
+  only spelling and brand names are normalised (see FIX). Written next to the edit as <edit>.subs.json.
 - Music: licensed track named in the edit (or none), ducked -15 dB under the voice, faded at the end.
 Final mix: -14 LUFS / -1 dBTP. Output: public/<ad>/<shot>.mp4, voice.wav, mix.wav
-Usage: python3 scripts/build-voicead-media.py <ad> /folder/with/clips [shot ids...]
+HDR (HLG) sources are tone-mapped to SDR first. An edit may name its own transcripts file ("transcripts") and
+extra spelling fixes ("fix"); subtitles go next to the edit as <edit>.subs.json.
+Usage: python3 scripts/build-voicead-media.py <ad | path/to/edit.json> /folder/with/clips [shot ids...]
 """
 import glob, json, os, re, subprocess, sys
 import numpy as np
@@ -20,8 +22,11 @@ from numpy.lib.stride_tricks import sliding_window_view as swv
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 AD, SRC = sys.argv[1], sys.argv[2]
 only = set(sys.argv[3:])
-e = json.load(open(os.path.join(ROOT, "src", "voicead", f"{AD}.json")))
-TR = json.load(open(os.path.join(ROOT, "docs", "reset-hoy", "transcripts.json")))
+EP = AD if AD.endswith(".json") else os.path.join(ROOT, "src", "voicead", f"{AD}.json")
+AD = os.path.basename(EP)[:-5]
+e = json.load(open(EP))
+TR = json.load(open(os.path.join(ROOT, e.get("transcripts", "docs/reset-hoy/transcripts.json"))))
+TR = {k: v["segments"] if isinstance(v, dict) else v for k, v in TR.items()}
 OUT = os.path.join(ROOT, "public", AD)
 FPS, SR = e["fps"], 48000
 os.makedirs(OUT, exist_ok=True)
@@ -31,6 +36,15 @@ FIX = {"reset": "RE:SET", "Reset": "RE:SET", "piama": "pijama", "navidad": "Navi
 
 def src(n):
     return sorted(glob.glob(os.path.join(SRC, f"{n}.*")))[0]
+
+
+TONEMAP = "zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,"
+
+
+def hdr(path):
+    trc = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=color_transfer",
+                          "-of", "csv=p=0", path], capture_output=True, text=True).stdout
+    return "arib-std-b67" in trc
 
 
 GRADE = ("scale=1080:1920:flags=lanczos,"
@@ -50,7 +64,8 @@ for s in e["shots"]:
         s["in"] = round(v["a"] + (s["from"] - v["at"]) / FPS, 3)
     if "src" not in s or (only and s["id"] not in only):
         continue
-    run(["ffmpeg", "-y", "-v", "error", "-ss", f"{s['in']:.3f}", "-i", src(s["src"]), "-an", "-vf", GRADE,
+    vf = (TONEMAP if hdr(src(s["src"])) else "") + GRADE
+    run(["ffmpeg", "-y", "-v", "error", "-ss", f"{s['in']:.3f}", "-i", src(s["src"]), "-an", "-vf", vf,
          "-frames:v", str(s["frames"]), "-r", "30", "-c:v", "libx264", "-preset", "medium", "-crf", "14", "-g", "15",
          "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
          os.path.join(OUT, f"{s['id']}.mp4")])
@@ -71,7 +86,8 @@ for v in voice:
     first, block = True, []
     for i, w in enumerate(words):
         block.append(w)
-        txt = " ".join(FIX.get(x[2].rstrip(",."), x[2].rstrip(",.")) + x[2][len(x[2].rstrip(",.")):] for x in block)
+        txt = " ".join(FIX.get(x[2].rstrip(",.?"), x[2].rstrip(",.?")) + x[2][len(x[2].rstrip(",.?")):] for x in block)
+        txt = re.sub(r" %", "%", txt)
         nxt = words[i + 1] if i + 1 < len(words) else None
         nlen = len(txt) + 1 + len(nxt[2]) if nxt else 0
         brk = (nxt is None or (len(txt) > 18 and re.search(r"[,.?!]$", w[2])) or (nxt[0] - w[1] > 0.45)
@@ -84,7 +100,7 @@ for v in voice:
             b = v["at"] / FPS + (nxt[0] if nxt and nxt[0] - w[1] < 0.3 else w[1] + 0.15) - v["a"]
             subs.append({"from": round(a * FPS), "to": round(b * FPS), "text": txt.rstrip(".,")})
             first, block = False, []
-json.dump(subs, open(os.path.join(ROOT, "src", "voicead", f"{AD}.subs.json"), "w"), indent=1, ensure_ascii=False)
+json.dump(subs, open(EP[:-5] + ".subs.json", "w"), indent=1, ensure_ascii=False)
 
 # ---------------- voice
 N, HOP = 2048, 512
