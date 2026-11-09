@@ -17,9 +17,9 @@ export const AD01: AdConfig = {
     { from: 114, len: 6, src: "4100", at: 0.0 },
     { from: 120, len: 100, src: "4100", at: 0.15 }, // she shows the white Christmas print
     { from: 220, len: 92, src: "4086", at: 2.4, z: 1.05 }, // the same print up close while she keeps talking (L-cut)
-    { from: 312, len: 25, src: "4096", at: 0.6 }, // variety: green elves, full
+    { from: 312, len: 25, src: "4096", at: 0.6, z: 1.55, oy: 88 } /* pajama only: her lips move but that audio is not used */, // variety: green elves, full
     { from: 337, len: 25, src: "4087", at: 2.0 }, // green elves, print
-    { from: 362, len: 25, src: "4098", at: 2.5 }, // light blue, full
+    { from: 362, len: 25, src: "4098", at: 2.5, z: 1.55, oy: 88 } /* pajama only: her lips move but that audio is not used */, // light blue, full
     { from: 387, len: 25, src: "4088", at: 3.4 }, // dark green with pink trees, print
     { from: 412, len: 252, src: "4105", at: 0.63 }, // she, by the outlet rack
   ],
@@ -43,9 +43,9 @@ export const AD02: AdConfig = {
     { clip: "4101", a: 5.235, b: 9.04, at: 430 }, // Todas estas pijamas navideñas con 25% de descuento.
   ],
   shots: [
-    { from: 0, len: 60, src: "4096", at: 0.3 }, // 1 · green elves, full
-    { from: 60, len: 60, src: "4087", at: 9.0, z: 1.05 }, // its print
-    { from: 120, len: 60, src: "4098", at: 4.8 }, // 2 · light blue, full
+    { from: 0, len: 60, src: "4096", at: 0.3, z: 1.55, oy: 88 } /* pajama only: her lips move but that audio is not used */, // 1 · green elves, full
+    { from: 60, len: 60, src: "4087", at: 18.5 }, // its print, the whole top
+    { from: 120, len: 60, src: "4098", at: 4.8, z: 1.55, oy: 88 } /* pajama only: her lips move but that audio is not used */, // 2 · light blue, full
     { from: 180, len: 45, src: "4091", at: 3.8 }, // its print and collar
     { from: 225, len: 45, src: "4090", at: 13.6 },
     { from: 270, len: 100, src: "4099", at: 1.45 }, // 3 · white print, she shows it (in sync)
@@ -57,7 +57,7 @@ export const AD02: AdConfig = {
   music: "m_ad02",
   overlays: (
     <>
-      <Hook lines={["¿CUÁL DE ESTAS PIJAMAS", "te llevarías con 25% OFF?"]} to={60} size={66} />
+      <Hook lines={["¿CUÁL DE ESTAS", "PIJAMAS TE LLEVARÍAS", "CON 25% OFF?"]} to={60} size={62} ratio={1} />
       <Badge to={545} top={60} />
       <Num n={1} from={60} to={120} />
       <Num n={2} from={120} to={270} />
@@ -88,7 +88,7 @@ export const AD03: AdConfig = {
   music: "m_ad03",
   overlays: (
     <>
-      <Hook lines={["¿TODAVÍA NO TIENES TUS", "PIJAMAS PARA NAVIDAD?"]} to={90} size={64} />
+      <Hook lines={["¿TODAVÍA NO TIENES TUS", "PIJAMAS PARA NAVIDAD?", "Vean el outlet de RE:SET"]} to={90} size={58} ratio={1} />
       <Badge to={583} text="OUTLET" top={60} />
     </>
   ),
@@ -107,15 +107,15 @@ export const AD04: AdConfig = {
     { from: 258, len: 155, src: "4100", at: 8.75 }, // back to her: "de botones, cuello en ve, manga larga, una delicia"
     { from: 413, len: 7, src: "4101", at: 5.0 },
     { from: 420, len: 115, src: "4101", at: 5.235 }, // other options: the rack
-    { from: 535, len: 40, src: "4096", at: 8.5 }, // green elves
-    { from: 575, len: 54, src: "4098", at: 9.5 }, // light blue
+    { from: 535, len: 40, src: "4096", at: 8.5, z: 1.55, oy: 88 } /* pajama only: her lips move but that audio is not used */, // green elves
+    { from: 575, len: 54, src: "4098", at: 9.5, z: 1.55, oy: 88 } /* pajama only: her lips move but that audio is not used */, // light blue
   ],
   end: { from: 629, shot: { from: 0, len: 106, src: "4105", at: 2.0 }, lines: ["OUTLET RE:SET", "25% OFF"], cta: "Descubre los modelos participantes." },
   music: "m_ad04",
   musicLevel: 0.32,
   overlays: (
     <>
-      <Hook lines={["Les quiero enseñar estas PIJAMAS", "del outlet de RE:SET con 25% OFF"]} to={96} size={56} />
+      <Hook lines={["Les quiero enseñar estas PIJAMAS", "del outlet de RE:SET con 25% OFF"]} to={96} size={54} ratio={0.92} />
       <Badge to={629} top={60} />
     </>
   ),

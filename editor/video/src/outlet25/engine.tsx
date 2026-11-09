@@ -106,7 +106,7 @@ export const Hook: React.FC<{ lines: string[]; from?: number; to: number; size?:
     <div style={{ position: "absolute", top: 190, left: 50, right: 50, display: "flex", justifyContent: "center", opacity: a, transform: `translateY(${y}px)` }}>
       <div style={{ background: "rgba(255,255,255,0.95)", borderRadius: 24, padding: "20px 34px 24px", textAlign: "center", boxShadow: "0 10px 30px rgba(0,0,0,0.18)" }}>
         {lines.map((l, i) => (
-          <div key={i} style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: i === 0 ? size : size * ratio, lineHeight: 1.06, color: C.ink, letterSpacing: "-0.01em", marginTop: i ? 8 : 0 }}>
+          <div key={i} style={{ fontFamily: "Montserrat", fontSize: i === 0 ? size : size * ratio, lineHeight: 1.06, color: C.ink, letterSpacing: "-0.01em", marginTop: i ? 6 : 0, fontWeight: i === 2 ? 700 : 900 }}>
             {l.split(/(25% OFF|PIJAMAS|pijamas)/).map((p, k) => (
               <span key={k} style={{ color: /25% OFF/.test(p) ? C.red : C.ink }}>{p}</span>
             ))}
