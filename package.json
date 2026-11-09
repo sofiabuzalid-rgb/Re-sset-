@@ -10,6 +10,8 @@
     "build:editorial": "remotion render PetalEditorial out/reset-petal-editorial.mp4",
     "build:basica": "remotion render ColeccionBasica out/reset-coleccion-basica.mp4",
     "build:planes": "remotion render PlanesCancelados out/reset-planes-cancelados.mp4",
+    "build:smiley1": "remotion render SmileyOutletAd01 out/RESET_SMILEY_OUTLET_AD01.mp4",
+    "build:smiley2": "remotion render SmileyOutletAd02 out/RESET_SMILEY_OUTLET_AD02.mp4",
     "still": "remotion still ChristmasReel out/poster.png --frame=60",
     "audio": "python3 scripts/generate-audio.py",
     "typecheck": "tsc --noEmit"

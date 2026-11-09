@@ -15,6 +15,7 @@ import {GreyDetail, GREY_TOTAL} from './grey/GreyDetail';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {BasicaAd, BASICA_TOTAL} from './basica/BasicaAd';
 import {PlanesAd, PLANES_TOTAL} from './planes/PlanesAd';
+import {SmileyAd01, SMILEY_AD01_TOTAL, SmileyAd02, SMILEY_AD02_TOTAL} from './smiley/SmileyAd';
 import {PetalEditorial, EDITORIAL_TOTAL, EDITORIAL_FPS} from './editorial/PetalEditorial';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
@@ -55,6 +56,9 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="GreyDetail" component={GreyDetail} durationInFrames={GREY_TOTAL} fps={FPS} width={1080} height={1920} />
 		{/* Editorial sleepwear sheet + moodboard (carousel recreation) — Petal Essential Button Set */}
 		{/* Anuncio 04 — "La pijama que no te quieres quitar": colección básica, real testimonial + subtitles */}
+		{/* Smiley pajamas (Happy Vibes Women) — OUTLET 25% OFF UGC ads */}
+		<Composition id="SmileyOutletAd01" component={SmileyAd01} durationInFrames={SMILEY_AD01_TOTAL} fps={FPS} width={1080} height={1920} />
+		<Composition id="SmileyOutletAd02" component={SmileyAd02} durationInFrames={SMILEY_AD02_TOTAL} fps={FPS} width={1080} height={1920} />
 		{/* Meta Ads — "Planes cancelados, pijama puesta": red/white Christmas set, hook copy, her voice, store card */}
 		<Composition id="PlanesCancelados" component={PlanesAd} durationInFrames={PLANES_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="ColeccionBasica" component={BasicaAd} durationInFrames={BASICA_TOTAL} fps={FPS} width={1080} height={1920} />
