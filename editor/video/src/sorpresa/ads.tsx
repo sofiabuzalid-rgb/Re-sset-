@@ -1,7 +1,7 @@
 // RE:SET · VENTA SORPRESA BUEN FIN — the two ads. Frames at 30 fps; voice cut points sit in measured silences (editor/sorpresa/voz.py).
 // Prices: only the campaign range ($49–$299 MXN, productos seleccionados) — never a price on a specific model.
 import React from "react";
-import { AdConfig, Hook, Note, OutletAd, Pill, PriceCard } from "./engine";
+import { AdConfig, Header, Hook, Note, OutletAd, Pill, PriceCard, Store } from "./engine";
 
 // ---------------------------------------------------------------- AD01 · ¿PIJAMAS DESDE $49? (el descubrimiento)
 export const AD01: AdConfig = {
@@ -71,5 +71,33 @@ export const AD02: AdConfig = {
   ),
 };
 
+// ---------------------------------------------------------------- AD03 · LA VERSIÓN MÁS CLARA
+// One fixed header with the whole offer from frame 0 to the end card; one continuous take of her saying it ("¡Sorpresa!… Con pijamas
+// desde 49 pesos…"), then where to buy (in her words). Bigger boxed subtitles; only two graphics in total.
+export const AD03: AdConfig = {
+  frames: 555,
+  boxedSubs: true,
+  voices: [
+    { clip: "4138", a: 0.0, b: 9.865, at: 0 }, // ¡Sorpresa! Tenemos una venta especial para ti. Con pijamas desde 49 pesos en este Buen Fin para esta Navidad 2026.
+    { clip: "4134", a: 0.22, b: 6.065, at: 302 }, // Esta venta espectacular solo está disponible en Avenida Stim 39 en la planta baja.
+  ],
+  shots: [
+    { from: 0, len: 170, src: "4138", at: 0.0 }, // her, on the bags, saying it (in sync up to "…49 pesos")
+    { from: 170, len: 45, src: "4131", at: 0.3 }, // the pajamas, while she goes on ("en este Buen Fin…")
+    { from: 215, len: 45, src: "4128", at: 2.4 },
+    { from: 260, len: 42, src: "4139", at: 2.6 },
+    { from: 302, len: 178, src: "4134", at: 0.22 }, // her: where to buy
+  ],
+  end: { from: 480, shot: { from: 0, len: 75, src: "4130", at: 1.0 }, lines: ["VENTA SORPRESA", "PIJAMAS RE:SET", "$49 – $299 MXN"], cta: "Ven a Av. Stim 39 · planta baja", sub: "en productos seleccionados" },
+  music: "m_ad01",
+  overlays: (
+    <>
+      <Header to={480} pulseAt={145} />
+      <Store from={403} to={480} />
+    </>
+  ),
+};
+
+export const AD03View: React.FC = () => <OutletAd cfg={AD03} />;
 export const AD01View: React.FC = () => <OutletAd cfg={AD01} />;
 export const AD02View: React.FC = () => <OutletAd cfg={AD02} />;

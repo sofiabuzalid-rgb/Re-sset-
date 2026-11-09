@@ -61,7 +61,7 @@ const blocks = (ws: W[]) => {
   const len = (x: W[]) => x.reduce((n, w) => n + w.w.length + 1, 0);
   ws.forEach((w, i) => {
     const gap = i > 0 && w.s - ws[i - 1].e > 0.6;
-    if (cur.length && (gap || len(cur) + w.w.length > 56)) {
+    if (cur.length && (gap || len(cur) + w.w.length > 56 || (["para", "en"].includes(w.w) && len(cur) > 34))) {
       out.push(cur);
       cur = [];
     }
@@ -76,7 +76,7 @@ const blocks = (ws: W[]) => {
 };
 
 /** discreet: whole block, cream, soft shadow, low in the frame (above the Reels UI); no word-by-word animation */
-export const Subtitles: React.FC<{ voices: Voice[] }> = ({ voices }) => {
+export const Subtitles: React.FC<{ voices: Voice[]; boxed?: boolean }> = ({ voices, boxed }) => {
   const t = useCurrentFrame() / FPS;
   const bs = blocks(editWords(voices));
   const b = bs.find((x, i) => t >= x[0].s - 0.05 && t <= x[x.length - 1].e + 0.12 && (i + 1 === bs.length || t < bs[i + 1][0].s - 0.05));
@@ -85,7 +85,7 @@ export const Subtitles: React.FC<{ voices: Voice[] }> = ({ voices }) => {
   const text = b.map((w) => w.w).join(" ");
   return (
     <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 420 }}>
-      <div style={{ maxWidth: 900, textAlign: "center", opacity: a, fontFamily: "Montserrat", fontWeight: 600, fontSize: 52, lineHeight: 1.22, color: C.cream, textShadow: "0 2px 10px rgba(0,0,0,0.7), 0 0 3px rgba(0,0,0,0.8)" }}>
+      <div style={{ maxWidth: 900, textAlign: "center", opacity: a, fontFamily: "Montserrat", fontWeight: boxed ? 700 : 600, fontSize: boxed ? 58 : 52, lineHeight: 1.22, color: C.cream, textShadow: "0 2px 10px rgba(0,0,0,0.7), 0 0 3px rgba(0,0,0,0.8)", ...(boxed ? { background: "rgba(0,0,0,0.55)", borderRadius: 18, padding: "10px 24px 14px" } : {}) }}>
         {text.charAt(0).toUpperCase() + text.slice(1)}
       </div>
     </AbsoluteFill>
@@ -113,6 +113,36 @@ export const Hook: React.FC<{ lines: string[]; from?: number; to: number; size?:
             ))}
           </div>
         ))}
+      </div>
+    </div>
+  );
+};
+
+/** the whole offer in one fixed header, on screen from frame 0 to `to`; the price pulses when she says it */
+export const Header: React.FC<{ to: number; pulseAt?: number }> = ({ to, pulseAt = -99 }) => {
+  const f = useCurrentFrame();
+  const a = interpolate(f, [to - 6, to], [1, 0], clamp);
+  const p = f >= pulseAt ? 1 + 0.08 * Math.exp(-(f - pulseAt) / 6) : 1;
+  return (
+    <div style={{ position: "absolute", top: 50, left: 40, right: 40, opacity: a, background: C.red, borderRadius: 30, padding: "18px 20px 22px", textAlign: "center", boxShadow: "0 12px 30px rgba(0,0,0,0.25)" }}>
+      <div style={{ fontFamily: "Montserrat", fontWeight: 800, fontSize: 38, letterSpacing: "0.12em", paddingLeft: "0.12em", color: C.white }}>VENTA SORPRESA DE BUEN FIN</div>
+      <div style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: 76, lineHeight: 1.05, color: C.white }}>PIJAMAS RE:SET</div>
+      <div style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: 96, lineHeight: 1.0, color: C.yellow, transform: `scale(${p})` }}>$49 – $299 MXN</div>
+      <div style={{ fontFamily: "Montserrat", fontWeight: 600, fontSize: 28, color: C.white, marginTop: 6 }}>en productos seleccionados</div>
+    </div>
+  );
+};
+
+/** big store card under the header */
+export const Store: React.FC<{ from: number; to: number }> = ({ from, to }) => {
+  const f = useCurrentFrame();
+  const a = useFade(from, to, 6);
+  const s = interpolate(f, [from, from + 10], [0.9, 1], { ...clamp, easing: ease });
+  return (
+    <div style={{ position: "absolute", top: 345, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: a, transform: `scale(${s})` }}>
+      <div style={{ background: C.ink, color: C.white, borderRadius: 24, padding: "12px 36px 16px", textAlign: "center" }}>
+        <div style={{ fontFamily: "Montserrat", fontWeight: 700, fontSize: 32, letterSpacing: "0.2em", paddingLeft: "0.2em", color: C.yellow }}>SOLO EN TIENDA</div>
+        <div style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: 54 }}>Av. Stim 39 · planta baja</div>
       </div>
     </div>
   );
@@ -184,7 +214,7 @@ export const EndCard: React.FC<{ shot: Shot; lines: string[]; cta: string; from:
 };
 
 // ---------------------------------------------------------------- the ad
-export type AdConfig = { frames: number; shots: Shot[]; voices: Voice[]; music: string; musicLevel?: number; overlays: React.ReactNode; end?: { from: number; shot: Shot; lines: string[]; cta: string; sub?: string }; sfx?: { at: number; src: string; vol: number }[] };
+export type AdConfig = { boxedSubs?: boolean; frames: number; shots: Shot[]; voices: Voice[]; music: string; musicLevel?: number; overlays: React.ReactNode; end?: { from: number; shot: Shot; lines: string[]; cta: string; sub?: string }; sfx?: { at: number; src: string; vol: number }[] };
 
 export const OutletAd: React.FC<{ cfg: AdConfig }> = ({ cfg }) => {
   const ws = editWords(cfg.voices);
@@ -215,7 +245,7 @@ export const OutletAd: React.FC<{ cfg: AdConfig }> = ({ cfg }) => {
         </Sequence>
       )}
       {cfg.overlays}
-      <Subtitles voices={cfg.voices} />
+      <Subtitles voices={cfg.voices} boxed={cfg.boxedSubs} />
       <VoiceTrack voices={cfg.voices} />
       <Audio src={staticFile(`sorpresa/${cfg.music}.wav`)} volume={vol} />
       {(cfg.sfx ?? []).map((x, i) => (

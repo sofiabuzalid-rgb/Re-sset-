@@ -77,3 +77,14 @@ de-esser, compresión 2.5:1, limitador, −16 LUFS por clip. Mezclas finales: �
 - **No se pusieron** "SOLO POR TIEMPO LIMITADO" ni "EDICIONES LIMITADAS" (no están confirmados). Las frases de urgencia que se oyen
   ("estas ventas vuelan") son de ella.
 - **"Navidad 2026"/"Buen Fin 2026"** aparecen en su voz.
+
+## Anuncio 03 · la versión más clara (`RESET_BUENFIN_SORPRESA_AD03_CLARO.mp4`, `RESET-BUENFIN-SORPRESA-AD03-CLARO`, 18.6 s)
+Un solo mensaje fijo arriba durante todo el anuncio — **VENTA SORPRESA DE BUEN FIN / PIJAMAS RE:SET / $49 – $299 MXN** (en productos
+seleccionados) — y una sola toma continua de ella diciéndolo. Solo dos gráficos en total y subtítulos más grandes con fondo.
+| Tiempo | Imagen | Voz (4138 0.00–9.87, luego 4134 0.22–6.07) | Gráfico |
+|---|---|---|---|
+| 0–5.7 | 4138 ella sobre las bolsas, en sincronía | ¡Sorpresa! Tenemos una venta especial para ti. Con pijamas desde 49 pesos… | encabezado fijo (el precio late en su "49 pesos") |
+| 5.7–10 | 4131 · 4128 · 4139 pijamas en bolsas | …en este Buen Fin para esta Navidad 2026. | encabezado fijo |
+| 10–16 | 4134 ella, en sincronía | Esta venta espectacular solo está disponible en Avenida Stim 39 en la planta baja. | + **SOLO EN TIENDA · Av. Stim 39 · planta baja** al decirlo |
+| 16–18.6 | cierre | — | logo · VENTA SORPRESA / PIJAMAS RE:SET / $49–$299 MXN · **Ven a Av. Stim 39 · planta baja** |
+Música: la pista original de AD01 (112 BPM). −13.7 LUFS; decodifica completo; sin negros, congelados ni silencios.
