@@ -21,20 +21,20 @@
     {
       "src": "IMG_4121",
       "a": 0.45,
-      "b": 9.5,
+      "b": 9.7,
       "at": 0
     },
     {
       "src": "IMG_4119",
       "a": 0.65,
       "b": 6.25,
-      "at": 266
+      "at": 284
     },
     {
       "src": "IMG_4123",
-      "a": 20.9,
-      "b": 22.75,
-      "at": 590
+      "a": 21.03,
+      "b": 22.85,
+      "at": 588
     }
   ],
   "shots": [
@@ -59,14 +59,14 @@
       "in": 12.0,
       "frames": 54,
       "zoom": [
-        1.08,
-        1.12
+        1.4,
+        1.44
       ],
       "focus": [
-        0.5,
+        0.0,
         0.5
       ],
-      "what": "'tienes que ver todas estas pijamas': she pulls designs on the rack"
+      "what": "'tienes que ver todas estas pijamas': she pulls designs on the rack (framed to keep the Barça-style shirt out)"
     },
     {
       "id": "s03",
@@ -87,7 +87,7 @@
       "id": "s04",
       "src": "IMG_4113",
       "in": 1.9,
-      "frames": 45,
+      "frames": 63,
       "zoom": [
         1.0,
         1.05
@@ -177,21 +177,21 @@
       "id": "s10",
       "src": "IMG_4123",
       "in": 14.5,
-      "frames": 40,
+      "frames": 34,
       "zoom": [
-        1.06,
-        1.1
+        1.4,
+        1.44
       ],
       "focus": [
-        0.5,
+        0.0,
         0.5
       ],
-      "what": "more options on the rack"
+      "what": "more options on the rack (framed to keep the Barça-style shirt out)"
     },
     {
       "id": "s11",
       "photo": "rack-photo.jpg",
-      "frames": 66,
+      "frames": 60,
       "zoom": [
         1.0,
         1.06
@@ -208,14 +208,14 @@
       "sync": 2,
       "frames": 80,
       "zoom": [
-        1.08,
-        1.12
+        1.42,
+        1.46
       ],
       "focus": [
-        0.4,
-        0.35
+        0.0,
+        0.38
       ],
-      "what": "'¿Qué estás esperando? Ven por las tuyas.' under the RE:SET sign"
+      "what": "'¿Qué estás esperando? Ven por las tuyas.' under the RE:SET sign (framed to keep the Barça-style shirt out)"
     }
   ],
   "texts": [
@@ -229,16 +229,16 @@
       ]
     },
     {
-      "from": 512,
-      "to": 576,
+      "from": 524,
+      "to": 580,
       "kind": "question",
       "lines": [
         "¿CUÁL ES TU FAVORITA?"
       ]
     },
     {
-      "from": 596,
-      "to": 656,
+      "from": 594,
+      "to": 662,
       "kind": "cta",
       "lines": [
         "Encuentra la tuya.",
@@ -251,7 +251,7 @@
     "ranges": [
       [
         90,
-        586
+        582
       ]
     ]
   },

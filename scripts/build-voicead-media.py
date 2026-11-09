@@ -94,8 +94,8 @@ for v in voice:
                or (nlen > 40 and w[2].lower() not in WEAK
                    and len(" ".join(x[2] for x in words[i + 1:])) > 14))  # no orphaned last words
         if brk:
-            if first:
-                txt = txt[0].upper() + txt[1:]
+            if first:  # capitalise the first letter, past any opening ¿ or ¡
+                txt = re.sub(r"^([¿¡]?)(\w)", lambda m: m.group(1) + m.group(2).upper(), txt)
             a = max(v["at"] / FPS, v["at"] / FPS + block[0][0] - v["a"])
             b = v["at"] / FPS + (nxt[0] if nxt and nxt[0] - w[1] < 0.3 else w[1] + 0.15) - v["a"]
             subs.append({"from": round(a * FPS), "to": round(b * FPS), "text": txt.rstrip(".,")})
