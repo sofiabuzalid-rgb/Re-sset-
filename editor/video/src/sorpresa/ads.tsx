@@ -1,7 +1,7 @@
 // RE:SET · VENTA SORPRESA BUEN FIN — the two ads. Frames at 30 fps; voice cut points sit in measured silences (editor/sorpresa/voz.py).
 // Prices: only the campaign range ($49–$299 MXN, productos seleccionados) — never a price on a specific model.
 import React from "react";
-import { AdConfig, Header, Hook, Note, OutletAd, Pill, PriceCard, Store } from "./engine";
+import { AdConfig, Header, Hook, Note, OutletAd, Pill, PriceCard } from "./engine";
 
 // ---------------------------------------------------------------- AD01 · ¿PIJAMAS DESDE $49? (el descubrimiento)
 export const AD01: AdConfig = {
@@ -77,6 +77,7 @@ export const AD02: AdConfig = {
 export const AD03: AdConfig = {
   frames: 750,
   boxedSubs: true,
+  subBottom: 830, // subtitles sit just above the offer card
   musicLevel: 0.38,
   voices: [
     { clip: "4138", a: 0.0, b: 9.865, at: 0 }, // ¡Sorpresa! Tenemos una venta especial para ti. Con pijamas desde 49 pesos en este Buen Fin para esta Navidad 2026.
@@ -93,12 +94,11 @@ export const AD03: AdConfig = {
     { from: 425, len: 70, src: "4130", at: 10.23 }, // back in sync: "a precios que no puedes creer."
     { from: 495, len: 180, src: "4134", at: 0.22 }, // her: where to buy
   ],
-  end: { from: 675, shot: { from: 0, len: 75, src: "4130", at: 1.0 }, lines: ["VENTA SORPRESA", "PIJAMAS RE:SET", "$49 – $299 MXN"], cta: "Ven a Av. Stim 39 · planta baja", sub: "en productos seleccionados", neutral: true },
+  end: { from: 675, shot: { from: 0, len: 75, src: "4130", at: 1.0 }, lines: ["VENTA SORPRESA", "PIJAMAS RE:SET", "$49 – $299 MXN"], cta: "Ven a Av. Stim 39 · planta baja", sub: "en productos seleccionados", neutral: true, low: true },
   music: "m_ad01",
   overlays: (
     <>
-      <Header to={675} pulseAt={145} />
-      <Store from={596} to={675} />
+      <Header to={675} pulseAt={145} storeAt={596} />
     </>
   ),
 };
