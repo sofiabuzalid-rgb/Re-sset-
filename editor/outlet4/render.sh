@@ -8,10 +8,10 @@ OUT=out/$2
 TMP=out/_$ID.mp4
 mkdir -p public-lean out
 rm -rf -- public-lean && mkdir -p public-lean/campana
-for d in outlet4 fonts brand buenfin_cdmx teaser essentials navidad softwinter26; do [ -d "public/$d" ] || continue; cp -al "public/$d" "public-lean/$d"; done
+for d in outlet4 fonts brand buenfin_cdmx teaser essentials navidad softwinter26 outlet25; do [ -d "public/$d" ] || continue; cp -al "public/$d" "public-lean/$d"; done
 for d in public/campana/*/; do n=$(basename "$d"); [ "$n" != media ] && cp -al "$d" "public-lean/campana/$n"; done  # voice tracks only: the clips are linked into outlet4
 npx remotion render src/index.ts "$ID" "$TMP" --public-dir=public-lean --codec=h264 --crf=15 --audio-codec=aac --audio-bitrate=256k \
-  --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell --concurrency=4 --log=error
+  --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell --concurrency=${CONC:-4} --log=error ${RENDER_EXTRA:-}
 ffmpeg -v error -y -i "$TMP" -c:v libx264 -preset slow -crf 17 -pix_fmt yuv420p -r 30 -colorspace bt709 -color_primaries bt709 -color_trc bt709 \
   -af "alimiter=limit=0.84,loudnorm=I=-14:TP=-1.5" -c:a aac -b:a 256k -ar 48000 -movflags +faststart "$OUT"
 rm "$TMP"
