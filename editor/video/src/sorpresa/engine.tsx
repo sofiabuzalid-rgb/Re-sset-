@@ -86,7 +86,7 @@ export const Subtitles: React.FC<{ voices: Voice[]; boxed?: boolean }> = ({ voic
   return (
     <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 420 }}>
       <div style={{ maxWidth: 900, textAlign: "center", opacity: a, fontFamily: "Montserrat", fontWeight: boxed ? 700 : 600, fontSize: boxed ? 58 : 52, lineHeight: 1.22, color: C.cream, textShadow: "0 2px 10px rgba(0,0,0,0.7), 0 0 3px rgba(0,0,0,0.8)", ...(boxed ? { background: "rgba(0,0,0,0.55)", borderRadius: 18, padding: "10px 24px 14px" } : {}) }}>
-        {text.charAt(0).toUpperCase() + text.slice(1)}
+        {text /* her words as written: capitals only where a sentence starts */}
       </div>
     </AbsoluteFill>
   );
@@ -118,17 +118,18 @@ export const Hook: React.FC<{ lines: string[]; from?: number; to: number; size?:
   );
 };
 
-/** the whole offer in one fixed header, on screen from frame 0 to `to`; the price pulses when she says it */
+/** the whole offer in one fixed header (clean: white card, black type), on screen from frame 0 to `to`; the price pulses when she says it */
 export const Header: React.FC<{ to: number; pulseAt?: number }> = ({ to, pulseAt = -99 }) => {
   const f = useCurrentFrame();
   const a = interpolate(f, [to - 6, to], [1, 0], clamp);
-  const p = f >= pulseAt ? 1 + 0.08 * Math.exp(-(f - pulseAt) / 6) : 1;
+  const p = f >= pulseAt ? 1 + 0.06 * Math.exp(-(f - pulseAt) / 6) : 1;
   return (
-    <div style={{ position: "absolute", top: 50, left: 40, right: 40, opacity: a, background: C.red, borderRadius: 30, padding: "18px 20px 22px", textAlign: "center", boxShadow: "0 12px 30px rgba(0,0,0,0.25)" }}>
-      <div style={{ fontFamily: "Montserrat", fontWeight: 800, fontSize: 38, letterSpacing: "0.12em", paddingLeft: "0.12em", color: C.white }}>VENTA SORPRESA DE BUEN FIN</div>
-      <div style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: 76, lineHeight: 1.05, color: C.white }}>PIJAMAS RE:SET</div>
-      <div style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: 96, lineHeight: 1.0, color: C.yellow, transform: `scale(${p})` }}>$49 – $299 MXN</div>
-      <div style={{ fontFamily: "Montserrat", fontWeight: 600, fontSize: 28, color: C.white, marginTop: 6 }}>en productos seleccionados</div>
+    <div style={{ position: "absolute", top: 60, left: 50, right: 50, opacity: a, background: "rgba(255,255,255,0.96)", borderRadius: 26, padding: "20px 24px 22px", textAlign: "center", boxShadow: "0 10px 28px rgba(0,0,0,0.18)" }}>
+      <div style={{ fontFamily: "Montserrat", fontWeight: 700, fontSize: 30, letterSpacing: "0.28em", paddingLeft: "0.28em", color: "#6B6B6B" }}>VENTA SORPRESA DE BUEN FIN</div>
+      <div style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: 70, lineHeight: 1.08, color: C.ink, marginTop: 4 }}>PIJAMAS RE:SET</div>
+      <div style={{ height: 3, width: 120, background: C.ink, margin: "10px auto 12px", borderRadius: 2 }} />
+      <div style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: 84, lineHeight: 1.0, color: C.ink, transform: `scale(${p})`, letterSpacing: "-0.01em" }}>$49 – $299 MXN</div>
+      <div style={{ fontFamily: "Montserrat", fontWeight: 600, fontSize: 26, color: "#6B6B6B", marginTop: 8 }}>en productos seleccionados</div>
     </div>
   );
 };
@@ -139,9 +140,9 @@ export const Store: React.FC<{ from: number; to: number }> = ({ from, to }) => {
   const a = useFade(from, to, 6);
   const s = interpolate(f, [from, from + 10], [0.9, 1], { ...clamp, easing: ease });
   return (
-    <div style={{ position: "absolute", top: 345, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: a, transform: `scale(${s})` }}>
+    <div style={{ position: "absolute", top: 400, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: a, transform: `scale(${s})` }}>
       <div style={{ background: C.ink, color: C.white, borderRadius: 24, padding: "12px 36px 16px", textAlign: "center" }}>
-        <div style={{ fontFamily: "Montserrat", fontWeight: 700, fontSize: 32, letterSpacing: "0.2em", paddingLeft: "0.2em", color: C.yellow }}>SOLO EN TIENDA</div>
+        <div style={{ fontFamily: "Montserrat", fontWeight: 700, fontSize: 28, letterSpacing: "0.24em", paddingLeft: "0.24em", color: "#CFCFCF" }}>SOLO EN TIENDA</div>
         <div style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: 54 }}>Av. Stim 39 · planta baja</div>
       </div>
     </div>
@@ -185,7 +186,7 @@ export const Note: React.FC<{ from: number; to: number; text: string; top?: numb
 };
 
 /** end card over a real product shot: logo + lines + CTA */
-export const EndCard: React.FC<{ shot: Shot; lines: string[]; cta: string; from: number; sub?: string }> = ({ shot, lines, cta, from, sub }) => {
+export const EndCard: React.FC<{ shot: Shot; lines: string[]; cta: string; from: number; sub?: string; neutral?: boolean }> = ({ shot, lines, cta, from, sub, neutral }) => {
   const f = useCurrentFrame() - from;
   const a = interpolate(f, [0, 8], [0, 1], { ...clamp, easing: ease });
   const b = interpolate(f, [8, 16], [0, 1], { ...clamp, easing: ease });
@@ -197,7 +198,7 @@ export const EndCard: React.FC<{ shot: Shot; lines: string[]; cta: string; from:
         <Img src={staticFile("brand/reset-logo-white.png")} style={{ width: 300 }} />
         <div style={{ marginTop: 30, background: C.white, borderRadius: 26, padding: "18px 44px 22px", textAlign: "center" }}>
           {lines.map((l, i) => (
-            <div key={i} style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: i === 0 ? 64 : 54, lineHeight: 1.1, color: /\$/.test(l) ? C.red : C.ink }}>
+            <div key={i} style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: i === 0 ? 64 : 54, lineHeight: 1.1, color: /\$/.test(l) && !neutral ? C.red : C.ink }}>
               {l}
             </div>
           ))}
@@ -205,7 +206,7 @@ export const EndCard: React.FC<{ shot: Shot; lines: string[]; cta: string; from:
       </div>
       <div style={{ position: "absolute", top: 1080, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: b, transform: `translateY(${(1 - b) * 12}px)` }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 18 }}>
-          <div style={{ background: C.red, color: C.white, fontFamily: "Montserrat", fontWeight: 800, fontSize: 46, padding: "18px 40px 20px", borderRadius: 999, textAlign: "center", maxWidth: 900 }}>{cta}</div>
+          <div style={{ background: neutral ? C.ink : C.red, color: C.white, fontFamily: "Montserrat", fontWeight: 800, fontSize: 46, padding: "18px 40px 20px", borderRadius: 999, textAlign: "center", maxWidth: 900 }}>{cta}</div>
           {sub && <div style={{ fontFamily: "Montserrat", fontWeight: 700, fontSize: 36, color: C.white, textShadow: "0 2px 10px rgba(0,0,0,0.7)", textAlign: "center" }}>{sub}</div>}
         </div>
       </div>
@@ -214,7 +215,7 @@ export const EndCard: React.FC<{ shot: Shot; lines: string[]; cta: string; from:
 };
 
 // ---------------------------------------------------------------- the ad
-export type AdConfig = { boxedSubs?: boolean; frames: number; shots: Shot[]; voices: Voice[]; music: string; musicLevel?: number; overlays: React.ReactNode; end?: { from: number; shot: Shot; lines: string[]; cta: string; sub?: string }; sfx?: { at: number; src: string; vol: number }[] };
+export type AdConfig = { boxedSubs?: boolean; frames: number; shots: Shot[]; voices: Voice[]; music: string; musicLevel?: number; overlays: React.ReactNode; end?: { from: number; shot: Shot; lines: string[]; cta: string; sub?: string; neutral?: boolean }; sfx?: { at: number; src: string; vol: number }[] };
 
 export const OutletAd: React.FC<{ cfg: AdConfig }> = ({ cfg }) => {
   const ws = editWords(cfg.voices);
@@ -241,7 +242,7 @@ export const OutletAd: React.FC<{ cfg: AdConfig }> = ({ cfg }) => {
       ))}
       {cfg.end && (
         <Sequence from={cfg.end.from} durationInFrames={cfg.frames - cfg.end.from}>
-          <EndCard shot={cfg.end.shot} lines={cfg.end.lines} cta={cfg.end.cta} sub={cfg.end.sub} from={0} />
+          <EndCard shot={cfg.end.shot} lines={cfg.end.lines} cta={cfg.end.cta} sub={cfg.end.sub} neutral={cfg.end.neutral} from={0} />
         </Sequence>
       )}
       {cfg.overlays}

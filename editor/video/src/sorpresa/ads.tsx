@@ -71,29 +71,34 @@ export const AD02: AdConfig = {
   ),
 };
 
-// ---------------------------------------------------------------- AD03 · LA VERSIÓN MÁS CLARA
-// One fixed header with the whole offer from frame 0 to the end card; one continuous take of her saying it ("¡Sorpresa!… Con pijamas
-// desde 49 pesos…"), then where to buy (in her words). Bigger boxed subtitles; only two graphics in total.
+// ---------------------------------------------------------------- AD03 · LA VERSIÓN MÁS CLARA (blanco/negro, sin rosa)
+// Script in her own words, in the order a viewer needs it: sorpresa → precio → variedad → dónde. One fixed white header with the whole
+// offer; one store card; boxed subtitles; music kept low under her voice.
 export const AD03: AdConfig = {
-  frames: 555,
+  frames: 750,
   boxedSubs: true,
+  musicLevel: 0.38,
   voices: [
     { clip: "4138", a: 0.0, b: 9.865, at: 0 }, // ¡Sorpresa! Tenemos una venta especial para ti. Con pijamas desde 49 pesos en este Buen Fin para esta Navidad 2026.
-    { clip: "4134", a: 0.22, b: 6.065, at: 302 }, // Esta venta espectacular solo está disponible en Avenida Stim 39 en la planta baja.
+    { clip: "4130", a: 6.13, b: 12.36, at: 302 }, // Tenemos muchísimas pijamas navideñas para ti, para toda tu familia, a precios que no puedes creer.
+    { clip: "4134", a: 0.22, b: 6.065, at: 495 }, // Esta venta espectacular solo está disponible en Avenida Stim 39 en la planta baja.
   ],
   shots: [
-    { from: 0, len: 170, src: "4138", at: 0.0 }, // her, on the bags, saying it (in sync up to "…49 pesos")
-    { from: 170, len: 45, src: "4131", at: 0.3 }, // the pajamas, while she goes on ("en este Buen Fin…")
+    { from: 0, len: 170, src: "4138", at: 0.0 }, // her on the bags, in sync through "…49 pesos"
+    { from: 170, len: 45, src: "4131", at: 0.3 }, // the pajamas while she finishes the sentence
     { from: 215, len: 45, src: "4128", at: 2.4 },
     { from: 260, len: 42, src: "4139", at: 2.6 },
-    { from: 302, len: 178, src: "4134", at: 0.22 }, // her: where to buy
+    { from: 302, len: 78, src: "4130", at: 6.13 }, // her, in sync: "Tenemos muchísimas pijamas navideñas para ti,"
+    { from: 380, len: 45, src: "4131", at: 1.4 }, // "para toda tu familia," over the prints
+    { from: 425, len: 70, src: "4130", at: 10.23 }, // back in sync: "a precios que no puedes creer."
+    { from: 495, len: 180, src: "4134", at: 0.22 }, // her: where to buy
   ],
-  end: { from: 480, shot: { from: 0, len: 75, src: "4130", at: 1.0 }, lines: ["VENTA SORPRESA", "PIJAMAS RE:SET", "$49 – $299 MXN"], cta: "Ven a Av. Stim 39 · planta baja", sub: "en productos seleccionados" },
+  end: { from: 675, shot: { from: 0, len: 75, src: "4130", at: 1.0 }, lines: ["VENTA SORPRESA", "PIJAMAS RE:SET", "$49 – $299 MXN"], cta: "Ven a Av. Stim 39 · planta baja", sub: "en productos seleccionados", neutral: true },
   music: "m_ad01",
   overlays: (
     <>
-      <Header to={480} pulseAt={145} />
-      <Store from={403} to={480} />
+      <Header to={675} pulseAt={145} />
+      <Store from={596} to={675} />
     </>
   ),
 };

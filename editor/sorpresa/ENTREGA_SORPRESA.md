@@ -78,13 +78,16 @@ de-esser, compresión 2.5:1, limitador, −16 LUFS por clip. Mezclas finales: �
   ("estas ventas vuelan") son de ella.
 - **"Navidad 2026"/"Buen Fin 2026"** aparecen en su voz.
 
-## Anuncio 03 · la versión más clara (`RESET_BUENFIN_SORPRESA_AD03_CLARO.mp4`, `RESET-BUENFIN-SORPRESA-AD03-CLARO`, 18.6 s)
-Un solo mensaje fijo arriba durante todo el anuncio — **VENTA SORPRESA DE BUEN FIN / PIJAMAS RE:SET / $49 – $299 MXN** (en productos
-seleccionados) — y una sola toma continua de ella diciéndolo. Solo dos gráficos en total y subtítulos más grandes con fondo.
-| Tiempo | Imagen | Voz (4138 0.00–9.87, luego 4134 0.22–6.07) | Gráfico |
+## Anuncio 03 · la versión más clara (`RESET_BUENFIN_SORPRESA_AD03_CLARO.mp4`, `RESET-BUENFIN-SORPRESA-AD03-CLARO`, 25.1 s)
+Diseño sobrio (blanco, negro y gris; sin rosa). Un encabezado blanco fijo con la oferta completa — **VENTA SORPRESA DE BUEN FIN / PIJAMAS
+RE:SET / $49 – $299 MXN** (en productos seleccionados) —, una sola tarjeta de tienda y subtítulos grandes con fondo, con mayúsculas solo al
+empezar una frase. Guion en sus palabras, en el orden que se necesita: sorpresa → precio → variedad → dónde.
+| Tiempo | Imagen | Voz | Gráfico |
 |---|---|---|---|
 | 0–5.7 | 4138 ella sobre las bolsas, en sincronía | ¡Sorpresa! Tenemos una venta especial para ti. Con pijamas desde 49 pesos… | encabezado fijo (el precio late en su "49 pesos") |
-| 5.7–10 | 4131 · 4128 · 4139 pijamas en bolsas | …en este Buen Fin para esta Navidad 2026. | encabezado fijo |
-| 10–16 | 4134 ella, en sincronía | Esta venta espectacular solo está disponible en Avenida Stim 39 en la planta baja. | + **SOLO EN TIENDA · Av. Stim 39 · planta baja** al decirlo |
-| 16–18.6 | cierre | — | logo · VENTA SORPRESA / PIJAMAS RE:SET / $49–$299 MXN · **Ven a Av. Stim 39 · planta baja** |
-Música: la pista original de AD01 (112 BPM). −13.7 LUFS; decodifica completo; sin negros, congelados ni silencios.
+| 5.7–10 | 4131 · 4128 · 4139 pijamas en bolsas | …en este Buen Fin para esta Navidad 2026. | encabezado |
+| 10–16.5 | 4130 ella (sincronía) · 4131 · 4130 | Tenemos muchísimas pijamas navideñas para ti, para toda tu familia, a precios que no puedes creer. | encabezado |
+| 16.5–22.5 | 4134 ella, en sincronía | Esta venta espectacular solo está disponible en Avenida Stim 39 en la planta baja. | + SOLO EN TIENDA · Av. Stim 39 · planta baja |
+| 22.5–25.1 | cierre | — | logo · VENTA SORPRESA / PIJAMAS RE:SET / $49–$299 MXN · **Ven a Av. Stim 39 · planta baja** |
+Voz: los tres tramos quedan al mismo nivel (−13.5 a −14.5 LUFS en la mezcla). Música (pista original de AD01) más baja que en los otros dos.
+Ella dice "pijamas" muy rápido; un realce de EQ no lo cambia (es su pronunciación), así que en esos momentos el subtítulo lo deja claro.
