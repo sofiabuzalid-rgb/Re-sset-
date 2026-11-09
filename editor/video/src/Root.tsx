@@ -17,6 +17,7 @@ import { Teaser, TEASER_FRAMES } from "./teaser/Teaser";
 import { Essentials, ESS_FRAMES } from "./essentials/Essentials";
 import { Navidad as ChristmasAD02, XMAS_FRAMES } from "./navidad/Navidad";
 import { SoftWinter as SoftWinterAD03, SW_FRAMES } from "./softwinter26/SoftWinter";
+import { AD01 as SOR_1, AD02 as SOR_2, AD01View as SORV1, AD02View as SORV2 } from "./sorpresa/ads";
 import { AD01 as O25_1, AD02 as O25_2, AD03 as O25_3, AD04 as O25_4, AD01View as O25V1, AD02View as O25V2, AD03View as O25V3, AD04View as O25V4 } from "./outlet25/ads";
 import { Espectacular, BILLBOARD, EspectacularAlto, BILLBOARD_ALTO, EspectacularBuenFin, EspectacularOriginal } from "./buenfin/Espectacular";
 import { Cdmx, CDMX, CDMX_AUDIO } from "./buenfin/Cdmx";
@@ -89,6 +90,8 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="RESET-BUENFIN-06-REGALOS-MUSICA-REEL" component={() => <BF06 m={FUN_TRACKS.bf06} />} durationInFrames={BF2_FRAMES.bf06} fps={30} width={1080} height={1920} />
       <Composition id="RESET-BUENFIN-07-TRES-RAZONES-MUSICA-REEL" component={() => <BF07 m={FUN_TRACKS.bf07} />} durationInFrames={BF2_FRAMES.bf07} fps={30} width={1080} height={1920} />
       <Composition id="RESET-BUENFIN-08-MI-LISTA-MUSICA-REEL" component={() => <BF08 m={FUN_TRACKS.bf08} />} durationInFrames={BF2_FRAMES.bf08} fps={30} width={1080} height={1920} />
+      <Composition id="RESET-BUENFIN-SORPRESA-AD01" component={SORV1} durationInFrames={SOR_1.frames} fps={30} width={1080} height={1920} />
+      <Composition id="RESET-BUENFIN-SORPRESA-AD02" component={SORV2} durationInFrames={SOR_2.frames} fps={30} width={1080} height={1920} />
       <Composition id="RESET-OUTLET25-AD01-PIJAMAS-NAVIDENAS" component={O25V1} durationInFrames={O25_1.frames} fps={30} width={1080} height={1920} />
       <Composition id="RESET-OUTLET25-AD02-ELIGE-TU-FAVORITA" component={O25V2} durationInFrames={O25_2.frames} fps={30} width={1080} height={1920} />
       <Composition id="RESET-OUTLET25-AD03-NAVIDAD" component={O25V3} durationInFrames={O25_3.frames} fps={30} width={1080} height={1920} />

@@ -49,3 +49,6 @@ editor/video/public/softwinter26/
 
 # Outlet 25% (4 ads): converted clips + generated voice/music (rebuild with editor/outlet25/*.py)
 editor/video/public/outlet25/
+
+# Venta sorpresa (2 ads): converted clips + generated voice/music (rebuild with editor/sorpresa/*.py)
+editor/video/public/sorpresa/
