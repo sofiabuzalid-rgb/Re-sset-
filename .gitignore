@@ -55,3 +55,5 @@ editor/video/public/sorpresa/
 
 # Buen Fin 15% (4 ads): converted clips + generated voice/music (rebuild with editor/bf15/*.py)
 editor/video/public/bf15/
+# The Memories We Wear (Christmas): client photos + generated music/grain (rebuild with editor/memories/prep.py and music.py)
+editor/video/public/memories/

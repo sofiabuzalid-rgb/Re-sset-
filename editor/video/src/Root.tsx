@@ -17,6 +17,7 @@ import { Teaser, TEASER_FRAMES } from "./teaser/Teaser";
 import { Essentials, ESS_FRAMES } from "./essentials/Essentials";
 import { Navidad as ChristmasAD02, XMAS_FRAMES } from "./navidad/Navidad";
 import { SoftWinter as SoftWinterAD03, SW_FRAMES } from "./softwinter26/SoftWinter";
+import { FILM01 as MEM1, FILM02 as MEM2, Memories01, Memories02 } from "./memories/films";
 import { AD01 as BF15_1, AD02 as BF15_2, AD03 as BF15_3, AD04 as BF15_4, AD01View as BF15V1, AD02View as BF15V2, AD03View as BF15V3, AD04View as BF15V4 } from "./bf15/ads";
 import { AD01 as SOR_1, AD02 as SOR_2, AD03 as SOR_3, AD01View as SORV1, AD02View as SORV2, AD03View as SORV3 } from "./sorpresa/ads";
 import { AD01 as O25_1, AD02 as O25_2, AD03 as O25_3, AD04 as O25_4, AD01View as O25V1, AD02View as O25V2, AD03View as O25V3, AD04View as O25V4 } from "./outlet25/ads";
@@ -95,6 +96,12 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="RESET-BUENFIN15-AD02-ESSENTIALS" component={BF15V2} durationInFrames={BF15_2.frames} fps={30} width={1080} height={1920} />
       <Composition id="RESET-BUENFIN15-AD03-SOFT-WINTER" component={BF15V3} durationInFrames={BF15_3.frames} fps={30} width={1080} height={1920} />
       <Composition id="RESET-BUENFIN15-AD04-REGALOS" component={BF15V4} durationInFrames={BF15_4.frames} fps={30} width={1080} height={1920} />
+      <Composition id="RESET-CHRISTMAS-MEMORIES-01" component={Memories01} durationInFrames={MEM1.frames} fps={30} width={1080} height={1920} defaultProps={{ product: "roja" as const }} />
+      <Composition id="RESET-CHRISTMAS-MEMORIES-01-VERDE" component={Memories01} durationInFrames={MEM1.frames} fps={30} width={1080} height={1920} defaultProps={{ product: "verde" as const }} />
+      <Composition id="RESET-CHRISTMAS-MEMORIES-01-GRINCH" component={Memories01} durationInFrames={MEM1.frames} fps={30} width={1080} height={1920} defaultProps={{ product: "grinch" as const }} />
+      <Composition id="RESET-CHRISTMAS-MEMORIES-02" component={Memories02} durationInFrames={MEM2.frames} fps={30} width={1080} height={1920} defaultProps={{ product: "verde" as const }} />
+      <Composition id="RESET-CHRISTMAS-MEMORIES-02-ROJA" component={Memories02} durationInFrames={MEM2.frames} fps={30} width={1080} height={1920} defaultProps={{ product: "roja" as const }} />
+      <Composition id="RESET-CHRISTMAS-MEMORIES-02-GRINCH" component={Memories02} durationInFrames={MEM2.frames} fps={30} width={1080} height={1920} defaultProps={{ product: "grinch" as const }} />
       <Composition id="RESET-BUENFIN-SORPRESA-AD01" component={SORV1} durationInFrames={SOR_1.frames} fps={30} width={1080} height={1920} />
       <Composition id="RESET-BUENFIN-SORPRESA-AD03-CLARO" component={SORV3} durationInFrames={SOR_3.frames} fps={30} width={1080} height={1920} />
       <Composition id="RESET-BUENFIN-SORPRESA-AD02" component={SORV2} durationInFrames={SOR_2.frames} fps={30} width={1080} height={1920} />
