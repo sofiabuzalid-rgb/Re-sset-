@@ -1,7 +1,7 @@
 // RE:SET · THE MEMORIES WE WEAR — same concept, timing and audio as the client's reference reel, no text.
 // Reference (measured frame by frame and on its audio):
 //   0–5.0 s  calm wall; the sample is fixed; two vertical seams run along its sides from the first frame; the top seam slides
-//            down (1.5→2.8 s) and the bottom seam slides up (3.5→4.7 s) until they close a frame around it. The music is soft
+//            down and the bottom seam slides up (here timed to the song: 1.09→2.53 s and 3.40→4.66 s) until they close a frame around it. The music is soft
 //            and goes almost silent at 4.0 s.
 //   5.0 s    the beat drops: the world behind the sample changes every ~7 frames (16 cuts, 5.02→8.35 s), closer textures
 //            first, then whole rooms; the sample never moves.
@@ -27,10 +27,12 @@ const CT = 610;
 const CR = CL + CW;
 const CB = CT + CH;
 
-export const REF = { frames: 279, cuts: [151, 157, 164, 170, 176, 182, 188, 196, 203, 211, 218, 224, 230, 238, 245, 251] };
+// cuts sit on the song's hits: the beat is 0.48 s (125 BPM) with triplet hits every 0.16 s from the drop at 5.03 s; each beat
+// gets a cut on the beat and one on its third triplet (long-short), 15 cuts, the last on the final beat (8.39 s), which holds.
+export const REF = { frames: 279, cuts: [151, 161, 165, 175, 180, 189, 194, 204, 208, 218, 223, 232, 237, 247, 252] };
 
 type World = { img: string; z?: number; fx?: number; fy?: number };
-// 16 worlds on the cuts: close details first, whole rooms after (as in the reference); the last one holds
+// 15 worlds on the cuts: close details first, whole rooms after (as in the reference); the last one holds
 const WORLDS: World[] = [
   { img: "bg_nina", z: 1.9, fx: 0.82, fy: 0.42 },
   { img: "bg_cena", z: 1.8, fx: 0.5, fy: 0.52 },
@@ -45,7 +47,6 @@ const WORLDS: World[] = [
   { img: "bg_foto", z: 1.1 },
   { img: "bg_baile", z: 1.1 },
   { img: "bg_nina", z: 1.1, fx: 0.6 },
-  { img: "bg_escalera", z: 1.7, fx: 0.6, fy: 0.22 },
   { img: "bg_cena", z: 1.6, fx: 0.4, fy: 0.85 },
   { img: "bg_decorar", z: 1.08, fx: 0.55 },
 ];
@@ -90,16 +91,16 @@ const Grain: React.FC<{ op: number }> = ({ op }) => {
 
 const Seams: React.FC<{ color: string }> = ({ color }) => {
   const f = useCurrentFrame();
-  const top = interpolate(f, [45, 84], [-4, CT], { ...clamp, easing: slide });
-  const bot = interpolate(f, [105, 140], [H + 4, CB], { ...clamp, easing: slide });
+  const top = interpolate(f, [33, 76], [-4, CT], { ...clamp, easing: slide });
+  const bot = interpolate(f, [102, 140], [H + 4, CB], { ...clamp, easing: slide });
   const L = 4;
   const s = (st: React.CSSProperties) => <div style={{ position: "absolute", background: color, ...st }} />;
   return (
     <AbsoluteFill>
       {s({ left: CL - L / 2, top: 0, width: L, height: H })}
       {s({ left: CR - L / 2, top: 0, width: L, height: H })}
-      {f >= 45 && s({ left: 0, width: W, top: top - L / 2, height: L })}
-      {f >= 105 && s({ left: 0, width: W, top: bot - L / 2, height: L })}
+      {f >= 33 && s({ left: 0, width: W, top: top - L / 2, height: L })}
+      {f >= 102 && s({ left: 0, width: W, top: bot - L / 2, height: L })}
     </AbsoluteFill>
   );
 };

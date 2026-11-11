@@ -9,8 +9,12 @@ Variante lista: `RESET-CHRISTMAS-MEMORIES-03-GRINCH`. Código: `src/memories/Ref
 
 Tiempos copiados de la referencia (medidos en su imagen y su audio): 0–5.0 s pared crema, la pijama fija, dos líneas verticales
 desde el primer cuadro, la línea de arriba baja (1.5→2.8 s) y la de abajo sube (3.5→4.7 s); a los 5.0 s entra el golpe de la
-canción y el fondo cambia en 16 cortes (cuadros 151→251, ~7 cuadros cada uno), primero detalles y luego cuartos completos; el
+canción y el fondo cambia en 15 cortes al ritmo, primero detalles y luego cuartos completos; el
 último se queda hasta el final (9.3 s). Sin texto ni logo.
+Sincronía: los cortes van sobre los golpes de la canción (pulso 0.48 s = 125 BPM, golpes de tresillo cada 0.16 s desde la
+entrada a los 5.03 s): en cada pulso, un corte en el tiempo y otro en el tercer tresillo; el último cae en el golpe final (8.39 s).
+Las líneas también: la de arriba baja de 1.09 a 2.53 s (dos golpes del inicio) y la de abajo sube de 3.40 a 4.66 s.
+Medido en el archivo final: cada corte cae a ≤ 22 ms de su golpe (menos de un cuadro).
 
 **Audio:** es el audio original del reel de referencia (de otra cuenta), tomado de la grabación de pantalla hasta 8.42 s,
 donde la grabación lo corta, con una cola natural de 0.9 s. **No tiene licencia para pauta.** Para publicar orgánico: subir
