@@ -10,11 +10,13 @@
 1080×1920, 30 fps, H.264, AAC, subtítulos integrados. Proyecto: `editor/video/src/bf15/` (`engine.tsx` componentes, `ads.tsx` los cuatro
 anuncios y sus textos). Voz: `editor/bf15/voz.py`; música: `editor/bf15/music.py`.
 
-## Lo que se ve
-Desde el cuadro 0: una pijama real, el **cartel oficial de Buen Fin** (rebota al entrar y se mueve suave) y la tarjeta
-**BUEN FIN · RE:SET / 15% OFF / EN TODA LA TIENDA**, que late cuando ella dice "15%". Cierre: cartel + 15% OFF EN TODA LA TIENDA + CTA +
-"Av. Stim 39 · Perisur". Todo dentro de la zona visible de TikTok/Reels/Stories (bajo la barra superior, a la izquierda de los botones,
-sobre el texto del post). Sin rosa: blanco, negro y el rojo del cartel.
+## Lo que se ve (v2: dirección clara, primero PIJAMAS)
+Jerarquía fija en los cuatro, desde el cuadro 0 hasta el cierre:
+1. Arriba, enorme: **PIJAMAS** y debajo la colección (NAVIDEÑAS / ESSENTIALS / SOFT WINTER / PARA REGALAR · RE:SET).
+2. Al centro: la pijama (cada anuncio abre con una pijama que se reconoce como pijama; Soft Winter ya no abre con bolsas sino con el conjunto
+   salvia y los conjuntos gris azulado de las tomas de Soft Winter que ya habías mandado; Regalos abre con ella levantando la pijama roja).
+3. Abajo, una franja: cartel oficial del Buen Fin + **15% OFF EN TODA LA TIENDA** (late cuando ella dice "15%").
+Cierre: PIJAMAS + colección, cartel, 15% OFF EN TODA LA TIENDA, CTA y "Av. Stim 39 · Perisur". Todo en la zona visible de TikTok/Reels/Stories.
 
 ## Voz (real, de sus notas de voz del Buen Fin; los videos de esta tanda no traen voz)
 | Anuncio | Nota | Segundos | Frase |

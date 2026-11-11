@@ -115,6 +115,34 @@ export const Lines: React.FC<{ lines: { from: number; to: number; text: string }
   );
 };
 
+/** THE message: what we sell. Huge "PIJAMAS" at the top from frame 0, collection underneath; stays until the end card. */
+export const Headline: React.FC<{ sub: string; to: number }> = ({ sub, to }) => {
+  const f = useCurrentFrame();
+  const a = interpolate(f, [to - 6, to], [1, 0], clamp);
+  return (
+    <div style={{ position: "absolute", top: 185, left: 60, right: 140, opacity: a, background: "rgba(255,255,255,0.96)", borderRadius: 26, padding: "10px 16px 16px", textAlign: "center", boxShadow: "0 10px 26px rgba(0,0,0,0.22)" }}>
+      <div style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: 150, lineHeight: 1.0, color: INK, letterSpacing: "-0.02em" }}>PIJAMAS</div>
+      <div style={{ fontFamily: "Montserrat", fontWeight: 800, fontSize: 44, letterSpacing: "0.12em", paddingLeft: "0.12em", color: RED, marginTop: 2 }}>{sub}</div>
+    </div>
+  );
+};
+
+/** the offer in one low bar: the Buen Fin card + 15% OFF EN TODA LA TIENDA; pulses when she says "15%" */
+export const OfferBar: React.FC<{ to: number; pulses?: number[] }> = ({ to, pulses = [] }) => {
+  const f = useCurrentFrame();
+  const a = interpolate(f, [to - 6, to], [1, 0], clamp);
+  const p = pulses.reduce((m, at) => (f >= at ? Math.max(m, 0.08 * Math.exp(-(f - at) / 6)) : m), 0);
+  return (
+    <div style={{ position: "absolute", top: 1115, left: 60, right: 140, opacity: a, background: "rgba(255,255,255,0.97)", borderRadius: 24, padding: "12px 16px", display: "flex", alignItems: "center", gap: 14, boxShadow: "0 10px 26px rgba(0,0,0,0.22)", transform: `scale(${1 + p})` }}>
+      <Img src={staticFile("bf15/cartel.png")} style={{ width: 170, transform: "rotate(-4deg)" }} />
+      <div style={{ flex: 1, textAlign: "center" }}>
+        <div style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: 104, lineHeight: 1.0, color: RED, letterSpacing: "-0.03em" }}>15% OFF</div>
+        <div style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: 38, color: INK }}>EN TODA LA TIENDA</div>
+      </div>
+    </div>
+  );
+};
+
 // ---------------------------------------------------------------- the Buen Fin card (official artwork) — pops in, then breathes
 export const Cartel: React.FC<{ from?: number; to: number; top?: number; width?: number }> = ({ from = 0, to, top = 200, width = 360 }) => {
   const f = useCurrentFrame();
@@ -160,7 +188,7 @@ export const Tag: React.FC<{ from: number; to: number; text: string; top?: numbe
 };
 
 /** end card: real product shot, the Buen Fin card, 15% OFF EN TODA LA TIENDA, CTA and stores — all inside the safe zone */
-export const EndCard: React.FC<{ shot: Shot; cta: string; stores?: string }> = ({ shot, cta, stores = "Av. Stim 39 · Perisur" }) => {
+export const EndCard: React.FC<{ shot: Shot; cta: string; stores?: string; sub?: string }> = ({ shot, cta, stores = "Av. Stim 39 · Perisur", sub = "RE:SET" }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
   const s = spring({ frame: f, fps, config: { damping: 10, stiffness: 150 } });
@@ -169,10 +197,14 @@ export const EndCard: React.FC<{ shot: Shot; cta: string; stores?: string }> = (
     <AbsoluteFill>
       <ShotView s={shot} />
       <AbsoluteFill style={{ background: "rgba(0,0,0,0.38)" }} />
-      <div style={{ position: "absolute", top: 260, left: 0, right: 60, display: "flex", justifyContent: "center" }}>
-        <Img src={staticFile("bf15/cartel.png")} style={{ width: 420, transform: `scale(${s}) rotate(-4deg)`, filter: "drop-shadow(0 14px 28px rgba(0,0,0,0.4))" }} />
+      <div style={{ position: "absolute", top: 190, left: 60, right: 140, background: "rgba(255,255,255,0.96)", borderRadius: 26, padding: "10px 16px 16px", textAlign: "center" }}>
+        <div style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: 150, lineHeight: 1.0, color: INK, letterSpacing: "-0.02em" }}>PIJAMAS</div>
+        <div style={{ fontFamily: "Montserrat", fontWeight: 800, fontSize: 44, letterSpacing: "0.12em", paddingLeft: "0.12em", color: RED }}>{sub}</div>
       </div>
-      <div style={{ position: "absolute", top: 780, left: 70, right: 150, background: "rgba(255,255,255,0.97)", borderRadius: 26, padding: "14px 18px 18px", textAlign: "center", opacity: b, transform: `scale(${0.92 + 0.08 * b})` }}>
+      <div style={{ position: "absolute", top: 480, left: 0, right: 80, display: "flex", justifyContent: "center" }}>
+        <Img src={staticFile("bf15/cartel.png")} style={{ width: 280, transform: `scale(${s}) rotate(-4deg)`, filter: "drop-shadow(0 14px 28px rgba(0,0,0,0.4))" }} />
+      </div>
+      <div style={{ position: "absolute", top: 820, left: 60, right: 140, background: "rgba(255,255,255,0.97)", borderRadius: 26, padding: "14px 18px 18px", textAlign: "center", opacity: b, transform: `scale(${0.92 + 0.08 * b})` }}>
         <div style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: 120, lineHeight: 1, color: RED, letterSpacing: "-0.03em" }}>15% OFF</div>
         <div style={{ fontFamily: "Montserrat", fontWeight: 900, fontSize: 46, color: INK }}>EN TODA LA TIENDA</div>
       </div>
@@ -185,7 +217,7 @@ export const EndCard: React.FC<{ shot: Shot; cta: string; stores?: string }> = (
 };
 
 // ---------------------------------------------------------------- the ad
-export type AdConfig = { frames: number; shots: Shot[]; voices: Voice[]; music: string; overlays: React.ReactNode; end: { from: number; shot: Shot; cta: string; stores?: string } };
+export type AdConfig = { frames: number; shots: Shot[]; voices: Voice[]; music: string; overlays: React.ReactNode; end: { from: number; shot: Shot; cta: string; stores?: string; sub?: string } };
 
 export const BuenFinAd: React.FC<{ cfg: AdConfig }> = ({ cfg }) => {
   const ws = editWords(cfg.voices);
@@ -210,7 +242,7 @@ export const BuenFinAd: React.FC<{ cfg: AdConfig }> = ({ cfg }) => {
         </Sequence>
       ))}
       <Sequence from={cfg.end.from} durationInFrames={cfg.frames - cfg.end.from}>
-        <EndCard shot={cfg.end.shot} cta={cfg.end.cta} stores={cfg.end.stores} />
+        <EndCard shot={cfg.end.shot} cta={cfg.end.cta} stores={cfg.end.stores} sub={cfg.end.sub} />
       </Sequence>
       <Sequence durationInFrames={cfg.end.from}>{cfg.overlays}</Sequence>
       <Subtitles voices={cfg.voices} />

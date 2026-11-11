@@ -2,14 +2,14 @@
 // Voice segments are in seconds of her memos (m_<memo>.wav); every edge is a measured silence (see editor/bf15/voz.py and ENTREGA).
 // Footage: this round's clips (bf15/), plus the same uploads already converted for earlier ads (essentials/, navidad/, softwinter26/, teaser/).
 import React from "react";
-import { AdConfig, BuenFinAd, Cartel, Lines, Offer, Tag } from "./engine";
+import { AdConfig, BuenFinAd, Headline, Lines, OfferBar, Tag } from "./engine";
 
 // ---------------------------------------------------------------- AD01 · ¡LLEGÓ EL BUEN FIN! (navidad, para regalar)
 export const AD01: AdConfig = {
   frames: 540,
   voices: [{ memo: "xmas", a: 1.08, b: 12.925, at: 9 }], // ¿Quieres adelantarte a tus regalos de Navidad y aprovechar un súper descuento? Este Buen Fin es el momento. En RE:SET tenemos 15% de descuento en toda la tienda, incluyendo nuestra colección de pijamas navideñas para toda la familia.
   shots: [
-    { from: 0, len: 60, src: "navidad/n2683", at: 1.5, cx: 0.32 }, // she holds the Grinch print
+    { from: 0, len: 60, src: "navidad/n2683", at: 1.5, cx: 0.44 }, // she holds the Grinch print
     { from: 60, len: 60, src: "bf15/b2688", at: 9.6, cx: 0.5 }, // red nordic + Christmas sets on the chair
     { from: 120, len: 60, src: "teaser/s4", at: 20.3 }, // the showroom's Christmas pajamas
     { from: 180, len: 60, src: "navidad/n2683", at: 12.6, cx: 0.5 }, // print close-up
@@ -17,12 +17,12 @@ export const AD01: AdConfig = {
     { from: 290, len: 74, src: "teaser/s4", at: 25.0, rate: 0.9 }, // "…pijamas navideñas para toda la familia."
     { from: 364, len: 56, src: "bf15/b2688", at: 12.5, cx: 0.5 },
   ],
-  end: { from: 420, shot: { from: 0, len: 120, src: "navidad/n2683", at: 2.0, cx: 0.32 }, cta: "Ven por tus pijamas navideñas" },
+  end: { from: 420, shot: { from: 0, len: 120, src: "navidad/n2683", at: 2.0, cx: 0.32 }, cta: "Ven por tus pijamas navideñas", sub: "NAVIDEÑAS · RE:SET" },
   music: "t_ad01",
   overlays: (
     <>
-      <Cartel to={420} />
-      <Offer to={420} pulses={[199]} />
+      <Headline sub="NAVIDEÑAS · RE:SET" to={420} />
+      <OfferBar to={420} pulses={[199]} />
     </>
   ),
 };
@@ -41,15 +41,15 @@ export const AD02: AdConfig = {
     { from: 330, len: 90, src: "essentials/e2675", at: 17.2, cx: 0.35 }, // a blue set
     { from: 420, len: 60, src: "essentials/e2679", at: 1.0, cx: 0.17 }, // she turns to camera, smiling
   ],
-  end: { from: 480, shot: { from: 0, len: 90, src: "essentials/e2675", at: 3.0, cx: 0.33 }, cta: "Ven por tus Essentials" },
+  end: { from: 480, shot: { from: 0, len: 90, src: "essentials/e2675", at: 3.0, cx: 0.33 }, cta: "Ven por tus Essentials", sub: "ESSENTIALS · RE:SET" },
   music: "t_ad02",
   overlays: (
     <>
-      <Cartel to={480} />
-      <Offer to={480} pulses={[330]} />
+      <Headline sub="ESSENTIALS · RE:SET" to={480} />
+      <OfferBar to={480} pulses={[330]} />
       <Lines
         lines={[
-          { from: 0, to: 75, text: "Pijamas Essentials de RE:SET" },
+          { from: 0, to: 75, text: "Así son las Essentials" },
           { from: 75, to: 150, text: "Mira cada detalle" },
           { from: 150, to: 240, text: "Muchos colores para elegir" },
           { from: 240, to: 330, text: "Conjunto completo: top y pantalón" },
@@ -70,21 +70,21 @@ export const AD03: AdConfig = {
     { memo: "sw", a: 38.505, b: 42.87, at: 408 }, // Prepárate para diciembre con la Soft Winter de RE:SET y aprovecha el Buen Fin.
   ],
   shots: [
-    { from: 0, len: 80, src: "bf15/b2700", at: 0.3 }, // the knit bags and pajamas on the table
-    { from: 80, len: 77, src: "softwinter26/w2697", at: 2.0 },
+    { from: 0, len: 80, src: "softwinter26/w2692", at: 8.6 }, // the sage Soft Winter set on its hanger: reads as a pajama at once
+    { from: 80, len: 77, src: "softwinter26/w2691", at: 3.0 }, // more Soft Winter sets
     { from: 157, len: 53, src: "bf15/b2681", at: 9.0, cx: 0.5 }, // "…su práctica bolsita de viaje"
     { from: 210, len: 90, src: "softwinter26/w2698", at: 4.0 }, // she picks one up
     { from: 300, len: 98, src: "bf15/b2700", at: 6.5 }, // "…15% de descuento en la tienda."
     { from: 398, len: 72, src: "bf15/b2681", at: 12.5, cx: 0.5 },
     { from: 470, len: 75, src: "softwinter26/w2698", at: 8.0 },
   ],
-  end: { from: 545, shot: { from: 0, len: 95, src: "softwinter26/w2697", at: 3.5 }, cta: "Ven por tu Soft Winter" },
+  end: { from: 545, shot: { from: 0, len: 95, src: "softwinter26/w2692", at: 9.2 }, cta: "Ven por tu Soft Winter", sub: "SOFT WINTER · RE:SET" },
   music: "t_ad03",
   overlays: (
     <>
-      <Cartel to={545} />
-      <Offer to={545} pulses={[346]} />
-      <Tag from={157} to={300} text="Incluye bolsita de viaje" top={620} />
+      <Headline sub="SOFT WINTER · RE:SET" to={545} />
+      <OfferBar to={545} pulses={[346]} />
+      <Tag from={157} to={300} text="Incluye bolsita de viaje" top={460} />
     </>
   ),
 };
@@ -97,7 +97,7 @@ export const AD04: AdConfig = {
     { memo: "xmas", a: 37.53, b: 43.3, at: 222 }, // Este Buen Fin adelanta tus regalos, combina a toda la familia y aprovecha el 15% OFF en RE:SET.
   ],
   shots: [
-    { from: 0, len: 66, src: "bf15/b2688", at: 10.5, cx: 0.5 }, // "los clásicos tonos rojos": the red nordic set
+    { from: 0, len: 66, src: "navidad/n2686", at: 9.0, cx: 0.46 }, // "los clásicos tonos rojos": she holds up the red reindeer pajama
     { from: 66, len: 60, src: "teaser/s4", at: 27.4 }, // "diseños llenos de color"
     { from: 126, len: 90, src: "navidad/n2683", at: 12.6, cx: 0.5 }, // "detalles cuidados, acabados de calidad"
     { from: 216, len: 66, src: "bf15/b2688", at: 3.0, cx: 0.45 }, // she picks one: "adelanta tus regalos"
@@ -105,12 +105,12 @@ export const AD04: AdConfig = {
     { from: 342, len: 58, src: "navidad/n2683", at: 1.5, cx: 0.32 }, // "…aprovecha el 15% OFF en RE:SET."
     { from: 400, len: 40, src: "bf15/b2688", at: 12.0, cx: 0.5 },
   ],
-  end: { from: 440, shot: { from: 0, len: 90, src: "bf15/b2688", at: 13.0, cx: 0.5 }, cta: "Adelanta tus regalos en RE:SET" },
+  end: { from: 440, shot: { from: 0, len: 90, src: "bf15/b2688", at: 13.0, cx: 0.5 }, cta: "Adelanta tus regalos en RE:SET", sub: "PARA REGALAR · RE:SET" },
   music: "t_ad04",
   overlays: (
     <>
-      <Cartel to={440} />
-      <Offer to={440} pulses={[343]} />
+      <Headline sub="PARA REGALAR · RE:SET" to={440} />
+      <OfferBar to={440} pulses={[343]} />
     </>
   ),
 };
