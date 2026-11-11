@@ -100,6 +100,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="RESET-CHRISTMAS-MEMORIES-01" component={RefFilm} durationInFrames={MEMREF.frames} fps={30} width={1080} height={1920} defaultProps={{ product: "roja" as const, seam: "#5E1C1C" }} />
       <Composition id="RESET-CHRISTMAS-MEMORIES-02" component={RefFilm} durationInFrames={MEMREF.frames} fps={30} width={1080} height={1920} defaultProps={{ product: "verde" as const, seam: "#22402E" }} />
       <Composition id="RESET-CHRISTMAS-MEMORIES-03-GRINCH" component={RefFilm} durationInFrames={MEMREF.frames} fps={30} width={1080} height={1920} defaultProps={{ product: "grinch" as const, seam: "#5E1C1C" }} />
+      <Composition id="RESET-HANUKKAH-MEMORIES" component={RefFilm} durationInFrames={MEMREF.frames} fps={30} width={1080} height={1920} defaultProps={{ product: "hanukkah" as const, seam: "#1F2E57", set: "hanukkah" as const }} />
       <Composition id="RESET-CHRISTMAS-MEMORIES-EDITORIAL-01" component={Memories01} durationInFrames={MEM1.frames} fps={30} width={1080} height={1920} defaultProps={{ product: "roja" as const }} />
       <Composition id="RESET-CHRISTMAS-MEMORIES-EDITORIAL-01-VERDE" component={Memories01} durationInFrames={MEM1.frames} fps={30} width={1080} height={1920} defaultProps={{ product: "verde" as const }} />
       <Composition id="RESET-CHRISTMAS-MEMORIES-EDITORIAL-01-GRINCH" component={Memories01} durationInFrames={MEM1.frames} fps={30} width={1080} height={1920} defaultProps={{ product: "grinch" as const }} />

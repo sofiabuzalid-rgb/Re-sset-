@@ -19,6 +19,13 @@ primer cuadro; la línea de arriba cae en el golpe de 1.65 s y la de abajo en el
 **Licencia:** el audio es de otra cuenta. **No sirve para pauta.** Orgánico: subir `_SIN_AUDIO` y elegir ese audio dentro de
 Instagram ("Usar audio"). Anuncios: otra música con licencia.
 
+## Hanukkah
+`out/RESET_HANUKKAH_MEMORIES.mp4` (+ `_SIN_AUDIO`), composición `RESET-HANUKKAH-MEMORIES`: mismo concepto, misma canción y
+mismos tiempos; la pijama es el top azul marino y blanco a rayas con ositos (foto en gancho, sin recortar: la tarjeta toma la
+proporción de la foto); líneas azul marino; 19 mundos de Hanukkah (menorás, mesa, sufganiyot, regalo, ventana con la familia
+al final). No se usó la foto del libro de rezos abierto (texto sagrado y nombre de la editorial). Las fotos de ambiente
+tampoco tienen licencia confirmada.
+
 ## Versión anterior (editorial con textos y música original) — descartada por el cliente
 Composiciones `RESET-CHRISTMAS-MEMORIES-EDITORIAL-*` (`src/memories/films.tsx`, música `editor/memories/music.py`).
 

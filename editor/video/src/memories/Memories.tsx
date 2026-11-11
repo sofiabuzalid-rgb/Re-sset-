@@ -24,6 +24,7 @@ export const PRODUCTS = {
   roja: { src: "memories/p_roja.jpg", pos: "50% 40%" },
   verde: { src: "memories/p_verde.jpg", pos: "50% 50%" },
   grinch: { src: "memories/p_grinch.jpg", pos: "50% 50%" },
+  hanukkah: { src: "memories/p_hanukkah.jpg", pos: "50% 50%" },
 } as const;
 export type Product = keyof typeof PRODUCTS;
 const PW = 460; // photo

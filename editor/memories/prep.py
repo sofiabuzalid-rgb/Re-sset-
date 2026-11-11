@@ -29,6 +29,18 @@ FILES = {
     "bg_escalera": ("ecf3fa40-image.jpg", (60, 0, 800, 1200)),  # quita el ícono de volumen
     "bg_nina": ("29bf988f-image.jpg", None),
     "bg_calle": ("3a739803-image.jpg", None),
+    # Hanukkah (second upload). Not used: the open prayer book (sacred text, publisher's name on the spine); the star-lights
+    # photo came twice (same file)
+    "p_hanukkah": ("e9e9f5e4-image.jpg", None),  # top azul marino y blanco a rayas con ositos, en gancho
+    "h_ventana": ("f97ae802-image.jpg", None),
+    "h_buffet": ("028e9c9c-image.jpg", None),
+    "h_cena": ("09b272e0-image.jpg", None),
+    "h_postres": ("3fa50e62-image.jpg", None),
+    "h_sala": ("23e72f34-image.jpg", None),
+    "h_mesa": ("acfc6f20-image.jpg", None),
+    "h_regalo": ("f74b143f-image.jpg", None),
+    "h_estrellas": ("89a0a013-image.jpg", None),
+    "h_nino": ("164dc2f4-image.jpg", None),
 }
 
 
