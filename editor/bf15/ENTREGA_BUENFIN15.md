@@ -3,7 +3,7 @@
 | Archivo (`editor/video/out/`) | Composición | Duración | Ángulo |
 |---|---|---|---|
 | `RESET_BUENFIN15_AD01_LLEGO_EL_BUEN_FIN.mp4` | `RESET-BUENFIN15-AD01-LLEGO-EL-BUEN-FIN` | 18.1 s | ¡Llegó el Buen Fin! Pijamas navideñas para toda la familia |
-| `RESET_BUENFIN15_AD02_ESSENTIALS.mp4` | `RESET-BUENFIN15-AD02-ESSENTIALS` | 23.1 s | Producto + precio: la Essential de botones, $999 → $849 |
+| `RESET_BUENFIN15_AD02_ESSENTIALS.mp4` | `RESET-BUENFIN15-AD02-ESSENTIALS` | 19.1 s | Essentials sin voz: textos cortos que dicen lo que se ve + precios |
 | `RESET_BUENFIN15_AD03_SOFT_WINTER.mp4` | `RESET-BUENFIN15-AD03-SOFT-WINTER` | 21.4 s | Soft Winter con su bolsita de viaje |
 | `RESET_BUENFIN15_AD04_REGALOS.mp4` | `RESET-BUENFIN15-AD04-REGALOS` | 17.7 s | Adelanta tus regalos |
 
@@ -20,8 +20,6 @@ sobre el texto del post). Sin rosa: blanco, negro y el rojo del cartel.
 | Anuncio | Nota | Segundos | Frase |
 |---|---|---|---|
 | 01 | The_Fit_Pilates_2_2 | 1.08–12.93 | ¿Quieres adelantarte a tus regalos de Navidad y aprovechar un súper descuento? Este Buen Fin es el momento. En RE:SET tenemos 15% de descuento en toda la tienda, incluyendo nuestra colección de pijamas navideñas para toda la familia. |
-| 02 | The_Face_Method_4 | 0.70–9.51 | Es una belleza esta pijama, es la Essential de botones, tiene su cuello V, manga larga, jareta para que te acomode, el pantalón es abierto. |
-| 02 | Calle_Bosque_de_Pirules_4 | 16.42–26.87 | Y lo mejor, 15% de descuento en toda la tienda. Las de adulto bajan de 999 a 849 y las de niños de 699 a 594. |
 | 03 | The_Fit_Pilates_3_2 | 4.84–9.87 | Te presentamos nuestra Soft Winter, una colección pensada para los días más fríos del año. |
 | 03 | The_Fit_Pilates_3_2 | 23.83–31.57 | Además vienen con su práctica bolsita de viaje para llevarlas contigo a donde vayas. Y aprovecha porque este Buen Fin tenemos 15% de descuento en la tienda. |
 | 03 | The_Fit_Pilates_3_2 | 38.51–42.87 | Prepárate para diciembre con la Soft Winter de RE:SET y aprovecha el Buen Fin. |
@@ -29,6 +27,13 @@ sobre el texto del post). Sin rosa: blanco, negro y el rojo del cartel.
 | 04 | The_Fit_Pilates_2_2 | 37.53–43.30 | Este Buen Fin adelanta tus regalos, combina a toda la familia y aprovecha el 15% OFF en RE:SET. |
 Cortes en silencios medidos (−51 a −81 dB). No se usa: "esta pijama puede ser tuya por solo 999 pesos" (es el precio sin descuento, contradice
 el 15%), el envío gratis (no confirmado) ni "Sí, para todos".
+
+## AD02 · Essentials (rehecho, sin voz)
+Sus notas describen una Essential de botones que no es la que se ve, así que no lleva voz. Textos (uno a la vez, abajo, sobre lo que muestra la toma):
+0–2.5 s ella con el conjunto café: "Pijamas Essentials de RE:SET" · 2.5–5 s detalle del top: "Mira cada detalle" · 5–8 s perchero de
+colores: "Muchos colores para elegir" · 8–11 s el conjunto café: "Conjunto completo: top y pantalón" · 11–14 s conjunto azul:
+"Adulto: $999 → $849 / Niños: $699 → $594" (precios que ella da en la nota de Essentials) · 14–16 s ella voltea: "Encuentra tu favorita" ·
+cierre "Ven por tus Essentials". Cartel y 15% OFF EN TODA LA TIENDA todo el tiempo.
 
 ## Imagen
 Esta tanda: IMG_2681 (bolsas RE:SET sobre la mesa), IMG_2688 (pijamas navideñas en el perchero y sobre la silla), IMG_2700 (bolsitas y pijamas).

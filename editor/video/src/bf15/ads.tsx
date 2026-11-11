@@ -2,7 +2,7 @@
 // Voice segments are in seconds of her memos (m_<memo>.wav); every edge is a measured silence (see editor/bf15/voz.py and ENTREGA).
 // Footage: this round's clips (bf15/), plus the same uploads already converted for earlier ads (essentials/, navidad/, softwinter26/, teaser/).
 import React from "react";
-import { AdConfig, BuenFinAd, Cartel, Offer, Tag } from "./engine";
+import { AdConfig, BuenFinAd, Cartel, Lines, Offer, Tag } from "./engine";
 
 // ---------------------------------------------------------------- AD01 · ¡LLEGÓ EL BUEN FIN! (navidad, para regalar)
 export const AD01: AdConfig = {
@@ -27,30 +27,36 @@ export const AD01: AdConfig = {
   ),
 };
 
-// ---------------------------------------------------------------- AD02 · ESSENTIALS CON 15% (producto + precio)
+// ---------------------------------------------------------------- AD02 · ESSENTIALS CON 15% (sin voz)
+// Her memos describe a button-front Essential that isn't the one on screen, so this ad has no voice: short lines tell the story and each
+// one says only what the shot shows. Prices are the ones she gives in the Essentials memo (Calle_Bosque_de_Pirules_4).
 export const AD02: AdConfig = {
-  frames: 690,
-  voices: [
-    { memo: "face", a: 0.7, b: 9.51, at: 6 }, // Es una belleza esta pijama, es la Essential de botones, tiene su cuello V, manga larga, jareta para que te acomode, el pantalón es abierto.
-    { memo: "ess", a: 16.415, b: 26.865, at: 282 }, // Y lo mejor, 15% de descuento en toda la tienda. Las de adulto bajan de 999 a 849 y las de niños de 699 a 594.
-  ],
+  frames: 570,
+  voices: [],
   shots: [
-    { from: 0, len: 75, src: "essentials/e2676", at: 0.3, cx: 0.3 }, // she holds the set up to camera
-    { from: 75, len: 60, src: "essentials/e2677", at: 0.5, cx: 0.4 }, // the top, close
-    { from: 135, len: 60, src: "essentials/e2675", at: 7.0, cx: 0.33 }, // long sleeve
-    { from: 195, len: 75, src: "essentials/e2676", at: 2.6, cx: 0.3 }, // the full set: top + pants
-    { from: 270, len: 112, src: "essentials/e2675", at: 9.0, cx: 0.72 }, // "…15% en toda la tienda": the rack of colours
-    { from: 382, len: 132, src: "essentials/e2675", at: 17.2, cx: 0.35 }, // adult set
-    { from: 514, len: 86, src: "essentials/e2677", at: 3.0, cx: 0.42 }, // big top + small top (kids)
+    { from: 0, len: 75, src: "essentials/e2676", at: 0.3, cx: 0.3 }, // she holds the brown set up to camera
+    { from: 75, len: 75, src: "essentials/e2677", at: 0.5, cx: 0.4 }, // the top, close
+    { from: 150, len: 90, src: "essentials/e2675", at: 9.0, cx: 0.72 }, // the rack: pink, sage, blue, beige, brown
+    { from: 240, len: 90, src: "essentials/e2676", at: 2.6, cx: 0.3 }, // the brown set: top and pants
+    { from: 330, len: 90, src: "essentials/e2675", at: 17.2, cx: 0.35 }, // a blue set
+    { from: 420, len: 60, src: "essentials/e2679", at: 1.0, cx: 0.17 }, // she turns to camera, smiling
   ],
-  end: { from: 600, shot: { from: 0, len: 90, src: "essentials/e2679", at: 1.0, cx: 0.17 }, cta: "Ven por tu Essentials" },
+  end: { from: 480, shot: { from: 0, len: 90, src: "essentials/e2675", at: 3.0, cx: 0.33 }, cta: "Ven por tus Essentials" },
   music: "t_ad02",
   overlays: (
     <>
-      <Cartel to={600} />
-      <Offer to={600} pulses={[310]} />
-      <Tag from={382} to={514} text="Adulto: $999 → $849" top={620} />
-      <Tag from={514} to={600} text="Niños: $699 → $594" top={620} />
+      <Cartel to={480} />
+      <Offer to={480} pulses={[330]} />
+      <Lines
+        lines={[
+          { from: 0, to: 75, text: "Pijamas Essentials de RE:SET" },
+          { from: 75, to: 150, text: "Mira cada detalle" },
+          { from: 150, to: 240, text: "Muchos colores para elegir" },
+          { from: 240, to: 330, text: "Conjunto completo: top y pantalón" },
+          { from: 330, to: 420, text: "Adulto: $999 → $849\nNiños: $699 → $594" },
+          { from: 420, to: 480, text: "Encuentra tu favorita" },
+        ]}
+      />
     </>
   ),
 };

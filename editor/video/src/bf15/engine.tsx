@@ -99,6 +99,22 @@ export const Subtitles: React.FC<{ voices: Voice[]; bottom?: number }> = ({ voic
   );
 };
 
+/** text-led ads (no voice): one short line at a time, same place and look as subtitles, describing only what is on screen */
+export const Lines: React.FC<{ lines: { from: number; to: number; text: string }[]; bottom?: number }> = ({ lines, bottom = 830 }) => {
+  const f = useCurrentFrame();
+  const l = lines.find((x) => f >= x.from && f < x.to);
+  if (!l) return null;
+  const a = interpolate(f, [l.from, l.from + 5, l.to - 4, l.to], [l.from === 0 ? 1 : 0, 1, 1, 0], clamp);
+  const y = l.from === 0 ? 0 : interpolate(f, [l.from, l.from + 8], [14, 0], { ...clamp, easing: ease });
+  return (
+    <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: bottom }}>
+      <div style={{ maxWidth: 860, marginRight: 60, textAlign: "center", opacity: a, transform: `translateY(${y}px)`, background: "rgba(0,0,0,0.62)", borderRadius: 18, padding: "12px 28px 16px", fontFamily: "Montserrat", fontWeight: 800, fontSize: 60, lineHeight: 1.15, color: "#FFFFFF", whiteSpace: "pre-line" }}>
+        {l.text}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 // ---------------------------------------------------------------- the Buen Fin card (official artwork) — pops in, then breathes
 export const Cartel: React.FC<{ from?: number; to: number; top?: number; width?: number }> = ({ from = 0, to, top = 200, width = 360 }) => {
   const f = useCurrentFrame();
