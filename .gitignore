@@ -52,3 +52,6 @@ editor/video/public/outlet25/
 
 # Venta sorpresa (2 ads): converted clips + generated voice/music (rebuild with editor/sorpresa/*.py)
 editor/video/public/sorpresa/
+
+# Buen Fin 15% (4 ads): converted clips + generated voice/music (rebuild with editor/bf15/*.py)
+editor/video/public/bf15/
