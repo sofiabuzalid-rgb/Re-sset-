@@ -1,5 +1,26 @@
 # RE:SET · THE MEMORIES WE WEAR — entrega
 
+## Versión vigente: mismo concepto que el reel de referencia, sin texto, con su audio
+| Archivo | Composición | Pijama |
+|---|---|---|
+| `out/RESET_CHRISTMAS_MEMORIES_01.mp4` (+ `_SIN_AUDIO`) | `RESET-CHRISTMAS-MEMORIES-01` | roja y blanca, líneas vino |
+| `out/RESET_CHRISTMAS_MEMORIES_02.mp4` (+ `_SIN_AUDIO`) | `RESET-CHRISTMAS-MEMORIES-02` | verde, líneas verde pino |
+Variante lista: `RESET-CHRISTMAS-MEMORIES-03-GRINCH`. Código: `src/memories/RefFilm.tsx`.
+
+Tiempos copiados de la referencia (medidos en su imagen y su audio): 0–5.0 s pared crema, la pijama fija, dos líneas verticales
+desde el primer cuadro, la línea de arriba baja (1.5→2.8 s) y la de abajo sube (3.5→4.7 s); a los 5.0 s entra el golpe de la
+canción y el fondo cambia en 16 cortes (cuadros 151→251, ~7 cuadros cada uno), primero detalles y luego cuartos completos; el
+último se queda hasta el final (9.3 s). Sin texto ni logo.
+
+**Audio:** es el audio original del reel de referencia (de otra cuenta), tomado de la grabación de pantalla hasta 8.42 s,
+donde la grabación lo corta, con una cola natural de 0.9 s. **No tiene licencia para pauta.** Para publicar orgánico: subir
+`_SIN_AUDIO` y elegir ese audio dentro de Instagram ("Usar audio"). Para anuncios hace falta otra música con licencia.
+
+## Versión anterior (editorial con textos y música original) — descartada por el cliente
+Composiciones `RESET-CHRISTMAS-MEMORIES-EDITORIAL-*` (`src/memories/films.tsx`, música `editor/memories/music.py`).
+
+### Detalle de la versión editorial
+
 | Archivo | Composición | Duración | Pijama |
 |---|---|---|---|
 | `out/RESET_CHRISTMAS_MEMORIES_01.mp4` | `RESET-CHRISTMAS-MEMORIES-01` | 18.7 s | roja y blanca |
