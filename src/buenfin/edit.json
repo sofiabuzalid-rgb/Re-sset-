@@ -173,117 +173,225 @@
  "hook": {
   "from": 0,
   "to": 118,
-  "kicker": "¿TODAVÍA SIN PIJAMA DE TEMPORADA?",
-  "big": "15% OFF",
-  "sub": "EN PIJAMAS · BUEN FIN"
- },
- "tag": {
-  "from": 128,
-  "to": 232,
-  "text": "15% OFF EN TODA LA TIENDA"
+  "l1": "¿Pijamas con",
+  "l2": "15% OFF?",
+  "l3": "por el Buen Fin"
  },
  "subs": [
   {
    "from": 2,
+   "to": 28,
+   "text": "15% de",
+   "style": "n"
+  },
+  {
+   "from": 28,
    "to": 69,
-   "text": "[15%] DE DESCUENTO"
+   "text": "descuento",
+   "style": "n"
   },
   {
    "from": 69,
+   "to": 93,
+   "text": "en este",
+   "style": "n"
+  },
+  {
+   "from": 93,
    "to": 123,
-   "text": "EN ESTE [BUEN FIN],"
+   "text": "Buen Fin,",
+   "style": "s"
   },
   {
    "from": 126,
+   "to": 166,
+   "text": "TODAS LAS COLECCIONES",
+   "style": "b"
+  },
+  {
+   "from": 166,
    "to": 181,
-   "text": "[TODAS] LAS COLECCIONES ENTRAN"
+   "text": "entran",
+   "style": "n"
   },
   {
    "from": 181,
+   "to": 193,
+   "text": "en esta",
+   "style": "n"
+  },
+  {
+   "from": 193,
+   "to": 212,
+   "text": "súper promo",
+   "style": "s"
+  },
+  {
+   "from": 212,
    "to": 232,
-   "text": "EN ESTA [SÚPER PROMO] DEL BUEN FIN."
+   "text": "del Buen Fin.",
+   "style": "n"
   },
   {
    "from": 238,
+   "to": 260,
+   "text": "tenemos todas",
+   "style": "n"
+  },
+  {
+   "from": 260,
+   "to": 270,
+   "text": "las",
+   "style": "n"
+  },
+  {
+   "from": 270,
+   "to": 288,
+   "text": "SOFT WINTER",
+   "style": "b"
+  },
+  {
+   "from": 288,
    "to": 301,
-   "text": "TENEMOS TODAS LAS [SOFT WINTER] NUEVAS"
+   "text": "nuevas",
+   "style": "n"
   },
   {
    "from": 301,
+   "to": 321,
+   "text": "de Herringbone,",
+   "style": "n"
+  },
+  {
+   "from": 321,
+   "to": 331,
+   "text": "que son",
+   "style": "n"
+  },
+  {
+   "from": 331,
    "to": 348,
-   "text": "DE HERRINGBONE, QUE SON UNA [BELLEZA]."
+   "text": "una belleza.",
+   "style": "s"
   },
   {
    "from": 350,
+   "to": 368,
+   "text": "la de",
+   "style": "n"
+  },
+  {
+   "from": 368,
    "to": 388,
-   "text": "LA DE [RENO],"
+   "text": "RENO,",
+   "style": "b"
   },
   {
    "from": 394,
+   "to": 407,
+   "text": "la de",
+   "style": "n"
+  },
+  {
+   "from": 407,
    "to": 430,
-   "text": "LA DE [HANUKKAH],"
+   "text": "HANUKKAH,",
+   "style": "b"
   },
   {
    "from": 458,
+   "to": 475,
+   "text": "toda la de",
+   "style": "n"
+  },
+  {
+   "from": 475,
+   "to": 486,
+   "text": "ELFIE",
+   "style": "b"
+  },
+  {
+   "from": 486,
    "to": 503,
-   "text": "TODA LA DE [ELFIE] TAMBIÉN,"
+   "text": "también,",
+   "style": "n"
   },
   {
    "from": 503,
    "to": 530,
-   "text": "ESTÁ [INCREÍBLE]."
+   "text": "está increíble.",
+   "style": "s"
   },
   {
    "from": 532,
+   "to": 557,
+   "text": "si no has comprado",
+   "style": "n"
+  },
+  {
+   "from": 557,
    "to": 574,
-   "text": "SI NO HAS COMPRADO TUS [PIJAMAS]"
+   "text": "tus pijamas",
+   "style": "n"
   },
   {
    "from": 574,
+   "to": 592,
+   "text": "para esta",
+   "style": "n"
+  },
+  {
+   "from": 592,
    "to": 609,
-   "text": "PARA ESTA [NAVIDAD],"
+   "text": "NAVIDAD,",
+   "style": "r"
   },
   {
    "from": 616,
+   "to": 634,
+   "text": "no la dejes",
+   "style": "n"
+  },
+  {
+   "from": 634,
    "to": 657,
-   "text": "NO LA DEJES PARA EL [FINAL]."
+   "text": "para el final.",
+   "style": "s"
   },
   {
    "from": 660,
+   "to": 680,
+   "text": "no te quedes",
+   "style": "n"
+  },
+  {
+   "from": 680,
    "to": 700,
-   "text": "NO TE QUEDES [SIN LA TUYA],"
+   "text": "sin la tuya,",
+   "style": "s"
   },
   {
    "from": 700,
+   "to": 714,
+   "text": "¿qué estás",
+   "style": "n"
+  },
+  {
+   "from": 714,
+   "to": 727,
+   "text": "esperando",
+   "style": "n"
+  },
+  {
+   "from": 727,
    "to": 742,
-   "text": "¿QUÉ ESTÁS ESPERANDO PARA [VENIR]?"
+   "text": "para venir?",
+   "style": "n"
   }
  ],
  "cta": {
-  "title": "BUEN FIN RE:SET",
-  "offer": "15% OFF EN TODA LA TIENDA",
-  "line": "DESCUBRE TU FAVORITA"
- },
- "labels": [
-  {
-   "from": 238,
-   "to": 348,
-   "text": "SOFT WINTER"
-  },
-  {
-   "from": 350,
-   "to": 392,
-   "text": "RENO"
-  },
-  {
-   "from": 394,
-   "to": 456,
-   "text": "HANUKKAH"
-  },
-  {
-   "from": 458,
-   "to": 530,
-   "text": "ELFIE"
-  }
- ]
+  "big": "15% OFF",
+  "serif": "en toda la tienda",
+  "small": "BUEN FIN RE:SET · DESCUBRE TU FAVORITA"
+ }
 }

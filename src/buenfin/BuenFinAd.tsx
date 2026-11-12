@@ -15,17 +15,18 @@ import edit from "./edit.json";
 
 /*
  * RE:SET BUEN FIN 2026 · 15% OFF · AD01 promo directa.
- * Ilana's real takes only: shots, her voice, verbatim subtitles and the ad copy live in src/buenfin/edit.json;
- * media from scripts/build-buenfin-media.py. Palette: white, cream, soft black; the garments are the colour.
+ * Ilana's real takes only; shots, voice, word-timed captions and ad copy live in src/buenfin/edit.json.
+ * Type language (from the reference reels): no boxes, ultra-tight heavy sans in 1–3-word beats, key words jump to
+ * giant stacked caps on the wall, emotional words in italic serif, red only on the offer.
  */
 
-loadFont({
-  family: "Montserrat",
-  url: staticFile("fonts/Montserrat-Variable.woff2"),
-  weight: "100 900",
-});
+loadFont({ family: "Montserrat", url: staticFile("fonts/Montserrat-Variable.woff2"), weight: "100 900" });
+loadFont({ family: "Playfair Display", url: staticFile("fonts/PlayfairDisplay-Italic-Variable.woff2"), weight: "400 900", style: "italic" });
 // Gotham is the brand face; Montserrat stands in until the Gotham files are supplied.
 const SANS = "Gotham, Montserrat, Helvetica, Arial, sans-serif";
+const SERIF = "'Playfair Display', Georgia, serif";
+const INK = "#1C1A19";
+const RED = "#D7261E";
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
 type Shot = (typeof edit.shots)[number] & { from: number };
@@ -39,6 +40,12 @@ const shots: Shot[] = [];
 }
 export const BUENFIN_TOTAL = shots[shots.length - 1].from + shots[shots.length - 1].frames;
 const ctaShot = shots[shots.length - 1];
+
+/** Quick settle-in: 4 frames, slight scale, no bounce. */
+const settle = (f: number, a = 0) => {
+  const t = Easing.out(Easing.cubic)(Math.min(1, Math.max(0, (f - a) / 4)));
+  return { opacity: t, transform: `scale(${0.92 + 0.08 * t})` };
+};
 
 const ShotView: React.FC<{ s: Shot }> = ({ s }) => {
   const f = useCurrentFrame();
@@ -55,141 +62,80 @@ const ShotView: React.FC<{ s: Shot }> = ({ s }) => {
   );
 };
 
-const RED = "#E1251B";
-// heavy outline so white caps read on any background
-const STROKE = "0 0 2px #000, 0 3px 0 #000, 0 -2px 0 #000, 3px 0 0 #000, -3px 0 0 #000, 0 6px 18px rgba(0,0,0,0.55)";
-const pop = (f: number, a = 0) => {
-  const t = Math.min(1, Math.max(0, (f - a) / 5));
-  return 0.82 + 0.18 * Easing.out(Easing.back(2.2))(t);
-};
+const tight = (size: number, color: string, extra: React.CSSProperties = {}): React.CSSProperties => ({
+  fontFamily: SANS,
+  fontWeight: 900,
+  fontSize: size,
+  letterSpacing: "-0.06em",
+  lineHeight: 0.88,
+  color,
+  textAlign: "center",
+  ...extra,
+});
 
-/** Hook: a question that stops the scroll, then a giant red 15% OFF stamp; readable from frame 0. */
+/** Hook: the question as giant type on the white wall, offer in red, Buen Fin in serif. */
 const Hook: React.FC<{ dur: number }> = ({ dur }) => {
   const f = useCurrentFrame();
   const h = edit.hook;
   const out = interpolate(f, [dur - 5, dur], [1, 0], clamp);
   return (
-    <div style={{ position: "absolute", left: 0, right: 0, top: 190, display: "flex", flexDirection: "column", alignItems: "center", opacity: out }}>
-      <div style={{ background: "#fff", color: "#000", padding: "12px 26px 14px", fontFamily: SANS, fontWeight: 900, fontSize: 46, letterSpacing: "-0.01em", textAlign: "center", maxWidth: 940, lineHeight: 1.05, transform: `rotate(-2deg) scale(${pop(f, 0)})` }}>
-        {h.kicker}
-      </div>
-      <div style={{ marginTop: 18, background: RED, color: "#fff", padding: "6px 38px 14px", fontFamily: SANS, fontWeight: 900, fontSize: 168, letterSpacing: "-0.03em", lineHeight: 1, transform: `rotate(2deg) scale(${pop(f, 6)})`, boxShadow: "0 14px 40px rgba(0,0,0,0.35)" }}>
-        {h.big}
-      </div>
-      <div style={{ marginTop: 18, background: "#000", color: "#fff", padding: "10px 24px 12px", fontFamily: SANS, fontWeight: 900, fontSize: 44, letterSpacing: "0.08em", transform: `rotate(-1deg) scale(${pop(f, 12)})`, opacity: f >= 12 ? 1 : 0 }}>
-        {h.sub}
-      </div>
+    <div style={{ position: "absolute", left: 40, right: 40, top: 210, display: "flex", flexDirection: "column", alignItems: "center", opacity: out }}>
+      <div style={{ ...tight(104, INK), ...settle(f, 0) }}>{h.l1}</div>
+      <div style={{ ...tight(196, RED, { marginTop: 6 }), ...settle(f, 4) }}>{h.l2}</div>
+      <div style={{ fontFamily: SERIF, fontStyle: "italic", fontWeight: 500, fontSize: 76, color: INK, marginTop: 4, letterSpacing: "-0.01em", ...settle(f, 10) }}>{h.l3}</div>
     </div>
   );
 };
 
-/** Offer banner while she says every collection is in. */
-const Tag: React.FC<{ dur: number }> = ({ dur }) => {
+/** One caption beat. n = small lowercase, s = italic serif, b/r = giant stacked caps high on the wall. */
+const Beat: React.FC<{ text: string; style: string }> = ({ text, style }) => {
   const f = useCurrentFrame();
-  const out = interpolate(f, [dur - 5, dur], [1, 0], clamp);
-  return (
-    <div style={{ position: "absolute", left: 0, right: 0, top: 230, display: "flex", justifyContent: "center", opacity: out }}>
-      <div style={{ background: RED, color: "#fff", padding: "14px 30px 16px", fontFamily: SANS, fontWeight: 900, fontSize: 54, letterSpacing: "-0.01em", transform: `rotate(-2deg) scale(${pop(f)})`, boxShadow: "0 12px 30px rgba(0,0,0,0.3)" }}>
-        {edit.tag.text}
+  if (style === "b" || style === "r") {
+    const words = text.replace(/[.,]$/, "").split(" ");
+    const longest = Math.max(...words.map((w) => w.length));
+    const size = Math.min(200, Math.floor(1350 / Math.max(5, longest)));
+    return (
+      <div style={{ position: "absolute", left: 30, right: 30, top: 230, display: "flex", flexDirection: "column", alignItems: "center", ...settle(f) }}>
+        {words.map((w, i) => (
+          <div key={i} style={tight(size, style === "r" ? RED : INK)}>
+            {w}
+          </div>
+        ))}
       </div>
-    </div>
-  );
-};
-
-/** Collection name, big and red, on the garment she is showing. */
-const Label: React.FC<{ text: string; dur: number }> = ({ text, dur }) => {
-  const f = useCurrentFrame();
-  const out = interpolate(f, [dur - 4, dur], [1, 0], clamp);
+    );
+  }
+  if (style === "low")
+    return (
+      <div style={{ position: "absolute", left: 60, right: 60, top: 1250, display: "flex", justifyContent: "center", ...settle(f) }}>
+        <div style={tight(92, "#FFFDF8", { lineHeight: 1, textShadow: "0 3px 14px rgba(0,0,0,0.55), 0 0 3px rgba(0,0,0,0.5)" })}>{text}</div>
+      </div>
+    );
+  const serif = style === "s";
   return (
-    <div style={{ position: "absolute", left: 0, right: 0, top: 300, display: "flex", justifyContent: "center", opacity: out }}>
-      <div style={{ color: "#fff", background: RED, padding: "8px 30px 12px", fontFamily: SANS, fontWeight: 900, fontSize: 96, letterSpacing: "-0.02em", lineHeight: 1, transform: `rotate(-3deg) scale(${pop(f)})`, boxShadow: "0 12px 30px rgba(0,0,0,0.3)" }}>
+    <div style={{ position: "absolute", left: 60, right: 60, top: 300, display: "flex", justifyContent: "center", ...settle(f) }}>
+      <div
+        style={
+          serif
+            ? { fontFamily: SERIF, fontStyle: "italic", fontWeight: 600, fontSize: 112, lineHeight: 1, color: INK, textAlign: "center", letterSpacing: "-0.02em" }
+            : tight(104, INK, { lineHeight: 0.95 })
+        }
+      >
         {text}
       </div>
     </div>
   );
 };
 
-/** Verbatim captions, 2-4 words at a time, all caps; [words] = her key words in red. */
-type Word = { w: string; red: boolean };
-const words = (text: string): Word[] => {
-  // a [red phrase] stays one token; punctuation sticks to the word before it
-  const out: Word[] = [];
-  text.split(/(\[[^\]]+\])/).forEach((part) => {
-    if (part.startsWith("[")) out.push({ w: part.slice(1, -1), red: true });
-    else
-      part.split(" ").filter(Boolean).forEach((w) => {
-        if (/^[.,?!]+$/.test(w) && out.length) out[out.length - 1].w += w;
-        else out.push({ w, red: false });
-      });
-  });
-  return out;
-};
-const chunks = (ws: Word[]) => {
-  const out: Word[][] = [];
-  let cur: Word[] = [];
-  for (const w of ws) {
-    const len = cur.reduce((n, x) => n + x.w.length + 1, 0) + w.w.length;
-    if (cur.length && (cur.length >= 3 || len > 20)) {
-      out.push(cur);
-      cur = [];
-    }
-    cur.push(w);
-  }
-  if (cur.length) out.push(cur);
-  return out;
-};
-
-const Sub: React.FC<{ text: string; dur: number; top: number }> = ({ text, dur, top }) => {
-  const f = useCurrentFrame();
-  const cs = chunks(words(text));
-  const lens = cs.map((c) => c.reduce((n, x) => n + x.w.length + 2, 0));
-  const tot = lens.reduce((a, b) => a + b, 0);
-  let acc = 0;
-  const starts = lens.map((l) => {
-    const s0 = Math.round((acc / tot) * dur);
-    acc += l;
-    return s0;
-  });
-  let i = starts.length - 1;
-  while (i > 0 && f < starts[i]) i--;
-  const c: Word[] = [];
-  for (const w of cs[i]) {
-    const last = c[c.length - 1];
-    if (last && last.red && w.red) last.w += " " + w.w;
-    else c.push({ ...w });
-  }
-  return (
-    <div style={{ position: "absolute", left: 60, right: 60, top, display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "0 18px", transform: `scale(${pop(f, starts[i])})` }}>
-      {c.map((w, k) =>
-        w.red ? (
-          <span key={k} style={{ fontFamily: SANS, fontWeight: 900, fontSize: 84, lineHeight: 1.15, color: "#fff", background: RED, padding: "0 14px 4px", transform: "rotate(-2deg)", display: "inline-block" }}>
-            {w.w}
-          </span>
-        ) : (
-          <span key={k} style={{ fontFamily: SANS, fontWeight: 900, fontSize: 84, lineHeight: 1.15, color: "#fff", textShadow: STROKE, display: "inline-block" }}>
-            {w.w}
-          </span>
-        ),
-      )}
-    </div>
-  );
-};
-
-/** CTA: logo on white, big red offer stamp, black call to action — pajamas still visible below. */
+/** CTA in the same language: logo, giant red offer, serif line, small tracked caps — rack stays visible. */
 const Cta: React.FC = () => {
   const f = useCurrentFrame();
+  const c = edit.cta;
   return (
-    <div style={{ position: "absolute", left: 0, right: 0, top: 200, display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <div style={{ background: "#fff", padding: "20px 40px 18px", transform: `scale(${pop(f, 2)})`, display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <Img src={staticFile("brand/reset-logo-black.png")} style={{ width: 280 }} />
-        <div style={{ marginTop: 10, fontFamily: SANS, fontWeight: 900, fontSize: 34, letterSpacing: "0.22em", color: "#000" }}>{edit.cta.title}</div>
-      </div>
-      <div style={{ marginTop: 16, background: RED, color: "#fff", padding: "10px 30px 14px", fontFamily: SANS, fontWeight: 900, fontSize: 64, lineHeight: 1.02, textAlign: "center", maxWidth: 900, transform: `rotate(-2deg) scale(${pop(f, 8)})`, opacity: f >= 8 ? 1 : 0, boxShadow: "0 12px 30px rgba(0,0,0,0.3)" }}>
-        {edit.cta.offer}
-      </div>
-      <div style={{ marginTop: 16, background: "#000", color: "#fff", padding: "10px 26px 12px", fontFamily: SANS, fontWeight: 900, fontSize: 44, letterSpacing: "0.06em", transform: `rotate(1deg) scale(${pop(f, 14)})`, opacity: f >= 14 ? 1 : 0 }}>
-        {edit.cta.line}
-      </div>
+    <div style={{ position: "absolute", left: 40, right: 40, top: 150, display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <Img src={staticFile("brand/reset-logo-black.png")} style={{ width: 300, ...settle(f, 2) }} />
+      <div style={{ ...tight(210, RED, { marginTop: 18 }), ...settle(f, 8) }}>{c.big}</div>
+      <div style={{ fontFamily: SERIF, fontStyle: "italic", fontWeight: 500, fontSize: 78, color: INK, marginTop: 2, ...settle(f, 14) }}>{c.serif}</div>
+      <div style={{ fontFamily: SANS, fontWeight: 800, fontSize: 28, letterSpacing: "0.2em", color: INK, marginTop: 18, ...settle(f, 20) }}>{c.small}</div>
     </div>
   );
 };
@@ -204,17 +150,9 @@ export const BuenFinAd: React.FC = () => (
     <Sequence from={edit.hook.from} durationInFrames={edit.hook.to - edit.hook.from}>
       <Hook dur={edit.hook.to - edit.hook.from} />
     </Sequence>
-    <Sequence from={edit.tag.from} durationInFrames={edit.tag.to - edit.tag.from}>
-      <Tag dur={edit.tag.to - edit.tag.from} />
-    </Sequence>
-    {edit.labels.map((l) => (
-      <Sequence key={l.text} from={l.from} durationInFrames={l.to - l.from}>
-        <Label text={l.text} dur={l.to - l.from} />
-      </Sequence>
-    ))}
     {edit.subs.map((s) => (
       <Sequence key={s.from} from={s.from} durationInFrames={s.to - s.from}>
-        <Sub text={s.text} dur={s.to - s.from} top={1230} />
+        <Beat text={s.text} style={s.from >= ctaShot.from || s.from < edit.hook.to ? "low" : s.style} />
       </Sequence>
     ))}
     <Sequence from={ctaShot.from}>
