@@ -13,6 +13,7 @@
     "build:smiley1": "remotion render SmileyOutletAd01 out/RESET_SMILEY_OUTLET_AD01.mp4",
     "build:smiley2": "remotion render SmileyOutletAd02 out/RESET_SMILEY_OUTLET_AD02.mp4",
     "build:buenfin1": "remotion render BuenFin15Ad01 out/RESET_BUENFIN_15_AD01_PROMO_DIRECTA.mp4",
+    "build:blush": "remotion render BuenFin15SoftWinterBlush out/RESET_BUENFIN_15_SOFTWINTER_BLUSH.mp4",
     "still": "remotion still ChristmasReel out/poster.png --frame=60",
     "audio": "python3 scripts/generate-audio.py",
     "typecheck": "tsc --noEmit"

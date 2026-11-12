@@ -1,0 +1,213 @@
+{
+ "fps": 30,
+ "bpm": 100,
+ "seed": 4424,
+ "out": "RESET_BUENFIN_15_SOFTWINTER_BLUSH",
+ "note": "BUEN FIN 15% · Soft Winter Blush Women (resetwear.com.mx: tela COMFY, cuello redondo, con bolsillos). Ilana's IMG_4424 take, uncut and lip-synced; PiP close-ups from IMG_4426 / IMG_4425 (muted). Grade: darker, more contrast than the earlier lifted look.",
+ "model": "SOFT WINTER BLUSH",
+ "shots": [
+  {
+   "id": "main",
+   "src": "IMG_4424",
+   "in": 0.1,
+   "frames": 465,
+   "crop": [
+    600,
+    1067,
+    "340+min(t\\,14)*10",
+    635
+   ],
+   "zoom": [
+    1.0,
+    1.035
+   ],
+   "focus": [
+    0.5,
+    0.38
+   ]
+  }
+ ],
+ "freeze": {
+  "id": "freeze",
+  "src": "IMG_4424",
+  "at": 15.6,
+  "frames": 138,
+  "zoom": [
+   1.0,
+   1.05
+  ],
+  "focus": [
+   0.5,
+   0.38
+  ],
+  "crop": [
+   600,
+   1067,
+   480,
+   635
+  ]
+ },
+ "voice": [
+  {
+   "src": "IMG_4424",
+   "in": 0.1,
+   "out": 15.6,
+   "at": 0
+  }
+ ],
+ "hook": {
+  "from": 0,
+  "to": 72,
+  "l1": "PIJAMAS",
+  "l2": "15% OFF",
+  "l3": "BUEN FIN RE:SET"
+ },
+ "modelCard": {
+  "from": 76,
+  "to": 240,
+  "kicker": "MODELO"
+ },
+ "reinforce": {
+  "from": 362,
+  "to": 462,
+  "l2": "15% OFF",
+  "l3": "Buen Fin RE:SET"
+ },
+ "cta": {
+  "l1": "15% OFF en toda la tienda",
+  "l2": "Buen Fin RE:SET",
+  "button": "Consigue la tuya ahora"
+ },
+ "pips": [
+  {
+   "id": "p1",
+   "src": "IMG_4426",
+   "in": 0.85,
+   "from": 112,
+   "to": 178,
+   "label": "TELA COMFY",
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "p2",
+   "src": "IMG_4425",
+   "in": 0.9,
+   "from": 243,
+   "to": 313,
+   "label": "ASÍ SE SIENTE",
+   "focus": [
+    0.5,
+    0.45
+   ]
+  },
+  {
+   "id": "p3",
+   "src": "IMG_4425",
+   "in": 10.05,
+   "from": 313,
+   "to": 363,
+   "label": "PUÑOS",
+   "focus": [
+    0.5,
+    0.55
+   ]
+  },
+  {
+   "id": "p4",
+   "src": "IMG_4425",
+   "in": 12.0,
+   "from": 411,
+   "to": 459,
+   "label": "CON JARETA",
+   "focus": [
+    0.5,
+    0.72
+   ]
+  }
+ ],
+ "subs": [
+  {
+   "from": 2,
+   "to": 20,
+   "text": "Pijamas"
+  },
+  {
+   "from": 20,
+   "to": 38,
+   "text": "SOFT WINTER"
+  },
+  {
+   "from": 38,
+   "to": 69,
+   "text": "son para usar"
+  },
+  {
+   "from": 74,
+   "to": 112,
+   "text": "toda la temporada de FRÍO,"
+  },
+  {
+   "from": 114,
+   "to": 146,
+   "text": "son CALIENTITAS"
+  },
+  {
+   "from": 146,
+   "to": 174,
+   "text": "y no te las vas a"
+  },
+  {
+   "from": 174,
+   "to": 200,
+   "text": "querer quitar NUNCA."
+  },
+  {
+   "from": 204,
+   "to": 239,
+   "text": "No les puedo explicar"
+  },
+  {
+   "from": 245,
+   "to": 270,
+   "text": "la DELICIA"
+  },
+  {
+   "from": 270,
+   "to": 290,
+   "text": "que es estar en una"
+  },
+  {
+   "from": 290,
+   "to": 311,
+   "text": "de estas pijamas."
+  },
+  {
+   "from": 315,
+   "to": 342,
+   "text": "No vas a pasar"
+  },
+  {
+   "from": 342,
+   "to": 363,
+   "text": "nada de FRÍO"
+  },
+  {
+   "from": 363,
+   "to": 402,
+   "text": "y vas a vivir una"
+  },
+  {
+   "from": 413,
+   "to": 433,
+   "text": "temporada"
+  },
+  {
+   "from": 433,
+   "to": 460,
+   "text": "SÚPER CÓMODA."
+  }
+ ]
+}
