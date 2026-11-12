@@ -16,6 +16,7 @@
     "build:football1": "remotion render FootballOutletAd01 out/RESET_FOOTBALL_OUTLET_AD01.mp4",
     "build:football2": "remotion render FootballOutletAd02 out/RESET_FOOTBALL_OUTLET_AD02.mp4",
     "build:buenfin15-2": "remotion render BuenFin15Ad02 out/RESET_BUENFIN_15_AD02_NO_LO_DEJES_PARA_DICIEMBRE.mp4",
+    "build:buenfin15-creative": "remotion render BuenFin15CreativeEdit out/RESET_BUENFIN_15_UGC_CREATIVE_EDIT.mp4",
     "still": "remotion still ChristmasReel out/poster.png --frame=60",
     "audio": "python3 scripts/generate-audio.py",
     "typecheck": "tsc --noEmit"

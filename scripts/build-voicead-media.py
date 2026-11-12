@@ -11,7 +11,8 @@ favorita, Tu pijama de viaje.
   blocks ({v, a, b, text} in source seconds of voice segment v). Written next to the edit as <edit>.subs.json.
 - Music: licensed track named in the edit (or none), ducked -15 dB under the voice, faded at the end.
 Final mix: -14 LUFS / -1 dBTP. Output: public/<ad>/<shot>.mp4, voice.wav, mix.wav
-HDR (HLG) sources are tone-mapped to SDR first. An edit may name its own transcripts file ("transcripts") and
+HDR (HLG) sources are tone-mapped to SDR first. A shot with "freeze": {src, t} becomes a still <id>.jpg. Optional
+"sfx": [{at (frame), kind: whoosh|pop, gain dB}] are mixed after the ducking. An edit may name its own transcripts file ("transcripts") and
 extra spelling fixes ("fix", per word; "phrase_fix", per phrase); subtitles go next to the edit as <edit>.subs.json.
 Usage: python3 scripts/build-voicead-media.py <ad | path/to/edit.json> /folder/with/clips [shot ids...]
 """
@@ -63,6 +64,12 @@ for s in e["shots"]:
     if "sync" in s:
         v = voice[s["sync"]]
         s["in"] = round(v["a"] + (s["from"] - v["at"]) / FPS, 3)
+    if "freeze" in s and not (only and s["id"] not in only):
+        # a real frame held still (Ken Burns in the composition), graded like the moving shots
+        fz = s["freeze"]
+        run(["ffmpeg", "-y", "-v", "error", "-ss", f"{fz['t']:.3f}", "-i", src(fz["src"]), "-frames:v", "1",
+             "-vf", (TONEMAP if hdr(src(fz["src"])) else "") + GRADE, "-q:v", "2", os.path.join(OUT, f"{s['id']}.jpg")])
+        print(s["id"], "freeze", fz["src"], fz["t"])
     if "src" not in s or (only and s["id"] not in only):
         continue
     vf = (TONEMAP if hdr(src(s["src"])) else "") + GRADE
@@ -105,8 +112,9 @@ for v in voice:
             first, block = False, []
 if "subtitles" in e:
     # hand-checked blocks: literal text with punctuation, timed from Whisper word boundaries in source seconds
-    subs = [{"from": round((voice[b["v"]]["at"] / FPS + b["a"] - voice[b["v"]]["a"]) * FPS),
-             "to": round((voice[b["v"]]["at"] / FPS + b["b"] - voice[b["v"]]["a"]) * FPS), "text": b["text"]}
+    subs = [{**{k: x for k, x in b.items() if k not in ("v", "a", "b")},
+             "from": round((voice[b["v"]]["at"] / FPS + b["a"] - voice[b["v"]]["a"]) * FPS),
+             "to": round((voice[b["v"]]["at"] / FPS + b["b"] - voice[b["v"]]["a"]) * FPS)}
             for b in e["subtitles"]]
 json.dump(subs, open(EP[:-5] + ".subs.json", "w"), indent=1, ensure_ascii=False)
 
@@ -176,6 +184,22 @@ if m:
     fi = int(0.3 * SR)
     mus[:fi] *= np.linspace(0, 1, fi)[:, None]
     mix = mix + mus
+# discreet sound design: soft whooshes on composition changes, small pops on key graphics
+srng = np.random.default_rng(7)
+for fx in e.get("sfx", []):
+    tt_ = np.arange(int((0.42 if fx["kind"] == "whoosh" else 0.09) * SR)) / SR
+    if fx["kind"] == "whoosh":
+        nz = np.convolve(srng.standard_normal(len(tt_)), np.ones(9) / 9, mode="same")
+        env = np.sin(np.pi * (tt_ / tt_[-1]) ** 0.7) ** 2
+        sw = np.fft.irfft(np.fft.rfft(nz) * np.exp(-((np.fft.rfftfreq(len(nz), 1 / SR) - 2200) / 1800) ** 2), len(nz))
+        z = sw / (np.max(np.abs(sw)) + 1e-9) * env * 0.16
+    else:
+        f_ = 950 * np.exp(-tt_ / 0.03) + 380
+        z = np.sin(2 * np.pi * np.cumsum(f_) / SR) * np.exp(-tt_ / 0.022) * 0.2
+    z *= 10 ** (fx.get("gain", 0) / 20)
+    i = int(fx["at"] / FPS * SR)
+    j = min(len(mix), i + len(z))
+    mix[i:j] += z[: j - i, None]
 mix = mix[:end]
 fo = int(1.2 * SR)
 mix[-fo:] *= (np.linspace(1, 0, fo) ** 1.5)[:, None]

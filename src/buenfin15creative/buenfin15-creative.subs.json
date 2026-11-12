@@ -1,0 +1,43 @@
+[
+ {
+  "text": "Tres razones",
+  "from": 0,
+  "to": 21
+ },
+ {
+  "text": "para comprar",
+  "from": 21,
+  "to": 42
+ },
+ {
+  "text": "tu *pijama*",
+  "from": 42,
+  "to": 67
+ },
+ {
+  "text": "este *Buen Fin*",
+  "from": 67,
+  "to": 91
+ },
+ {
+  "text": "en RE:SET.",
+  "from": 91,
+  "to": 107
+ },
+ {
+  "text": "Hay",
+  "from": 140,
+  "to": 146
+ },
+ {
+  "text": "en toda la",
+  "from": 201,
+  "to": 219
+ },
+ {
+  "text": "Tenemos",
+  "pos": "window",
+  "from": 260,
+  "to": 268
+ }
+]

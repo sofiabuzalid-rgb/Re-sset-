@@ -9,6 +9,8 @@ Presets, each its own sonic identity:
             upbeat sporty lifestyle without stadium clichés.
   retail  — 112 BPM, F major (Fmaj7–Dm7–Bbmaj7–C7): Rhodes and clean guitar over a light kit; warm, optimistic,
             not seasonal, so it fits Soft Winter, Navidad and Hanukkah alike.
+  playful — 120 BPM, G major (Gmaj7–Em7–Cmaj7–D6): marimba chops and pizzicato over claps and shaker; light,
+            witty, social-editorial.
   travel  — 124 BPM, D major (D–A/C#–Bm7–G): strummed acoustic guitar, bright piano stabs, finger snaps, tambourine,
             bouncy bass; light and on the move.
 Both have a one-bar lift into the end card and a short final chord. Length follows the ad's edit.
@@ -47,6 +49,9 @@ P = {
     "retail": dict(bpm=112, prog={0: 4, 1: 27, 2: 33, 3: 89},  # rhodes, clean gtr, finger bass, warm pad
                    chords=[["A3", "C4", "E4", "F4"], ["A3", "C4", "D4", "F4"], ["A3", "Bb3", "D4", "F4"], ["G3", "Bb3", "C4", "E4"]],
                    bass=["F1", "D2", "Bb1", "C2"]),
+    "playful": dict(bpm=120, prog={0: 12, 1: 45, 2: 33, 3: 89},  # marimba, pizzicato, finger bass, warm pad
+                    chords=[["G3", "B3", "D4", "F#4"], ["E3", "G3", "B3", "D4"], ["C4", "E4", "G4", "B4"], ["D4", "F#4", "A4", "B4"]],
+                    bass=["G1", "E2", "C2", "D2"]),
     "travel": dict(bpm=124, prog={0: 0, 1: 25, 2: 33, 3: 48},  # piano, steel gtr, finger bass, strings
                    chords=[["D3", "A3", "D4", "F#4"], ["C#3", "A3", "E4", "A4"], ["B2", "F#3", "D4", "A4"], ["G2", "D3", "G3", "B3"]],
                    bass=["D2", "C#2", "B1", "G1"]),
@@ -72,7 +77,7 @@ for b in range(bars):
     n(3, b0, nn(ch[0]) - 12, 3.9, 44)
     for note in ch[1:]:
         n(3, b0, note, 3.9, 40)
-    if PRESET in ("fashion", "buenfin", "sporty", "retail"):
+    if PRESET in ("fashion", "buenfin", "sporty", "retail", "playful"):
         for at, d in ((0, 0.3), (0.75, 0.2), (1.5, 0.3), (2.5, 0.2), (3.0, 0.3)):
             for note in ch:
                 n(0, b0 + at, note, d, 62)
