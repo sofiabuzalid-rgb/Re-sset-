@@ -15,6 +15,7 @@ import {GreyDetail, GREY_TOTAL} from './grey/GreyDetail';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {GiftIdeaAd, GIFT_TOTAL} from './gift/GiftIdeaAd';
 import {TravelBagAd, TRAVEL_TOTAL} from './travel/TravelBagAd';
+import {BuenFinAd, BUENFIN_TOTAL} from './buenfin/BuenFinAd';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
 
@@ -55,6 +56,8 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="QueVasARegalar" component={GiftIdeaAd} durationInFrames={GIFT_TOTAL} fps={FPS} width={1080} height={1920} />
 		{/* Meta Ads (evergreen): "Tu pijama para llevarte a todos lados" — pajama → bolsita → maleta → viaje */}
 		<Composition id="PijamaDeViaje" component={TravelBagAd} durationInFrames={TRAVEL_TOTAL} fps={FPS} width={1080} height={1920} />
+		{/* Meta Ads: Buen Fin 2026 — 15% OFF, UGC with Ilana + product card */}
+		<Composition id="BuenFin15" component={BuenFinAd} durationInFrames={BUENFIN_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="GreyDetail" component={GreyDetail} durationInFrames={GREY_TOTAL} fps={FPS} width={1080} height={1920} />
 	</>
 );
