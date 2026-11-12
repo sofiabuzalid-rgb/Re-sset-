@@ -15,6 +15,7 @@ import {GreyDetail, GREY_TOTAL} from './grey/GreyDetail';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {BasicaAd, BASICA_TOTAL} from './basica/BasicaAd';
 import {PlanesAd, PLANES_TOTAL} from './planes/PlanesAd';
+import {BuenFinAd, BUENFIN_TOTAL} from './buenfin/BuenFinAd';
 import {SmileyAd01, SMILEY_AD01_TOTAL, SmileyAd02, SMILEY_AD02_TOTAL} from './smiley/SmileyAd';
 import {PetalEditorial, EDITORIAL_TOTAL, EDITORIAL_FPS} from './editorial/PetalEditorial';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
@@ -56,6 +57,8 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="GreyDetail" component={GreyDetail} durationInFrames={GREY_TOTAL} fps={FPS} width={1080} height={1920} />
 		{/* Editorial sleepwear sheet + moodboard (carousel recreation) — Petal Essential Button Set */}
 		{/* Anuncio 04 — "La pijama que no te quieres quitar": colección básica, real testimonial + subtitles */}
+		{/* Buen Fin 2026 · 15% OFF · AD01 promo directa (Ilana) */}
+		<Composition id="BuenFin15Ad01" component={BuenFinAd} durationInFrames={BUENFIN_TOTAL} fps={FPS} width={1080} height={1920} />
 		{/* Smiley pajamas (Happy Vibes Women) — OUTLET 25% OFF UGC ads */}
 		<Composition id="SmileyOutletAd01" component={SmileyAd01} durationInFrames={SMILEY_AD01_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="SmileyOutletAd02" component={SmileyAd02} durationInFrames={SMILEY_AD02_TOTAL} fps={FPS} width={1080} height={1920} />

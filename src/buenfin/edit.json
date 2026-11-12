@@ -1,0 +1,46 @@
+{
+  "fps": 30,
+  "bpm": 112,
+  "seed": 1115,
+  "out": "RESET_BUENFIN_15_AD01_PROMO_DIRECTA",
+  "note": "BUEN FIN 2026 · 15% OFF · AD01 promo directa. Ilana's own words only (IMG_4400, IMG_4401, IMG_4407), verbatim. Collection names are hers; each zoom sits on the garment she is touching when she names it.",
+  "shots": [
+    {"id": "h1", "src": "IMG_4400", "in": 0.30, "frames": 125, "zoom": [1.06, 1.0], "focus": [0.5, 0.35]},
+    {"id": "c1", "src": "IMG_4401", "in": 0.03, "frames": 110, "zoom": [1.0, 1.04], "focus": [0.5, 0.4]},
+    {"id": "c2a", "src": "IMG_4401", "in": 3.70, "frames": 51, "zoom": [1.04, 1.06], "focus": [0.6, 0.45]},
+    {"id": "c2b", "src": "IMG_4401", "in": 5.40, "frames": 63, "zoom": [1.12, 1.22], "focus": [0.58, 0.55]},
+    {"id": "c3a", "src": "IMG_4401", "in": 13.88, "frames": 43, "zoom": [1.24, 1.27], "focus": [0.45, 0.52]},
+    {"id": "c3b", "src": "IMG_4401", "in": 15.30, "frames": 40, "zoom": [1.24, 1.27], "focus": [0.4, 0.55]},
+    {"id": "c3c", "src": "IMG_4401", "in": 16.65, "frames": 99, "zoom": [1.22, 1.1], "focus": [0.3, 0.55]},
+    {"id": "r1", "src": "IMG_4407", "in": 0.25, "frames": 128, "zoom": [1.0, 1.05], "focus": [0.3, 0.45]},
+    {"id": "cta", "src": "IMG_4400", "in": 6.82, "frames": 98, "zoom": [1.0, 1.04], "focus": [0.5, 0.4]}
+  ],
+  "voice": [
+    {"src": "IMG_4400", "in": 0.30, "out": 4.45, "at": 0},
+    {"src": "IMG_4401", "in": 0.03, "out": 3.70, "at": 125},
+    {"src": "IMG_4401", "in": 3.70, "out": 7.50, "at": 235},
+    {"src": "IMG_4401", "in": 13.88, "out": 19.95, "at": 349},
+    {"src": "IMG_4407", "in": 0.25, "out": 4.50, "at": 531},
+    {"src": "IMG_4400", "in": 6.82, "out": 9.65, "at": 659}
+  ],
+  "hook": {"from": 0, "to": 112, "lines": ["PIJAMAS", "15% OFF", "BUEN FIN"]},
+  "tag": {"from": 128, "to": 232, "text": "15% OFF EN TODA LA TIENDA"},
+  "subs": [
+    {"from": 2, "to": 69, "text": "*15% de descuento*"},
+    {"from": 69, "to": 123, "text": "en este Buen Fin,"},
+    {"from": 126, "to": 181, "text": "Todas las colecciones entran"},
+    {"from": 181, "to": 232, "text": "en esta súper promo del Buen Fin."},
+    {"from": 238, "to": 301, "text": "Tenemos todas las Soft Winter nuevas"},
+    {"from": 301, "to": 348, "text": "de Herringbone, que son una belleza."},
+    {"from": 350, "to": 388, "text": "La de Reno,"},
+    {"from": 394, "to": 430, "text": "la de Hanukkah,"},
+    {"from": 458, "to": 503, "text": "toda la de Elfie también,"},
+    {"from": 503, "to": 530, "text": "está increíble."},
+    {"from": 532, "to": 574, "text": "Si no has comprado tus pijamas"},
+    {"from": 574, "to": 609, "text": "para esta Navidad,"},
+    {"from": 616, "to": 657, "text": "no la dejes para el final."},
+    {"from": 660, "to": 700, "text": "No te quedes sin la tuya,"},
+    {"from": 700, "to": 742, "text": "¿qué estás esperando para venir?"}
+  ],
+  "cta": {"title": "BUEN FIN RE:SET", "offer": "15% OFF EN TODA LA TIENDA", "line": "DESCUBRE TU FAVORITA"}
+}
