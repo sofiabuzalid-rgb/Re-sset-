@@ -15,21 +15,40 @@ import ad02 from "./buenfin15-ad02.json";
 import ad02Subs from "./buenfin15-ad02.subs.json";
 
 loadFont({
+  family: "Bebas Neue",
+  url: staticFile("fonts/BebasNeue-Regular.woff2"),
+  weight: "400",
+});
+loadFont({
   family: "Montserrat",
   url: staticFile("fonts/Montserrat-Variable.woff2"),
   weight: "100 900",
 });
-// Gotham is the brand face; Montserrat stands in until the licensed files are supplied.
+// Bebas Neue is the RE:SET logotype face: condensed capitals that read at a glance. Montserrat for small labels.
+const DISPLAY = '"Bebas Neue", Montserrat, sans-serif';
 const SANS = "Gotham, Montserrat, Helvetica, Arial, sans-serif";
-const CREAM = "#FBF7F0";
-const INK = "#1B1917";
+const RED = "#E3202B";
+const WHITE = "#FFFFFF";
+const INK = "#111111";
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
-const easeOut = Easing.bezier(0.16, 1, 0.3, 1);
-const fadeUp = (f: number, a: number, d = 8) => easeOut(Math.min(1, Math.max(0, (f - a) / d)));
+// heavy outline + drop so white capitals hold on the white wall
+const OUTLINE = [
+  ...[0, 45, 90, 135, 180, 225, 270, 315].map((a) => {
+    const r = (a * Math.PI) / 180;
+    return `${(Math.cos(r) * 4).toFixed(1)}px ${(Math.sin(r) * 4).toFixed(1)}px 0 #000`;
+  }),
+  "0 8px 18px rgba(0,0,0,0.6)",
+].join(", ");
 
 type Shot = { id: string; frames: number; zoom: number[]; focus: number[] };
 type Text = { from: number; to: number; kind: string; lines: string[] };
-type Edit = { shots: Shot[]; texts: Text[]; badge: { text: string; ranges: number[][] }; subtitleTop: number };
+type Edit = {
+  shots: Shot[];
+  texts: Text[];
+  badge: { text: string; ranges: number[][] };
+  subtitleTop: number;
+  punch?: number[];
+};
 type Sub = { from: number; to: number; text: string };
 
 export const BUENFIN15_ADS = {
@@ -39,10 +58,20 @@ export type BuenFin15AdId = keyof typeof BUENFIN15_ADS;
 export const buenFin15Total = (ad: BuenFin15AdId) =>
   BUENFIN15_ADS[ad].edit.shots.reduce((n, s) => n + s.frames, 0);
 
-const ShotView: React.FC<{ dir: string; s: Shot }> = ({ dir, s }) => {
+/** Snap in: overshoots slightly and settles in 5 frames. */
+const snap = (f: number, a: number) => {
+  const t = Math.min(1, Math.max(0, (f - a) / 5));
+  return { o: Math.min(1, t * 2.5), s: 1.18 - 0.18 * Easing.out(Easing.back(2))(t) };
+};
+
+const ShotView: React.FC<{ dir: string; s: Shot & { from: number }; punch: number[] }> = ({ dir, s, punch }) => {
   const f = useCurrentFrame();
   const p = Easing.inOut(Easing.quad)(Math.min(1, f / s.frames));
-  const z = s.zoom[0] + (s.zoom[1] - s.zoom[0]) * p;
+  let z = s.zoom[0] + (s.zoom[1] - s.zoom[0]) * p;
+  for (const at of punch) {
+    const d = s.from + f - at;
+    if (d >= 0 && d < 20) z *= 1 + 0.06 * Math.exp(-d / 4); // a quick push on the key word
+  }
   return (
     <AbsoluteFill style={{ overflow: "hidden", backgroundColor: "#000" }}>
       <OffthreadVideo
@@ -60,39 +89,96 @@ const ShotView: React.FC<{ dir: string; s: Shot }> = ({ dir, s }) => {
   );
 };
 
-/** Neutral, editorial text: cream card for the message, ink chip for the offer. A short fade, nothing else. */
-const Line: React.FC<{ text: string; f0: number; size: number; ink?: boolean; weight?: number; tracking?: string }> = ({
-  text,
-  f0,
-  size,
-  ink,
-  weight = 800,
-  tracking = "0.01em",
+/** Caption words: capitals; *key words* sit in a red box. */
+const Words: React.FC<{ text: string; size: number }> = ({ text, size }) => (
+  <>
+    {text.split(/(\*[^*]+\*)/).filter(Boolean).map((part, i) =>
+      part.startsWith("*") ? (
+        <span
+          key={i}
+          style={{
+            display: "inline-block",
+            background: RED,
+            color: WHITE,
+            padding: `0 ${size * 0.14}px`,
+            margin: `0 ${size * 0.06}px`,
+            borderRadius: 6,
+            transform: "rotate(-2deg)",
+            textShadow: "none",
+            boxShadow: "0 6px 16px rgba(0,0,0,0.35)",
+          }}
+        >
+          {part.slice(1, -1).toUpperCase()}
+        </span>
+      ) : (
+        <span key={i}>{part.toUpperCase()}</span>
+      ),
+    )}
+  </>
+);
+
+/** Ilana's words, literally, set in capitals: one short phrase at a time, snapping in on her rhythm. */
+const Subtitle: React.FC<{ text: string; top: number }> = ({ text, top }) => {
+  const f = useCurrentFrame();
+  const { o, s } = snap(f, 0);
+  return (
+    <div style={{ position: "absolute", left: 50, right: 50, top, display: "flex", justifyContent: "center", opacity: o }}>
+      <div
+        style={{
+          maxWidth: 960,
+          textAlign: "center",
+          fontFamily: DISPLAY,
+          fontSize: 104,
+          lineHeight: 1.0,
+          letterSpacing: "0.01em",
+          color: WHITE,
+          textShadow: OUTLINE,
+          transform: `scale(${s})`,
+        }}
+      >
+        <Words text={text.replace(/[.,]+$/, "")} size={104} />
+      </div>
+    </div>
+  );
+};
+
+const Stack: React.FC<{
+  lines: { text: string; size: number; red?: boolean; chip?: boolean; dark?: boolean; at: number }[];
+  top: number;
+}> = ({
+  lines,
+  top,
 }) => {
   const f = useCurrentFrame();
-  const p = fadeUp(f, f0);
   return (
-    <div
-      style={{
-        alignSelf: "center",
-        marginTop: 12,
-        padding: `${Math.round(size * 0.22)}px ${Math.round(size * 0.5)}px ${Math.round(size * 0.28)}px`,
-        borderRadius: 6,
-        background: ink ? INK : CREAM,
-        color: ink ? CREAM : INK,
-        fontFamily: SANS,
-        fontWeight: weight,
-        fontSize: size,
-        letterSpacing: tracking,
-        lineHeight: 1.1,
-        textAlign: "center",
-        maxWidth: 960,
-        boxShadow: "0 4px 18px rgba(0,0,0,0.18)",
-        opacity: p,
-        transform: `translateY(${(1 - p) * 10}px)`,
-      }}
-    >
-      {text}
+    <div style={{ position: "absolute", left: 40, right: 40, top, display: "flex", flexDirection: "column", alignItems: "center" }}>
+      {lines.map((l) => {
+        const { o, s } = snap(f, l.at);
+        return (
+          <div
+            key={l.text}
+            style={{
+              opacity: o,
+              transform: `scale(${s}) rotate(${l.red ? -2 : 0}deg)`,
+              marginTop: l.chip ? 14 : 2,
+              padding: l.red || l.chip || l.dark ? `2px ${l.size * 0.18}px 0` : 0,
+              background: l.red ? RED : l.chip ? WHITE : l.dark ? INK : "transparent",
+              color: l.chip ? INK : WHITE,
+              borderRadius: 8,
+              fontFamily: l.chip ? SANS : DISPLAY,
+              fontWeight: l.chip ? 900 : 400,
+              fontSize: l.size,
+              lineHeight: l.chip ? 1.5 : 0.98,
+              letterSpacing: l.chip ? "0.06em" : "0.01em",
+              textShadow: l.red || l.chip || l.dark ? "none" : OUTLINE,
+              boxShadow: l.red || l.chip || l.dark ? "0 8px 20px rgba(0,0,0,0.35)" : "none",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {l.text}
+          </div>
+        );
+      })}
     </div>
   );
 };
@@ -100,105 +186,75 @@ const Line: React.FC<{ text: string; f0: number; size: number; ink?: boolean; we
 const Graphic: React.FC<{ t: Text }> = ({ t }) => {
   const f = useCurrentFrame();
   const dur = t.to - t.from;
-  const out = t.kind === "end" ? 1 : interpolate(f, [dur - 6, dur], [1, 0], clamp);
-  const box: React.CSSProperties = {
-    position: "absolute",
-    left: 50,
-    right: 50,
-    top: t.kind === "end" ? 250 : t.kind === "hook" ? 270 : 320,
-    display: "flex",
-    flexDirection: "column",
-    opacity: out,
-  };
+  const out = t.kind === "end" ? 1 : interpolate(f, [dur - 5, dur], [1, 0], clamp);
   if (t.kind === "hook")
     return (
-      <div style={box}>
-        <Line text={t.lines[0]} f0={0} size={70} weight={900} />
-        <Line text={t.lines[1]} f0={2} size={54} ink tracking="0.06em" />
-      </div>
-    );
-  if (t.kind === "note")
-    return (
-      <div style={box}>
-        <Line text={t.lines[0]} f0={0} size={40} weight={600} />
-      </div>
+      <AbsoluteFill style={{ opacity: out }}>
+        <Stack
+          top={250}
+          lines={[
+            { text: t.lines[0], size: 108, dark: true, at: 0 },
+            { text: t.lines[1], size: 108, dark: true, at: 2 },
+            { text: t.lines[2], size: 150, red: true, at: 4 },
+            { text: t.lines[3], size: 44, chip: true, at: 8 },
+          ]}
+        />
+      </AbsoluteFill>
     );
   if (t.kind === "collections")
     return (
-      <div style={box}>
-        <Line text={t.lines[0]} f0={0} size={36} ink tracking="0.06em" />
-        <Line text={t.lines[1]} f0={6} size={34} weight={800} tracking="0.05em" />
-      </div>
+      <AbsoluteFill style={{ opacity: out }}>
+        <Stack
+          top={300}
+          lines={[
+            { text: t.lines[0], size: 38, chip: true, at: 0 },
+            { text: t.lines[1], size: 104, red: true, at: 8 },
+            { text: t.lines[2], size: 104, red: true, at: 18 },
+            { text: t.lines[3], size: 104, red: true, at: 28 },
+          ]}
+        />
+      </AbsoluteFill>
     );
-  // end: RE:SET logo + BUEN FIN on one cream card, the offer, then the invitation
+  // end: logo + BUEN FIN, giant red 15% OFF, the scope, the invitation
+  const logo = snap(f, 0);
   return (
-    <div style={box}>
-      <div
-        style={{
-          alignSelf: "center",
-          padding: "26px 54px 22px",
-          background: CREAM,
-          borderRadius: 6,
-          boxShadow: "0 4px 18px rgba(0,0,0,0.18)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          opacity: fadeUp(f, 0),
-          transform: `translateY(${(1 - fadeUp(f, 0)) * 10}px)`,
-        }}
-      >
-        <Img src={staticFile("brand/reset-logo-black.png")} style={{ width: 300 }} />
-        <div style={{ fontFamily: SANS, fontWeight: 900, fontSize: 62, letterSpacing: "0.08em", color: INK, marginTop: 10 }}>
-          {t.lines[0]}
-        </div>
+    <AbsoluteFill>
+      <AbsoluteFill
+        style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 38%, rgba(0,0,0,0) 55%)", opacity: logo.o }}
+      />
+      <div style={{ position: "absolute", left: 0, right: 0, top: 240, display: "flex", justifyContent: "center", opacity: logo.o }}>
+        <Img src={staticFile("brand/reset-logo-white.png")} style={{ width: 320, transform: `scale(${logo.s})` }} />
       </div>
-      <Line text={t.lines[1]} f0={6} size={46} ink tracking="0.05em" />
-      <Line text={t.lines[2]} f0={12} size={42} weight={700} />
-    </div>
+      <Stack
+        top={390}
+        lines={[
+          { text: t.lines[0], size: 120, at: 3 },
+          { text: t.lines[1], size: 210, red: true, at: 7 },
+          { text: t.lines[2], size: 84, at: 11 },
+          { text: t.lines[3], size: 44, chip: true, at: 16 },
+        ]}
+      />
+    </AbsoluteFill>
   );
 };
 
 const Badge: React.FC<{ text: string; dur: number }> = ({ text, dur }) => {
   const f = useCurrentFrame();
-  const o = Math.min(fadeUp(f, 0, 6), interpolate(f, [dur - 5, dur], [1, 0], clamp));
+  const { o, s } = snap(f, 0);
+  const out = interpolate(f, [dur - 4, dur], [1, 0], clamp);
   return (
-    <div style={{ position: "absolute", left: 0, right: 0, top: 236, display: "flex", justifyContent: "center", opacity: o }}>
+    <div style={{ position: "absolute", left: 0, right: 0, top: 236, display: "flex", justifyContent: "center", opacity: o * out }}>
       <div
         style={{
-          padding: "8px 22px 9px",
-          borderRadius: 999,
-          background: INK,
-          color: CREAM,
-          fontFamily: SANS,
-          fontWeight: 800,
-          fontSize: 30,
-          letterSpacing: "0.08em",
-        }}
-      >
-        {text}
-      </div>
-    </div>
-  );
-};
-
-/** Ilana's words, literally: cream text on a soft dark plate, two lines max, plain fade. */
-const Subtitle: React.FC<{ text: string; dur: number; top: number }> = ({ text, dur, top }) => {
-  const f = useCurrentFrame();
-  const o = interpolate(f, [0, 3, dur - 3, dur], [0, 1, 1, 0], clamp);
-  return (
-    <div style={{ position: "absolute", left: 70, right: 70, top, display: "flex", justifyContent: "center", opacity: o }}>
-      <div
-        style={{
-          maxWidth: 900,
-          padding: "10px 22px 12px",
-          borderRadius: 12,
-          background: "rgba(20,16,14,0.55)",
-          textAlign: "center",
-          fontFamily: SANS,
-          fontWeight: 600,
-          fontSize: 46,
-          lineHeight: 1.22,
-          color: CREAM,
+          padding: "4px 26px 0",
+          borderRadius: 8,
+          background: RED,
+          color: WHITE,
+          fontFamily: DISPLAY,
+          fontSize: 58,
+          letterSpacing: "0.04em",
+          transform: `scale(${s}) rotate(-2deg)`,
+          boxShadow: "0 6px 16px rgba(0,0,0,0.3)",
         }}
       >
         {text}
@@ -219,7 +275,7 @@ export const BuenFin15Ad: React.FC<{ ad: BuenFin15AdId }> = ({ ad }) => {
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
       {shots.map((s) => (
         <Sequence key={s.id} from={s.from} durationInFrames={s.frames} premountFor={15}>
-          <ShotView dir={dir} s={s} />
+          <ShotView dir={dir} s={s} punch={edit.punch ?? []} />
         </Sequence>
       ))}
       {edit.badge.ranges.map(([a, b]) => (
@@ -234,7 +290,7 @@ export const BuenFin15Ad: React.FC<{ ad: BuenFin15AdId }> = ({ ad }) => {
       ))}
       {subs.map((s) => (
         <Sequence key={s.from} from={s.from} durationInFrames={s.to - s.from}>
-          <Subtitle text={s.text} dur={s.to - s.from} top={edit.subtitleTop} />
+          <Subtitle text={s.text} top={edit.subtitleTop} />
         </Sequence>
       ))}
       <Audio src={staticFile(`${dir}/mix.wav`)} />
