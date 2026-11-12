@@ -7,11 +7,12 @@ favorita, Tu pijama de viaje.
   de-mud / presence EQ, de-ess, light compression, every segment levelled to the same loudness, 25 ms fades,
   segments are cut at word boundaries with breathing room so no consonant is clipped.
 - Subtitles: literal words of each placed segment (Whisper word timings), grouped into <= 2-line blocks;
-  only spelling and brand names are normalised (see FIX). Written next to the edit as <edit>.subs.json.
+  only spelling and brand names are normalised (see FIX). An edit may instead give hand-checked "subtitles"
+  blocks ({v, a, b, text} in source seconds of voice segment v). Written next to the edit as <edit>.subs.json.
 - Music: licensed track named in the edit (or none), ducked -15 dB under the voice, faded at the end.
 Final mix: -14 LUFS / -1 dBTP. Output: public/<ad>/<shot>.mp4, voice.wav, mix.wav
 HDR (HLG) sources are tone-mapped to SDR first. An edit may name its own transcripts file ("transcripts") and
-extra spelling fixes ("fix"); subtitles go next to the edit as <edit>.subs.json.
+extra spelling fixes ("fix", per word; "phrase_fix", per phrase); subtitles go next to the edit as <edit>.subs.json.
 Usage: python3 scripts/build-voicead-media.py <ad | path/to/edit.json> /folder/with/clips [shot ids...]
 """
 import glob, json, os, re, subprocess, sys
@@ -88,6 +89,8 @@ for v in voice:
         block.append(w)
         txt = " ".join(FIX.get(x[2].rstrip(",.?"), x[2].rstrip(",.?")) + x[2][len(x[2].rstrip(",.?")):] for x in block)
         txt = re.sub(r" %", "%", txt)
+        for a, b in e.get("phrase_fix", []):  # mis-heard multi-word phrases, e.g. "pilla más" for "pijamas"
+            txt = txt.replace(a, b)
         nxt = words[i + 1] if i + 1 < len(words) else None
         nlen = len(txt) + 1 + len(nxt[2]) if nxt else 0
         brk = (nxt is None or (len(txt) > 18 and re.search(r"[,.?!]$", w[2])) or (nxt[0] - w[1] > 0.45)
@@ -100,6 +103,11 @@ for v in voice:
             b = v["at"] / FPS + (nxt[0] if nxt and nxt[0] - w[1] < 0.3 else w[1] + 0.15) - v["a"]
             subs.append({"from": round(a * FPS), "to": round(b * FPS), "text": txt.rstrip(".,")})
             first, block = False, []
+if "subtitles" in e:
+    # hand-checked blocks: literal text with punctuation, timed from Whisper word boundaries in source seconds
+    subs = [{"from": round((voice[b["v"]]["at"] / FPS + b["a"] - voice[b["v"]]["a"]) * FPS),
+             "to": round((voice[b["v"]]["at"] / FPS + b["b"] - voice[b["v"]]["a"]) * FPS), "text": b["text"]}
+            for b in e["subtitles"]]
 json.dump(subs, open(EP[:-5] + ".subs.json", "w"), indent=1, ensure_ascii=False)
 
 # ---------------- voice

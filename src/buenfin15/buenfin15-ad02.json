@@ -1,0 +1,274 @@
+{
+  "fps": 30,
+  "title": "RESET_BUENFIN_15_AD02_NO_LO_DEJES_PARA_DICIEMBRE",
+  "note": "Voice = Ilana's real takes only (docs/buenfin15/transcripts.json). The scripted lines (diciembre, escoger tu talla, Soft Winter / Navidad / Hanukkah, 'en diciembre ya lo tienes resuelto') were not recorded: the anticipation argument is carried by her real 'ahora es el momento de comprarlas' (IMG_4413) and 'aprovecha el 15% del Buen Fin para comprarlo de una vez' (IMG_4415); diciembre and the collections are on-screen text. One continuous wide take per clip, reframed between medium (≈1.4x) and wide (≈1.1x) at sentence boundaries.",
+  "transcripts": "docs/buenfin15/transcripts.json",
+  "fix": {
+    "reset": "RE:SET",
+    "Reset": "RE:SET",
+    "buen": "Buen",
+    "fin": "Fin",
+    "navidad": "Navidad"
+  },
+  "music": {
+    "file": "music.wav",
+    "local": true,
+    "offset": 0,
+    "gain": -1
+  },
+  "voice": [
+    {
+      "src": "IMG_4413",
+      "a": 0.1,
+      "b": 9.2,
+      "at": 0
+    },
+    {
+      "src": "IMG_4415",
+      "a": 7.75,
+      "b": 18.15,
+      "at": 280
+    },
+    {
+      "src": "IMG_4413",
+      "a": 9.4,
+      "b": 10.7,
+      "at": 598
+    }
+  ],
+  "shots": [
+    {
+      "id": "s01",
+      "src": "IMG_4413",
+      "sync": 0,
+      "frames": 108,
+      "zoom": [
+        1.42,
+        1.45
+      ],
+      "focus": [
+        0.5,
+        0.62
+      ],
+      "what": "hook, medium: 'Si este año quieres pijamas combinadas para toda la familia,'"
+    },
+    {
+      "id": "s02",
+      "src": "IMG_4413",
+      "sync": 0,
+      "frames": 54,
+      "zoom": [
+        1.1,
+        1.12
+      ],
+      "focus": [
+        0.5,
+        0.45
+      ],
+      "what": "wide: 'ahora es el momento de comprarlas,'"
+    },
+    {
+      "id": "s03",
+      "src": "IMG_4413",
+      "sync": 0,
+      "frames": 114,
+      "zoom": [
+        1.38,
+        1.42
+      ],
+      "focus": [
+        0.5,
+        0.62
+      ],
+      "what": "medium: 'porque en RE:SET tenemos el 15% descuento por el Buen Fin.'"
+    },
+    {
+      "id": "s04",
+      "src": "IMG_4415",
+      "sync": 1,
+      "frames": 114,
+      "zoom": [
+        1.12,
+        1.15
+      ],
+      "focus": [
+        0.5,
+        0.45
+      ],
+      "what": "wide: 'Son las mejores pijamas, súper calientitas, y todo el mundo las ama.'"
+    },
+    {
+      "id": "s05",
+      "src": "IMG_4415",
+      "sync": 1,
+      "frames": 92,
+      "zoom": [
+        1.4,
+        1.43
+      ],
+      "focus": [
+        0.5,
+        0.62
+      ],
+      "what": "medium: 'Es el mejor regalo que puedes tener para esta Navidad,'"
+    },
+    {
+      "id": "s06",
+      "src": "IMG_4415",
+      "sync": 1,
+      "frames": 112,
+      "zoom": [
+        1.2,
+        1.24
+      ],
+      "focus": [
+        0.5,
+        0.58
+      ],
+      "what": "'y por supuesto aprovecha el 15% del Buen Fin para comprarlo de una vez.'"
+    },
+    {
+      "id": "s07",
+      "src": "IMG_4413",
+      "sync": 2,
+      "frames": 76,
+      "zoom": [
+        1.1,
+        1.16
+      ],
+      "focus": [
+        0.5,
+        0.42
+      ],
+      "what": "close, wide in front of the pajamas: 'Ven, te esperamos.'"
+    }
+  ],
+  "texts": [
+    {
+      "from": 0,
+      "to": 104,
+      "kind": "hook",
+      "lines": [
+        "PIJAMAS PARA DICIEMBRE",
+        "BUEN FIN · 15% OFF"
+      ]
+    },
+    {
+      "from": 108,
+      "to": 268,
+      "kind": "note",
+      "lines": [
+        "Elige tus pijamas con anticipación."
+      ]
+    },
+    {
+      "from": 284,
+      "to": 388,
+      "kind": "collections",
+      "lines": [
+        "15% OFF EN TODA LA TIENDA",
+        "SOFT WINTER · NAVIDAD · HANUKKAH"
+      ]
+    },
+    {
+      "from": 604,
+      "to": 670,
+      "kind": "end",
+      "lines": [
+        "BUEN FIN",
+        "15% OFF EN TODA LA TIENDA",
+        "Elige tus pijamas para diciembre."
+      ]
+    }
+  ],
+  "badge": {
+    "text": "BUEN FIN · 15% OFF",
+    "ranges": [
+      [
+        104,
+        600
+      ]
+    ]
+  },
+  "subtitleTop": 1400,
+  "subtitles": [
+    {
+      "v": 0,
+      "a": 0.15,
+      "b": 2.2,
+      "text": "Si este año quieres pijamas combinadas"
+    },
+    {
+      "v": 0,
+      "a": 2.2,
+      "b": 3.5,
+      "text": "para toda la familia,"
+    },
+    {
+      "v": 0,
+      "a": 3.62,
+      "b": 5.5,
+      "text": "ahora es el momento de comprarlas,"
+    },
+    {
+      "v": 0,
+      "a": 5.64,
+      "b": 6.86,
+      "text": "porque en RE:SET tenemos"
+    },
+    {
+      "v": 0,
+      "a": 6.86,
+      "b": 9.15,
+      "text": "el 15% descuento por el Buen Fin."
+    },
+    {
+      "v": 1,
+      "a": 7.85,
+      "b": 8.96,
+      "text": "Son las mejores pijamas,"
+    },
+    {
+      "v": 1,
+      "a": 8.96,
+      "b": 11.32,
+      "text": "súper calientitas, y todo el mundo las ama."
+    },
+    {
+      "v": 1,
+      "a": 11.32,
+      "b": 13.54,
+      "text": "Es el mejor regalo que puedes tener"
+    },
+    {
+      "v": 1,
+      "a": 13.54,
+      "b": 14.4,
+      "text": "para esta Navidad,"
+    },
+    {
+      "v": 1,
+      "a": 14.4,
+      "b": 15.6,
+      "text": "y por supuesto aprovecha"
+    },
+    {
+      "v": 1,
+      "a": 15.6,
+      "b": 16.94,
+      "text": "el 15% del Buen Fin"
+    },
+    {
+      "v": 1,
+      "a": 16.94,
+      "b": 18.15,
+      "text": "para comprarlo de una vez."
+    },
+    {
+      "v": 2,
+      "a": 9.45,
+      "b": 10.6,
+      "text": "Ven, te esperamos."
+    }
+  ]
+}
