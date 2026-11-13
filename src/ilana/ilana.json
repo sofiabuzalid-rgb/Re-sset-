@@ -67,7 +67,8 @@
         1,
         1
       ],
-      "what": "she shows the dark Christmas print, kids' and adult sizes"
+      "what": "she shows the dark Christmas print, kids' and adult sizes",
+      "capTop": 1480
     },
     {
       "id": "s3",
@@ -232,5 +233,10 @@
       "b": 9.52,
       "text": "¿Qué esperas para venir por la tuya?"
     }
-  ]
+  ],
+  "badge": {
+    "from": 0,
+    "to": 90
+  },
+  "captionTop": 1100
 }

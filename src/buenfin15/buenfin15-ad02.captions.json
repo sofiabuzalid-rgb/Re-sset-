@@ -1,0 +1,465 @@
+[
+ {
+  "from": 1,
+  "to": 63,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "Si",
+    "em": false
+   },
+   {
+    "f": 3,
+    "w": "este",
+    "em": false
+   },
+   {
+    "f": 9,
+    "w": "año",
+    "em": false
+   },
+   {
+    "f": 18,
+    "w": "quieres",
+    "em": false
+   },
+   {
+    "f": 32,
+    "w": "pijamas",
+    "em": false
+   },
+   {
+    "f": 46,
+    "w": "combinadas",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 63,
+  "to": 102,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "para",
+    "em": false
+   },
+   {
+    "f": 7,
+    "w": "toda",
+    "em": false
+   },
+   {
+    "f": 17,
+    "w": "la",
+    "em": false
+   },
+   {
+    "f": 23,
+    "w": "familia,",
+    "em": true
+   }
+  ]
+ },
+ {
+  "from": 106,
+  "to": 162,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "ahora",
+    "em": false
+   },
+   {
+    "f": 9,
+    "w": "es",
+    "em": false
+   },
+   {
+    "f": 19,
+    "w": "el",
+    "em": false
+   },
+   {
+    "f": 22,
+    "w": "momento",
+    "em": false
+   },
+   {
+    "f": 31,
+    "w": "de",
+    "em": false
+   },
+   {
+    "f": 37,
+    "w": "comprarlas,",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 166,
+  "to": 191,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "porque",
+    "em": false
+   },
+   {
+    "f": 5,
+    "w": "en",
+    "em": false
+   },
+   {
+    "f": 15,
+    "w": "RE:SET",
+    "em": true
+   }
+  ]
+ },
+ {
+  "from": 191,
+  "to": 203,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "tenemos",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 203,
+  "to": 226,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "el",
+    "em": false
+   },
+   {
+    "f": 11,
+    "w": "15%",
+    "em": true
+   }
+  ]
+ },
+ {
+  "from": 226,
+  "to": 245,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "descuento",
+    "em": true
+   }
+  ]
+ },
+ {
+  "from": 245,
+  "to": 272,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "por",
+    "em": false
+   },
+   {
+    "f": 6,
+    "w": "el",
+    "em": false
+   },
+   {
+    "f": 9,
+    "w": "Buen",
+    "em": false
+   },
+   {
+    "f": 14,
+    "w": "Fin.",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 283,
+  "to": 316,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "Son",
+    "em": false
+   },
+   {
+    "f": 3,
+    "w": "las",
+    "em": false
+   },
+   {
+    "f": 9,
+    "w": "mejores",
+    "em": false
+   },
+   {
+    "f": 18,
+    "w": "pijamas,",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 316,
+  "to": 351,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "súper",
+    "em": false
+   },
+   {
+    "f": 17,
+    "w": "calientitas,",
+    "em": true
+   }
+  ]
+ },
+ {
+  "from": 351,
+  "to": 387,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "y",
+    "em": false
+   },
+   {
+    "f": 6,
+    "w": "todo",
+    "em": false
+   },
+   {
+    "f": 13,
+    "w": "el",
+    "em": false
+   },
+   {
+    "f": 17,
+    "w": "mundo",
+    "em": false
+   },
+   {
+    "f": 22,
+    "w": "las",
+    "em": false
+   },
+   {
+    "f": 29,
+    "w": "ama.",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 387,
+  "to": 427,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "Es",
+    "em": false
+   },
+   {
+    "f": 13,
+    "w": "el",
+    "em": false
+   },
+   {
+    "f": 17,
+    "w": "mejor",
+    "em": false
+   },
+   {
+    "f": 25,
+    "w": "regalo",
+    "em": true
+   }
+  ]
+ },
+ {
+  "from": 427,
+  "to": 454,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "que",
+    "em": false
+   },
+   {
+    "f": 10,
+    "w": "puedes",
+    "em": false
+   },
+   {
+    "f": 18,
+    "w": "tener",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 454,
+  "to": 480,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "para",
+    "em": false
+   },
+   {
+    "f": 8,
+    "w": "esta",
+    "em": false
+   },
+   {
+    "f": 12,
+    "w": "Navidad,",
+    "em": true
+   }
+  ]
+ },
+ {
+  "from": 480,
+  "to": 516,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "y",
+    "em": false
+   },
+   {
+    "f": 3,
+    "w": "por",
+    "em": false
+   },
+   {
+    "f": 7,
+    "w": "supuesto",
+    "em": false
+   },
+   {
+    "f": 18,
+    "w": "aprovecha",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 516,
+  "to": 536,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "el",
+    "em": false
+   },
+   {
+    "f": 10,
+    "w": "15%",
+    "em": true
+   }
+  ]
+ },
+ {
+  "from": 536,
+  "to": 556,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "del",
+    "em": false
+   },
+   {
+    "f": 7,
+    "w": "Buen",
+    "em": false
+   },
+   {
+    "f": 12,
+    "w": "Fin",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 556,
+  "to": 592,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "para",
+    "em": false
+   },
+   {
+    "f": 8,
+    "w": "comprarlo",
+    "em": false
+   },
+   {
+    "f": 22,
+    "w": "de",
+    "em": false
+   },
+   {
+    "f": 25,
+    "w": "una",
+    "em": false
+   },
+   {
+    "f": 28,
+    "w": "vez.",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 600,
+  "to": 634,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "Ven,",
+    "em": false
+   },
+   {
+    "f": 14,
+    "w": "te",
+    "em": false
+   },
+   {
+    "f": 17,
+    "w": "esperamos.",
+    "em": false
+   }
+  ]
+ }
+]

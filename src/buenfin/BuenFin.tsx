@@ -113,25 +113,11 @@ const Paper: React.FC<{
   </div>
 );
 
-const BuenFinWord: React.FC<{ size: number; color?: string }> = ({
-  size,
-  color = C.ink,
-}) => (
-  <div
-    style={{
-      fontFamily: DISPLAY,
-      fontSize: size,
-      lineHeight: 0.86,
-      letterSpacing: "0.01em",
-      color,
-      textAlign: "center",
-    }}
-  >
-    BUEN
-    <br />
-    FIN
-  </div>
+// The official Buen Fin logo (client-supplied artwork, background removed) wherever the invitation names Buen Fin.
+const BuenFinLogo: React.FC<{ width: number; style?: React.CSSProperties }> = ({ width, style }) => (
+  <Img src={staticFile("brand/buen-fin-logo.png")} style={{ width, display: "block", ...style }} />
 );
+const BuenFinWord: React.FC<{ size: number; color?: string }> = ({ size }) => <BuenFinLogo width={size * 1.75} />;
 
 // ───────────────────────── scene 1 — the envelope (hook)
 const Envelope: React.FC = () => {
@@ -192,17 +178,7 @@ const Envelope: React.FC = () => {
           >
             Las pijamas RE:SET te invitan al
           </div>
-          <div
-            style={{
-              fontFamily: DISPLAY,
-              fontSize: 210,
-              lineHeight: 0.9,
-              color: C.pine,
-              letterSpacing: "0.01em",
-            }}
-          >
-            BUEN FIN
-          </div>
+          <BuenFinLogo width={270} style={{ marginTop: 10 }} />
         </AbsoluteFill>
       </Paper>
     </div>
@@ -432,18 +408,7 @@ const TentCard: React.FC = () => {
           <Paper w={780} h={620} radius={6}>
             <div style={{ position: "absolute", inset: 26, border: `2px solid ${C.gold}`, borderRadius: 2 }} />
             <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
-              <div
-                style={{
-                  fontFamily: SANS,
-                  fontWeight: 700,
-                  fontSize: 30,
-                  letterSpacing: "0.32em",
-                  color: C.cranberry,
-                  marginBottom: 10,
-                }}
-              >
-                BUEN FIN · RE:SET
-              </div>
+              <BuenFinLogo width={170} style={{ marginBottom: 14 }} />
               <div
                 style={{
                   fontFamily: DISPLAY,
@@ -528,20 +493,8 @@ const ProductCard: React.FC<{ clip: string; i: number }> = ({ clip, i }) => {
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </div>
-        <div
-          style={{
-            position: "absolute",
-            left: 0,
-            right: 0,
-            bottom: 34,
-            textAlign: "center",
-            fontFamily: DISPLAY,
-            fontSize: 70,
-            letterSpacing: "0.04em",
-            color: C.pine,
-          }}
-        >
-          BUEN FIN
+        <div style={{ position: "absolute", left: 0, right: 0, bottom: 16, display: "flex", justifyContent: "center" }}>
+          <BuenFinLogo width={112} />
         </div>
       </Paper>
     </div>
@@ -631,7 +584,9 @@ const FinalInvitation: React.FC = () => {
             <div style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: 50, color: C.ink, marginTop: 40, ...item(1) }}>
               te invita al
             </div>
-            <div style={{ fontFamily: DISPLAY, fontSize: 200, lineHeight: 0.9, color: C.pine, ...item(2) }}>BUEN FIN</div>
+            <div style={{ marginTop: 10, ...item(2) }}>
+              <BuenFinLogo width={250} />
+            </div>
             <div style={{ width: 120, height: 2, background: C.gold, margin: "26px 0 18px", ...item(3) }} />
             <div
               style={{

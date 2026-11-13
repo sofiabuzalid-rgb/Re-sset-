@@ -301,16 +301,15 @@
   ],
   "graphics": [
     {
-      "kind": "hook",
-      "from": 0,
-      "to": 96,
-      "text": "¿Todavía no tienes tus pijamas para diciembre?"
-    },
-    {
       "kind": "end",
       "from": 600,
       "to": 670,
-      "line": "Buen Fin · 15% off en toda la tienda"
+      "line": "BUEN FIN · 15% OFF\nEn toda la tienda"
     }
-  ]
+  ],
+  "badge": {
+    "from": 0,
+    "to": 90
+  },
+  "captionTop": 1200
 }

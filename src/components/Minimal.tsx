@@ -155,3 +155,90 @@ export const MinimalEndTag: React.FC<{
     </AbsoluteFill>
   );
 };
+
+/**
+ * Word-by-word caption in the style of the client's Buen Fin reference reel: centred, white semibold, each word fades
+ * in as she says it, a key word (RE:SET, 15%, descuento…) takes its own line in bold italic. One chunk at a time.
+ */
+export type PopWord = { f: number; w: string; em?: boolean };
+export const PopCaption: React.FC<{ words: PopWord[]; dur: number; top?: number }> = ({ words, dur, top = 940 }) => {
+  const f = useCurrentFrame();
+  const shown = words.filter((x) => x.f <= f);
+  const out = interpolate(f, [dur - 2, dur], [1, 0], clamp);
+  const shadow = "0 2px 10px rgba(0,0,0,0.32), 0 1px 3px rgba(0,0,0,0.35)";
+  const word = (x: PopWord, i: number) => (
+    <span key={i} style={{ opacity: interpolate(f - x.f, [0, 4], [0.15, 1], clamp) }}>
+      {x.w}
+    </span>
+  );
+  const plainWords = shown.filter((x) => !x.em);
+  const emWords = shown.filter((x) => x.em);
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: 80,
+        right: 80,
+        top,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+        color: "#FFFFFF",
+        textShadow: shadow,
+        opacity: out,
+      }}
+    >
+      {plainWords.length ? (
+        <div
+          style={{
+            fontFamily: MIN_SANS,
+            fontWeight: 600,
+            fontSize: 66,
+            lineHeight: 1.08,
+            letterSpacing: "-0.025em",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            columnGap: "0.24em",
+            maxWidth: 900,
+          }}
+        >
+          {plainWords.map(word)}
+        </div>
+      ) : null}
+      {emWords.length ? (
+        <div
+          style={{
+            fontFamily: MIN_SANS,
+            fontWeight: 800,
+            fontStyle: "italic",
+            fontSize: 88,
+            lineHeight: 1.0,
+            letterSpacing: "-0.03em",
+            marginTop: plainWords.length ? 2 : 0,
+          }}
+        >
+          {emWords.map(word)}
+        </div>
+      ) : null}
+    </div>
+  );
+};
+
+/** The official Buen Fin logo (client-supplied artwork, background removed), small, top-left, opening seconds only. */
+export const BuenFinBadge: React.FC<{ dur: number; left?: number; top?: number; width?: number }> = ({
+  dur,
+  left = 50,
+  top = 70,
+  width = 250,
+}) => {
+  const f = useCurrentFrame();
+  const o = interpolate(f, [dur - 3, dur], [1, 0], clamp);
+  return (
+    <Img
+      src={staticFile("brand/buen-fin-logo.png")}
+      style={{ position: "absolute", left, top, width, opacity: o, filter: "drop-shadow(0 3px 8px rgba(0,0,0,0.18))" }}
+    />
+  );
+};

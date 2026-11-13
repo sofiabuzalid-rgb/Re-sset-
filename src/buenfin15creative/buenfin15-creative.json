@@ -94,7 +94,8 @@
         0.5,
         0.56
       ],
-      "what": "punch-in on the sign: '15% de descuento'"
+      "what": "punch-in on the sign: '15% de descuento'",
+      "capTop": 1450
     },
     {
       "id": "s05",
@@ -109,7 +110,8 @@
         0.5,
         0.5
       ],
-      "what": "wide, the Christmas racks: 'en toda la nueva colección'"
+      "what": "wide, the Christmas racks: 'en toda la nueva colección'",
+      "capTop": 1450
     },
     {
       "id": "s06",
@@ -139,7 +141,8 @@
         0.5,
         0.5
       ],
-      "what": "the brown set in hand: 'antes del rush de diciembre'"
+      "what": "the brown set in hand: 'antes del rush de diciembre'",
+      "capTop": 1560
     },
     {
       "id": "s08",
@@ -154,7 +157,8 @@
         0.5,
         0.5
       ],
-      "what": "punch-in: '¡Apúrate!'"
+      "what": "punch-in: '¡Apúrate!'",
+      "capTop": 1560
     },
     {
       "id": "s09",
@@ -194,16 +198,10 @@
   "windows": [],
   "graphics": [
     {
-      "kind": "hook",
-      "from": 0,
-      "to": 60,
-      "text": "¿Pijamas con 15% off?"
-    },
-    {
       "kind": "end",
       "from": 530,
       "to": 580,
-      "line": "Buen Fin · 15% off en toda la tienda",
+      "line": "BUEN FIN · 15% OFF\nEn toda la tienda",
       "logo": false,
       "top": 760
     }
@@ -273,5 +271,10 @@
       "kind": "whoosh",
       "gain": -8
     }
-  ]
+  ],
+  "badge": {
+    "from": 0,
+    "to": 90
+  },
+  "captionTop": 1200
 }

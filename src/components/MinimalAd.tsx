@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Audio, Easing, Img, interpolate, OffthreadVideo, Sequence, staticFile, useCurrentFrame } from "remotion";
-import { INTER, MinimalEndTag, MinimalHook, MinimalSubtitle } from "./Minimal";
+import { BuenFinBadge, INTER, MinimalEndTag, MinimalHook, MinimalSubtitle, PopCaption, PopWord } from "./Minimal";
 
 /**
  * Shared minimal ad: the footage full bleed with a slow drift, a short hook, her literal subtitles and a discreet
@@ -32,7 +32,9 @@ export type MinEdit = {
   subtitleTop?: number;
   font?: "inter"; // default: the shared Montserrat system
   subtitleSize?: number;
+  badge?: { from: number; to: number }; // official Buen Fin logo, top-left
 };
+export type MinCaption = { from: number; to: number; top: number; words: PopWord[] };
 export type MinSub = { from: number; to: number; text: string; top?: number };
 
 export const minimalTotal = (e: MinEdit) => e.shots.reduce((n, s) => n + s.frames, 0);
@@ -64,7 +66,13 @@ const ShotView: React.FC<{ dir: string; s: MinShot }> = ({ dir, s }) => {
   );
 };
 
-export const MinimalAd: React.FC<{ edit: MinEdit; subs: MinSub[]; dir: string; bare?: boolean }> = ({ edit, subs, dir, bare }) => {
+export const MinimalAd: React.FC<{ edit: MinEdit; subs: MinSub[]; dir: string; bare?: boolean; captions?: MinCaption[] }> = ({
+  edit,
+  subs,
+  dir,
+  bare,
+  captions,
+}) => {
   const font = edit.font === "inter" ? INTER : undefined;
   let t = 0;
   const shots = edit.shots.map((s) => {
@@ -88,11 +96,21 @@ export const MinimalAd: React.FC<{ edit: MinEdit; subs: MinSub[]; dir: string; b
           )}
         </Sequence>
       ))}
-      {!bare && subs.map((s) => (
+      {!bare && !captions && subs.map((s) => (
         <Sequence key={s.from} from={s.from} durationInFrames={s.to - s.from}>
           <MinimalSubtitle text={s.text} dur={s.to - s.from} top={s.top ?? edit.subtitleTop} font={font} size={edit.subtitleSize} />
         </Sequence>
       ))}
+      {!bare && captions?.map((c) => (
+        <Sequence key={c.from} from={c.from} durationInFrames={c.to - c.from}>
+          <PopCaption words={c.words} dur={c.to - c.from} top={c.top} />
+        </Sequence>
+      ))}
+      {!bare && edit.badge ? (
+        <Sequence from={edit.badge.from} durationInFrames={edit.badge.to - edit.badge.from}>
+          <BuenFinBadge dur={edit.badge.to - edit.badge.from} />
+        </Sequence>
+      ) : null}
       <Audio src={staticFile(`${dir}/mix.wav`)} />
     </AbsoluteFill>
   );

@@ -1,17 +1,17 @@
 import React from "react";
 import { AbsoluteFill, Audio, Easing, Img, OffthreadVideo, Sequence, staticFile, useCurrentFrame } from "remotion";
-import { MinimalEndTag, MinimalHook, MinimalSubtitle } from "../components/Minimal";
+import { BuenFinBadge, MinimalEndTag, MinimalHook, PopCaption, PopWord } from "../components/Minimal";
 import edit from "./buenfin15-creative.json";
-import subsJson from "./buenfin15-creative.subs.json";
+import capsJson from "./buenfin15-creative.captions.json";
 
 const DIR = "buenfin15-creative";
 
 type Shot = { id: string; frames: number; zoom: number[]; focus: number[]; freeze?: unknown };
 type G = { kind: string; from: number; to: number; text?: string; line?: string; logo?: boolean; top?: number };
-type Sub = { from: number; to: number; text: string; top?: number };
+type Cap = { from: number; to: number; top: number; words: PopWord[] };
 
-const E = edit as unknown as { shots: Shot[]; graphics: G[] };
-const SUBS = subsJson as Sub[];
+const E = edit as unknown as { shots: Shot[]; graphics: G[]; badge?: { from: number; to: number } };
+const CAPS = capsJson as Cap[];
 export const CREATIVE_TOTAL = E.shots.reduce((n, s) => n + s.frames, 0);
 
 let acc = 0;
@@ -59,11 +59,16 @@ export const CreativeEdit: React.FC<{ bare?: boolean }> = ({ bare }) => (
         )}
       </Sequence>
     ))}
-    {!bare && SUBS.map((s) => (
-      <Sequence key={s.from} from={s.from} durationInFrames={s.to - s.from}>
-        <MinimalSubtitle text={s.text} dur={s.to - s.from} top={s.top} />
+    {!bare && CAPS.map((c) => (
+      <Sequence key={c.from} from={c.from} durationInFrames={c.to - c.from}>
+        <PopCaption words={c.words} dur={c.to - c.from} top={c.top} />
       </Sequence>
     ))}
+    {!bare && E.badge ? (
+      <Sequence from={E.badge.from} durationInFrames={E.badge.to - E.badge.from}>
+        <BuenFinBadge dur={E.badge.to - E.badge.from} />
+      </Sequence>
+    ) : null}
     <Audio src={staticFile(`${DIR}/mix.wav`)} />
   </AbsoluteFill>
 );

@@ -1,0 +1,271 @@
+[
+ {
+  "from": 0,
+  "to": 67,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "Tres",
+    "em": false
+   },
+   {
+    "f": 7,
+    "w": "razones",
+    "em": false
+   },
+   {
+    "f": 21,
+    "w": "para",
+    "em": false
+   },
+   {
+    "f": 29,
+    "w": "comprar",
+    "em": false
+   },
+   {
+    "f": 42,
+    "w": "tu",
+    "em": false
+   },
+   {
+    "f": 53,
+    "w": "pijama",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 67,
+  "to": 107,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "este",
+    "em": false
+   },
+   {
+    "f": 9,
+    "w": "Buen",
+    "em": false
+   },
+   {
+    "f": 15,
+    "w": "Fin",
+    "em": false
+   },
+   {
+    "f": 24,
+    "w": "en",
+    "em": false
+   },
+   {
+    "f": 30,
+    "w": "RE:SET.",
+    "em": true
+   }
+  ]
+ },
+ {
+  "from": 112,
+  "to": 131,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "Uno.",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 140,
+  "to": 176,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "Hay",
+    "em": false
+   },
+   {
+    "f": 18,
+    "w": "15%",
+    "em": true
+   }
+  ]
+ },
+ {
+  "from": 176,
+  "to": 201,
+  "top": 1450,
+  "words": [
+   {
+    "f": 0,
+    "w": "de",
+    "em": false
+   },
+   {
+    "f": 10,
+    "w": "descuento",
+    "em": true
+   }
+  ]
+ },
+ {
+  "from": 201,
+  "to": 246,
+  "top": 1450,
+  "words": [
+   {
+    "f": 0,
+    "w": "en",
+    "em": false
+   },
+   {
+    "f": 7,
+    "w": "toda",
+    "em": false
+   },
+   {
+    "f": 11,
+    "w": "la",
+    "em": false
+   },
+   {
+    "f": 18,
+    "w": "nueva",
+    "em": false
+   },
+   {
+    "f": 25,
+    "w": "colección.",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 260,
+  "to": 284,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "Tenemos",
+    "em": false
+   },
+   {
+    "f": 8,
+    "w": "tallas",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 284,
+  "to": 315,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "para",
+    "em": false
+   },
+   {
+    "f": 6,
+    "w": "toda",
+    "em": false
+   },
+   {
+    "f": 13,
+    "w": "la",
+    "em": false
+   },
+   {
+    "f": 19,
+    "w": "familia.",
+    "em": true
+   }
+  ]
+ },
+ {
+  "from": 327,
+  "to": 343,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "Hombre,",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 343,
+  "to": 370,
+  "top": 1200,
+  "words": [
+   {
+    "f": 0,
+    "w": "mujer",
+    "em": false
+   },
+   {
+    "f": 9,
+    "w": "y",
+    "em": false
+   },
+   {
+    "f": 19,
+    "w": "niño.",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 382,
+  "to": 433,
+  "top": 1560,
+  "words": [
+   {
+    "f": 0,
+    "w": "Antes",
+    "em": false
+   },
+   {
+    "f": 15,
+    "w": "del",
+    "em": false
+   },
+   {
+    "f": 22,
+    "w": "rush",
+    "em": false
+   },
+   {
+    "f": 29,
+    "w": "de",
+    "em": false
+   },
+   {
+    "f": 35,
+    "w": "diciembre.",
+    "em": false
+   }
+  ]
+ },
+ {
+  "from": 436,
+  "to": 452,
+  "top": 1560,
+  "words": [
+   {
+    "f": 0,
+    "w": "Apúrate.",
+    "em": false
+   }
+  ]
+ }
+]
