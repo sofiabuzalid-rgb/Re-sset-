@@ -1,0 +1,24 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Montserrat Medium,46,&H00FFFFFF,&H00FFFFFF,&H00000000,&H55000000,0,0,0,0,100,100,0,0,1,0,1.6,2,110,110,422,1
+Style: Hook,Montserrat Medium,36,&H00FFFFFF,&H00FFFFFF,&H00000000,&H55000000,0,0,0,0,100,100,6,0,1,0,1.6,8,80,80,230,1
+Style: End,Montserrat Medium,32,&H00FFFFFF,&H00FFFFFF,&H00000000,&H55000000,0,0,0,0,100,100,4.5,0,1,0,1.2,5,60,60,0,1
+Style: Note,Montserrat Medium,20,&H30FFFFFF,&H00FFFFFF,&H00000000,&H55000000,0,0,0,0,100,100,0,0,1,0,1,5,60,60,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.90,Hook,,0,0,0,,{\blur1\fad(0,200)}Pijamas RE:SET
+Dialogue: 0,0:00:00.95,0:00:03.36,Sub,,0,0,0,,{\blur1\fad(100,100)}Este fin de semana fui a HOTBOOK BAZAR
+Dialogue: 0,0:00:03.36,0:00:04.72,Sub,,0,0,0,,{\blur1\fad(100,100)}y me encontré con RE:SET.
+Dialogue: 0,0:00:04.80,0:00:06.53,Sub,,0,0,0,,{\blur1\fad(100,100)}Tienen pijamas demasiado lindas,
+Dialogue: 0,0:00:06.55,0:00:09.32,Sub,,0,0,0,,{\blur1\fad(100,100)}de esas que ves y se te antojan\Npara estar todo el día en ellas.
+Dialogue: 0,0:00:09.66,0:00:11.60,Sub,,0,0,0,,{\blur1\fad(100,100)}Obvio terminé llevándome una.
+Dialogue: 0,0:00:15.10,0:00:16.10,End,,0,0,0,,{\blur1\pos(540,360)\fad(400,0)}RE:SET · BUEN FIN 15% OFF
+Dialogue: 0,0:00:15.10,0:00:16.10,Note,,0,0,0,,{\blur1\pos(540,402)\fad(400,0)}En toda la tienda · aplican condiciones

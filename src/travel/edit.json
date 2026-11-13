@@ -251,36 +251,21 @@
       "slow": 2
     }
   ],
-  "graphics": [
-    {
-      "a": 0.0,
-      "b": 3.6,
-      "style": "hook",
-      "kicker": "PIJAMA RE:SET",
-      "text": "Con su bolsita\npara llevarla de viaje"
-    },
-    {
-      "a": 6.8,
-      "b": 10.9,
-      "style": "tag",
-      "text": "Su bolsita, lista para tu maleta"
-    }
-  ],
   "subtitles": [
     {
       "a": 0.05,
       "b": 2.55,
-      "text": "Está súper cómoda y súper *práctica*"
+      "text": "Está súper cómoda y súper práctica"
     },
     {
       "a": 2.67,
       "b": 4.3,
-      "text": "para que la puedas llevar en cualquier parte cuando te vayas de *viaje*,"
+      "text": "para que la puedas llevar en cualquier parte cuando te vayas de viaje,"
     },
     {
       "a": 4.45,
       "b": 5.2,
-      "text": "en tu *maleta*,"
+      "text": "en tu maleta,"
     },
     {
       "a": 5.3,
@@ -310,7 +295,7 @@
     {
       "a": 20.59,
       "b": 22.95,
-      "text": "Pero nada, nomás quería decirles que esta *pijama* es de RE:SET"
+      "text": "Pero nada, nomás quería decirles que esta pijama es de RE:SET"
     },
     {
       "a": 23.06,
@@ -319,8 +304,12 @@
     }
   ],
   "close": {
-    "title": "Tu pijama favorita,\ntambién de viaje.",
-    "cta": "DESCUBRE LA COLECCIÓN",
-    "url": "resetwear.com.mx"
+    "line": "RE:SET · BUEN FIN 15% OFF",
+    "note": "En toda la tienda · aplican condiciones"
+  },
+  "hook": {
+    "a": 0.0,
+    "b": 2.6,
+    "text": "Pijama RE:SET con su bolsita para viajar"
   }
 }

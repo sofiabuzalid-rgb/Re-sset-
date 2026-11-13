@@ -120,9 +120,8 @@
   ],
   "hook": {
     "a": 0.0,
-    "b": 2.9,
-    "title": "PIJAMAS RE:SET",
-    "offer": "15% OFF · BUEN FIN"
+    "b": 2.0,
+    "text": "Pijamas RE:SET"
   },
   "card": {
     "a": 7.75,
@@ -131,18 +130,10 @@
     "name": "Essentials Rosa",
     "offer": "15% OFF"
   },
-  "promo": {
-    "a": 11.3,
-    "b": 13.9,
-    "title": "15% OFF",
-    "sub": "EN TODA LA TIENDA",
-    "legal": "Buen Fin 2026 · Aplican condiciones de la promoción"
-  },
   "close": {
-    "a": 13.95,
-    "title": "Buen Fin",
-    "cta": "DESCUBRE TUS FAVORITAS",
-    "url": "resetwear.com.mx"
+    "a": 14.55,
+    "line": "RE:SET · BUEN FIN 15% OFF",
+    "note": "En toda la tienda · aplican condiciones"
   },
   "subtitles": [
     {
@@ -173,7 +164,7 @@
     {
       "a": 9.78,
       "b": 11.26,
-      "text": "tenemos *15% de descuento* en toda la nueva colección."
+      "text": "tenemos 15% de descuento en toda la nueva colección."
     },
     {
       "a": 11.34,
@@ -183,7 +174,7 @@
     {
       "a": 13.1,
       "b": 14.52,
-      "text": "aprovecha y *compra ahora*."
+      "text": "aprovecha y compra ahora."
     }
   ]
 }

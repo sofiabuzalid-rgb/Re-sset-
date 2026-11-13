@@ -267,12 +267,12 @@
     {
       "a": 0.08,
       "b": 1.85,
-      "text": "Les tengo una idea *buenísima*,"
+      "text": "Les tengo una idea buenísima,"
     },
     {
       "a": 2.02,
       "b": 4.75,
-      "text": "por si no saben *qué regalar* esta Navidad."
+      "text": "por si no saben qué regalar esta Navidad."
     },
     {
       "a": 4.84,
@@ -282,37 +282,37 @@
     {
       "a": 7.59,
       "b": 10.12,
-      "text": "y lo mejor de todo es que lo puedes combinar con *toda tu familia*."
+      "text": "y lo mejor de todo es que lo puedes combinar con toda tu familia."
     },
     {
       "a": 10.21,
       "b": 12.7,
-      "text": "Tu hijo, tu hermano se pone a lo mejor *la verde*,"
+      "text": "Tu hijo, tu hermano se pone a lo mejor la verde,"
     },
     {
       "a": 12.85,
       "b": 14.2,
-      "text": "*la blanca* se la puede poner"
+      "text": "la blanca se la puede poner"
     },
     {
       "a": 14.47,
       "b": 16.95,
-      "text": "tu esposo, y todos van a estar *matching*"
+      "text": "tu esposo, y todos van a estar matching"
     },
     {
       "a": 17.12,
       "b": 17.96,
-      "text": "y *súper cómodos* esta Navidad."
+      "text": "y súper cómodos esta Navidad."
     },
     {
       "a": 18.01,
       "b": 20.7,
-      "text": "Así que en serio, si todavía no saben *qué regalar* esta Navidad,"
+      "text": "Así que en serio, si todavía no saben qué regalar esta Navidad,"
     },
     {
       "a": 20.85,
       "b": 22.3,
-      "text": "dense una vuelta por *RE:SET*,"
+      "text": "dense una vuelta por RE:SET,"
     },
     {
       "a": 22.32,
@@ -321,9 +321,12 @@
     }
   ],
   "close": {
-    "kicker": "PIJAMAS NAVIDEÑAS",
-    "title": "El regalo para toda la familia",
-    "cta": "COMPRA AHORA",
-    "url": "resetwear.com.mx"
+    "line": "RE:SET · BUEN FIN 15% OFF",
+    "note": "En toda la tienda · aplican condiciones"
+  },
+  "hook": {
+    "a": 0.0,
+    "b": 1.9,
+    "text": "Pijamas navideñas RE:SET"
   }
 }

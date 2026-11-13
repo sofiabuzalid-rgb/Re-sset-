@@ -27,7 +27,7 @@ const ROSE = '#D98CA3';
 
 // Copy (one headline only, plus the "plan" typed in the bar)
 const PLAN_TEXT = 'Mi plan de hoy: ponerme mi pijama favorita';
-const HEADLINE = ['DESCANSAR TAMBIÉN PUEDE', 'SENTIRSE ESPECIAL'];
+const SIGN_OFF = 'RE:SET · BUEN FIN 15% OFF';
 
 // Timeline (frames)
 const T = {
@@ -197,43 +197,27 @@ const PlanBar: React.FC = () => {
   );
 };
 
-const Headline: React.FC = () => {
+// Discreet sign-off (replaces the two-line headline): one quiet line, no ornaments.
+const SignOff: React.FC = () => {
   const frame = useCurrentFrame();
+  const o = interpolate(frame - T.headline, [0, 16], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <div
       style={{
         position: 'absolute',
         left: 0,
         width: 1080,
-        top: 1690,
+        top: 1735,
         textAlign: 'center',
-        fontFamily: 'Cormorant Garamond',
+        fontFamily: 'Inter',
         fontWeight: 500,
-        fontSize: 47,
-        lineHeight: 1.32,
-        color: '#3B312C',
-        textShadow: '0 0 22px rgba(255, 248, 240, 0.85), 0 0 6px rgba(255, 248, 240, 0.6)',
+        fontSize: 26,
+        letterSpacing: '0.18em',
+        color: INK,
+        opacity: o,
       }}
     >
-      {HEADLINE.map((line, i) => {
-        const t = frame - T.headline - i * 8;
-        const o = interpolate(t, [0, 16], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-        const ls = interpolate(t, [0, 24], [7, 4], {
-          extrapolateLeft: 'clamp',
-          extrapolateRight: 'clamp',
-          easing: Easing.out(Easing.cubic),
-        });
-        return (
-          <div key={line} style={{opacity: o, letterSpacing: ls, transform: `translateY(${(1 - o) * 8}px)`}}>
-            {line}
-            {i === HEADLINE.length - 1 && (
-              <span style={{display: 'inline-block', marginLeft: 12, verticalAlign: '-2px'}}>
-                <Heart size={30} color={ROSE} outline={false} />
-              </span>
-            )}
-          </div>
-        );
-      })}
+      {SIGN_OFF}
     </div>
   );
 };
@@ -289,7 +273,7 @@ export const ResetCollage: React.FC = () => {
       ))}
       <DecorLayer />
       <PlanBar />
-      <Headline />
+      <SignOff />
       <Audio src={staticFile('music.wav')} volume={(f) => interpolate(f, [0, 10, DURATION - 24, DURATION], [0, 0.8, 0.8, 0], {extrapolateRight: 'clamp'})} />
     </AbsoluteFill>
   );
