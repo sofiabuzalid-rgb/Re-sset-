@@ -124,17 +124,12 @@
     "title": "PIJAMAS RE:SET",
     "offer": "15% OFF · BUEN FIN"
   },
-  "badge": {
-    "a": 3.0,
-    "b": 11.2,
-    "text": "15% OFF · BUEN FIN"
-  },
   "card": {
     "a": 7.75,
     "b": 11.15,
     "image": "brand/product-soft-winter-blush.png",
-    "name": "ESSENTIALS ROSA",
-    "offer": "15% OFF · BUEN FIN"
+    "name": "Essentials Rosa",
+    "offer": "15% OFF"
   },
   "promo": {
     "a": 11.3,
@@ -145,7 +140,7 @@
   },
   "close": {
     "a": 13.95,
-    "title": "BUEN FIN RE:SET",
+    "title": "Buen Fin",
     "cta": "DESCUBRE TUS FAVORITAS",
     "url": "resetwear.com.mx"
   },

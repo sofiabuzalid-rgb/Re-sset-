@@ -1,6 +1,6 @@
 """
 RE:SET Buen Fin 2026 — 15% OFF UGC with Ilana (IMG_4427 / IMG_4428, 1080x1920 iPhone HEVC, 29.97 fps).
-- Shots: pre-cut and conformed to 30 fps, light neutral grade (the pink of the set kept true), muted.
+- Shots: pre-cut and conformed to 30 fps, soft muted warm grade (lifted blacks, -14% saturation; the set stays pink), muted.
   "hold_after": source seconds to play before holding the last frame (final shot only).
 - Voice: real audio only. Per segment: high-pass + hum notches, light FFT denoise, EQ for intelligibility,
   de-ess, gentle compression, level riding; 20 ms edges; placed at its "at" time (lip-sync).
@@ -27,7 +27,7 @@ for s in e["shots"]:
     slow = s.get("slow", 1)
     hold = f"trim=duration={s['hold_after']}," if s.get("hold_after") else ""
     pre = (hold + f"setpts={slow}*PTS," if slow != 1 else hold) + ("tpad=stop_mode=clone:stop_duration=10," if hold or slow != 1 else "")
-    vf = pre + ("fps=30,eq=contrast=1.04:brightness=0.01:saturation=1.03,"
+    vf = pre + ("fps=30,eq=contrast=0.97:brightness=0.012:saturation=0.86,colorbalance=rs=0.015:gs=0.005:bs=-0.02:rh=0.01:bh=-0.01,curves=all='0/0.035 0.5/0.52 1/0.975',"
                 "scale=1080:1920:flags=lanczos,format=yuv420p")
     run(["ffmpeg", "-y", "-v", "error", "-ss", str(s["in"]), "-i", src(s["src"]), "-an", "-vf", vf,
          "-frames:v", str(s["frames"]), "-r", str(FPS), "-c:v", "libx264", "-preset", "medium", "-crf", "14", "-g", "15",
