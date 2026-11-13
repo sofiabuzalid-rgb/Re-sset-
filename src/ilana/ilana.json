@@ -1,38 +1,236 @@
 {
   "fps": 30,
   "title": "RE:SET — Buen Fin 15% OFF · Ilana premium",
-  "note": "Clips IMG_4430–4436 (IMG_4428 not received). Story: her hook on the pink set (IMG_4433) → the Christmas print in kids' and adult sizes (IMG_4435) → her Buen Fin close (IMG_4436 from 'Las pijamas…'; the 'se están acabando' line is left out). IMG_4430 repeats the 15% and IMG_4431 is a low-bitrate take of a line we don't need. Her opening line already names the product, so the written hook is left out and the subtitles lead. Colour: HLG → SDR tone map plus a +5% midtone lift only; no sharpening, no blur, no zoom — original framing, original resolution.",
+  "note": "Clips IMG_4430–4436 (IMG_4428 not received). 35–45 s cut, so every take is used in full: her hook on the pink set (IMG_4433) → the Christmas print in kids' and adult sizes (IMG_4435) → the Buen Fin 15% on the new Christmas collection (IMG_4430) → 'resuélvelo ahorita' (IMG_4431) → her close (IMG_4436). Her opening line names the product, so the written hook is left out and the subtitles lead. Colour: HLG → SDR tone map plus a +5% midtone lift only; no sharpening, no blur, no zoom — original framing, original resolution.",
   "transcripts": "docs/ilana/transcripts.json",
   "grade": "eq=gamma=1.05",
-  "music": { "file": "music.wav", "local": true, "offset": 0, "gain": 0 },
+  "music": {
+    "file": "music.wav",
+    "local": true,
+    "offset": 0,
+    "gain": 0
+  },
   "font": "inter",
   "subtitleSize": 38,
   "subtitleTop": 1480,
-  "endAt": 556,
+  "endAt": 1006,
   "voice": [
-    { "src": "IMG_4433", "a": 0.0, "b": 5.42, "at": 0 },
-    { "src": "IMG_4435", "a": 0.0, "b": 8.15, "at": 163 },
-    { "src": "IMG_4436", "a": 2.95, "b": 9.95, "at": 408 }
+    {
+      "src": "IMG_4433",
+      "a": 0.0,
+      "b": 6.1,
+      "at": 0
+    },
+    {
+      "src": "IMG_4435",
+      "a": 0.0,
+      "b": 8.8,
+      "at": 183
+    },
+    {
+      "src": "IMG_4430",
+      "a": 0.0,
+      "b": 7.53,
+      "at": 447
+    },
+    {
+      "src": "IMG_4431",
+      "a": 0.0,
+      "b": 3.32,
+      "at": 673
+    },
+    {
+      "src": "IMG_4436",
+      "a": 0.0,
+      "b": 9.93,
+      "at": 773
+    }
   ],
   "shots": [
-    { "id": "s1", "src": "IMG_4433", "sync": 0, "frames": 163, "zoom": [1, 1], "what": "pink two-piece set, full length, rack of prints behind" },
-    { "id": "s2", "src": "IMG_4435", "sync": 1, "frames": 245, "zoom": [1, 1], "what": "she shows the dark Christmas print, kids' and adult sizes" },
-    { "id": "s3", "src": "IMG_4436", "sync": 2, "frames": 210, "zoom": [1, 1], "what": "back to the pink set, her Buen Fin close" }
+    {
+      "id": "s1",
+      "src": "IMG_4433",
+      "sync": 0,
+      "frames": 183,
+      "zoom": [
+        1,
+        1
+      ],
+      "what": "pink two-piece set, full length, rack of prints behind"
+    },
+    {
+      "id": "s2",
+      "src": "IMG_4435",
+      "sync": 1,
+      "frames": 264,
+      "zoom": [
+        1,
+        1
+      ],
+      "what": "she shows the dark Christmas print, kids' and adult sizes"
+    },
+    {
+      "id": "s3",
+      "src": "IMG_4430",
+      "sync": 2,
+      "frames": 226,
+      "zoom": [
+        1,
+        1
+      ],
+      "what": "pink set: Buen Fin 15% on the new Christmas collection"
+    },
+    {
+      "id": "s4",
+      "src": "IMG_4431",
+      "sync": 3,
+      "frames": 100,
+      "zoom": [
+        1,
+        1
+      ],
+      "what": "pink set: 'resuélvelo ahorita'"
+    },
+    {
+      "id": "s5",
+      "src": "IMG_4436",
+      "sync": 4,
+      "frames": 298,
+      "zoom": [
+        1,
+        1
+      ],
+      "what": "pink set, wider framing: her close and the sign-off"
+    }
   ],
   "graphics": [
-    { "kind": "end", "from": 556, "to": 618, "line": "BUEN FIN · 15% OFF\nEn toda la tienda", "tone": "dark", "top": 290 }
+    {
+      "kind": "end",
+      "from": 1006,
+      "to": 1071,
+      "line": "BUEN FIN · 15% OFF\nEn toda la tienda",
+      "tone": "dark",
+      "top": 290
+    }
   ],
   "subtitles": [
-    { "v": 0, "a": 0.0, "b": 1.6, "text": "Mamás, ¿no han comprado" },
-    { "v": 0, "a": 1.6, "b": 3.5, "text": "pijamas de Navidad para toda la familia?" },
-    { "v": 0, "a": 3.9, "b": 5.32, "text": "Este video es para ti." },
-    { "v": 1, "a": 0.0, "b": 1.22, "text": "Tenemos pijamas para niños", "top": 1560 },
-    { "v": 1, "a": 1.22, "b": 3.45, "text": "desde la talla 0-2 hasta la 12-14.", "top": 1560 },
-    { "v": 1, "a": 3.58, "b": 6.08, "text": "Tenemos para mujer y tenemos para hombre.", "top": 1560 },
-    { "v": 1, "a": 6.5, "b": 8.0, "text": "Están increíbles.", "top": 1560 },
-    { "v": 2, "a": 3.06, "b": 5.02, "text": "Las pijamas de RE:SET vuelan," },
-    { "v": 2, "a": 5.04, "b": 7.1, "text": "y mucho más con 15% de descuento" },
-    { "v": 2, "a": 7.1, "b": 7.92, "text": "en este Buen Fin." },
-    { "v": 2, "a": 8.0, "b": 9.52, "text": "¿Qué esperas para venir por la tuya?" }
+    {
+      "v": 0,
+      "a": 0.0,
+      "b": 1.6,
+      "text": "Mamás, ¿no han comprado"
+    },
+    {
+      "v": 0,
+      "a": 1.6,
+      "b": 3.5,
+      "text": "pijamas de Navidad para toda la familia?"
+    },
+    {
+      "v": 0,
+      "a": 3.9,
+      "b": 5.32,
+      "text": "Este video es para ti."
+    },
+    {
+      "v": 1,
+      "a": 0.0,
+      "b": 1.22,
+      "text": "Tenemos pijamas para niños",
+      "top": 1560
+    },
+    {
+      "v": 1,
+      "a": 1.22,
+      "b": 3.45,
+      "text": "desde la talla 0-2 hasta la 12-14.",
+      "top": 1560
+    },
+    {
+      "v": 1,
+      "a": 3.58,
+      "b": 6.08,
+      "text": "Tenemos para mujer y tenemos para hombre.",
+      "top": 1560
+    },
+    {
+      "v": 1,
+      "a": 6.5,
+      "b": 8.0,
+      "text": "Están increíbles.",
+      "top": 1560
+    },
+    {
+      "v": 2,
+      "a": 0.0,
+      "b": 2.42,
+      "text": "Buen Fin: tenemos el 15% de descuento"
+    },
+    {
+      "v": 2,
+      "a": 2.42,
+      "b": 4.3,
+      "text": "en toda la colección nueva de Navidad"
+    },
+    {
+      "v": 2,
+      "a": 4.3,
+      "b": 5.84,
+      "text": "para chiquitos y grandes."
+    },
+    {
+      "v": 2,
+      "a": 6.16,
+      "b": 7.3,
+      "text": "No te quedes sin la tuya."
+    },
+    {
+      "v": 3,
+      "a": 0.0,
+      "b": 1.02,
+      "text": "Resuélvelo ahorita"
+    },
+    {
+      "v": 3,
+      "a": 1.02,
+      "b": 2.74,
+      "text": "y en diciembre ya no corras."
+    },
+    {
+      "v": 4,
+      "a": 0.0,
+      "b": 1.22,
+      "text": "Corre por tus pijamas"
+    },
+    {
+      "v": 4,
+      "a": 1.22,
+      "b": 2.94,
+      "text": "porque se están acabando."
+    },
+    {
+      "v": 4,
+      "a": 3.06,
+      "b": 5.02,
+      "text": "Las pijamas de RE:SET vuelan,"
+    },
+    {
+      "v": 4,
+      "a": 5.04,
+      "b": 7.1,
+      "text": "y mucho más con 15% de descuento"
+    },
+    {
+      "v": 4,
+      "a": 7.1,
+      "b": 7.92,
+      "text": "en este Buen Fin."
+    },
+    {
+      "v": 4,
+      "a": 8.0,
+      "b": 9.52,
+      "text": "¿Qué esperas para venir por la tuya?"
+    }
   ]
 }
