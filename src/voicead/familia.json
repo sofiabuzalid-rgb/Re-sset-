@@ -1,7 +1,7 @@
 {
   "fps": 30,
   "title": "RE:SET — Navidad en familia",
-  "note": "Voice = the friend's real takes (docs/reset-hoy/transcripts.json), placed uncut between word boundaries. Shots with sync: k are lip-synced to voice k; the rest are cutaways chosen to show what she names (the green set when she says 'la verde', the white set on 'la blanca', the three sets together on 'combinar con toda tu familia').",
+  "note": "Voice = the friend's real takes (docs/reset-hoy/transcripts.json), placed uncut between word boundaries. Shots with sync: k are lip-synced to voice k; the rest are cutaways chosen to show what she names (the green set when she says 'la verde', the white set on 'la blanca', the three sets together on 'combinar con toda tu familia'). MINIMAL cut: short hook, literal subtitles, discreet sign-off on a held frame (src/components/Minimal.tsx).",
   "music": {
     "file": "SPACETRAIN UNLIMITED - Christmas Wonderland.mp3",
     "offset": 77.0,
@@ -217,38 +217,32 @@
     },
     {
       "id": "end",
-      "card": true,
+      "photo": "end.jpg",
       "frames": 96,
-      "xf": 8
+      "zoom": [
+        1.0,
+        1.03
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "what": "held last frame of s01 (wide on the bed, wall free above her) under the sign-off"
     }
   ],
-  "texts": [
+  "subtitleTop": 1420,
+  "graphics": [
     {
+      "kind": "hook",
       "from": 0,
-      "to": 92,
-      "kind": "kicker",
-      "lines": [
-        "Esta Navidad,",
-        "todos combinando."
-      ]
+      "to": 90,
+      "text": "Pijamas para combinar esta Navidad"
+    },
+    {
+      "kind": "end",
+      "from": 946,
+      "to": 1042,
+      "line": "Buen Fin · 15% off en toda la tienda"
     }
-  ],
-  "subtitleTop": 470,
-  "end": {
-    "title": "Encuentra sus pijamas de Navidad",
-    "places": [
-      [
-        "Perisur",
-        "Kiosco, planta baja"
-      ],
-      [
-        "Av. Stim 39",
-        "Planta baja, local 4"
-      ],
-      [
-        "Tienda online",
-        "resetwear.com.mx"
-      ]
-    ]
-  }
+  ]
 }

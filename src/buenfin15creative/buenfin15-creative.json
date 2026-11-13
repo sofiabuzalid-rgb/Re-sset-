@@ -1,7 +1,7 @@
 {
   "fps": 30,
   "title": "RESET_BUENFIN_15_UGC_CREATIVE_EDIT",
-  "note": "Voice = Ilana's real takes only (docs/buenfin15-creative/transcripts.json). Structure from her own words: 'Tres razones para comprar tu pijama este Buen Fin en RE:SET' (IMG_4417) → 1 '15% en toda la nueva colección' (IMG_4418) → tallas para toda la familia (IMG_4422, her spoken '3.' trimmed, shown as Nº 2) → 'antes del rush de diciembre. ¡Apúrate!' (IMG_4423, Nº 3). IMG_4419's line is the football OUTLET 25% offer, which must not be mixed with Buen Fin 15%, so only a silent frame of it (the RE:SET wall) is used for the CTA. Every spoken word is on screen at the moment it is said, either as a small caption or as editorial type.",
+  "note": "MINIMAL cut. Voice = Ilana's real takes only (docs/buenfin15-creative/transcripts.json): 'Tres razones…' (IMG_4417), 'Uno. Hay 15%…' (IMG_4418), tallas para toda la familia (IMG_4422, spoken 'Tres.' trimmed), 'antes del rush de diciembre. Apúrate.' (IMG_4423). IMG_4419's line is the football OUTLET 25% offer, not used; a silent frame of it closes. Text system: short hook, literal subtitles, discreet end tag (src/components/Minimal.tsx). No windows, no big type.",
   "transcripts": "docs/buenfin15-creative/transcripts.json",
   "music": {
     "file": "music.wav",
@@ -42,12 +42,12 @@
       "sync": 0,
       "frames": 66,
       "zoom": [
-        1.55,
-        1.6
+        1.26,
+        1.3
       ],
       "focus": [
         0.5,
-        0.5
+        0.52
       ],
       "what": "hook, close: 'Tres razones para comprar tu pijama'"
     },
@@ -57,8 +57,8 @@
       "sync": 0,
       "frames": 46,
       "zoom": [
-        1.1,
-        1.13
+        1.06,
+        1.09
       ],
       "focus": [
         0.5,
@@ -72,8 +72,8 @@
       "sync": 1,
       "frames": 34,
       "zoom": [
-        1.25,
-        1.28
+        1.14,
+        1.17
       ],
       "focus": [
         0.5,
@@ -87,12 +87,12 @@
       "sync": 1,
       "frames": 54,
       "zoom": [
-        1.62,
-        1.66
+        1.32,
+        1.36
       ],
       "focus": [
         0.5,
-        0.5
+        0.56
       ],
       "what": "punch-in on the sign: '15% de descuento'"
     },
@@ -102,8 +102,8 @@
       "sync": 1,
       "frames": 58,
       "zoom": [
-        1.08,
-        1.12
+        1.04,
+        1.07
       ],
       "focus": [
         0.5,
@@ -117,12 +117,12 @@
       "sync": 2,
       "frames": 122,
       "zoom": [
-        1.95,
-        2.0
+        1.45,
+        1.5
       ],
       "focus": [
         0.5,
-        0.52
+        0.55
       ],
       "what": "video window: 'Tenemos tallas para toda la familia. Hombre, mujer y niño.'"
     },
@@ -132,12 +132,12 @@
       "sync": 3,
       "frames": 57,
       "zoom": [
-        1.28,
-        1.3
+        1.0,
+        1.04
       ],
       "focus": [
         0.5,
-        0.56
+        0.5
       ],
       "what": "the brown set in hand: 'antes del rush de diciembre'"
     },
@@ -147,12 +147,12 @@
       "sync": 3,
       "frames": 23,
       "zoom": [
-        1.62,
-        1.7
+        1.0,
+        1.04
       ],
       "focus": [
         0.5,
-        0.47
+        0.5
       ],
       "what": "punch-in: '¡Apúrate!'"
     },
@@ -164,12 +164,12 @@
       },
       "frames": 66,
       "zoom": [
-        1.62,
-        1.7
+        1.3,
+        1.36
       ],
       "focus": [
         0.5,
-        0.55
+        0.56
       ],
       "what": "reveal window: Ilana with the BUEN FIN 15% sign"
     },
@@ -181,194 +181,97 @@
       },
       "frames": 54,
       "zoom": [
-        1.12,
-        1.18
+        1.0,
+        1.05
       ],
       "focus": [
         0.5,
-        0.4
+        0.42
       ],
       "what": "CTA: the RE:SET wall (silent frame)"
     }
   ],
-  "windows": [
-    {
-      "from": 258,
-      "to": 372,
-      "rect": [
-        80,
-        560,
-        600,
-        900
-      ],
-      "in": 9,
-      "out": 8
-    },
-    {
-      "from": 460,
-      "to": 530,
-      "rect": [
-        240,
-        660,
-        600,
-        780
-      ],
-      "in": 9,
-      "out": 8,
-      "openFromPrev": false
-    }
-  ],
+  "windows": [],
   "graphics": [
     {
       "kind": "hook",
       "from": 0,
-      "to": 64
+      "to": 60,
+      "text": "¿Pijamas con 15% off?"
     },
     {
-      "kind": "numeral",
-      "from": 112,
-      "to": 146,
-      "n": "1"
-    },
-    {
-      "kind": "big15",
-      "from": 146,
-      "to": 202,
-      "sub_at": 176,
-      "label": "RAZÓN Nº 1 DE 3"
-    },
-    {
-      "kind": "serifline",
-      "from": 219,
-      "to": 252,
-      "serif": "nueva",
-      "sans": "COLECCIÓN",
-      "label": "RAZÓN Nº 1 DE 3"
-    },
-    {
-      "kind": "family",
-      "from": 258,
-      "to": 372,
-      "head_at": [
-        268,
-        290
-      ],
-      "words": [
-        [
-          "HOMBRE",
-          327
-        ],
-        [
-          "MUJER",
-          343
-        ],
-        [
-          "Y NIÑO",
-          352
-        ]
-      ]
-    },
-    {
-      "kind": "rush",
-      "from": 381,
-      "to": 436,
-      "at": [
-        382,
-        406,
-        417
-      ],
-      "label": "RAZÓN Nº 3 DE 3"
-    },
-    {
-      "kind": "apurate",
-      "from": 437,
-      "to": 460
-    },
-    {
-      "kind": "reveal",
-      "from": 460,
-      "to": 530
-    },
-    {
-      "kind": "cta",
+      "kind": "end",
       "from": 530,
-      "to": 580
+      "to": 580,
+      "line": "Buen Fin · 15% off en toda la tienda",
+      "logo": false,
+      "top": 760
     }
   ],
-  "punch": [
-    437
-  ],
+  "punch": [],
   "subtitles": [
     {
       "v": 0,
       "a": 0.0,
-      "b": 0.7,
-      "text": "Tres razones"
-    },
-    {
-      "v": 0,
-      "a": 0.7,
-      "b": 1.4,
-      "text": "para comprar"
-    },
-    {
-      "v": 0,
-      "a": 1.4,
       "b": 2.22,
-      "text": "tu *pijama*"
+      "text": "Tres razones para comprar tu pijama"
     },
     {
       "v": 0,
       "a": 2.22,
-      "b": 3.02,
-      "text": "este *Buen Fin*"
+      "b": 3.58,
+      "text": "este Buen Fin en RE:SET."
     },
     {
-      "v": 0,
-      "a": 3.02,
-      "b": 3.58,
-      "text": "en RE:SET."
+      "v": 1,
+      "a": 0.0,
+      "b": 0.62,
+      "text": "Uno."
     },
     {
       "v": 1,
       "a": 0.95,
-      "b": 1.14,
-      "text": "Hay"
+      "b": 2.98,
+      "text": "Hay 15% de descuento"
     },
     {
       "v": 1,
       "a": 2.98,
-      "b": 3.58,
-      "text": "en toda la"
+      "b": 4.45,
+      "text": "en toda la nueva colección."
     },
     {
       "v": 2,
       "a": 0.8,
-      "b": 1.04,
-      "text": "Tenemos",
-      "pos": "window"
+      "b": 2.62,
+      "text": "Tenemos tallas para toda la familia."
+    },
+    {
+      "v": 2,
+      "a": 3.02,
+      "b": 4.45,
+      "text": "Hombre, mujer y niño."
+    },
+    {
+      "v": 3,
+      "a": 0.38,
+      "b": 2.08,
+      "text": "Antes del rush de diciembre.",
+      "top": 1530
+    },
+    {
+      "v": 3,
+      "a": 2.2,
+      "b": 2.72,
+      "text": "Apúrate.",
+      "top": 1530
     }
   ],
   "sfx": [
     {
-      "at": 110,
-      "kind": "pop",
-      "gain": -2
-    },
-    {
-      "at": 252,
-      "kind": "whoosh",
-      "gain": -3
-    },
-    {
-      "at": 436,
-      "kind": "pop",
-      "gain": -4
-    },
-    {
       "at": 456,
       "kind": "whoosh",
-      "gain": -2
+      "gain": -8
     }
   ]
 }

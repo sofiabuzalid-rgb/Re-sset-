@@ -1,7 +1,7 @@
 {
   "fps": 30,
   "title": "RESET_FOOTBALL_OUTLET_AD01 — El descubrimiento",
-  "note": "Voice = the protagonist's real takes only (docs/football/transcripts.json). IMG_4120 question + offer as a J-cut under the rack hook, staying on her as she points at the rack, then 'la de Argentina, la de Brasil, la de México' (IMG_4121) over the matching shirts, CTA 'Ven por las tuyas' (IMG_4120). The Barça and club-name lines are not used: IMG_4121 says the Barça design is not at 25%, IMG_4123 says it is.",
+  "note": "Voice = the protagonist's real takes only (docs/football/transcripts.json). IMG_4120 question + offer as a J-cut under the rack hook, staying on her as she points at the rack, then 'la de Argentina, la de Brasil, la de México' (IMG_4121) over the matching shirts, CTA 'Ven por las tuyas' (IMG_4120). The Barça and club-name lines are not used: IMG_4121 says the Barça design is not at 25%, IMG_4123 says it is. MINIMAL cut: short hook, literal subtitles, discreet sign-off (src/components/Minimal.tsx); offer chips, banners and badges removed.",
   "transcripts": "docs/football/transcripts.json",
   "fix": {
     "aula": "outlet",
@@ -245,47 +245,77 @@
       "what": "CTA: RE:SET label on the collar + crest"
     }
   ],
-  "texts": [
+  "subtitleTop": 1420,
+  "graphics": [
     {
-      "from": 0,
-      "to": 62,
       "kind": "hook",
-      "lines": [
-        "¿PIJAMAS DE FÚTBOL?",
-        "OUTLET · 25% OFF"
-      ]
+      "from": 0,
+      "to": 66,
+      "text": "¿Pijamas de fútbol con 25% off?"
     },
     {
-      "from": 522,
-      "to": 638,
-      "kind": "banner",
-      "lines": [
-        "VARIOS DISEÑOS",
-        "OUTLET 25% OFF"
-      ]
-    },
-    {
+      "kind": "end",
       "from": 678,
       "to": 750,
-      "kind": "cta",
-      "lines": [
-        "Descubre las pijamas de fútbol de RE:SET.",
-        "25% OFF EN OUTLET"
-      ]
+      "line": "RE:SET · outlet 25% off",
+      "logo": false,
+      "top": 1500
     }
   ],
-  "badge": {
-    "text": "PIJAMAS · OUTLET 25% OFF",
-    "ranges": [
-      [
-        60,
-        520
-      ],
-      [
-        638,
-        678
-      ]
-    ]
-  },
-  "subtitleTop": 1320
+  "subtitles": [
+    {
+      "v": 0,
+      "a": 0.3,
+      "b": 2.2,
+      "text": "¿Estás buscando en qué ver"
+    },
+    {
+      "v": 0,
+      "a": 2.2,
+      "b": 3.8,
+      "text": "tus partidos favoritos de fútbol?"
+    },
+    {
+      "v": 0,
+      "a": 4.1,
+      "b": 4.5,
+      "text": "¿Qué crees?"
+    },
+    {
+      "v": 0,
+      "a": 4.92,
+      "b": 7.3,
+      "text": "Todas estas tienen el 25%"
+    },
+    {
+      "v": 0,
+      "a": 7.3,
+      "b": 9.25,
+      "text": "de descuento en el outlet de RE:SET."
+    },
+    {
+      "v": 1,
+      "a": 14.75,
+      "b": 15.9,
+      "text": "La de Argentina,"
+    },
+    {
+      "v": 1,
+      "a": 16.0,
+      "b": 17.1,
+      "text": "la de Brasil,"
+    },
+    {
+      "v": 1,
+      "a": 17.2,
+      "b": 18.15,
+      "text": "la de México."
+    },
+    {
+      "v": 2,
+      "a": 9.52,
+      "b": 10.45,
+      "text": "Ven por las tuyas."
+    }
+  ]
 }

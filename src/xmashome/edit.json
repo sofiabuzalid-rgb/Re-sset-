@@ -1,7 +1,7 @@
 {
   "fps": 30,
   "bpm": 120,
-  "note": "CHRISTMAS AT HOME — Meta Ads. Voice = IMG_8945 only (the friend presenting the green print), used uncut 0.00–10.00 s and lip-synced: every IMG_8945 shot has sync: true and its in-point equals its voice time, punch-ins are crops of the same moment. Snow is a VFX composite baked into the window shots (scripts/xmashome_vfx.py): 'window' = glass polygon in 720x1280 source coordinates on the shot's first frame, tracked with the camera. IMG_9031 was uploaded twice; both copies are byte-identical in picture and sound, one is used.",
+  "note": "CHRISTMAS AT HOME — Meta Ads. Voice = IMG_8945 only (the friend presenting the green print), used uncut 0.00–10.00 s and lip-synced: every IMG_8945 shot has sync: true and its in-point equals its voice time, punch-ins are crops of the same moment. Snow is a VFX composite baked into the window shots (scripts/xmashome_vfx.py): 'window' = glass polygon in 720x1280 source coordinates on the shot's first frame, tracked with the camera. IMG_9031 was uploaded twice; both copies are byte-identical in picture and sound, one is used. MINIMAL cut: short hook, literal subtitles, discreet sign-off; script lines, CTA overlay and the colour end card removed (the end card is now the unused tail of the IMG_9039 reading take, with snow).",
   "voice": {
     "src": "IMG_8945",
     "a": 0.0,
@@ -357,38 +357,48 @@
       "what": "CTA 1 over the wide room shot"
     },
     {
-      "id": "end",
-      "card": true,
+      "id": "e2",
+      "src": "IMG_9039",
+      "in": 3.4,
       "frames": 105,
+      "zoom": [
+        1.16,
+        1.2
+      ],
+      "focus": [
+        0.12,
+        0.3
+      ],
+      "window": [
+        [
+          0,
+          0
+        ],
+        [
+          236,
+          0
+        ],
+        [
+          236,
+          340
+        ],
+        [
+          0,
+          425
+        ]
+      ],
+      "seed": 7,
       "xf": 10,
-      "what": "CTA 2: logo, locations, site"
+      "what": "close: reading by the snowy window (unused part of the IMG_9039 take) under the sign-off"
     }
   ],
   "texts": [
     {
       "from": 3,
-      "to": 116,
+      "to": 110,
       "kind": "hook",
       "lines": [
-        "Mi único plan esta Navidad:",
-        "no quitarme esta pijama."
-      ]
-    },
-    {
-      "from": 128,
-      "to": 196,
-      "kind": "script",
-      "lines": [
-        "Home for the holidays."
-      ]
-    },
-    {
-      "from": 612,
-      "to": 720,
-      "kind": "script",
-      "lines": [
-        "La Navidad también",
-        "se disfruta en casa."
+        "Mi único plan esta Navidad: no quitarme esta pijama."
       ]
     }
   ],
@@ -397,39 +407,43 @@
       "v": 0,
       "a": 0.0,
       "b": 1.3,
-      "text": "Por último está la verde"
+      "text": "Por último está la verde",
+      "top": 1460
     },
     {
       "v": 0,
       "a": 1.3,
       "b": 3.45,
-      "text": "con galletas de jengibre"
+      "text": "con galletas de jengibre",
+      "top": 1460
     },
     {
       "v": 0,
       "a": 4.0,
       "b": 5.62,
-      "text": "Está súper padre el estampado"
+      "text": "Está súper padre el estampado",
+      "top": 1460
     },
     {
       "v": 0,
       "a": 5.62,
       "b": 8.35,
-      "text": "que igual les digo que viene con su bolsita"
+      "text": "que igual les digo que viene con su bolsita",
+      "top": 1460
     },
     {
       "v": 0,
       "a": 8.55,
       "b": 10.0,
-      "text": "para que la puedan llevar para todas partes"
+      "text": "para que la puedan llevar para todas partes",
+      "top": 1460
     }
   ],
-  "cta": {
-    "from": 812,
-    "brand": "RE:SET",
-    "title": "Tu Navidad empieza en casa.",
-    "sub": "Descubre nuestra colección navideña.",
-    "places": "Perisur · Av. Stim 39 · Tienda online",
-    "url": "resetwear.com.mx"
-  }
+  "endTag": {
+    "from": 891,
+    "line": "Buen Fin · 15% off\nen toda la tienda",
+    "top": 760,
+    "left": 80
+  },
+  "subtitleTop": 1500
 }

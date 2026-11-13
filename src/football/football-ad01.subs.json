@@ -1,42 +1,56 @@
 [
  {
+  "text": "¿Estás buscando en qué ver",
   "from": 0,
-  "to": 69,
-  "text": "¿Estás buscando en qué ver tus partidos"
+  "to": 57,
+  "top": 1480
  },
  {
-  "from": 69,
-  "to": 108,
-  "text": "favoritos de fútbol?"
+  "text": "tus partidos favoritos de fútbol?",
+  "from": 57,
+  "to": 105,
+  "top": 1480
  },
  {
+  "text": "¿Qué crees?",
   "from": 114,
-  "to": 232,
-  "text": "¿Qué crees? Todas estas tienen el 25% de descuento"
+  "to": 126,
+  "top": 1480
  },
  {
-  "from": 232,
-  "to": 270,
-  "text": "en el outlet de RE:SET"
+  "text": "Todas estas tienen el 25%",
+  "from": 139,
+  "to": 210,
+  "top": 1480
  },
  {
-  "from": 294,
-  "to": 315,
-  "text": "La de Argentina"
+  "text": "de descuento en el outlet de RE:SET.",
+  "from": 210,
+  "to": 268,
+  "top": 1480
  },
  {
-  "from": 330,
-  "to": 351,
-  "text": "la de Brasil"
+  "text": "La de Argentina,",
+  "from": 291,
+  "to": 326,
+  "top": 1480
  },
  {
-  "from": 366,
-  "to": 390,
-  "text": "la de México"
+  "text": "la de Brasil,",
+  "from": 329,
+  "to": 362,
+  "top": 1480
  },
  {
+  "text": "la de México.",
+  "from": 365,
+  "to": 393,
+  "top": 1480
+ },
+ {
+  "text": "Ven por las tuyas.",
   "from": 641,
-  "to": 672,
-  "text": "Ven por las tuyas"
+  "to": 668,
+  "top": 1480
  }
 ]

@@ -1,47 +1,62 @@
 [
  {
-  "from": 0,
+  "text": "Si tú eres de los que aman",
+  "from": 1,
   "to": 52,
-  "text": "Si tú eres de los que aman"
+  "top": 1540
  },
  {
+  "text": "apasionadamente el fútbol,",
   "from": 52,
-  "to": 120,
-  "text": "apasionadamente el fútbol"
+  "to": 112,
+  "top": 1540
  },
  {
+  "text": "tienes que ver todas estas pijamas",
   "from": 120,
-  "to": 186,
-  "text": "tienes que ver todas estas pijamas que tenemos"
+  "to": 172,
+  "top": 1540
  },
  {
-  "from": 186,
-  "to": 278,
-  "text": "en el outlet de RE:SET con 25% de descuento"
+  "text": "que tenemos en el outlet de RE:SET",
+  "from": 172,
+  "to": 218,
+  "top": 1540
  },
  {
-  "from": 284,
+  "text": "con 25% de descuento.",
+  "from": 218,
+  "to": 274,
+  "top": 1540
+ },
+ {
+  "text": "¿Por qué ver el partido en un jersey",
+  "from": 287,
   "to": 342,
-  "text": "¿Por qué ver el partido en un jersey"
+  "top": 1540
  },
  {
+  "text": "normal cuando lo puedes ver",
   "from": 342,
-  "to": 398,
-  "text": "normal cuando lo puedes ver en lo más"
+  "to": 396,
+  "top": 1540
  },
  {
-  "from": 398,
-  "to": 451,
-  "text": "cómodo del mundo en pijama?"
+  "text": "en lo más cómodo del mundo, en pijama?",
+  "from": 396,
+  "to": 449,
+  "top": 1540
  },
  {
-  "from": 588,
-  "to": 613,
-  "text": "¿Qué estás esperando?"
+  "text": "¿Qué estás esperando?",
+  "from": 589,
+  "to": 616,
+  "top": 1540
  },
  {
-  "from": 620,
-  "to": 646,
-  "text": "Ven por las tuyas"
+  "text": "Ven por las tuyas.",
+  "from": 619,
+  "to": 641,
+  "top": 1540
  }
 ]

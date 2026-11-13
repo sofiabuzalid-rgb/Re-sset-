@@ -1,7 +1,7 @@
 {
   "fps": 30,
   "title": "RESET_FOOTBALL_OUTLET_AD02 — ¿Cuál es tu favorita?",
-  "note": "Voice = her real takes only. IMG_4121 opening (her own version of the hook), IMG_4119 'jersey normal… en pijama' over the designs, IMG_4123 CTA. No clip range repeats AD01's. The comparison still is the rack photo cropped to leave out the Barça-style shirt, whose outlet status is contradicted in the footage.",
+  "note": "Voice = her real takes only. IMG_4121 opening (her own version of the hook), IMG_4119 'jersey normal… en pijama' over the designs, IMG_4123 CTA. No clip range repeats AD01's. The comparison still is the rack photo cropped to leave out the Barça-style shirt, whose outlet status is contradicted in the footage. MINIMAL cut: short hook, literal subtitles, discreet sign-off (src/components/Minimal.tsx); offer chips, banners and badges removed.",
   "transcripts": "docs/football/transcripts.json",
   "fix": {
     "aula": "outlet",
@@ -218,42 +218,82 @@
       "what": "'¿Qué estás esperando? Ven por las tuyas.' under the RE:SET sign (framed to keep the Barça-style shirt out)"
     }
   ],
-  "texts": [
+  "subtitleTop": 1420,
+  "graphics": [
     {
+      "kind": "hook",
       "from": 0,
       "to": 90,
-      "kind": "hook",
-      "lines": [
-        "PIJAMAS PARA FANS DEL FÚTBOL",
-        "OUTLET RE:SET · 25% OFF"
-      ]
+      "text": "Pijamas para fans del fútbol"
     },
     {
-      "from": 524,
-      "to": 580,
-      "kind": "question",
-      "lines": [
-        "¿CUÁL ES TU FAVORITA?"
-      ]
-    },
-    {
-      "from": 594,
+      "kind": "end",
+      "from": 600,
       "to": 662,
-      "kind": "cta",
-      "lines": [
-        "Encuentra la tuya.",
-        "OUTLET RE:SET · 25% OFF"
-      ]
+      "line": "Outlet · 25% off",
+      "top": 290
     }
   ],
-  "badge": {
-    "text": "PIJAMAS · OUTLET 25% OFF",
-    "ranges": [
-      [
-        90,
-        582
-      ]
-    ]
-  },
-  "subtitleTop": 1320
+  "subtitles": [
+    {
+      "v": 0,
+      "a": 0.5,
+      "b": 2.18,
+      "text": "Si tú eres de los que aman"
+    },
+    {
+      "v": 0,
+      "a": 2.18,
+      "b": 4.2,
+      "text": "apasionadamente el fútbol,"
+    },
+    {
+      "v": 0,
+      "a": 4.44,
+      "b": 6.2,
+      "text": "tienes que ver todas estas pijamas"
+    },
+    {
+      "v": 0,
+      "a": 6.2,
+      "b": 7.72,
+      "text": "que tenemos en el outlet de RE:SET"
+    },
+    {
+      "v": 0,
+      "a": 7.72,
+      "b": 9.6,
+      "text": "con 25% de descuento."
+    },
+    {
+      "v": 1,
+      "a": 0.75,
+      "b": 2.6,
+      "text": "¿Por qué ver el partido en un jersey"
+    },
+    {
+      "v": 1,
+      "a": 2.6,
+      "b": 4.4,
+      "text": "normal cuando lo puedes ver"
+    },
+    {
+      "v": 1,
+      "a": 4.4,
+      "b": 6.15,
+      "text": "en lo más cómodo del mundo, en pijama?"
+    },
+    {
+      "v": 2,
+      "a": 21.05,
+      "b": 21.95,
+      "text": "¿Qué estás esperando?"
+    },
+    {
+      "v": 2,
+      "a": 22.05,
+      "b": 22.8,
+      "text": "Ven por las tuyas."
+    }
+  ]
 }

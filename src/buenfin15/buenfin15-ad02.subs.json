@@ -1,97 +1,80 @@
 [
  {
+  "text": "Si este año quieres pijamas combinadas",
   "from": 1,
-  "to": 31,
-  "text": "Si este año quieres"
- },
- {
-  "from": 31,
   "to": 63,
-  "text": "*pijamas* combinadas"
+  "top": 1180
  },
  {
+  "text": "para toda la familia,",
   "from": 63,
   "to": 102,
-  "text": "para toda la familia,"
+  "top": 1180
  },
  {
+  "text": "ahora es el momento de comprarlas,",
   "from": 106,
-  "to": 137,
-  "text": "*ahora* es el momento"
- },
- {
-  "from": 137,
   "to": 162,
-  "text": "de comprarlas,"
+  "top": 1460
  },
  {
+  "text": "porque en RE:SET tenemos",
   "from": 166,
   "to": 203,
-  "text": "porque en RE:SET tenemos"
+  "top": 1420
  },
  {
+  "text": "el 15% descuento por el Buen Fin.",
   "from": 203,
-  "to": 245,
-  "text": "el *15%* descuento"
- },
- {
-  "from": 245,
   "to": 272,
-  "text": "por el *Buen Fin*."
+  "top": 1420
  },
  {
+  "text": "Son las mejores pijamas, súper calientitas,",
   "from": 283,
-  "to": 316,
-  "text": "Son las mejores *pijamas*,"
- },
- {
-  "from": 316,
   "to": 351,
-  "text": "*súper calientitas*,"
+  "top": 1420
  },
  {
+  "text": "y todo el mundo las ama.",
   "from": 351,
   "to": 387,
-  "text": "y todo el mundo las ama."
+  "top": 1420
  },
  {
+  "text": "Es el mejor regalo que puedes tener",
   "from": 387,
-  "to": 427,
-  "text": "Es el *mejor regalo*"
- },
- {
-  "from": 427,
   "to": 454,
-  "text": "que puedes tener"
+  "top": 1420
  },
  {
+  "text": "para esta Navidad,",
   "from": 454,
   "to": 480,
-  "text": "para esta *Navidad*,"
+  "top": 1420
  },
  {
+  "text": "y por supuesto aprovecha",
   "from": 480,
   "to": 516,
-  "text": "y por supuesto aprovecha"
+  "top": 1420
  },
  {
+  "text": "el 15% del Buen Fin",
   "from": 516,
   "to": 556,
-  "text": "el *15%* del *Buen Fin*"
+  "top": 1420
  },
  {
+  "text": "para comprarlo de una vez.",
   "from": 556,
-  "to": 578,
-  "text": "para comprarlo"
- },
- {
-  "from": 578,
   "to": 592,
-  "text": "*de una vez*."
+  "top": 1420
  },
  {
+  "text": "Ven, te esperamos.",
   "from": 600,
   "to": 634,
-  "text": "Ven, te esperamos."
+  "top": 1420
  }
 ]

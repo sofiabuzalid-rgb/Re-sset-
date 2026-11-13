@@ -185,12 +185,12 @@ const Envelope: React.FC = () => {
             style={{
               fontFamily: SERIF,
               fontStyle: "italic",
-              fontSize: 46,
+              fontSize: 42,
               color: C.ink,
               marginBottom: 6,
             }}
           >
-            RE:SET te invita al
+            Las pijamas RE:SET te invitan al
           </div>
           <div
             style={{
@@ -395,7 +395,6 @@ const TentCard: React.FC = () => {
   const rot = interpolate(up, [0, 1], [88, 0]);
   const beat = f > 30 ? Math.exp(-((f - 30) % BEAT) / 4) * 0.012 : 0; // a light pulse on every beat
   const out = interpolate(f, [92, 108], [0, 1], { ...clamp, easing: Easing.in(Easing.cubic) });
-  const tag = ramp(f, 45, 14);
   return (
     <AbsoluteFill>
       <div
@@ -474,33 +473,6 @@ const TentCard: React.FC = () => {
           </Paper>
         </div>
       </div>
-      <div
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: 1420,
-          display: "flex",
-          justifyContent: "center",
-          opacity: tag * (1 - out),
-          transform: `translateY(${(1 - tag) * 16}px) rotate(-1.5deg)`,
-        }}
-      >
-        <div
-          style={{
-            padding: "16px 34px 20px",
-            background: C.pine,
-            color: "#FBF4EA",
-            fontFamily: SERIF,
-            fontStyle: "italic",
-            fontSize: 50,
-            borderRadius: 4,
-            boxShadow: PAPER_SHADOW,
-          }}
-        >
-          Tus favoritas, ahora con descuento
-        </div>
-      </div>
     </AbsoluteFill>
   );
 };
@@ -572,26 +544,6 @@ const ProductCard: React.FC<{ clip: string; i: number }> = ({ clip, i }) => {
           BUEN FIN
         </div>
       </Paper>
-      <div
-        style={{
-          position: "absolute",
-          right: -34,
-          top: 56,
-          width: 170,
-          height: 170,
-          borderRadius: "50%",
-          background: `radial-gradient(circle at 35% 30%, #C8213B 0%, ${C.cranberry} 55%, #7E0C1C 100%)`,
-          boxShadow: "0 8px 18px rgba(0,0,0,0.3)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "#FBF1E4",
-          transform: `rotate(${12 - i * 4}deg) scale(${interpolate(enter, [0.6, 1], [0, 1], clamp)})`,
-        }}
-      >
-        <div style={{ fontFamily: DISPLAY, fontSize: 74, lineHeight: 0.9 }}>-{edit.offer.pct}</div>
-      </div>
     </div>
   );
 };
@@ -613,29 +565,9 @@ const PrintBackdrop: React.FC<{ print: string; from: "bottom" | "top"; dark: num
 };
 
 const Products: React.FC = () => {
-  const f = useCurrentFrame();
-  const h = ramp(f, 6, 14);
   return (
     <AbsoluteFill>
       <PrintBackdrop print={RED} from="bottom" dark={0.45} />
-      <div
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: 250,
-          textAlign: "center",
-          color: "#FBF4EA",
-          textShadow: "0 2px 14px rgba(0,0,0,0.45)",
-          opacity: h,
-          transform: `translateY(${(1 - h) * 20}px)`,
-        }}
-      >
-        <div style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: 58 }}>Pijamas para</div>
-        <div style={{ fontFamily: DISPLAY, fontSize: 112, lineHeight: 0.95, letterSpacing: "0.02em" }}>
-          TODOS TUS MOMENTOS
-        </div>
-      </div>
       {PRODUCTS.map((c, i) => (
         <ProductCard key={c} clip={c} i={i} />
       ))}
@@ -726,26 +658,6 @@ const FinalInvitation: React.FC = () => {
               }}
             >
               {edit.offer.scope}
-            </div>
-            <div style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: 56, color: C.pine, marginTop: 56, ...item(5) }}>
-              {edit.close.cta}
-            </div>
-            <div
-              style={{
-                fontFamily: SANS,
-                fontWeight: 600,
-                fontSize: 24,
-                letterSpacing: "0.3em",
-                color: C.ink,
-                textTransform: "uppercase",
-                marginTop: 12,
-                ...item(6),
-              }}
-            >
-              {edit.close.fine}
-            </div>
-            <div style={{ fontFamily: SANS, fontWeight: 500, fontSize: 27, color: C.ink, marginTop: 50, opacity: 0.85, ...item(7) }}>
-              {edit.close.where}
             </div>
           </AbsoluteFill>
         </Paper>
