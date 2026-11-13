@@ -226,19 +226,10 @@ export const PopCaption: React.FC<{ words: PopWord[]; dur: number; top?: number 
   );
 };
 
-/** The official Buen Fin logo (client-supplied artwork, background removed), small, top-left, opening seconds only. */
-export const BuenFinBadge: React.FC<{ dur: number; left?: number; top?: number; width?: number }> = ({
-  dur,
-  left = 50,
-  top = 70,
-  width = 250,
-}) => {
-  const f = useCurrentFrame();
-  const o = interpolate(f, [dur - 3, dur], [1, 0], clamp);
-  return (
-    <Img
-      src={staticFile("brand/buen-fin-logo.png")}
-      style={{ position: "absolute", left, top, width, opacity: o, filter: "drop-shadow(0 3px 8px rgba(0,0,0,0.18))" }}
-    />
-  );
-};
+/** The official Buen Fin logo (client-supplied artwork, background removed): centred at the top, on screen the whole ad. */
+export const BuenFinBadge: React.FC<{ top?: number; width?: number }> = ({ top = 80, width = 240 }) => (
+  <Img
+    src={staticFile("brand/buen-fin-logo.png")}
+    style={{ position: "absolute", left: (1080 - width) / 2, top, width, filter: "drop-shadow(0 3px 8px rgba(0,0,0,0.18))" }}
+  />
+);

@@ -111,7 +111,7 @@
       "to": 1071,
       "line": "BUEN FIN · 15% OFF\nEn toda la tienda",
       "tone": "dark",
-      "top": 290
+      "top": 330
     }
   ],
   "subtitles": [
@@ -234,9 +234,6 @@
       "text": "¿Qué esperas para venir por la tuya?"
     }
   ],
-  "badge": {
-    "from": 0,
-    "to": 90
-  },
+  "badge": true,
   "captionTop": 1100
 }

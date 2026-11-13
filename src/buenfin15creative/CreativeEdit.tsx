@@ -10,7 +10,7 @@ type Shot = { id: string; frames: number; zoom: number[]; focus: number[]; freez
 type G = { kind: string; from: number; to: number; text?: string; line?: string; logo?: boolean; top?: number };
 type Cap = { from: number; to: number; top: number; words: PopWord[] };
 
-const E = edit as unknown as { shots: Shot[]; graphics: G[]; badge?: { from: number; to: number } };
+const E = edit as unknown as { shots: Shot[]; graphics: G[]; badge?: boolean };
 const CAPS = capsJson as Cap[];
 export const CREATIVE_TOTAL = E.shots.reduce((n, s) => n + s.frames, 0);
 
@@ -64,11 +64,7 @@ export const CreativeEdit: React.FC<{ bare?: boolean }> = ({ bare }) => (
         <PopCaption words={c.words} dur={c.to - c.from} top={c.top} />
       </Sequence>
     ))}
-    {!bare && E.badge ? (
-      <Sequence from={E.badge.from} durationInFrames={E.badge.to - E.badge.from}>
-        <BuenFinBadge dur={E.badge.to - E.badge.from} />
-      </Sequence>
-    ) : null}
+    {!bare && E.badge ? <BuenFinBadge /> : null}
     <Audio src={staticFile(`${DIR}/mix.wav`)} />
   </AbsoluteFill>
 );

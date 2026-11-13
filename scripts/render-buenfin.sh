@@ -4,6 +4,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 B=${REMOTION_BROWSER:-/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell}
 while read -r comp name; do
+  [ $# -gt 0 ] && [[ " $* " != *" $comp "* ]] && continue  # optional: only the compositions named on the command line
   out="out/${name}.mp4"
   npx remotion render "$comp" "$out" --browser-executable="$B" --image-format=png --crf=14 --x264-preset=slow \
     --color-space=bt709 --audio-codec=aac --audio-bitrate=320k --log=error </dev/null

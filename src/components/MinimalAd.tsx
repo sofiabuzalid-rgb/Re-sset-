@@ -32,7 +32,7 @@ export type MinEdit = {
   subtitleTop?: number;
   font?: "inter"; // default: the shared Montserrat system
   subtitleSize?: number;
-  badge?: { from: number; to: number }; // official Buen Fin logo, top-left
+  badge?: boolean; // official Buen Fin logo, top centre, the whole ad
 };
 export type MinCaption = { from: number; to: number; top: number; words: PopWord[] };
 export type MinSub = { from: number; to: number; text: string; top?: number };
@@ -106,11 +106,7 @@ export const MinimalAd: React.FC<{ edit: MinEdit; subs: MinSub[]; dir: string; b
           <PopCaption words={c.words} dur={c.to - c.from} top={c.top} />
         </Sequence>
       ))}
-      {!bare && edit.badge ? (
-        <Sequence from={edit.badge.from} durationInFrames={edit.badge.to - edit.badge.from}>
-          <BuenFinBadge dur={edit.badge.to - edit.badge.from} />
-        </Sequence>
-      ) : null}
+      {!bare && edit.badge ? <BuenFinBadge /> : null}
       <Audio src={staticFile(`${dir}/mix.wav`)} />
     </AbsoluteFill>
   );

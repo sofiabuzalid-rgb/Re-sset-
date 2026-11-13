@@ -79,7 +79,8 @@
         0.5,
         0.52
       ],
-      "what": "'Uno. Hay' — the Buen Fin 15% sign in hand"
+      "what": "'Uno. Hay' — the Buen Fin 15% sign in hand",
+      "capTop": 1450
     },
     {
       "id": "s04",
@@ -272,9 +273,6 @@
       "gain": -8
     }
   ],
-  "badge": {
-    "from": 0,
-    "to": 90
-  },
+  "badge": true,
   "captionTop": 1200
 }
