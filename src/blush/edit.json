@@ -55,29 +55,6 @@
    "at": 0
   }
  ],
- "hook": {
-  "from": 0,
-  "to": 72,
-  "l1": "Pijamas",
-  "l2": "15% OFF",
-  "l3": "BUEN FIN RE:SET"
- },
- "modelCard": {
-  "from": 76,
-  "to": 240,
-  "kicker": "MODELO"
- },
- "reinforce": {
-  "from": 362,
-  "to": 462,
-  "l2": "15% OFF",
-  "l3": "BUEN FIN RE:SET"
- },
- "cta": {
-  "l1": "15% OFF en toda la tienda",
-  "l2": "BUEN FIN RE:SET",
-  "button": "Consigue la tuya ahora"
- },
  "pips": [
   {
    "id": "p1",
@@ -131,18 +108,8 @@
  "subs": [
   {
    "from": 2,
-   "to": 20,
-   "text": "Pijamas"
-  },
-  {
-   "from": 20,
-   "to": 38,
-   "text": "Soft Winter"
-  },
-  {
-   "from": 38,
    "to": 69,
-   "text": "son para usar"
+   "text": "Pijamas Soft Winter son para usar"
   },
   {
    "from": 74,
@@ -156,11 +123,11 @@
   },
   {
    "from": 146,
-   "to": 174,
+   "to": 171,
    "text": "y no te las vas a"
   },
   {
-   "from": 174,
+   "from": 171,
    "to": 200,
    "text": "querer quitar nunca."
   },
@@ -171,13 +138,8 @@
   },
   {
    "from": 245,
-   "to": 270,
-   "text": "la delicia"
-  },
-  {
-   "from": 270,
    "to": 290,
-   "text": "que es estar en una"
+   "text": "la delicia que es estar en una"
   },
   {
    "from": 290,
@@ -186,13 +148,8 @@
   },
   {
    "from": 315,
-   "to": 342,
-   "text": "No vas a pasar"
-  },
-  {
-   "from": 342,
    "to": 363,
-   "text": "nada de frío"
+   "text": "No vas a pasar nada de frío"
   },
   {
    "from": 363,
@@ -201,13 +158,18 @@
   },
   {
    "from": 413,
-   "to": 433,
-   "text": "temporada"
-  },
-  {
-   "from": 433,
    "to": 460,
-   "text": "súper cómoda."
+   "text": "temporada súper cómoda."
   }
- ]
+ ],
+ "minimal": {
+  "hook": "Soft Winter Blush",
+  "hookFrames": 60,
+  "hookTop": 345,
+  "captionTop": 1390,
+  "promo": "BUEN FIN 15% OFF",
+  "endTop": 1500,
+  "hookTone": "dark",
+  "endTone": "light"
+ }
 }

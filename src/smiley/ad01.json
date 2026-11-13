@@ -1,36 +1,216 @@
 {
-  "fps": 30,
-  "bpm": 118,
-  "seed": 4124,
-  "out": "RESET_SMILEY_OUTLET_AD01",
-  "note": "AD01 — ¿PIJAMAS CON 25% OFF? Happy Vibes Women (resetwear.com.mx: $829 -> $622, 25% off). Her voice from IMG_4124 + IMG_4126, verbatim; 'Es la tela Cloud' and the wash-durability line are left out (material not verified).",
-  "shots": [
-    {"id": "a1", "src": "IMG_4124", "in": 0.3, "frames": 254, "zoom": [1.0, 1.08], "focus": [0.5, 0.75]},
-    {"id": "p1", "src": "IMG_4124", "in": 9.0, "frames": 45, "zoom": [1.0, 1.04], "focus": [0.55, 0.5]},
-    {"id": "p2", "src": "IMG_4125", "in": 6.7, "frames": 30, "zoom": [1.0, 1.03], "focus": [0.5, 0.45]},
-    {"id": "p3", "src": "IMG_4125", "in": 2.0, "frames": 38, "zoom": [1.0, 1.04], "focus": [0.5, 0.4]},
-    {"id": "p4", "src": "IMG_4125", "in": 4.6, "frames": 42, "zoom": [1.04, 1.0], "focus": [0.5, 0.5]},
-    {"id": "r1", "src": "IMG_4126", "in": 6.56, "frames": 44, "zoom": [1.08, 1.1], "focus": [0.5, 0.4]},
-    {"id": "r2", "src": "IMG_4126", "in": 9.28, "frames": 47, "zoom": [1.12, 1.14], "focus": [0.5, 0.4]},
-    {"id": "cta", "src": "IMG_4125", "in": 7.0, "frames": 90, "speed": 0.9, "zoom": [1.0, 1.04], "focus": [0.5, 0.45]}
-  ],
-  "voice": [
-    {"src": "IMG_4124", "in": 0.3, "out": 8.75, "at": 0},
-    {"src": "IMG_4124", "in": 9.0, "out": 12.75, "at": 254},
-    {"src": "IMG_4126", "in": 6.56, "out": 8.08, "at": 409},
-    {"src": "IMG_4126", "in": 9.28, "out": 10.86, "at": 453}
-  ],
-  "hook": {"from": 0, "to": 84, "kicker": "PIJAMAS RE:SET", "title": "¿Pijamas así de bonitas con 25% OFF?", "sub": "Vean esto.", "badge": "OUTLET · 25% OFF"},
-  "subs": [
-    {"from": 4, "to": 63, "text": "Miren qué cool está esta pijama"},
-    {"from": 63, "to": 105, "text": "que tenemos en descuento"},
-    {"from": 105, "to": 140, "text": "y viene con su liguita."},
-    {"from": 147, "to": 201, "text": "La puedes encontrar en el outlet de RE:SET"},
-    {"from": 201, "to": 250, "text": "con 25% de descuento."},
-    {"from": 256, "to": 284, "text": "Es pantalón"},
-    {"from": 300, "to": 366, "text": "y manga larga para este frío delicioso."},
-    {"from": 410, "to": 452, "text": "No saben lo que es esta tela."},
-    {"from": 454, "to": 499, "text": "Está súper suavecita."}
-  ],
-  "cta": {"top": 640, "lines": ["OUTLET RE:SET", "25% OFF"], "sub": "Descubre tus favoritas.", "foot": "resetwear.com.mx"}
+ "fps": 30,
+ "bpm": 118,
+ "seed": 4124,
+ "out": "RESET_SMILEY_OUTLET_AD01",
+ "note": "AD01 — ¿PIJAMAS CON 25% OFF? Happy Vibes Women (resetwear.com.mx: $829 -> $622, 25% off). Her voice from IMG_4124 + IMG_4126, verbatim; 'Es la tela Cloud' and the wash-durability line are left out (material not verified).",
+ "shots": [
+  {
+   "id": "a1",
+   "src": "IMG_4124",
+   "in": 0.3,
+   "frames": 254,
+   "zoom": [
+    1.0,
+    1.08
+   ],
+   "focus": [
+    0.5,
+    0.75
+   ]
+  },
+  {
+   "id": "p1",
+   "src": "IMG_4124",
+   "in": 9.0,
+   "frames": 45,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.55,
+    0.5
+   ]
+  },
+  {
+   "id": "p2",
+   "src": "IMG_4125",
+   "in": 6.7,
+   "frames": 30,
+   "zoom": [
+    1.0,
+    1.03
+   ],
+   "focus": [
+    0.5,
+    0.45
+   ]
+  },
+  {
+   "id": "p3",
+   "src": "IMG_4125",
+   "in": 2.0,
+   "frames": 38,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.4
+   ]
+  },
+  {
+   "id": "p4",
+   "src": "IMG_4125",
+   "in": 4.6,
+   "frames": 42,
+   "zoom": [
+    1.04,
+    1.0
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "r1",
+   "src": "IMG_4126",
+   "in": 6.56,
+   "frames": 44,
+   "zoom": [
+    1.08,
+    1.1
+   ],
+   "focus": [
+    0.5,
+    0.4
+   ]
+  },
+  {
+   "id": "r2",
+   "src": "IMG_4126",
+   "in": 9.28,
+   "frames": 47,
+   "zoom": [
+    1.12,
+    1.14
+   ],
+   "focus": [
+    0.5,
+    0.4
+   ]
+  },
+  {
+   "id": "cta",
+   "src": "IMG_4125",
+   "in": 7.0,
+   "frames": 90,
+   "speed": 0.9,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.45
+   ]
+  }
+ ],
+ "voice": [
+  {
+   "src": "IMG_4124",
+   "in": 0.3,
+   "out": 8.75,
+   "at": 0
+  },
+  {
+   "src": "IMG_4124",
+   "in": 9.0,
+   "out": 12.75,
+   "at": 254
+  },
+  {
+   "src": "IMG_4126",
+   "in": 6.56,
+   "out": 8.08,
+   "at": 409
+  },
+  {
+   "src": "IMG_4126",
+   "in": 9.28,
+   "out": 10.86,
+   "at": 453
+  }
+ ],
+ "subs": [
+  {
+   "from": 4,
+   "to": 63,
+   "text": "Miren qué cool está esta pijama"
+  },
+  {
+   "from": 63,
+   "to": 105,
+   "text": "que tenemos en descuento"
+  },
+  {
+   "from": 105,
+   "to": 140,
+   "text": "y viene con su liguita."
+  },
+  {
+   "from": 147,
+   "to": 172,
+   "text": "La puedes encontrar"
+  },
+  {
+   "from": 172,
+   "to": 201,
+   "text": "en el outlet de RE:SET"
+  },
+  {
+   "from": 201,
+   "to": 250,
+   "text": "con 25% de descuento."
+  },
+  {
+   "from": 256,
+   "to": 284,
+   "text": "Es pantalón"
+  },
+  {
+   "from": 300,
+   "to": 323,
+   "text": "y manga larga"
+  },
+  {
+   "from": 323,
+   "to": 366,
+   "text": "para este frío delicioso."
+  },
+  {
+   "from": 410,
+   "to": 452,
+   "text": "No saben lo que es esta tela."
+  },
+  {
+   "from": 454,
+   "to": 499,
+   "text": "Está súper suavecita."
+  }
+ ],
+ "minimal": {
+  "hook": "¿Pijamas así de bonitas?",
+  "hookFrames": 60,
+  "hookTop": 300,
+  "captionTop": 1615,
+  "promo": "OUTLET 25% OFF",
+  "endTop": 372,
+  "hookTone": "dark",
+  "endTone": "dark",
+  "endScale": 0.78
+ }
 }

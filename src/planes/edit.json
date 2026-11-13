@@ -268,55 +268,6 @@
    "at": 54
   }
  ],
- "copy": [
-  {
-   "from": 0,
-   "to": 50,
-   "lines": [
-    "Yo cancelando",
-    "todos mis planes…"
-   ]
-  },
-  {
-   "from": 52,
-   "to": 108,
-   "lines": [
-    "…por quedarme en casa",
-    "con esta pijama."
-   ]
-  },
-  {
-   "from": 118,
-   "to": 260,
-   "lines": [
-    "Mi nueva obsesión",
-    "de Navidad 🎄"
-   ]
-  },
-  {
-   "from": 272,
-   "to": 366,
-   "lines": [
-    "Perfecta para Navidad."
-   ]
-  },
-  {
-   "from": 370,
-   "to": 441,
-   "lines": [
-    "Y para todos esos días",
-    "de no salir de casa."
-   ]
-  },
-  {
-   "from": 452,
-   "to": 620,
-   "lines": [
-    "Una pijama que vas a querer",
-    "usar una y otra vez."
-   ]
-  }
- ],
  "subs": [
   {
    "from": 443,
@@ -350,8 +301,13 @@
   },
   {
    "from": 727,
+   "to": 758,
+   "text": "para que las puedas"
+  },
+  {
+   "from": 758,
    "to": 788,
-   "text": "para que las puedas adquirir ya mismo."
+   "text": "adquirir ya mismo."
   },
   {
    "from": 795,
@@ -369,31 +325,14 @@
    "text": "Así que ve por ellas ya mismo."
   }
  ],
- "stores": {
-  "from": 736,
-  "to": 970,
-  "title": "¿Dónde conseguir tu RE:SET?",
-  "items": [
-   {
-    "at": 795,
-    "name": "PERISUR",
-    "detail": "Kiosco en planta baja"
-   },
-   {
-    "at": 831,
-    "name": "AV. STIM 39",
-    "detail": "Planta baja, local 4"
-   },
-   {
-    "at": 867,
-    "name": "TIENDA ONLINE",
-    "detail": "resetwear.com.mx"
-   }
-  ]
- },
- "close": {
-  "line": "Tu próxima pijama favorita te está esperando.",
-  "cta": "Compra en tienda o en línea",
-  "url": "resetwear.com.mx"
+ "minimal": {
+  "hook": "Planes cancelados, pijama puesta.",
+  "hookFrames": 100,
+  "hookTop": 300,
+  "captionTop": 1390,
+  "promo": "BUEN FIN 15% OFF",
+  "endTop": 300,
+  "hookTone": "dark",
+  "endTone": "dark"
  }
 }

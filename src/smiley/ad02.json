@@ -1,30 +1,169 @@
 {
-  "fps": 30,
-  "bpm": 110,
-  "seed": 4126,
-  "out": "RESET_SMILEY_OUTLET_AD02",
-  "note": "AD02 — VERTE BIEN HASTA EN PIJAMA. Happy Vibes Women (resetwear.com.mx: $829 -> $622, 25% off). Her voice from IMG_4126 only, verbatim.",
-  "shots": [
-    {"id": "h1", "src": "IMG_4125", "in": 1.8, "frames": 84, "zoom": [1.0, 1.08], "focus": [0.5, 0.4]},
-    {"id": "v1", "src": "IMG_4126", "in": 0.2, "frames": 188, "zoom": [1.04, 1.1], "focus": [0.5, 0.4]},
-    {"id": "d1", "src": "IMG_4125", "in": 6.4, "frames": 39, "zoom": [1.0, 1.04], "focus": [0.5, 0.35]},
-    {"id": "d2", "src": "IMG_4125", "in": 4.8, "frames": 36, "zoom": [1.04, 1.0], "focus": [0.5, 0.5]},
-    {"id": "d3", "src": "IMG_4125", "in": 0.0, "frames": 36, "zoom": [1.0, 1.04], "focus": [0.5, 0.5]},
-    {"id": "u1", "src": "IMG_4126", "in": 13.4, "frames": 121, "zoom": [1.1, 1.14], "focus": [0.5, 0.4]},
-    {"id": "cta", "src": "IMG_4126", "in": 17.42, "frames": 65, "speed": 0.5, "zoom": [1.0, 1.03], "focus": [0.5, 0.45]}
-  ],
-  "voice": [
-    {"src": "IMG_4126", "in": 0.2, "out": 6.48, "at": 84},
-    {"src": "IMG_4126", "in": 13.4, "out": 17.42, "at": 383}
-  ],
-  "hook": {"from": 0, "to": 84, "kicker": "PIJAMAS RE:SET", "title": "¿PIJAMAS ABURRIDAS? ESTAS NO.", "sub": "", "badge": "OUTLET · 25% OFF"},
-  "subs": [
-    {"from": 86, "to": 128, "text": "Miren esta pijama tan cool"},
-    {"from": 128, "to": 183, "text": "que tenemos en el outlet de RE:SET."},
-    {"from": 183, "to": 225, "text": "Tiene 25% de descuento,"},
-    {"from": 225, "to": 271, "text": "es de pantalón y manga larga."},
-    {"from": 385, "to": 427, "text": "Aprovechen esta promoción"},
-    {"from": 427, "to": 503, "text": "en el outlet que tenemos ahorita para ustedes."}
-  ],
-  "cta": {"top": 1040, "lines": ["PIJAMAS CON PERSONALIDAD."], "sub": "RE:SET OUTLET · 25% OFF", "foot": "Encuentra la tuya."}
+ "fps": 30,
+ "bpm": 110,
+ "seed": 4126,
+ "out": "RESET_SMILEY_OUTLET_AD02",
+ "note": "AD02 — VERTE BIEN HASTA EN PIJAMA. Happy Vibes Women (resetwear.com.mx: $829 -> $622, 25% off). Her voice from IMG_4126 only, verbatim.",
+ "shots": [
+  {
+   "id": "h1",
+   "src": "IMG_4125",
+   "in": 1.8,
+   "frames": 84,
+   "zoom": [
+    1.0,
+    1.08
+   ],
+   "focus": [
+    0.5,
+    0.4
+   ]
+  },
+  {
+   "id": "v1",
+   "src": "IMG_4126",
+   "in": 0.2,
+   "frames": 188,
+   "zoom": [
+    1.04,
+    1.1
+   ],
+   "focus": [
+    0.5,
+    0.4
+   ]
+  },
+  {
+   "id": "d1",
+   "src": "IMG_4125",
+   "in": 6.4,
+   "frames": 39,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.35
+   ]
+  },
+  {
+   "id": "d2",
+   "src": "IMG_4125",
+   "in": 4.8,
+   "frames": 36,
+   "zoom": [
+    1.04,
+    1.0
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "d3",
+   "src": "IMG_4125",
+   "in": 0.0,
+   "frames": 36,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "id": "u1",
+   "src": "IMG_4126",
+   "in": 13.4,
+   "frames": 121,
+   "zoom": [
+    1.1,
+    1.14
+   ],
+   "focus": [
+    0.5,
+    0.4
+   ]
+  },
+  {
+   "id": "cta",
+   "src": "IMG_4126",
+   "in": 17.42,
+   "frames": 65,
+   "speed": 0.5,
+   "zoom": [
+    1.0,
+    1.03
+   ],
+   "focus": [
+    0.5,
+    0.45
+   ]
+  }
+ ],
+ "voice": [
+  {
+   "src": "IMG_4126",
+   "in": 0.2,
+   "out": 6.48,
+   "at": 84
+  },
+  {
+   "src": "IMG_4126",
+   "in": 13.4,
+   "out": 17.42,
+   "at": 383
+  }
+ ],
+ "subs": [
+  {
+   "from": 86,
+   "to": 128,
+   "text": "Miren esta pijama tan cool"
+  },
+  {
+   "from": 128,
+   "to": 183,
+   "text": "que tenemos en el outlet de RE:SET."
+  },
+  {
+   "from": 183,
+   "to": 225,
+   "text": "Tiene 25% de descuento,"
+  },
+  {
+   "from": 225,
+   "to": 271,
+   "text": "es de pantalón y manga larga."
+  },
+  {
+   "from": 385,
+   "to": 427,
+   "text": "Aprovechen esta promoción"
+  },
+  {
+   "from": 427,
+   "to": 468,
+   "text": "en el outlet que tenemos"
+  },
+  {
+   "from": 468,
+   "to": 503,
+   "text": "ahorita para ustedes."
+  }
+ ],
+ "minimal": {
+  "hook": "¿Pijamas aburridas? Estas no.",
+  "hookFrames": 60,
+  "hookTop": 300,
+  "captionTop": 1615,
+  "promo": "OUTLET 25% OFF",
+  "endTop": 300,
+  "hookTone": "light",
+  "endTone": "dark"
+ }
 }
