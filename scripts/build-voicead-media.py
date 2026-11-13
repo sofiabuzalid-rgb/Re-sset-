@@ -73,6 +73,10 @@ for s in e["shots"]:
     if "src" not in s or (only and s["id"] not in only):
         continue
     vf = (TONEMAP if hdr(src(s["src"])) else "") + e.get("grade", GRADE)  # an edit may ask for a lighter grade
+    if "crop" in s:  # reframe: zoom in on her (crop the source, then lanczos back to 1080x1920), crop = [zoom, top y]
+        z, cy = s["crop"]
+        cw, ch = round(1080 / z / 2) * 2, round(1920 / z / 2) * 2
+        vf += f",crop={cw}:{ch}:{(1080 - cw) // 2}:{cy},scale=1080:1920:flags=lanczos"
     run(["ffmpeg", "-y", "-v", "error", "-ss", f"{s['in']:.3f}", "-i", src(s["src"]), "-an", "-vf", vf,
          "-frames:v", str(s["frames"]), "-r", "30", "-c:v", "libx264", "-preset", "medium", "-crf", "14", "-g", "15",
          "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",

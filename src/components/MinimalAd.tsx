@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Audio, Easing, Img, interpolate, OffthreadVideo, Sequence, staticFile, useCurrentFrame } from "remotion";
-import { BuenFinBadge, INTER, MinimalEndTag, MinimalHook, MinimalSubtitle, PopCaption, PopWord } from "./Minimal";
+import { BuenFinBadge, INTER, MinimalEndTag, MinimalHook, MinimalSubtitle, PopCaption, PopEndTag, PopWord } from "./Minimal";
 
 /**
  * Shared minimal ad: the footage full bleed with a slow drift, a short hook, her literal subtitles and a discreet
@@ -89,7 +89,9 @@ export const MinimalAd: React.FC<{ edit: MinEdit; subs: MinSub[]; dir: string; b
       ))}
       {!bare && edit.graphics.map((g) => (
         <Sequence key={`${g.kind}-${g.from}`} from={g.from} durationInFrames={g.to - g.from}>
-          {g.kind === "hook" ? (
+          {g.kind === "end" && captions ? (
+            <PopEndTag line={g.line ?? ""} dur={g.to - g.from} top={g.top} />
+          ) : g.kind === "hook" ? (
             <MinimalHook text={g.text ?? ""} dur={g.to - g.from} tone={g.tone} top={g.top} />
           ) : (
             <MinimalEndTag line={g.line ?? ""} dur={g.to - g.from} tone={g.tone} top={g.top} logo={g.logo} left={g.left} font={font} />

@@ -233,3 +233,24 @@ export const BuenFinBadge: React.FC<{ top?: number; width?: number }> = ({ top =
     style={{ position: "absolute", left: (1080 - width) / 2, top, width, filter: "drop-shadow(0 3px 8px rgba(0,0,0,0.18))" }}
   />
 );
+
+/** Sign-off in the caption typography (white, semibold / bold italic), for ads that use the word-by-word captions. */
+export const PopEndTag: React.FC<{ line: string; dur: number; top?: number }> = ({ line, dur, top = 1490 }) => {
+  const f = useCurrentFrame();
+  const o = interpolate(f, [0, 6], [0, 1], clamp);
+  const [l1, l2] = line.split("\n");
+  const shadow = "0 2px 10px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.4)";
+  return (
+    <div style={{ position: "absolute", left: 60, right: 60, top, display: "flex", flexDirection: "column", alignItems: "center", opacity: o * (dur > 0 ? 1 : 0) }}>
+      <Img src={staticFile("brand/reset-logo-white.png")} style={{ width: 210, marginBottom: 14, filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.45))" }} />
+      <div style={{ fontFamily: MIN_SANS, fontWeight: 800, fontStyle: "italic", fontSize: 62, lineHeight: 1.05, letterSpacing: "-0.02em", color: "#FFFFFF", textShadow: shadow }}>
+        {l1}
+      </div>
+      {l2 ? (
+        <div style={{ fontFamily: MIN_SANS, fontWeight: 600, fontSize: 44, lineHeight: 1.2, letterSpacing: "-0.015em", color: "#FFFFFF", textShadow: shadow }}>
+          {l2}
+        </div>
+      ) : null}
+    </div>
+  );
+};

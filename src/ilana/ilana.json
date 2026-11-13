@@ -1,7 +1,7 @@
 {
   "fps": 30,
   "title": "RE:SET — Buen Fin 15% OFF · Ilana premium",
-  "note": "Clips IMG_4430–4436 (IMG_4428 not received). 35–45 s cut, so every take is used in full: her hook on the pink set (IMG_4433) → the Christmas print in kids' and adult sizes (IMG_4435) → the Buen Fin 15% on the new Christmas collection (IMG_4430) → 'resuélvelo ahorita' (IMG_4431) → her close (IMG_4436). Her opening line names the product, so the written hook is left out and the subtitles lead. Colour: HLG → SDR tone map plus a +5% midtone lift only; no sharpening, no blur, no zoom — original framing, original resolution.",
+  "note": "Clips IMG_4430–4436 (IMG_4428 not received). 35–45 s cut, so every take is used in full: her hook on the pink set (IMG_4433) → the Christmas print in kids' and adult sizes (IMG_4435) → the Buen Fin 15% on the new Christmas collection (IMG_4430) → 'resuélvelo ahorita' (IMG_4431) → her close (IMG_4436). Her opening line names the product, so the written hook is left out and the subtitles lead. Colour: HLG → SDR tone map plus a +5% midtone lift only; no sharpening, no blur, no zoom — original framing, original resolution. Reframed like the client's reference: 1.27x zoom centred on her (lanczos from the originals), headroom kept for the Buen Fin badge, which stays centred at the top for the whole ad.",
   "transcripts": "docs/ilana/transcripts.json",
   "grade": "eq=gamma=1.05",
   "music": {
@@ -56,7 +56,12 @@
         1,
         1
       ],
-      "what": "pink two-piece set, full length, rack of prints behind"
+      "what": "pink two-piece set, full length, rack of prints behind",
+      "crop": [
+        1.27,
+        408
+      ],
+      "capTop": 1020
     },
     {
       "id": "s2",
@@ -68,7 +73,11 @@
         1
       ],
       "what": "she shows the dark Christmas print, kids' and adult sizes",
-      "capTop": 1480
+      "capTop": 1480,
+      "crop": [
+        1.27,
+        280
+      ]
     },
     {
       "id": "s3",
@@ -79,7 +88,12 @@
         1,
         1
       ],
-      "what": "pink set: Buen Fin 15% on the new Christmas collection"
+      "what": "pink set: Buen Fin 15% on the new Christmas collection",
+      "crop": [
+        1.27,
+        408
+      ],
+      "capTop": 1075
     },
     {
       "id": "s4",
@@ -90,7 +104,12 @@
         1,
         1
       ],
-      "what": "pink set: 'resuélvelo ahorita'"
+      "what": "pink set: 'resuélvelo ahorita'",
+      "crop": [
+        1.27,
+        404
+      ],
+      "capTop": 1050
     },
     {
       "id": "s5",
@@ -101,7 +120,12 @@
         1,
         1
       ],
-      "what": "pink set, wider framing: her close and the sign-off"
+      "what": "pink set, wider framing: her close and the sign-off",
+      "crop": [
+        1.27,
+        160
+      ],
+      "capTop": 1250
     }
   ],
   "graphics": [
@@ -110,8 +134,8 @@
       "from": 1006,
       "to": 1071,
       "line": "BUEN FIN · 15% OFF\nEn toda la tienda",
-      "tone": "dark",
-      "top": 330
+      "tone": "light",
+      "top": 1470
     }
   ],
   "subtitles": [
