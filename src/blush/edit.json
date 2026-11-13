@@ -3,8 +3,8 @@
  "bpm": 100,
  "seed": 4424,
  "out": "RESET_BUENFIN_15_SOFTWINTER_BLUSH",
- "note": "BUEN FIN 15% · Soft Winter Blush Women (resetwear.com.mx: tela COMFY, cuello redondo, con bolsillos). Ilana's IMG_4424 take, uncut and lip-synced; PiP close-ups from IMG_4426 / IMG_4425 (muted). Grade: darker, more contrast than the earlier lifted look.",
- "model": "SOFT WINTER BLUSH",
+ "note": "BUEN FIN 15% · Soft Winter Blush Women (resetwear.com.mx: tela COMFY, cuello redondo, con bolsillos). Ilana's IMG_4424 take, uncut and lip-synced; PiP close-ups from IMG_4426 / IMG_4425 (muted). Aesthetic pass: soft warm matte grade (desaturated), minimal type on the wall, small side PiP.",
+ "model": "Soft Winter Blush",
  "shots": [
   {
    "id": "main",
@@ -58,7 +58,7 @@
  "hook": {
   "from": 0,
   "to": 72,
-  "l1": "PIJAMAS",
+  "l1": "Pijamas",
   "l2": "15% OFF",
   "l3": "BUEN FIN RE:SET"
  },
@@ -71,11 +71,11 @@
   "from": 362,
   "to": 462,
   "l2": "15% OFF",
-  "l3": "Buen Fin RE:SET"
+  "l3": "BUEN FIN RE:SET"
  },
  "cta": {
   "l1": "15% OFF en toda la tienda",
-  "l2": "Buen Fin RE:SET",
+  "l2": "BUEN FIN RE:SET",
   "button": "Consigue la tuya ahora"
  },
  "pips": [
@@ -85,7 +85,7 @@
    "in": 0.85,
    "from": 112,
    "to": 178,
-   "label": "TELA COMFY",
+   "label": "tela comfy",
    "focus": [
     0.5,
     0.5
@@ -97,7 +97,7 @@
    "in": 0.9,
    "from": 243,
    "to": 313,
-   "label": "ASÍ SE SIENTE",
+   "label": "así se siente",
    "focus": [
     0.5,
     0.45
@@ -109,7 +109,7 @@
    "in": 10.05,
    "from": 313,
    "to": 363,
-   "label": "PUÑOS",
+   "label": "puños",
    "focus": [
     0.5,
     0.55
@@ -121,7 +121,7 @@
    "in": 12.0,
    "from": 411,
    "to": 459,
-   "label": "CON JARETA",
+   "label": "con jareta",
    "focus": [
     0.5,
     0.72
@@ -137,7 +137,7 @@
   {
    "from": 20,
    "to": 38,
-   "text": "SOFT WINTER"
+   "text": "Soft Winter"
   },
   {
    "from": 38,
@@ -147,12 +147,12 @@
   {
    "from": 74,
    "to": 112,
-   "text": "toda la temporada de FRÍO,"
+   "text": "toda la temporada de frío,"
   },
   {
    "from": 114,
    "to": 146,
-   "text": "son CALIENTITAS"
+   "text": "son calientitas"
   },
   {
    "from": 146,
@@ -162,7 +162,7 @@
   {
    "from": 174,
    "to": 200,
-   "text": "querer quitar NUNCA."
+   "text": "querer quitar nunca."
   },
   {
    "from": 204,
@@ -172,7 +172,7 @@
   {
    "from": 245,
    "to": 270,
-   "text": "la DELICIA"
+   "text": "la delicia"
   },
   {
    "from": 270,
@@ -192,7 +192,7 @@
   {
    "from": 342,
    "to": 363,
-   "text": "nada de FRÍO"
+   "text": "nada de frío"
   },
   {
    "from": 363,
@@ -207,7 +207,7 @@
   {
    "from": 433,
    "to": 460,
-   "text": "SÚPER CÓMODA."
+   "text": "súper cómoda."
   }
  ]
 }

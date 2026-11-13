@@ -1,8 +1,8 @@
 """
 RE:SET BUEN FIN 15% · Soft Winter Blush — Ilana talking-head with picture-in-picture close-ups. Media builder.
 Source: IMG_4424 (talking to camera), IMG_4425 / IMG_4426 (fabric details, muted) — iPhone HLG HDR.
-- Grade: HLG -> SDR BT.709 (hable, desat 0), then pulled DOWN (gamma 0.93, contrast 1.10, -2.5% brightness) so the
-  store light no longer looks washed out; saturation +5% keeps the blush true.
+- Grade: HLG -> SDR BT.709 (hable, desat 0), then a soft editorial look: exposure pulled slightly down (no washed-out
+  store light), saturation -14%, gently lifted blacks and a warm cast so the blush reads muted and elegant.
 - Main: IMG_4424 re-framed (crop around Ilana, lanczos upscale, light sharpen); last frame held for the CTA.
 - PiPs: muted detail clips at 540x960, shown in the lower card.
 - Voice: her single uncut take, cleaned (high-pass, gentle FFT denoise, soft EQ, light compression), levelled.
@@ -22,7 +22,8 @@ os.makedirs(OUT, exist_ok=True)
 run = lambda c: subprocess.run(c, check=True)  # noqa: E731
 src = lambda n: sorted(glob.glob(os.path.join(SRC, f"*{n}.mov")) + glob.glob(os.path.join(SRC, f"*{n}.MOV")))[0]  # noqa: E731
 TONEMAP = "zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p"
-GRADE = "eq=gamma=0.93:contrast=1.10:brightness=-0.025:saturation=1.05"
+GRADE = ("eq=gamma=0.95:contrast=1.03:brightness=-0.015:saturation=0.86,curves=all='0/0.035 0.25/0.235 0.5/0.49 0.75/0.75 1/0.965',"
+         "colorbalance=rs=0.02:bs=-0.025:rm=0.01:bm=-0.015")
 ENC = ["-c:v", "libx264", "-preset", "medium", "-crf", "15", "-g", "15", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709"]
 reframe = lambda c: f"crop={c[0]}:{c[1]}:x='{c[2]}':y={c[3]},scale=1080:1920:flags=lanczos,unsharp=5:5:0.5"  # noqa: E731
 

@@ -14,9 +14,10 @@ import {
 import edit from "./edit.json";
 
 /*
- * RE:SET BUEN FIN 15% · Soft Winter Blush — Ilana always on screen, talking to camera (one uncut take),
- * with a lower picture-in-picture card of real fabric close-ups only while she talks about feel / warmth / details.
- * Everything editable in src/blush/edit.json (model name, copy, caption beats, PiP clips and windows).
+ * RE:SET BUEN FIN 15% · Soft Winter Blush — aesthetic cut.
+ * Ilana always on screen talking (one uncut take). Type only accompanies: small serif + tracked sans set on the bare
+ * wall between the store sign and her head, never on the pajama; quiet captions; a small side picture-in-picture of real
+ * close-ups only while she talks about warmth, feel and details. All copy and timings in src/blush/edit.json.
  */
 
 loadFont({ family: "Montserrat", url: staticFile("fonts/Montserrat-Variable.woff2"), weight: "100 900" });
@@ -24,12 +25,11 @@ loadFont({ family: "Playfair Display", url: staticFile("fonts/PlayfairDisplay-It
 // Gotham is the brand face; Montserrat stands in until the Gotham files are supplied.
 const SANS = "Gotham, Montserrat, Helvetica, Arial, sans-serif";
 const SERIF = "'Playfair Display', Georgia, serif";
-const INK = "#1C1A19";
-const RED = "#D7261E";
-const CARD = "rgba(250,246,240,0.95)";
+const INK = "#2B2523";
+const ROSE = "#9C4552"; // muted rose for the offer, sampled to sit with the blush
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 const ease = Easing.out(Easing.cubic);
-const appear = (f: number, a = 0, d = 6) => ease(Math.min(1, Math.max(0, (f - a) / d)));
+const appear = (f: number, a = 0, d = 8) => ease(Math.min(1, Math.max(0, (f - a) / d)));
 
 const MAIN = edit.shots[0];
 const FREEZE = edit.freeze;
@@ -59,101 +59,91 @@ const Freeze: React.FC = () => {
   );
 };
 
-/** Compact cream card in the top band, above her head. */
-const TopCard: React.FC<{ dur: number; children: React.ReactNode }> = ({ dur, children }) => {
+const serif = (size: number, color = INK): React.CSSProperties => ({ fontFamily: SERIF, fontStyle: "italic", fontWeight: 500, fontSize: size, lineHeight: 1, color, letterSpacing: "-0.01em" });
+const tracked = (size: number, color = INK, weight = 600): React.CSSProperties => ({ fontFamily: SANS, fontWeight: weight, fontSize: size, letterSpacing: "0.32em", paddingLeft: "0.32em", color, lineHeight: 1 });
+
+/** Wall line: the bare strip of wall between the store sign and her head (no box, ink on white). */
+const WallText: React.FC<{ dur: number; top?: number; right?: number; children: React.ReactNode }> = ({ dur, top = 348, right = 150, children }) => {
   const f = useCurrentFrame();
-  const k = appear(f, 0, 5);
-  const out = interpolate(f, [dur - 5, dur], [1, 0], clamp);
+  const k = Math.min(appear(f, 0, 8), interpolate(f, [dur - 8, dur], [1, 0], clamp));
   return (
-    <div style={{ position: "absolute", left: 0, right: 0, top: 262, display: "flex", justifyContent: "center", opacity: k * out }}>
-      <div style={{ background: CARD, borderRadius: 18, padding: "18px 44px 20px", display: "flex", flexDirection: "column", alignItems: "center", boxShadow: "0 12px 34px rgba(0,0,0,0.16)", transform: `translateY(${(1 - k) * 10}px)` }}>
-        {children}
+    <div style={{ position: "absolute", left: 0, right, top, display: "flex", flexDirection: "column", alignItems: "center", gap: 12, opacity: k, transform: `translateY(${(1 - appear(f, 0, 10)) * 8}px)` }}>
+      {children}
+    </div>
+  );
+};
+
+const Hook: React.FC<{ dur: number }> = ({ dur }) => (
+  <WallText dur={dur}>
+    <div style={{ display: "flex", alignItems: "baseline", gap: 22 }}>
+      <span style={serif(64)}>{edit.hook.l1}</span>
+      <span style={{ ...tracked(44, ROSE, 700), letterSpacing: "0.08em", paddingLeft: 0 }}>{edit.hook.l2}</span>
+    </div>
+    <div style={tracked(24)}>{edit.hook.l3}</div>
+  </WallText>
+);
+
+/** Single line in the clean strip between the sign and the wall hooks. */
+const ModelLine: React.FC<{ dur: number }> = ({ dur }) => (
+  <WallText dur={dur} top={326} right={0}>
+    <div style={{ display: "flex", alignItems: "baseline", gap: 18 }}>
+      <span style={tracked(20, "#8C7A78")}>{edit.modelCard.kicker}</span>
+      <span style={serif(54)}>{edit.model}</span>
+    </div>
+  </WallText>
+);
+
+/** Reinforcement as a fine line under the captions (the wall strip is taken by the sign as the camera drifts). */
+const Reinforce: React.FC<{ dur: number }> = ({ dur }) => {
+  const f = useCurrentFrame();
+  const k = Math.min(appear(f, 0, 10), interpolate(f, [dur - 8, dur], [1, 0], clamp));
+  const shadow = { textShadow: "0 1px 10px rgba(0,0,0,0.45), 0 0 2px rgba(0,0,0,0.3)" };
+  return (
+    <div style={{ position: "absolute", left: 0, right: 0, top: 1412, display: "flex", justifyContent: "center", alignItems: "baseline", gap: 14, opacity: k }}>
+      <span style={{ ...serif(38, "#FFFFFF"), ...shadow }}>{edit.model}</span>
+      <span style={{ ...tracked(20, "#FFFFFF", 700), letterSpacing: "0.2em", paddingLeft: 0, ...shadow }}>
+        · {edit.reinforce.l2} · {edit.reinforce.l3}
+      </span>
+    </div>
+  );
+};
+
+/** Quiet verbatim captions: small, white, sentence case, low enough to leave the outfit readable. */
+const Sub: React.FC<{ text: string; dur: number }> = ({ text, dur }) => {
+  const f = useCurrentFrame();
+  const o = Math.min(appear(f, 0, 3), interpolate(f, [dur - 3, dur], [1, 0], clamp));
+  return (
+    <div style={{ position: "absolute", left: 120, right: 120, top: 1335, display: "flex", justifyContent: "center", opacity: o }}>
+      <div style={{ fontFamily: SANS, fontWeight: 500, fontSize: 42, lineHeight: 1.2, textAlign: "center", color: "#FFFFFF", letterSpacing: "0.005em", textShadow: "0 1px 10px rgba(0,0,0,0.45), 0 0 2px rgba(0,0,0,0.35)" }}>
+        {text}
       </div>
     </div>
   );
 };
 
-const kicker = (t: string): React.CSSProperties => ({ fontFamily: SANS, fontWeight: 700, fontSize: t.length > 12 ? 30 : 34, letterSpacing: "0.34em", color: INK, paddingLeft: "0.34em" });
-const big = (size: number, color = RED): React.CSSProperties => ({ fontFamily: SANS, fontWeight: 900, fontSize: size, letterSpacing: "-0.04em", lineHeight: 0.95, color });
-
-const Hook: React.FC<{ dur: number }> = ({ dur }) => (
-  <TopCard dur={dur}>
-    <div style={{ ...big(64, INK), letterSpacing: "0.04em" }}>{edit.hook.l1}</div>
-    <div style={{ ...big(116), margin: "2px 0 8px" }}>{edit.hook.l2}</div>
-    <div style={kicker(edit.hook.l3)}>{edit.hook.l3}</div>
-  </TopCard>
-);
-
-const ModelCard: React.FC<{ dur: number }> = ({ dur }) => (
-  <TopCard dur={dur}>
-    <div style={{ ...kicker(edit.modelCard.kicker), fontSize: 24, color: "#8A6F72" }}>{edit.modelCard.kicker}</div>
-    <div style={{ width: 54, height: 2, background: "#C98B95", margin: "10px 0 12px" }} />
-    <div style={{ ...big(66, INK), letterSpacing: "-0.02em" }}>{edit.model}</div>
-  </TopCard>
-);
-
-const Reinforce: React.FC<{ dur: number }> = ({ dur }) => (
-  <TopCard dur={dur}>
-    <div style={{ ...big(48, INK), letterSpacing: "-0.01em" }}>{edit.model}</div>
-    <div style={{ ...big(100), margin: "4px 0 2px" }}>{edit.reinforce.l2}</div>
-    <div style={{ fontFamily: SERIF, fontStyle: "italic", fontWeight: 600, fontSize: 46, color: INK }}>{edit.reinforce.l3}</div>
-  </TopCard>
-);
-
-/** Verbatim captions in short beats; ALL-CAPS words = her key words, set heavier in red. */
-const Sub: React.FC<{ text: string; dur: number }> = ({ text, dur }) => {
-  const f = useCurrentFrame();
-  const o = Math.min(appear(f, 0, 3), interpolate(f, [dur - 2, dur], [1, 0], clamp));
-  return (
-    <div style={{ position: "absolute", left: 90, right: 90, top: 985, display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "0 16px", opacity: o }}>
-      {text.split(" ").map((w, i) => {
-        const key = w.replace(/[.,]/g, "").length > 1 && w === w.toUpperCase() && /[A-ZÁÉÍÓÚÑ]/.test(w);
-        return (
-          <span
-            key={i}
-            style={{
-              fontFamily: SANS,
-              fontWeight: key ? 900 : 800,
-              fontSize: key ? 74 : 64,
-              letterSpacing: "-0.035em",
-              lineHeight: 1.08,
-              color: key ? RED : "#FFFFFF",
-              textShadow: key ? "0 2px 10px rgba(255,255,255,0.55)" : "0 2px 12px rgba(0,0,0,0.55), 0 0 2px rgba(0,0,0,0.45)",
-              WebkitTextStroke: key ? "1.5px #FFFFFF" : undefined,
-            }}
-          >
-            {w}
-          </span>
-        );
-      })}
-    </div>
-  );
-};
-
-/** Lower picture-in-picture: rounded card, thin white edge, small label; content swaps without the card leaving. */
+/** Small side picture-in-picture (left, beside her), thin edge, tiny label; content swaps without the card leaving. */
 type Pip = (typeof edit.pips)[number];
-const PIP = { w: 460, h: 520, top: 1130 };
+const PIP = { w: 270, h: 340, left: 46, top: 900 };
 const PipCard: React.FC<{ group: Pip[] }> = ({ group }) => {
   const f = useCurrentFrame();
   const start = group[0].from;
   const dur = group[group.length - 1].to - start;
-  const k = appear(f, 0, 7);
-  const out = interpolate(f, [dur - 6, dur], [1, 0], clamp);
+  const k = Math.min(appear(f, 0, 9), interpolate(f, [dur - 7, dur], [1, 0], clamp));
   return (
     <div
       style={{
         position: "absolute",
-        left: (1080 - PIP.w) / 2,
+        left: PIP.left,
         top: PIP.top,
         width: PIP.w,
         height: PIP.h,
-        borderRadius: 26,
+        borderRadius: 16,
         overflow: "hidden",
-        border: "4px solid rgba(255,255,255,0.95)",
-        boxShadow: "0 18px 44px rgba(0,0,0,0.28)",
-        opacity: k * out,
-        transform: `translateY(${(1 - k) * 22}px) scale(${0.95 + 0.05 * k})`,
-        background: "#ddd",
+        border: "2px solid rgba(255,255,255,0.9)",
+        boxShadow: "0 10px 30px rgba(0,0,0,0.18)",
+        opacity: k,
+        transform: `translateY(${(1 - k) * 12}px)`,
+        background: "#e8e2de",
       }}
     >
       {group.map((p) => (
@@ -167,38 +157,36 @@ const PipCard: React.FC<{ group: Pip[] }> = ({ group }) => {
 
 const PipClip: React.FC<{ p: Pip }> = ({ p }) => {
   const f = useCurrentFrame();
-  const fade = appear(f, 0, 4);
   const dur = p.to - p.from;
   return (
-    <AbsoluteFill style={{ opacity: fade }}>
+    <AbsoluteFill style={{ opacity: appear(f, 0, 5) }}>
       <OffthreadVideo
         muted
         src={staticFile(`blush/${p.id}.mp4`)}
-        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: `${p.focus[0] * 100}% ${p.focus[1] * 100}%`, transform: `scale(${1.02 + 0.04 * (f / dur)})` }}
+        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: `${p.focus[0] * 100}% ${p.focus[1] * 100}%`, transform: `scale(${1.02 + 0.03 * (f / dur)})` }}
       />
-      <div style={{ position: "absolute", left: 18, top: 18, background: CARD, borderRadius: 999, padding: "10px 22px 11px", fontFamily: SANS, fontWeight: 800, fontSize: 30, letterSpacing: "0.12em", color: INK, opacity: appear(f, 3, 6) }}>
-        {p.label}
-      </div>
+      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 62%, rgba(0,0,0,0.38) 100%)" }} />
+      <div style={{ position: "absolute", left: 0, right: 0, bottom: 16, textAlign: "center", ...serif(30, "#FFFFFF"), opacity: appear(f, 4, 8) }}>{p.label}</div>
     </AbsoluteFill>
   );
 };
 
-/** CTA over her held frame: lower card so her face stays clear. */
+/** CTA over her held frame: offer on the wall strip, call to action + logo low and small. */
 const Cta: React.FC = () => {
   const f = useCurrentFrame();
   const c = edit.cta;
-  const k = appear(f, 2, 8);
   return (
-    <div style={{ position: "absolute", left: 0, right: 0, top: 1000, display: "flex", justifyContent: "center", opacity: k }}>
-      <div style={{ background: CARD, borderRadius: 22, padding: "30px 46px 32px", display: "flex", flexDirection: "column", alignItems: "center", boxShadow: "0 16px 44px rgba(0,0,0,0.2)", transform: `translateY(${(1 - k) * 16}px)` }}>
-        <Img src={staticFile("brand/reset-logo-black.png")} style={{ width: 230, opacity: appear(f, 6, 8) }} />
-        <div style={{ ...big(64), marginTop: 20, textAlign: "center", opacity: appear(f, 10, 8) }}>{c.l1}</div>
-        <div style={{ fontFamily: SERIF, fontStyle: "italic", fontWeight: 600, fontSize: 44, color: INK, marginTop: 8, opacity: appear(f, 14, 8) }}>{c.l2}</div>
-        <div style={{ marginTop: 22, background: INK, color: "#FFFFFF", borderRadius: 999, padding: "16px 40px 18px", fontFamily: SANS, fontWeight: 800, fontSize: 34, letterSpacing: "0.02em", opacity: appear(f, 18, 8) }}>
-          {c.button}
-        </div>
+    <>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 352, display: "flex", flexDirection: "column", alignItems: "center", gap: 12, opacity: appear(f, 2, 10) }}>
+        <div style={serif(58)}>{c.l1}</div>
+        <div style={tracked(24)}>{c.l2}</div>
       </div>
-    </div>
+      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 58%, rgba(0,0,0,0.28) 100%)", opacity: appear(f, 6, 12) }} />
+      <div style={{ position: "absolute", left: 0, right: 0, top: 1330, display: "flex", flexDirection: "column", alignItems: "center", gap: 18, opacity: appear(f, 12, 10) }}>
+        <div style={{ ...serif(46, "#FFFFFF"), textShadow: "0 1px 10px rgba(0,0,0,0.4)" }}>{c.button}</div>
+        <Img src={staticFile("brand/reset-logo-white.png")} style={{ width: 170, filter: "drop-shadow(0 1px 6px rgba(0,0,0,0.35))" }} />
+      </div>
+    </>
   );
 };
 
@@ -222,7 +210,7 @@ export const BlushAd: React.FC = () => (
       <Hook dur={edit.hook.to - edit.hook.from} />
     </Sequence>
     <Sequence from={edit.modelCard.from} durationInFrames={edit.modelCard.to - edit.modelCard.from}>
-      <ModelCard dur={edit.modelCard.to - edit.modelCard.from} />
+      <ModelLine dur={edit.modelCard.to - edit.modelCard.from} />
     </Sequence>
     <Sequence from={edit.reinforce.from} durationInFrames={edit.reinforce.to - edit.reinforce.from}>
       <Reinforce dur={edit.reinforce.to - edit.reinforce.from} />
