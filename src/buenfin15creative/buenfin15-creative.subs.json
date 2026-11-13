@@ -1,56 +1,56 @@
 [
- {
-  "text": "Tres razones para comprar tu pijama",
-  "from": 0,
-  "to": 67,
-  "top": 1460
- },
- {
-  "text": "este Buen Fin en RE:SET.",
-  "from": 67,
-  "to": 107,
-  "top": 1520
- },
- {
-  "text": "Uno.",
-  "from": 112,
-  "to": 131,
-  "top": 1500
- },
- {
-  "text": "Hay 15% de descuento",
-  "from": 140,
-  "to": 201,
-  "top": 1500
- },
- {
-  "text": "en toda la nueva colección.",
-  "from": 201,
-  "to": 246,
-  "top": 1560
- },
- {
-  "text": "Tenemos tallas para toda la familia.",
-  "from": 260,
-  "to": 315,
-  "top": 1200
- },
- {
-  "text": "Hombre, mujer y niño.",
-  "from": 327,
-  "to": 370,
-  "top": 1200
- },
- {
-  "text": "Antes del rush de diciembre.",
-  "top": 1440,
-  "from": 382,
-  "to": 433
- },
- {
-  "text": "Apúrate.",
-  "top": 1440,
-  "from": 436,
-  "to": 452
- }
+  {
+    "text": "Tres razones para comprar tu pijama",
+    "from": 0,
+    "to": 67,
+    "top": 1460
+  },
+  {
+    "text": "este Buen Fin en RE:SET.",
+    "from": 67,
+    "to": 107,
+    "top": 1520
+  },
+  {
+    "text": "Uno.",
+    "from": 112,
+    "to": 131,
+    "top": 1500
+  },
+  {
+    "text": "Hay 15% de descuento",
+    "from": 140,
+    "to": 201,
+    "top": 1500
+  },
+  {
+    "text": "en toda la nueva colección.",
+    "from": 201,
+    "to": 246,
+    "top": 1560
+  },
+  {
+    "text": "Tenemos tallas para toda la familia.",
+    "from": 260,
+    "to": 315,
+    "top": 1480
+  },
+  {
+    "text": "Hombre, mujer y niño.",
+    "from": 327,
+    "to": 370,
+    "top": 1480
+  },
+  {
+    "text": "Antes del rush de diciembre.",
+    "top": 1560,
+    "from": 382,
+    "to": 433
+  },
+  {
+    "text": "Apúrate.",
+    "top": 1560,
+    "from": 436,
+    "to": 452
+  }
 ]

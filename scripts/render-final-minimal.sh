@@ -5,13 +5,14 @@ cd "$(dirname "$0")/.."
 B=${REMOTION_BROWSER:-/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell}
 while read -r comp name; do
   out="out/${name}_FINAL_MINIMAL.mp4"
-  npx remotion render "$comp" "$out" --browser-executable="$B" --log=error
+  [ -n "${SKIP_DONE:-}" ] && [ -s "$out" ] && continue
+  npx remotion render "$comp" "$out" --browser-executable="$B" --log=error </dev/null
   dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$out")
   res=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate,codec_name -of csv=p=0 "$out")
   aud=$(ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of csv=p=0 "$out")
-  lufs=$(ffmpeg -i "$out" -af ebur128 -f null - 2>&1 | grep -A3 Summary | grep -o "I: *-\?[0-9.]* LUFS" | head -1)
-  black=$(ffmpeg -i "$out" -vf blackdetect=d=0.1 -an -f null - 2>&1 | grep -c black_start || true)
-  ffmpeg -v error -i "$out" -f null - && ok=decodes || ok=DECODE_ERROR
+  lufs=$(ffmpeg -i "$out" -af ebur128 -f null - </dev/null 2>&1 | grep -A3 Summary | grep -o "I: *-\?[0-9.]* LUFS" | head -1)
+  black=$(ffmpeg -i "$out" -vf blackdetect=d=0.1 -an -f null - </dev/null 2>&1 | grep -c black_start || true)
+  ffmpeg -v error -i "$out" -f null - </dev/null && ok=decodes || ok=DECODE_ERROR
   echo "RENDERED $out | $dur s | $res | $aud | $lufs | black=$black | $ok"
 done <<'LIST'
 BuenFin15CreativeEdit RESET_BUENFIN_15_UGC_CREATIVE_EDIT

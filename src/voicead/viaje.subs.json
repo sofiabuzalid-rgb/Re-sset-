@@ -1,44 +1,44 @@
 [
- {
-  "from": 75,
-  "to": 144,
-  "text": "Está súper cómoda y súper práctica para que la puedas",
-  "top": 1460
- },
- {
-  "from": 144,
-  "to": 191,
-  "text": "llevar en cualquier parte cuando te vayas",
-  "top": 1460
- },
- {
-  "from": 191,
-  "to": 227,
-  "text": "de viaje en tu maleta",
-  "top": 1460
- },
- {
-  "from": 227,
-  "to": 260,
-  "text": "en tu bolsa de mano",
-  "top": 1540
- },
- {
-  "from": 260,
-  "to": 287,
-  "text": "donde tú quieras",
-  "top": 1460
- },
- {
-  "from": 287,
-  "to": 330,
-  "text": "Literal es de esas cosas que te llevas",
-  "top": 1460
- },
- {
-  "from": 330,
-  "to": 390,
-  "text": "para todos lados porque ya tienes todo junto",
-  "top": 1460
- }
+  {
+    "from": 75,
+    "to": 144,
+    "text": "Está súper cómoda y súper práctica para que la puedas",
+    "top": 1540
+  },
+  {
+    "from": 144,
+    "to": 191,
+    "text": "llevar en cualquier parte cuando te vayas",
+    "top": 1460
+  },
+  {
+    "from": 191,
+    "to": 227,
+    "text": "de viaje en tu maleta",
+    "top": 1460
+  },
+  {
+    "from": 227,
+    "to": 260,
+    "text": "en tu bolsa de mano",
+    "top": 1540
+  },
+  {
+    "from": 260,
+    "to": 287,
+    "text": "donde tú quieras",
+    "top": 1460
+  },
+  {
+    "from": 287,
+    "to": 330,
+    "text": "Literal es de esas cosas que te llevas",
+    "top": 1560
+  },
+  {
+    "from": 330,
+    "to": 390,
+    "text": "para todos lados porque ya tienes todo junto",
+    "top": 1560
+  }
 ]
