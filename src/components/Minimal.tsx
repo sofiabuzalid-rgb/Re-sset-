@@ -8,8 +8,10 @@ import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame } from "rem
  * no per-word animation — each line simply fades in and out. The pajamas stay the subject.
  */
 loadFont({ family: "Montserrat", url: staticFile("fonts/Montserrat-Variable.woff2"), weight: "100 900" });
+loadFont({ family: "Inter", url: staticFile("fonts/Inter-Variable.woff2"), weight: "100 900" });
 
 export const MIN_SANS = "Gotham, Montserrat, Helvetica, Arial, sans-serif";
+export const INTER = "Inter, Helvetica, Arial, sans-serif";
 const INK = "#1E1B18";
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 const fade = (f: number, dur: number, n = 4) => interpolate(f, [0, n, dur - n, dur], [0, 1, 1, 0], clamp);
@@ -18,7 +20,13 @@ const fade = (f: number, dur: number, n = 4) => interpolate(f, [0, n, dur - n, d
 const plain = (t: string) => t.replace(/\*/g, "");
 
 /** Dialogue subtitle: white, discreet, one line where possible (two at most), lower safe area. */
-export const MinimalSubtitle: React.FC<{ text: string; dur: number; top?: number }> = ({ text, dur, top = 1410 }) => {
+export const MinimalSubtitle: React.FC<{ text: string; dur: number; top?: number; font?: string; size?: number }> = ({
+  text,
+  dur,
+  top = 1410,
+  font = MIN_SANS,
+  size = 44,
+}) => {
   const f = useCurrentFrame();
   return (
     <div
@@ -36,9 +44,9 @@ export const MinimalSubtitle: React.FC<{ text: string; dur: number; top?: number
         style={{
           maxWidth: 860,
           textAlign: "center",
-          fontFamily: MIN_SANS,
+          fontFamily: font,
           fontWeight: 500,
-          fontSize: 44,
+          fontSize: size,
           lineHeight: 1.3,
           color: "#FFFFFF",
           textWrap: "balance",
@@ -99,7 +107,8 @@ export const MinimalEndTag: React.FC<{
   top?: number;
   logo?: boolean;
   left?: number; // set to left-align the tag in a calm part of the frame ("\n" in the line breaks it)
-}> = ({ line, dur, tone = "dark", top = 300, logo = true, left }) => {
+  font?: string;
+}> = ({ line, dur, tone = "dark", top = 300, logo = true, left, font = MIN_SANS }) => {
   const f = useCurrentFrame();
   const o = interpolate(f, [0, 8, dur - 1, dur], [0, 1, 1, 1], clamp);
   return (
@@ -129,7 +138,7 @@ export const MinimalEndTag: React.FC<{
         ) : null}
         <div
           style={{
-            fontFamily: MIN_SANS,
+            fontFamily: font,
             fontWeight: 500,
             fontSize: 34,
             letterSpacing: "0.04em",

@@ -68,11 +68,11 @@ for s in e["shots"]:
         # a real frame held still (Ken Burns in the composition), graded like the moving shots
         fz = s["freeze"]
         run(["ffmpeg", "-y", "-v", "error", "-ss", f"{fz['t']:.3f}", "-i", src(fz["src"]), "-frames:v", "1",
-             "-vf", (TONEMAP if hdr(src(fz["src"])) else "") + GRADE, "-q:v", "2", os.path.join(OUT, f"{s['id']}.jpg")])
+             "-vf", (TONEMAP if hdr(src(fz["src"])) else "") + e.get("grade", GRADE), "-q:v", "2", os.path.join(OUT, f"{s['id']}.jpg")])
         print(s["id"], "freeze", fz["src"], fz["t"])
     if "src" not in s or (only and s["id"] not in only):
         continue
-    vf = (TONEMAP if hdr(src(s["src"])) else "") + GRADE
+    vf = (TONEMAP if hdr(src(s["src"])) else "") + e.get("grade", GRADE)  # an edit may ask for a lighter grade
     run(["ffmpeg", "-y", "-v", "error", "-ss", f"{s['in']:.3f}", "-i", src(s["src"]), "-an", "-vf", vf,
          "-frames:v", str(s["frames"]), "-r", "30", "-c:v", "libx264", "-preset", "medium", "-crf", "14", "-g", "15",
          "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",

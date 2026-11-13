@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Audio, Easing, Img, interpolate, OffthreadVideo, Sequence, staticFile, useCurrentFrame } from "remotion";
-import { MinimalEndTag, MinimalHook, MinimalSubtitle } from "./Minimal";
+import { INTER, MinimalEndTag, MinimalHook, MinimalSubtitle } from "./Minimal";
 
 /**
  * Shared minimal ad: the footage full bleed with a slow drift, a short hook, her literal subtitles and a discreet
@@ -26,7 +26,13 @@ export type MinGraphic = {
   logo?: boolean;
   left?: number;
 };
-export type MinEdit = { shots: MinShot[]; graphics: MinGraphic[]; subtitleTop?: number };
+export type MinEdit = {
+  shots: MinShot[];
+  graphics: MinGraphic[];
+  subtitleTop?: number;
+  font?: "inter"; // default: the shared Montserrat system
+  subtitleSize?: number;
+};
 export type MinSub = { from: number; to: number; text: string; top?: number };
 
 export const minimalTotal = (e: MinEdit) => e.shots.reduce((n, s) => n + s.frames, 0);
@@ -59,6 +65,7 @@ const ShotView: React.FC<{ dir: string; s: MinShot }> = ({ dir, s }) => {
 };
 
 export const MinimalAd: React.FC<{ edit: MinEdit; subs: MinSub[]; dir: string; bare?: boolean }> = ({ edit, subs, dir, bare }) => {
+  const font = edit.font === "inter" ? INTER : undefined;
   let t = 0;
   const shots = edit.shots.map((s) => {
     const o = { ...s, from: t };
@@ -77,13 +84,13 @@ export const MinimalAd: React.FC<{ edit: MinEdit; subs: MinSub[]; dir: string; b
           {g.kind === "hook" ? (
             <MinimalHook text={g.text ?? ""} dur={g.to - g.from} tone={g.tone} top={g.top} />
           ) : (
-            <MinimalEndTag line={g.line ?? ""} dur={g.to - g.from} tone={g.tone} top={g.top} logo={g.logo} left={g.left} />
+            <MinimalEndTag line={g.line ?? ""} dur={g.to - g.from} tone={g.tone} top={g.top} logo={g.logo} left={g.left} font={font} />
           )}
         </Sequence>
       ))}
       {!bare && subs.map((s) => (
         <Sequence key={s.from} from={s.from} durationInFrames={s.to - s.from}>
-          <MinimalSubtitle text={s.text} dur={s.to - s.from} top={s.top ?? edit.subtitleTop} />
+          <MinimalSubtitle text={s.text} dur={s.to - s.from} top={s.top ?? edit.subtitleTop} font={font} size={edit.subtitleSize} />
         </Sequence>
       ))}
       <Audio src={staticFile(`${dir}/mix.wav`)} />

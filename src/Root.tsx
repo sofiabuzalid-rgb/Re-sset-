@@ -19,6 +19,7 @@ import {BuenFin, BUENFIN_TOTAL} from './buenfin/BuenFin';
 import {FootballAd, footballTotal} from './football/FootballAd';
 import {BuenFin15Ad, buenFin15Total} from './buenfin15/BuenFin15Ad';
 import {CreativeEdit, CREATIVE_TOTAL} from './buenfin15creative/CreativeEdit';
+import {IlanaAd, ILANA_TOTAL} from './ilana/IlanaAd';
 import {SoftWinterAd, SOFTWINTER_TOTAL} from './softwinter/SoftWinterAd';
 import {TOTAL as MAGIC_TOTAL} from './magic/timeline';
 import {FPS, TOTAL_FRAMES} from './timeline';
@@ -75,6 +76,8 @@ export const RemotionRoot: React.FC = () => (
 		{/* Meta Ads: Buen Fin 15% OFF, UGC creative edit — editorial kinetic typography, "3 razones" in Ilana's words */}
 		<Composition id="BuenFin15CreativeEdit" component={CreativeEdit} durationInFrames={CREATIVE_TOTAL} fps={FPS} width={1080} height={1920} />
 		{/* Meta Ads: Buen Fin 15% OFF, video 02 "No lo dejes para diciembre" — Ilana's real voice, anticipation angle */}
+		{/* Meta Ads: Buen Fin 15% OFF, Ilana premium — natural colour, no blur, product first, her real words only */}
+		<Composition id="BuenFinIlanaPremium" component={IlanaAd} durationInFrames={ILANA_TOTAL} fps={FPS} width={1080} height={1920} />
 		<Composition id="BuenFin15Ad02" component={BuenFin15Ad} durationInFrames={buenFin15Total('ad02')} fps={FPS} width={1080} height={1920} defaultProps={{ad: 'ad02' as const}} />
 	</>
 );
